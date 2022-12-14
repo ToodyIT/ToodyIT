@@ -1,0 +1,47 @@
+{
+  "usesTypeScript": true,
+  "usesCssModule": false,
+  "cssPreprocessor": "css",
+  "testLibrary": "Testing Library",
+  "component": {
+    "default": {
+      "customTemplates": {
+        "component": "./generateReactTemplates/default/TemplateName.tsx",
+        "styledComponent": "./generateReactTemplates/default/TemplateName.styled.ts",
+        "test": "./generateReactTemplates/default/TemplateName.test.tsx"
+      },
+      "path": "src/components",
+      "withTest": false,
+      "withStyledComponent": true,
+      "withStyle": false,
+      "withStory": false,
+      "withLazy": false
+    },
+    "page": {
+      "customTemplates": {
+        "component": "./generateReactTemplates/page/index.page.tsx",
+        "styledComponent": "./generateReactTemplates/page/TemplateName.styled.ts",
+        "test": "./generateReactTemplates/page/TemplateName.test.tsx"
+      },
+      "path": "src/pages",
+      "withTest": false,
+      "withStyledComponent": true,
+      "withStyle": false,
+      "withStory": false,
+      "withLazy": false
+    },
+    "feature": {
+      "customTemplates": {
+        "component": "./generateReactTemplates/default/TemplateName.tsx",
+        "styledComponent": "./generateReactTemplates/default/TemplateName.styled.ts",
+        "test": "./generateReactTemplates/default/TemplateName.test.tsx"
+      },
+      "path": "src/features",
+      "withTest": false,
+      "withStyledComponent": true,
+      "withStyle": false,
+      "withStory": false,
+      "withLazy": false
+    }
+  }
+}
