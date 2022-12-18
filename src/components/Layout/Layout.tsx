@@ -5,7 +5,11 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children }) => {
-  return <div className="bg-neutral-900 w-full h-screen">{children}</div>;
+  return (
+    <div className="bg-neutral-900 w-full h-screen flex flex-col overflow-hidden relative">
+      {children}
+    </div>
+  );
 };
 
 export default Layout;

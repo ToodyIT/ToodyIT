@@ -5,11 +5,12 @@ import {
   MeshStandardMaterial,
   PerspectiveCamera,
   PointLight,
-  PointLightHelper,
   Scene,
   TorusGeometry,
   WebGLRenderer,
 } from "three";
+
+const RING_COLOR = 0x1c401f;
 
 const generateRingModel = (circleModelWrapper: HTMLElement) => {
   const scene = new Scene();
@@ -32,9 +33,9 @@ const generateRingModel = (circleModelWrapper: HTMLElement) => {
     circleModelWrapper.offsetHeight
   );
 
-  const geometry = new TorusGeometry(10, 3.2, 16, 100);
+  const geometry = new TorusGeometry(12.2, 4.4, 16, 100);
   const material = new MeshStandardMaterial({
-    color: 0x1c401f,
+    color: RING_COLOR,
   });
   const ring = new Mesh(geometry, material);
   scene.background = null;
