@@ -8,6 +8,9 @@ const Header: FC = () => {
       <Image src="/img/toodyit-logo.svg" alt="logo" width="153" height="41" />
       <div className="flex gap-2.5">
         <Link href="/" className="text-white text-xl">
+          CZ
+        </Link>
+        <Link href="/" className="text-white text-xl">
           EN
         </Link>
         <Link href="/" className="text-primary text-xl">
