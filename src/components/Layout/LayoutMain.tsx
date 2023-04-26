@@ -11,20 +11,20 @@ const SECTIONS = [
     link: "/services",
   },
   {
-    title: "Our work",
+    title: "Our Work",
     link: "/our-work",
   },
   {
-    title: "About us",
+    title: "About Us",
     link: "/about-us",
   },
   {
-    title: "Our workers",
-    link: "/our-workers",
+    title: "Our Team",
+    link: "/our-team",
   },
   {
-    title: "Contact",
-    link: "/contact",
+    title: "Contacts",
+    link: "/contacts",
   },
 ];
 
