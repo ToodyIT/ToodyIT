@@ -86,11 +86,13 @@ const HomePage: NextPage = () => {
             }}
             className="h-full flex flex-col"
           >
-            <canvas
-              ref={circleModelRef}
-              className="w-full h-full relative"
-              id="ring"
-            />
+            <a href="/services" className="h-full flex flex-col">
+              <canvas
+                ref={circleModelRef}
+                className="w-full h-full relative"
+                id="ring"
+              />
+            </a>
             <Pagination
               items={PAGINATION_ITEMS}
               setActiveState={setActiveSection}
