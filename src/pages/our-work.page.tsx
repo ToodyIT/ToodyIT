@@ -10,8 +10,8 @@ const OurWorkPage: FC<OurWorkPageProps> = ({}) => {
 
   return (
     <LayoutMain>
-      <div className="flex flex-col gap-7 pl-40">
-        <h2 className="text-white text-3xl flex text-center  pt-8">
+      <div className="flex flex-col gap-7">
+        <h2 className="text-white text-3xl flex text-center">
           <strong>ПОСЛЕДНИИ РАБОТЫ</strong>
         </h2>
         <div

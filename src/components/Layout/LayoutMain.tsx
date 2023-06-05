@@ -34,7 +34,7 @@ interface LayoutMainProps {
 
 const LayoutMain: FC<LayoutMainProps> = ({ children }) => {
   return (
-    <div className="bg-neutral-900 w-full h-screen flex flex-row overflow-hidden relative pl-6">
+    <div className="bg-neutral-900 w-full h-screen flex flex-row overflow-hidden relative pl-6 gap-16 py-10">
       <div className="flex flex-col items-center h-full gap-32 justify-center">
         {SECTIONS.map((section) => (
           <Link

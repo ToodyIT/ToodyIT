@@ -8,8 +8,8 @@ interface ServicesPageProps {}
 const ServicesPage: FC<ServicesPageProps> = ({}) => {
   return (
     <LayoutMain>
-      <div className="flex flex-col gap-7 pl-40">
-        <h2 className="text-white text-3xl flex text-center pt-8">
+      <div className="flex flex-col gap-7">
+        <h2 className="text-white text-3xl flex text-center">
           <strong>РАЗРАБОТКА НОВОГО САЙТА</strong>
         </h2>
         <div className=" flex flex-col gap-4 w-screen h-screen mb-36">
