@@ -8,7 +8,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <main>
       <AnimatePresence
-        mode="wait"
+        mode="popLayout"
         initial={false}
         onExitComplete={() => window.scrollTo(0, 0)}
       >

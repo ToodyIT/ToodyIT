@@ -3,16 +3,14 @@ import generateRingModel, { DimensionValues } from "../utils/models/ring";
 
 const useModel = (
   modelWrapperRef: RefObject<HTMLElement>,
-  dimensionValues: DimensionValues,
-  onAnimate
+  dimensionValues: DimensionValues
 ) => {
   useEffect(() => {
     if (!modelWrapperRef.current) return;
 
     const { renderer, camera, scene } = generateRingModel(
       modelWrapperRef.current,
-      dimensionValues,
-      onAnimate
+      dimensionValues
     );
 
     const animateModel = () => {

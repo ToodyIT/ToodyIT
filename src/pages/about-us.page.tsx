@@ -1,12 +1,12 @@
-import { FC } from "react";
+import { FC, forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
 import Image from "next/image";
 
 interface AboutUsPageProps {}
 
-const AboutUsPage: FC<AboutUsPageProps> = ({}) => {
+const AboutUsPage: FC<AboutUsPageProps> = ({}, ref) => {
   return (
-    <LayoutMain>
+    <LayoutMain ref={ref}>
       <div className="flex flex-col gap-10">
         <h2 className="text-white text-4xl flex text-center">
           <strong>О НАС</strong>
@@ -54,4 +54,4 @@ const AboutUsPage: FC<AboutUsPageProps> = ({}) => {
   );
 };
 
-export default AboutUsPage;
+export default forwardRef(AboutUsPage);

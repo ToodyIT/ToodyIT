@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC, forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
 
 type OurTeamPageProps = {};
 
-const OurTeamPage: FC<OurTeamPageProps> = ({}) => {
-  return <LayoutMain></LayoutMain>;
+const OurTeamPage: FC<OurTeamPageProps> = ({}, ref) => {
+  return <LayoutMain ref={ref}></LayoutMain>;
 };
-export default OurTeamPage;
+export default forwardRef(OurTeamPage);

@@ -6,12 +6,12 @@ import { Textarea } from "../components/Textarea/Textarea";
 import { Button } from "../components/Button/Button";
 import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
-import { useMemo, useState } from "react";
+import { forwardRef, useMemo, useState } from "react";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
 
-const Contacts: NextPage = () => {
+const Contacts: NextPage = ({}, ref) => {
   const { t } = useTranslation();
   const [shouldValidateEmail, setShouldValidateEmail] = useState(false);
   const [shouldValidatePhone, setShouldValidatePhone] = useState(false);
@@ -108,7 +108,7 @@ const Contacts: NextPage = () => {
   };
 
   return (
-    <LayoutMain>
+    <LayoutMain ref={ref}>
       <div className="flex flex-col gap-14 w-full pl-40">
         <h1 className="text-white text-3xl flex text-center pt-8">
           {t("Contacts")}
@@ -183,4 +183,4 @@ const Contacts: NextPage = () => {
     </LayoutMain>
   );
 };
-export default Contacts;
+export default forwardRef(Contacts);

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
@@ -7,178 +7,131 @@ import { useRouter } from "next/router";
 
 interface ServicesPageProps {}
 
-const ServicesPage: FC<ServicesPageProps> = ({}) => {
+const ServicesPage: FC<ServicesPageProps> = ({}, ref) => {
   const router = useRouter();
 
   return (
-    <motion.div
-      // initial={{ rotate: 180 }}
-      // animate={{ rotate: 0 }}
-      // exit={{ rotate: 180 }}
-      key="services"
-      transition={{
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
-      }}
-    >
-      <LayoutMain>
-        <div className="flex flex-col gap-7">
-          <h2 className="text-white text-3xl flex text-center">
-            <strong>РАЗРАБОТКА НОВОГО САЙТА</strong>
-          </h2>
-          <div className=" flex flex-col gap-4 w-screen h-screen mb-36">
-            <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
-              <div className="flex items-center gap-7">
-                <Image
-                  src="/img/green-line.svg"
-                  alt="logo"
-                  width="12"
-                  height="79"
-                />
-                <div className="text-white flex text-xl">
-                  Обсуждение требований
-                </div>
-              </div>
-              <div className="flex">
-                <div className="text-primary flex" />
-                <Image
-                  src="/img/Arrow.svg"
-                  alt="arrow"
-                  width="20"
-                  height="20"
-                />
+    <LayoutMain ref={ref}>
+      <div className="flex flex-col gap-7">
+        <h2 className="text-white text-3xl flex text-center">
+          <strong>РАЗРАБОТКА НОВОГО САЙТА</strong>
+        </h2>
+        <div className=" flex flex-col gap-4 w-screen h-screen mb-36">
+          <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
+            <div className="flex items-center gap-7">
+              <Image
+                src="/img/green-line.svg"
+                alt="logo"
+                width="12"
+                height="79"
+              />
+              <div className="text-white flex text-xl">
+                Обсуждение требований
               </div>
             </div>
-            <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
-              <div className="flex items-center gap-7">
-                <Image
-                  src="/img/green-line.svg"
-                  alt="logo"
-                  width="12"
-                  height="79"
-                />
-                <div className="text-white flex text-xl">Создание дизайна</div>
-              </div>
-              <div className="flex">
-                <div className="text-primary flex" />
-                <Image
-                  src="/img/Arrow.svg"
-                  alt="arrow"
-                  width="20"
-                  height="20"
-                />
+            <div className="flex">
+              <div className="text-primary flex" />
+              <Image src="/img/Arrow.svg" alt="arrow" width="20" height="20" />
+            </div>
+          </div>
+          <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
+            <div className="flex items-center gap-7">
+              <Image
+                src="/img/green-line.svg"
+                alt="logo"
+                width="12"
+                height="79"
+              />
+              <div className="text-white flex text-xl">Создание дизайна</div>
+            </div>
+            <div className="flex">
+              <div className="text-primary flex" />
+              <Image src="/img/Arrow.svg" alt="arrow" width="20" height="20" />
+            </div>
+          </div>
+          <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
+            <div className="flex items-center gap-7">
+              <Image
+                src="/img/green-line.svg"
+                alt="logo"
+                width="12"
+                height="79"
+              />
+              <div className="text-white flex text-xl">
+                Наполнение материалом
               </div>
             </div>
-            <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
-              <div className="flex items-center gap-7">
-                <Image
-                  src="/img/green-line.svg"
-                  alt="logo"
-                  width="12"
-                  height="79"
-                />
-                <div className="text-white flex text-xl">
-                  Наполнение материалом
-                </div>
-              </div>
-              <div className="flex">
-                <div className="text-primary flex" />
-                <Image
-                  src="/img/Arrow.svg"
-                  alt="arrow"
-                  width="20"
-                  height="20"
-                />
+            <div className="flex">
+              <div className="text-primary flex" />
+              <Image src="/img/Arrow.svg" alt="arrow" width="20" height="20" />
+            </div>
+          </div>
+          <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
+            <div className="flex items-center gap-7">
+              <Image
+                src="/img/green-line.svg"
+                alt="logo"
+                width="12"
+                height="79"
+              />
+              <div className="text-white flex text-xl">Разработка сайта</div>
+            </div>
+            <div className="flex">
+              <div className="text-primary flex" />
+              <Image src="/img/Arrow.svg" alt="arrow" width="20" height="20" />
+            </div>
+          </div>
+          <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
+            <div className="flex items-center gap-7">
+              <Image
+                src="/img/green-line.svg"
+                alt="logo"
+                width="12"
+                height="79"
+              />
+              <div className="text-white flex text-xl">
+                Добавление аналитики
               </div>
             </div>
-            <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
-              <div className="flex items-center gap-7">
-                <Image
-                  src="/img/green-line.svg"
-                  alt="logo"
-                  width="12"
-                  height="79"
-                />
-                <div className="text-white flex text-xl">Разработка сайта</div>
-              </div>
-              <div className="flex">
-                <div className="text-primary flex" />
-                <Image
-                  src="/img/Arrow.svg"
-                  alt="arrow"
-                  width="20"
-                  height="20"
-                />
-              </div>
+            <div className="flex">
+              <div className="text-primary flex" />
+              <Image src="/img/Arrow.svg" alt="arrow" width="20" height="20" />
             </div>
-            <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
-              <div className="flex items-center gap-7">
-                <Image
-                  src="/img/green-line.svg"
-                  alt="logo"
-                  width="12"
-                  height="79"
-                />
-                <div className="text-white flex text-xl">
-                  Добавление аналитики
-                </div>
-              </div>
-              <div className="flex">
-                <div className="text-primary flex" />
-                <Image
-                  src="/img/Arrow.svg"
-                  alt="arrow"
-                  width="20"
-                  height="20"
-                />
-              </div>
+          </div>
+          <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
+            <div className="flex items-center gap-7">
+              <Image
+                src="/img/green-line.svg"
+                alt="logo"
+                width="12"
+                height="79"
+              />
+              <div className="text-white flex text-xl">Тестировка сайта</div>
             </div>
-            <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
-              <div className="flex items-center gap-7">
-                <Image
-                  src="/img/green-line.svg"
-                  alt="logo"
-                  width="12"
-                  height="79"
-                />
-                <div className="text-white flex text-xl">Тестировка сайта</div>
-              </div>
-              <div className="flex">
-                <div className="text-primary flex" />
-                <Image
-                  src="/img/Arrow.svg"
-                  alt="arrow"
-                  width="20"
-                  height="20"
-                />
-              </div>
+            <div className="flex">
+              <div className="text-primary flex" />
+              <Image src="/img/Arrow.svg" alt="arrow" width="20" height="20" />
             </div>
-            <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
-              <div className="flex items-center gap-7">
-                <Image
-                  src="/img/green-line.svg"
-                  alt="logo"
-                  width="12"
-                  height="79"
-                />
-                <div className="text-white flex text-xl">Выпуск сайта</div>
-              </div>
-              <div className="flex">
-                <div className="text-primary flex" />
-                <Image
-                  src="/img/Arrow.svg"
-                  alt="arrow"
-                  width="20"
-                  height="20"
-                />
-              </div>
+          </div>
+          <div className="bg-neutral-800 flex justify-between items-center w-2/3 h-[79] gap-4 pr-5 rounded-2xl">
+            <div className="flex items-center gap-7">
+              <Image
+                src="/img/green-line.svg"
+                alt="logo"
+                width="12"
+                height="79"
+              />
+              <div className="text-white flex text-xl">Выпуск сайта</div>
+            </div>
+            <div className="flex">
+              <div className="text-primary flex" />
+              <Image src="/img/Arrow.svg" alt="arrow" width="20" height="20" />
             </div>
           </div>
         </div>
-      </LayoutMain>
-    </motion.div>
+      </div>
+    </LayoutMain>
   );
 };
 
-export default ServicesPage;
+export default forwardRef(ServicesPage);

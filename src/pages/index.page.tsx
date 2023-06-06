@@ -99,7 +99,15 @@ const HomePage: NextPage = () => {
               }}
               className="h-full flex flex-col"
             >
-              <Link href="/services" className="h-full flex flex-col">
+              <Link
+                href={{
+                  pathname: "/services",
+                  query: {
+                    order: 1,
+                  },
+                }}
+                className="h-full flex flex-col"
+              >
                 <canvas
                   ref={circleModelRef}
                   className="w-full h-full relative"
