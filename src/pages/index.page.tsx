@@ -12,6 +12,8 @@ import Pagination, {
 } from "../components/Pagination/Pagination";
 import useModel from "../hooks/useModel";
 import useWheelStopListener from "../hooks/useWheelStopListener";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const PAGINATION_ITEMS: Array<PaginationItemProps> = [
   {
@@ -30,8 +32,8 @@ const PAGINATION_ITEMS: Array<PaginationItemProps> = [
 
 const HomePage: NextPage = () => {
   const circleModelRef = useRef<HTMLCanvasElement>(null);
-  useModel(circleModelRef);
-
+  useModel(circleModelRef, { x: 0, y: 0, z: 30 });
+  const router = useRouter();
   const [activeSection, setActiveSection] = useState<
     "header" | "main" | "footer"
   >("main");
@@ -65,44 +67,56 @@ const HomePage: NextPage = () => {
   }, [isStoppedScrolling]);
 
   return (
-    <Layout>
-      <AnimatePresence>
-        {activeSection === "header" && <HeaderMenu key="header" />}
-        <Overlay
-          isOpen={activeSection !== "main"}
-          onClose={() => setActiveSection("main")}
-          key="overlay"
-        />
-        <LayoutInner>
-          <Header />
-          <motion.div
-            key="main"
-            initial={{ y: 0 }}
-            animate={{
-              y:
-                (activeSection === "header" && 208) ||
-                (activeSection === "footer" && -208) ||
-                (activeSection === "main" && 0),
-            }}
-            className="h-full flex flex-col"
-          >
-            <a href="/services" className="h-full flex flex-col">
-              <canvas
-                ref={circleModelRef}
-                className="w-full h-full relative"
-                id="ring"
+    <motion.div
+      initial={{ scale: 5 }}
+      animate={{ scale: 1 }}
+      exit={{ scale: 5 }}
+      key="homepage"
+      transition={{
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      }}
+    >
+      <Layout>
+        <AnimatePresence>
+          {activeSection === "header" && <HeaderMenu key="header" />}
+          <Overlay
+            isOpen={activeSection !== "main"}
+            onClose={() => setActiveSection("main")}
+            key="overlay"
+          />
+          <LayoutInner>
+            <Header />
+            <motion.div
+              key="main"
+              initial={{ y: 0 }}
+              animate={{
+                y:
+                  (activeSection === "header" && 208) ||
+                  (activeSection === "footer" && -208) ||
+                  (activeSection === "main" && 0),
+              }}
+              className="h-full flex flex-col"
+            >
+              <Link href="/services" className="h-full flex flex-col">
+                <canvas
+                  ref={circleModelRef}
+                  className="w-full h-full relative"
+                  id="ring"
+                />
+              </Link>
+              <Pagination
+                items={PAGINATION_ITEMS}
+                setActiveState={setActiveSection}
+                activeState={activeSection}
               />
-            </a>
-            <Pagination
-              items={PAGINATION_ITEMS}
-              setActiveState={setActiveSection}
-              activeState={activeSection}
-            />
-          </motion.div>
-        </LayoutInner>
-        {activeSection === "footer" && <Footer key="footer" />}
-      </AnimatePresence>
-    </Layout>
+            </motion.div>
+          </LayoutInner>
+          {activeSection === "footer" && <Footer key="footer" />}
+        </AnimatePresence>
+      </Layout>
+    </motion.div>
   );
 };
 

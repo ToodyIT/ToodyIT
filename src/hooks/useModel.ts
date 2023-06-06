@@ -1,12 +1,18 @@
 import { RefObject, useEffect } from "react";
-import generateRingModel from "../utils/models/ring";
+import generateRingModel, { DimensionValues } from "../utils/models/ring";
 
-const useModel = (modelWrapperRef: RefObject<HTMLElement>) => {
+const useModel = (
+  modelWrapperRef: RefObject<HTMLElement>,
+  dimensionValues: DimensionValues,
+  onAnimate
+) => {
   useEffect(() => {
     if (!modelWrapperRef.current) return;
 
     const { renderer, camera, scene } = generateRingModel(
-      modelWrapperRef.current
+      modelWrapperRef.current,
+      dimensionValues,
+      onAnimate
     );
 
     const animateModel = () => {

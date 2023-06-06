@@ -5,14 +5,26 @@ import {
   MeshStandardMaterial,
   PerspectiveCamera,
   PointLight,
+  Raycaster,
   Scene,
   TorusGeometry,
+  Vector2,
   WebGLRenderer,
 } from "three";
 
 const RING_COLOR = 0x1c401f;
 
-const generateRingModel = (circleModelWrapper: HTMLElement) => {
+
+export type DimensionValues = {
+  y: number;
+  x: number;
+  z: number;
+};
+
+const generateRingModel = (
+  circleModelWrapper: HTMLElement,
+  dimensionValues: DimensionValues
+) => {
   const scene = new Scene();
 
   const camera = new PerspectiveCamera(
@@ -21,10 +33,13 @@ const generateRingModel = (circleModelWrapper: HTMLElement) => {
     0.5,
     1000
   );
-  camera.position.setZ(30);
+  camera.position.setX(dimensionValues.x);
+  camera.position.setY(dimensionValues.y);
+  camera.position.setZ(dimensionValues.z);
 
   const renderer = new WebGLRenderer({
     canvas: circleModelWrapper,
+    alpha: true,
   });
 
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -38,13 +53,15 @@ const generateRingModel = (circleModelWrapper: HTMLElement) => {
     color: RING_COLOR,
   });
   const ring = new Mesh(geometry, material);
+
   scene.background = null;
   const pointLight = new PointLight(0xffffff, 1.5);
   const ambientLight = new AmbientLight(0xffffff);
   pointLight.position.set(12, 12, 15);
 
   scene.add(pointLight, ambientLight, ring);
-  scene.background = new Color(0x141414);
+  scene.background = null;
+  renderer.setClearColor(0x000000, 0);
 
   return { ring, scene, renderer, camera };
 };
