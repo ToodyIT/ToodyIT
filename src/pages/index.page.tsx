@@ -12,7 +12,6 @@ import Pagination, {
 } from "../components/Pagination/Pagination";
 import useModel from "../hooks/useModel";
 import useWheelStopListener from "../hooks/useWheelStopListener";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 const PAGINATION_ITEMS: Array<PaginationItemProps> = [
@@ -33,7 +32,6 @@ const PAGINATION_ITEMS: Array<PaginationItemProps> = [
 const HomePage: NextPage = () => {
   const circleModelRef = useRef<HTMLCanvasElement>(null);
   useModel(circleModelRef, { x: 0, y: 0, z: 30 });
-  const router = useRouter();
   const [activeSection, setActiveSection] = useState<
     "header" | "main" | "footer"
   >("main");

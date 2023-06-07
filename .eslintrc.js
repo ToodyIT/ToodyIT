@@ -10,7 +10,7 @@ module.exports = {
     "next/core-web-vitals",
     "plugin:prettier/recommended",
   ],
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "unused-imports"],
   env: {
     browser: true,
     es6: true,
@@ -84,6 +84,7 @@ module.exports = {
       { blankLine: "any", prev: "expression", next: "*" },
     ],
     "react-hooks/exhaustive-deps": "off",
+    "unused-imports/no-unused-imports": "error",
   },
   overrides: [
     {

@@ -1,12 +1,8 @@
-import { FC, forwardRef } from "react";
+import { forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
-// import useEmblaCarousel from "embla-carousel-react/components/useEmblaCarousel";
 import useEmblaCarousel from "embla-carousel-react";
-import { motion } from "framer-motion";
 
-interface OurWorkPageProps {}
-
-const OurWorkPage: FC<OurWorkPageProps> = (_, ref) => {
+const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
   const [emblaRef] = useEmblaCarousel({ align: "start" });
 
   return (
@@ -29,6 +25,6 @@ const OurWorkPage: FC<OurWorkPageProps> = (_, ref) => {
       </div>
     </LayoutMain>
   );
-};
+});
 
-export default forwardRef(OurWorkPage);
+export default OurWorkPage;

@@ -1,4 +1,4 @@
-import React, { FC, SetStateAction } from "react";
+import React, { SetStateAction } from "react";
 
 export interface PaginationItemProps {
   value: string;

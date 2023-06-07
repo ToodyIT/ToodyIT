@@ -1,10 +1,8 @@
-import { FC, forwardRef } from "react";
+import { forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
 import Image from "next/image";
 
-interface AboutUsPageProps {}
-
-const AboutUsPage: FC<AboutUsPageProps> = ({}, ref) => {
+const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <LayoutMain ref={ref}>
       <div className="flex flex-col gap-10">
@@ -52,6 +50,6 @@ const AboutUsPage: FC<AboutUsPageProps> = ({}, ref) => {
       </div>
     </LayoutMain>
   );
-};
+});
 
-export default forwardRef(AboutUsPage);
+export default AboutUsPage;

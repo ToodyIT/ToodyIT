@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import LayoutMain from "../components/Layout/LayoutMain";
 import { Input } from "../components/Input/Input";
 import { FormLine } from "../components/FormColumn/FormColumn";
@@ -11,7 +10,7 @@ import { forwardRef, useMemo, useState } from "react";
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
 
-const Contacts: NextPage = ({}, ref) => {
+const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
   const [shouldValidateEmail, setShouldValidateEmail] = useState(false);
   const [shouldValidatePhone, setShouldValidatePhone] = useState(false);
@@ -182,5 +181,5 @@ const Contacts: NextPage = ({}, ref) => {
       </div>
     </LayoutMain>
   );
-};
-export default forwardRef(Contacts);
+});
+export default Contacts;

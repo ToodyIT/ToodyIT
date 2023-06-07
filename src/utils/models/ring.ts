@@ -1,19 +1,15 @@
 import {
   AmbientLight,
-  Color,
   Mesh,
   MeshStandardMaterial,
   PerspectiveCamera,
   PointLight,
-  Raycaster,
   Scene,
   TorusGeometry,
-  Vector2,
   WebGLRenderer,
 } from "three";
 
 const RING_COLOR = 0x1c401f;
-
 
 export type DimensionValues = {
   y: number;
