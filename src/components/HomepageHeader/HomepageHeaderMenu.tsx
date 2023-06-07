@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 
-const HeaderMenu: FC = () => {
+const HomepageHeaderMenu: FC = () => {
   return (
     <motion.div
       animate={{ y: 0 }}
@@ -12,4 +12,4 @@ const HeaderMenu: FC = () => {
   );
 };
 
-export default HeaderMenu;
+export default HomepageHeaderMenu;

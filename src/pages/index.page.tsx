@@ -2,8 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { NextPage } from "next";
 import { useEffect, useRef, useState } from "react";
 import Footer from "../components/Footer/Footer";
-import Header from "../components/Header/Header";
-import HeaderMenu from "../components/Header/HeaderMenu";
+import HomepageHeader from "../components/HomepageHeader/HomepageHeader";
+import HomepageHeaderMenu from "../components/HomepageHeader/HomepageHeaderMenu";
 import Overlay from "../components/Overlay/Overlay";
 import Pagination, {
   PaginationItemProps,
@@ -76,14 +76,14 @@ const HomePage: NextPage = () => {
     >
       <div className="bg-neutral-900 w-full h-screen flex flex-col overflow-hidden relative">
         <AnimatePresence>
-          {activeSection === "header" && <HeaderMenu key="header" />}
+          {activeSection === "header" && <HomepageHeaderMenu key="header" />}
           <Overlay
             isOpen={activeSection !== "main"}
             onClose={() => setActiveSection("main")}
             key="overlay"
           />
           <div className="mx-auto px-32 h-full flex flex-col">
-            <Header />
+            <HomepageHeader />
             <motion.div
               key="main"
               initial={{ y: 0 }}

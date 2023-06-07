@@ -3,7 +3,6 @@ import Image from "next/image";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { twJoin } from "tailwind-merge";
 import { motion } from "framer-motion";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "next-i18next";
 
@@ -61,16 +60,25 @@ const getServices = (t: TFunction) => {
   ];
 };
 const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
+  const [openedServiceId, setOpenedServiceId] = useState<string | null>(null);
   const { t } = useTranslation();
   const services = getServices(t);
-  const [openedServiceId, setOpenedServiceId] = useState(services[0].id);
+
+  const toggleOpenedServiceId = (serviceId: string) => {
+    if (openedServiceId !== serviceId) {
+      return setOpenedServiceId(serviceId);
+    }
+
+    setOpenedServiceId(null);
+  };
+
   return (
     <SlideAnimationLayout ref={ref}>
       <div className="flex flex-col gap-7">
         <h2 className="text-white text-3xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}
         </h2>
-        <div className=" flex flex-col gap-4 w-screen h-screen mb-36">
+        <div className="flex flex-col gap-4 w-full h-screen mb-36">
           {services.map((service) => (
             <div className="flex flex-col items-end max-w-3xl" key={service.id}>
               <div
@@ -78,7 +86,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
                   "bg-neutral-800 flex items-center gap-4 w-full rounded-xl max-h-20 overflow-hidden cursor-pointer",
                   "before:content-[''] before:h-full before:w-4 before:bg-red-300 before:bg-gradient-to-b before:from-neutral-800 before:to-primary"
                 )}
-                onClick={() => setOpenedServiceId(service.id)}
+                onClick={() => toggleOpenedServiceId(service.id)}
               >
                 <div className="p-5 flex justify-between w-full">
                   <div className="text-white text-xl">{service.title}</div>
@@ -108,7 +116,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
                   duration: 1,
                 }}
                 className={twJoin(
-                  "w-[700px] bg-neutral-600 mr-4 rounded-b-2xl overflow-hidden"
+                  "max-w-[90%] bg-neutral-600 mr-4 rounded-b-2xl overflow-hidden"
                 )}
               >
                 <span className="block m-4 mt-2">{service.description}</span>
