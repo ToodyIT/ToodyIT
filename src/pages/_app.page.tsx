@@ -3,6 +3,8 @@ import "../styles/global.scss";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import LayoutMain from "../components/Layout/LayoutMain";
+import { appWithTranslation } from "next-i18next";
+import NextI18nextConfig from "../../next-i18next.config";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -32,4 +34,6 @@ const App = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default App;
+export default appWithTranslation(App, {
+  i18n: NextI18nextConfig,
+});
