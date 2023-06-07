@@ -4,63 +4,74 @@ import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { twJoin } from "tailwind-merge";
 import { motion } from "framer-motion";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "react-i18next";
+import { TFunction } from "next-i18next";
 
-const SERVICES = [
-  {
-    id: "discussion",
-    title: "Обсуждение требований",
-    description:
-      "На этом этапе вы встречаетесь с клиентом, чтобы обсудить его потребности, цели и функциональные требования к сайту. Это включает в себя обсуждение дизайна, структуры, функциональности, интеграций и других особенностей сайта.",
-  },
-  {
-    id: "design",
-    title: "Создание дизайна",
-    description:
-      "На этом этапе вы встречаетесь с клиентом, чтобы обсудить его потребности, цели и функциональные требования к сайту. Это включает в себя обсуждение дизайна, структуры, функциональности, интеграций и других особенностей сайта.",
-  },
-  {
-    id: "materials",
-    title: "Наполнение материалом",
-    description:
-      "На этом этапе вы встречаетесь с клиентом, чтобы обсудить его потребности, цели и функциональные требования к сайту. Это включает в себя обсуждение дизайна, структуры, функциональности, интеграций и других особенностей сайта.",
-  },
-  {
-    id: "development",
-    title: "Разработка сайта",
-    description:
-      "На этом этапе вы встречаетесь с клиентом, чтобы обсудить его потребности, цели и функциональные требования к сайту. Это включает в себя обсуждение дизайна, структуры, функциональности, интеграций и других особенностей сайта.",
-  },
-  {
-    id: "analytics",
-    title: "Добавление аналитики",
-    description:
-      "На этом этапе вы встречаетесь с клиентом, чтобы обсудить его потребности, цели и функциональные требования к сайту. Это включает в себя обсуждение дизайна, структуры, функциональности, интеграций и других особенностей сайта.",
-  },
-  {
-    id: "testing",
-    title: "Тестировка сайта",
-    description:
-      "На этом этапе вы встречаетесь с клиентом, чтобы обсудить его потребности, цели и функциональные требования к сайту. Это включает в себя обсуждение дизайна, структуры, функциональности, интеграций и других особенностей сайта.",
-  },
-  {
-    id: "deploy",
-    title: "Выпуск сайта",
-    description:
-      "На этом этапе вы встречаетесь с клиентом, чтобы обсудить его потребности, цели и функциональные требования к сайту. Это включает в себя обсуждение дизайна, структуры, функциональности, интеграций и других особенностей сайта.",
-  },
-];
-
+const getServices = (t: TFunction) => {
+  return [
+    {
+      id: "discussion",
+      title: t("Requirements discussion"),
+      description: t(
+        "At this stage, you meet with the client to discuss their needs, goals, and functional requirements for the website. This includes discussing the design, structure, functionality, integrations, and other features of the site."
+      ),
+    },
+    {
+      id: "design",
+      title: t("Design creation"),
+      description: t(
+        "After gaining a thorough understanding of the client's requirements and branding, the web designer begins creating the website design. This involves developing page layouts, selecting a color scheme, fonts, graphics, and the overall look and feel of the site."
+      ),
+    },
+    {
+      id: "materials",
+      title: t("Filling with material"),
+      description: t(
+        "At this stage, the client provides the necessary content to populate the website, including text, photos, videos, and other materials. The designer and developer work with this content to create cohesive and visually appealing website pages."
+      ),
+    },
+    {
+      id: "development",
+      title: t("Site development"),
+      description: t(
+        "Based on the created design and provided content, the developer starts programming and building the website. We create web pages, implement functionality, add interactive elements, optimize the site for search engines, and enhance its overall performance."
+      ),
+    },
+    {
+      id: "analytics",
+      title: t("Adding analytics"),
+      description: t(
+        "To track and analyze activity on the site, analytics code such as Google Analytics is added. This allows for obtaining information on traffic, user behavior, conversions, and other important metrics for further website optimization."
+      ),
+    },
+    {
+      id: "testing",
+      title: t("Website testing"),
+      description: t(
+        "Before releasing the site into production, testing of its functionality, compatibility with different browsers and devices, page loading speed, and other aspects is conducted. This helps identify and address any potential errors and issues before the site becomes accessible to the public."
+      ),
+    },
+    {
+      id: "deploy",
+      title: t("Site release"),
+      description: t(
+        "Once the site is successfully tested and ready for launch, it is deployed on a web server and made available to visitors. After the website is launched, it is important to continue its support and maintenance."
+      ),
+    },
+  ];
+};
 const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
-  const [openedServiceId, setOpenedServiceId] = useState(SERVICES[0].id);
-
+  const { t } = useTranslation();
+  const services = getServices(t);
+  const [openedServiceId, setOpenedServiceId] = useState(services[0].id);
   return (
     <SlideAnimationLayout ref={ref}>
       <div className="flex flex-col gap-7">
-        <h2 className="text-white text-3xl flex text-center">
-          <strong>РАЗРАБОТКА НОВОГО САЙТА</strong>
+        <h2 className="text-white text-3xl flex font-bold text-center">
+          {t("DEVELOPMENT OF A NEW SITE")}
         </h2>
         <div className=" flex flex-col gap-4 w-screen h-screen mb-36">
-          {SERVICES.map((service) => (
+          {services.map((service) => (
             <div className="flex flex-col items-end max-w-3xl" key={service.id}>
               <div
                 className={twJoin(
@@ -110,12 +121,12 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
   );
 });
 
-export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-};
+// export const getStaticProps = async ({ locale }) => {
+//   return {
+//     props: {
+//       ...(await serverSideTranslations(locale, ["common"])),
+//     },
+//   };
+// };
 
 export default ServicesPage;
