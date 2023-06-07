@@ -14,7 +14,7 @@ const OUR_WORKS = [
     date: "ДЕКАБЕРЬ 16, 2023",
   },
   {
-    imagePath: "maria-poljanszska.png",
+    imagePath: "marta-hnatojko.png",
     name: "BUSINESS CARD",
     title: "Хороший сайт для развития самого себя",
     description:
@@ -23,7 +23,7 @@ const OUR_WORKS = [
     date: "НОЯБРЬ 21, 2022",
   },
   {
-    imagePath: "maria-poljanszska.png",
+    imagePath: "salon-krasy-kwhite.png",
     name: "WORK SITE",
     title: "Хороший сайт для развития самого себя",
     description:
