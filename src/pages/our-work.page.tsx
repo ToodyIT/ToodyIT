@@ -5,7 +5,7 @@ import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 
 const OUR_WORKS = [
   {
-    imagePath: "/img/maria-poljanszska.png",
+    imagePath: "maria-poljanszska.png",
     name: "BUSINESS CARD",
     title: "Хороший сайт для развития самого себя",
     description:
@@ -14,7 +14,7 @@ const OUR_WORKS = [
     date: "ДЕКАБЕРЬ 16, 2023",
   },
   {
-    imagePath: "/img/maria-poljanszska.png",
+    imagePath: "maria-poljanszska.png",
     name: "BUSINESS CARD",
     title: "Хороший сайт для развития самого себя",
     description:
@@ -23,7 +23,7 @@ const OUR_WORKS = [
     date: "НОЯБРЬ 21, 2022",
   },
   {
-    imagePath: "/img/maria-poljanszska.png",
+    imagePath: "maria-poljanszska.png",
     name: "WORK SITE",
     title: "Хороший сайт для развития самого себя",
     description:
@@ -52,19 +52,19 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
                 key={work.title}
               >
                 <Image
-                  src={work.imagePath}
+                  src={`/img/our-works/${work.imagePath}`}
                   alt="image"
                   width="382"
                   height="215"
                   className="rounded-t-3xl"
                 />
-                <div className="bg-primary w-[145px] h-[36px] flex rounded-3xl pt-1 -translate-y-1/2 ml-9 justify-center">
+                <div className="bg-primary w-36 h-9 flex rounded-3xl pt-1 -translate-y-1/2 ml-9 justify-center">
                   {work.name}
                 </div>
                 <div className="flex flex-col px-6 pb-6 gap-7">
                   <span className="font-bold">{work.title}</span>
                   <span>{work.description}</span>
-                  <div className="bg-primary w-full h-[1px]"></div>
+                  <div className="bg-primary w-full h-[1px]" />
                   <div className="flex flex-col">
                     <span className="font-bold">{work.customer}</span>
                     <span>{work.date}</span>
