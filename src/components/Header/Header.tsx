@@ -5,7 +5,7 @@ import { FC } from "react";
 const Header: FC = () => {
   return (
     <div className="flex justify-between items-center py-8">
-      <Image src="/img/toodyit-logo.svg" alt="logo" width="153" height="41" />
+      <Image src="/img/toodyit-logo.png" alt="logo" width="153" height="41" />
       <div className="flex gap-2.5">
         <Link href="/" className="text-white text-xl">
           CZ
