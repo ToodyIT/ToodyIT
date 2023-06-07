@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
-import LayoutMain from "../components/Layout/LayoutMain";
 import Image from "next/image";
+import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 
 const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <LayoutMain ref={ref}>
+    <SlideAnimationLayout ref={ref}>
       <div className="flex flex-col gap-10">
         <h2 className="text-white text-4xl flex text-center">
           <strong>О НАС</strong>
@@ -48,7 +48,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         </div>
       </div>
-    </LayoutMain>
+    </SlideAnimationLayout>
   );
 });
 

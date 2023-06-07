@@ -1,12 +1,12 @@
 import { forwardRef } from "react";
-import LayoutMain from "../components/Layout/LayoutMain";
 import useEmblaCarousel from "embla-carousel-react";
+import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 
 const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
   const [emblaRef] = useEmblaCarousel({ align: "start" });
 
   return (
-    <LayoutMain ref={ref}>
+    <SlideAnimationLayout ref={ref}>
       <div className="flex flex-col gap-7">
         <h2 className="text-white text-3xl flex text-center">
           <strong>ПОСЛЕДНИИ РАБОТЫ</strong>
@@ -23,7 +23,7 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         </div>
       </div>
-    </LayoutMain>
+    </SlideAnimationLayout>
   );
 });
 

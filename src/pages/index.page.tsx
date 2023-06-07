@@ -4,8 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import HeaderMenu from "../components/Header/HeaderMenu";
-import Layout from "../components/Layout/Layout";
-import LayoutInner from "../components/Layout/LayoutInner";
 import Overlay from "../components/Overlay/Overlay";
 import Pagination, {
   PaginationItemProps,
@@ -76,7 +74,7 @@ const HomePage: NextPage = () => {
         damping: 20,
       }}
     >
-      <Layout>
+      <div className="bg-neutral-900 w-full h-screen flex flex-col overflow-hidden relative">
         <AnimatePresence>
           {activeSection === "header" && <HeaderMenu key="header" />}
           <Overlay
@@ -84,7 +82,7 @@ const HomePage: NextPage = () => {
             onClose={() => setActiveSection("main")}
             key="overlay"
           />
-          <LayoutInner>
+          <div className="mx-auto px-32 h-full flex flex-col">
             <Header />
             <motion.div
               key="main"
@@ -118,10 +116,10 @@ const HomePage: NextPage = () => {
                 activeState={activeSection}
               />
             </motion.div>
-          </LayoutInner>
+          </div>
           {activeSection === "footer" && <Footer key="footer" />}
         </AnimatePresence>
-      </Layout>
+      </div>
     </motion.div>
   );
 };

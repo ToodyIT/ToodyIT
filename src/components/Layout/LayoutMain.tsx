@@ -3,13 +3,9 @@ import Link from "next/link";
 import useModel from "../../hooks/useModel";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { twJoin } from "tailwind-merge";
 
 const SECTIONS = [
-  {
-    title: "Return",
-    link: "/",
-    order: 0,
-  },
   {
     title: "Services",
     link: "/services",
@@ -83,7 +79,10 @@ const LayoutMain = forwardRef<HTMLDivElement, LayoutMainProps>(
                     query: getLinkQueries(section.order),
                   }}
                   as={section.link}
-                  className="text-white text-xl [writing-mode:vertical-lr] [text-orientation:mixed] rotate-180 whitespace-nowrap"
+                  className={twJoin(
+                    "text-white text-xl [writing-mode:vertical-lr] [text-orientation:mixed] rotate-180 whitespace-nowrap",
+                    router.asPath.includes(section.link) && "text-primary"
+                  )}
                 >
                   {section.title}
                 </Link>

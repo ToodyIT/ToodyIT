@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
-import LayoutMain from "../components/Layout/LayoutMain";
+import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 
 const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
-  return <LayoutMain ref={ref}>a</LayoutMain>;
+  return <SlideAnimationLayout ref={ref}>a</SlideAnimationLayout>;
 });
 export default OurTeamPage;

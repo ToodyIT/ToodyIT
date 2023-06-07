@@ -1,4 +1,3 @@
-import LayoutMain from "../components/Layout/LayoutMain";
 import { Input } from "../components/Input/Input";
 import { FormLine } from "../components/FormColumn/FormColumn";
 import { Textarea } from "../components/Textarea/Textarea";
@@ -6,6 +5,7 @@ import { Button } from "../components/Button/Button";
 import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 import { forwardRef, useMemo, useState } from "react";
+import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
@@ -107,7 +107,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
   };
 
   return (
-    <LayoutMain ref={ref}>
+    <SlideAnimationLayout ref={ref}>
       <div className="flex flex-col gap-14 w-full pl-40">
         <h1 className="text-white text-3xl flex text-center pt-8">
           {t("Contacts")}
@@ -179,7 +179,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
           <Button type="submit">{t("Send message")}</Button>
         </form>
       </div>
-    </LayoutMain>
+    </SlideAnimationLayout>
   );
 });
 export default Contacts;
