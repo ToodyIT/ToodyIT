@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   extends: [
     "eslint:recommended",
     "airbnb-typescript",
@@ -9,6 +10,7 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "next/core-web-vitals",
     "plugin:prettier/recommended",
+    // "plugin:tailwindcss/recommended",
   ],
   plugins: ["react", "@typescript-eslint", "unused-imports"],
   env: {
@@ -38,6 +40,12 @@ module.exports = {
   },
   ignorePatterns: ["generateReactTemplates/**"],
   rules: {
+    // "tailwindcss/classnames-order": [
+    //   "warn",
+    //   {
+    //     callees: ["twJoin"],
+    //   },
+    // ],
     "prettier/prettier": "warn",
     "no-console": "warn",
     "no-debugger": "warn",

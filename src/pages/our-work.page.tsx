@@ -44,11 +44,11 @@ const getOurWorks = (t: TFunction) => {
 const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
   const [emblaRef] = useEmblaCarousel({ align: "start" });
   const { t } = useTranslation();
-  const ourwork = getOurWorks(t);
+  const ourWorks = getOurWorks(t);
 
   return (
     <SlideAnimationLayout ref={ref}>
-      <div className="flex flex-col gap-7">
+      <div className="flex flex-col gap-7 -mr-5">
         <h2 className="text-white font-bold text-3xl flex text-center">
           {t("RECENT WORK")}
         </h2>
@@ -56,10 +56,10 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
           className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
           ref={emblaRef}
         >
-          <div className="flex flex-row gap-20 h-full ">
-            {ourwork.map((work) => (
+          <div className="flex gap-7 lg:gap-14 h-full">
+            {ourWorks.map((work) => (
               <div
-                className="h-auto w-[300px] lg:w-[382px] flex flex-col rounded-3xl bg-grey-800"
+                className="h-auto max-w-[382px] flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
                 key={work.title}
               >
                 <Image

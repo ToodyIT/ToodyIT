@@ -61,10 +61,13 @@ const getServices = (t: TFunction) => {
 };
 const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
   const [openedServiceId, setOpenedServiceId] = useState<string | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
   const { t } = useTranslation();
   const services = getServices(t);
 
   const toggleOpenedServiceId = (serviceId: string) => {
+    if (isAnimating) return;
+
     if (openedServiceId !== serviceId) {
       return setOpenedServiceId(serviceId);
     }
@@ -78,7 +81,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
         <h2 className="text-white text-3xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}
         </h2>
-        <div className="flex flex-col gap-4 w-full h-screen mb-36">
+        <div className="flex flex-col gap-4 w-full lg:h-screen">
           {services.map((service) => (
             <div className="flex flex-col items-end max-w-3xl" key={service.id}>
               <div
@@ -109,11 +112,14 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
                     height: "auto",
                   },
                 }}
+                onAnimationComplete={() => setIsAnimating(false)}
+                onAnimationStart={() => setIsAnimating(true)}
+                initial={false}
                 key={service.title}
                 transition={{
                   type: "spring",
-                  bounce: 0.4,
-                  duration: 1,
+                  bounce: 0.25,
+                  duration: 0.7,
                 }}
                 className={twJoin(
                   "max-w-[90%] bg-neutral-600 mr-4 rounded-b-2xl overflow-hidden"

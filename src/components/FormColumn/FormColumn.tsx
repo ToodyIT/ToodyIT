@@ -5,5 +5,7 @@ type FormLineProps = {
 };
 
 export const FormLine: FC<FormLineProps> = ({ children }) => {
-  return <div className="flex gap-12 w-full">{children}</div>;
+  return (
+    <div className="flex gap-3 lg:gap-12 w-full flex-col lg:flex-row">{children}</div>
+  );
 };

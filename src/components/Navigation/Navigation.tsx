@@ -5,6 +5,8 @@ import { twJoin } from "tailwind-merge";
 import { Header } from "../Header/Header";
 import { motion } from "framer-motion";
 import Overlay from "../Overlay/Overlay";
+import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 type NavigationProps = {};
 
@@ -39,6 +41,7 @@ const NAVIGATION_ITEMS = [
 export const Navigation: FC<NavigationProps> = ({}) => {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const getLinkQueries = (order: number) => {
     if (!Array.isArray(router.query.order) && router.query.order) {
@@ -58,18 +61,19 @@ export const Navigation: FC<NavigationProps> = ({}) => {
   };
 
   return (
-    <>
+    <div className="h-full">
       <Header
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
-      <div className="relative lg:flex items-center">
+      <div className="relative lg:flex items-center pt-3 h-full">
         <motion.div
           className={twJoin(
             "flex-col z-20 rounded-3xl items-center justify-between my-auto lg:w-fit w-11/12 flex absolute bg-neutral-700 left-1/2 -translate-x-1/2 h-fit py-4",
-            "lg:bg-transparent lg:left-0 lg:translate-x-0 lg:h-4/5 lg:p-0 lg:static lg:![clip-path:none]"
+            "lg:bg-transparent lg:left-0 lg:translate-x-0 lg:h-full lg:justify-center lg:gap-6 vl:gap-10 lg:p-0 lg:static lg:![clip-path:none]"
           )}
           animate={isMobileMenuOpen ? "open" : "closed"}
+          initial={false}
           variants={{
             open: {
               clipPath: "inset(0% 0% 0% 0% round 10px)",
@@ -79,6 +83,18 @@ export const Navigation: FC<NavigationProps> = ({}) => {
             },
           }}
         >
+          <Link href="/" className="w-full lg:w-auto">
+            <Image
+              src="/img/arrow.svg"
+              alt="arrow"
+              width="20"
+              height="20"
+              className="hidden lg:block rotate-90"
+            />
+            <span className="block w-full py-2 text-xl text-center lg:hidden">
+              {t("Home")}
+            </span>
+          </Link>
           {NAVIGATION_ITEMS.map((section) => (
             <Link
               key={section.title}
@@ -103,6 +119,6 @@ export const Navigation: FC<NavigationProps> = ({}) => {
         onClose={closeMobileMenu}
         key="mobile-menu-overlay"
       />
-    </>
+    </div>
   );
 };

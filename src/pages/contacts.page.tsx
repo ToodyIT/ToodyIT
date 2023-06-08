@@ -108,16 +108,17 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <SlideAnimationLayout ref={ref}>
-      <div className="flex flex-col gap-14 w-full pl-40">
-        <h1 className="text-white text-3xl flex text-center pt-8">
+      <div className="flex flex-col gap-4 vl:gap-8 xl:gap-14 w-full">
+        <h1 className="text-white text-3xl flex text-center lg:pt-8">
           {t("Contacts")}
         </h1>
         <form
           onSubmit={onSubmit}
-          className="flex flex-col gap-12 w-full max-w-[800px]"
+          className="flex flex-col gap-3 vl:gap-7 xl:gap-12 max-w-[700px] w-full"
         >
           <FormLine>
             <Input
+              required
               placeholder={t("Full name")}
               name="fullName"
               value={fullName}
@@ -129,6 +130,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
               errorMessage={t("Full name is required field")}
             />
             <Input
+              required
               type="email"
               name="email"
               value={email}
@@ -143,6 +145,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
           </FormLine>
           <FormLine>
             <Input
+              required
               value={phone}
               type="tel"
               name="phone"
@@ -176,7 +179,12 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
             placeholder={t("Your message for us")}
             label={t("Message")}
           />
-          <Button type="submit">{t("Send message")}</Button>
+          <Button
+            type="submit"
+            className="flex self-center mt-4 items-center justify-center w-full max-w-[350px]"
+          >
+            {t("Send message")}
+          </Button>
         </form>
       </div>
     </SlideAnimationLayout>

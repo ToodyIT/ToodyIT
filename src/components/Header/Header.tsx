@@ -14,7 +14,7 @@ export const Header: FC<HeaderProps> = ({
   setIsMobileMenuOpen,
 }) => {
   return (
-    <div className="flex justify-between w-full items-center relative z-20 lg:hidden">
+    <div className="flex justify-between w-full items-center relative z-20 lg:hidden bg-neutral-900 py-4">
       <Image src="/img/toodyit-logo.png" alt="logo" width="80" height="50" />
       <div
         className="w-10 h-8 flex flex-col justify-between items-end"
@@ -23,6 +23,7 @@ export const Header: FC<HeaderProps> = ({
         {BURGER_MENU_ITEMS_WIDTH.map((width, index) => (
           <motion.div
             key={index}
+            initial={false}
             animate={isMobileMenuOpen ? "open" : "closed"}
             variants={{
               open: {

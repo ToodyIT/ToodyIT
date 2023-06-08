@@ -1,6 +1,7 @@
 import { ReactNode, forwardRef } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import LayoutMain from "./LayoutMain";
 
 interface SlideAnimationLayoutProps {
   children: ReactNode;
@@ -13,16 +14,19 @@ const SlideAnimationLayout = forwardRef<
   const router = useRouter();
 
   return (
-    <motion.div
-      initial={{ y: router.query.direction === "top" ? "-100%" : "100%" }}
-      ref={ref}
-      animate={{ y: 0 }}
-      exit={{ y: router.query.direction === "top" ? "100%" : "-100%" }}
-      key="our-work"
-      transition={{ duration: 0.6, ease: "easeInOut" }}
-    >
-      {children}
-    </motion.div>
+    <LayoutMain>
+      <motion.div
+        initial={{ y: router.query.direction === "top" ? "-100%" : "100%" }}
+        ref={ref}
+        animate={{ y: 0 }}
+        exit={{ y: router.query.direction === "top" ? "100%" : "-100%" }}
+        key="our-work"
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className="w-full"
+      >
+        {children}
+      </motion.div>
+    </LayoutMain>
   );
 });
 

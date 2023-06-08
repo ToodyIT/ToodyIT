@@ -7,8 +7,9 @@ const Footer: FC = () => {
       animate={{ y: 0 }}
       initial={{ y: "100%" }}
       exit={{ y: "100%" }}
-      className="h-52 bg-white absolute bottom-0 z-20 left-0 w-full"
-    ></motion.footer>
+      className="h-52 bg-primary absolute bottom-0 z-20 left-0 w-full"
+    >
+    </motion.footer>
   );
 };
 

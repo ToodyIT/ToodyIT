@@ -21,7 +21,7 @@ const useModel = (
     window.addEventListener("resize", animateModel, true);
 
     return () => {
-      window.removeEventListener("resize", animateModel, true);
+      window.removeEventListener("resize", animateModel);
     };
   }, [modelWrapperRef.current]);
 };
