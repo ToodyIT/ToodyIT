@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const plugin = require("tailwindcss/plugin");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.tsx"],
@@ -22,5 +25,23 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities, matchUtilities, theme }) => {
+      addUtilities({
+        ".flex-center": {
+          "align-items": "center",
+          "justify-content": "center",
+        },
+      });
+      matchUtilities(
+        {
+          size: (value) => ({
+            width: value,
+            height: value,
+          }),
+        },
+        { values: theme("width") }
+      );
+    }),
+  ],
 };

@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 type NavigationProps = {};
 
-const NAVIGATION_ITEMS = [
+export const NAVIGATION_ITEMS = [
   {
     title: "Services",
     link: "/services",

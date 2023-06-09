@@ -32,7 +32,7 @@ const HomePage: NextPage = () => {
   useModel(circleModelRef, { x: 0, y: 0, z: 30 });
   const [activeSection, setActiveSection] = useState<
     "header" | "main" | "footer"
-  >("main");
+  >("header");
 
   const isStoppedScrolling = useWheelStopListener();
 
