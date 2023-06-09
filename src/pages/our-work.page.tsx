@@ -5,6 +5,7 @@ import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "next-i18next";
 
+
 const getOurWorks = (t: TFunction) => {
   return [
     {
@@ -69,7 +70,7 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
                   height="215"
                   className="rounded-t-3xl"
                 />
-                <div className="bg-primary w-36 h-9 flex rounded-3xl pt-1 -translate-y-1/2 ml-9 justify-center">
+                <div className="bg-primary w-36 h-9 flex rounded-3xl py-0.5 -translate-y-1/2 ml-9 justify-center">
                   {work.name}
                 </div>
                 <div className="flex flex-col px-6 pb-6 gap-7 h-full">

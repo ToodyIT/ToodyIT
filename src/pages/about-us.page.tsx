@@ -1,31 +1,33 @@
 import { forwardRef } from "react";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
+  const { t } = useTranslation();
   return (
     <SlideAnimationLayout ref={ref}>
       <div className="flex flex-col gap-6 lg:gap-10">
-        <h2 className="text-white text-4xl flex text-center">
-          <strong>О НАС</strong>
+        <h2 className="text-white font-bold text-4xl flex text-center">
+        {t("ABOUT US")}
         </h2>
         <div className="flex flex-col gap-8 lg:gap-20 max-w-[800px] relative">
           <div className="flex flex-col text-white gap-3 lg:pl-10">
-            <strong className="text-3xl">Our mission</strong>
+          <span className="font-bold text-3xl">{t("Our mission")}</span>
             <span className="text-base lg:text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Parturient lorem purus justo, ultricies. Sollicitudin odio
-              elementum urna placerat lacus, vulputate. Non malesuada viverra et
-              ultrices cras. Tincidunt tempor, blandit augue ac feugiat.
-              Praesent arcu tempus ullamcorper quisque in. Magna fermentum,
-              lacus, fermentum arcu.
+              {t(
+                "Our mission as a custom website development company is to provide high-quality web solutions that help our clients bring their ideas to life and achieve success in the online space. We strive to create unique, intuitive, and functional websites that are not only visually appealing but also effectively serve the goals of our clients."
+              )}
               <br />
               <br />
-              Vulputate pellentesque proin facilisis dignissim gravida sed
-              faucibus nunc. Nunc eget pharetra, in vitae porta lacus. Elit in
-              nisl, in quis nulla tellus suscipit id. Semper velit odio cras
-              pretium tristique habitant. Elit eu penatibus congue orci turpis.
-              Enim diam id.
+              {t(
+                "We recognize that each client is unique and has specific needs. Therefore, we pay special attention to engaging with our clients to fully understand their business, objectives, and values. We build long-term partnerships based on trust, transparency, and collaboration."
+              )}
+              <br />
+              <br />
+              {t(
+                "Our team consists of experienced and creative professionals who are proficient in modern web technologies and best practices. We continuously enhance our skills and stay up-to-date with the latest trends in the web industry to remain at the forefront of technological progress."
+              )}
             </span>
           </div>
           <Image
@@ -36,14 +38,16 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
             height="402"
           />
           <div className="flex flex-col text-white gap-3 lg:pl-10">
-            <strong className="text-3xl">Our story</strong>
+          <span className="font-bold text-3xl">{t("Our goal")}</span>
             <span className="text-xl relative">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Parturient lorem purus justo, ultricies. Sollicitudin odio
-              elementum urna placerat lacus, vulputate. Non malesuada viverra et
-              ultrices cras. Tincidunt tempor, blandit augue ac feugiat.
-              Praesent arcu tempus ullamcorper quisque in. Magna fermentum,
-              lacus, fermentum arcu.
+            {t(
+                "Our goal is not only to create a website but also to help our clients succeed in the online world. We offer tailored solutions that meet the needs of each client and provide support and maintenance after the project's launch."
+              )}
+              <br />
+              <br />
+              {t(
+                "We strive for consistent quality, innovation, and excellence in everything we do. Our mission is to assist our clients in standing out among competitors, creating appealing and effective websites that help them achieve their business objectives and succeed in the online realm."
+              )}
             </span>
           </div>
         </div>

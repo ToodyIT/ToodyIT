@@ -12,7 +12,7 @@ const getServices = (t: TFunction) => {
       id: "discussion",
       title: t("Requirements discussion"),
       description: t(
-        "At this stage, you meet with the client to discuss their needs, goals, and functional requirements for the website. This includes discussing the design, structure, functionality, integrations, and other features of the site."
+        "At this stage, we meet with the client to discuss their needs, goals, and functional requirements for the website. This includes discussing the design, structure, functionality, integrations, and other features of the site."
       ),
     },
     {
