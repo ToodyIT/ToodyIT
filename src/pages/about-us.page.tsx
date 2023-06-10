@@ -11,10 +11,10 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
         <h2 className="text-white font-bold text-4xl flex text-center">
         {t("ABOUT US")}
         </h2>
-        <div className="flex flex-col gap-8 lg:gap-20 max-w-[800px] relative">
+        <div className="flex flex-col gap-8 lg:gap-14 max-w-[800px] relative">
           <div className="flex flex-col text-white gap-3 lg:pl-10">
           <span className="font-bold text-3xl">{t("Our mission")}</span>
-            <span className="text-base lg:text-xl">
+            <span className="text-base lg:text-base">
               {t(
                 "Our mission as a custom website development company is to provide high-quality web solutions that help our clients bring their ideas to life and achieve success in the online space. We strive to create unique, intuitive, and functional websites that are not only visually appealing but also effectively serve the goals of our clients."
               )}
@@ -39,7 +39,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
           />
           <div className="flex flex-col text-white gap-3 lg:pl-10">
           <span className="font-bold text-3xl">{t("Our goal")}</span>
-            <span className="text-xl relative">
+            <span className="text-base relative">
             {t(
                 "Our goal is not only to create a website but also to help our clients succeed in the online world. We offer tailored solutions that meet the needs of each client and provide support and maintenance after the project's launch."
               )}
