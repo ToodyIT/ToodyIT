@@ -4,20 +4,38 @@ import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next";
 import NextI18nextConfig from "../../next-i18next.config";
+import Head from "next/head";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
   return (
-    <main>
-      <AnimatePresence
-        mode="wait"
-        initial={false}
-        onExitComplete={() => window.scrollTo(0, 0)}
-      >
-        <Component {...pageProps} key={router.asPath} />
-      </AnimatePresence>
-    </main>
+    <>
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-JLQGWF292W"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JLQGWF292W');`,
+          }}
+        />
+      </Head>
+      <main>
+        <AnimatePresence
+          mode="wait"
+          initial={false}
+          onExitComplete={() => window.scrollTo(0, 0)}
+        >
+          <Component {...pageProps} key={router.asPath} />
+        </AnimatePresence>
+      </main>
+    </>
   );
 };
 

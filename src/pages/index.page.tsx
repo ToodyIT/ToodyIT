@@ -12,6 +12,7 @@ import useModel from "../hooks/useModel";
 import useWheelStopListener from "../hooks/useWheelStopListener";
 import Link from "next/link";
 import { Meta } from "../components/Meta/Meta";
+import { useTranslation } from "react-i18next";
 
 const PAGINATION_ITEMS: Array<PaginationItemProps> = [
   {
@@ -29,6 +30,7 @@ const PAGINATION_ITEMS: Array<PaginationItemProps> = [
 ];
 
 const HomePage: NextPage = () => {
+  const { t } = useTranslation();
   const circleModelRef = useRef<HTMLCanvasElement>(null);
   useModel(circleModelRef, { x: 0, y: 0, z: 30 });
   const [activeSection, setActiveSection] = useState<
