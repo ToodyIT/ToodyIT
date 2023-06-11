@@ -116,8 +116,8 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <div className="flex flex-col gap-4 vl:gap-8 xl:gap-14 w-full">
-        <h1 className="text-white text-3xl flex text-center lg:pt-8">
-          {t("Contacts")}
+        <h1 className="text-white text-3xl font-bold flex text-center lg:pt-8">
+          {t("CONTACTS")}
         </h1>
         <form
           onSubmit={onSubmit}
@@ -188,7 +188,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
           />
           <Button
             type="submit"
-            className="flex self-center mt-4 items-center justify-center w-full max-w-[350px]"
+            className="flex self-center active:scale-[0.95] mt-4 items-center justify-center w-full max-w-[350px]"
           >
             {t("Send message")}
           </Button>

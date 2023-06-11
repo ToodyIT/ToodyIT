@@ -12,18 +12,18 @@ type SocialMediaType = {
 
 const SOCIAL_MEDIA: SocialMediaType[] = [
   {
-    link: "",
-    text: "@toodyit",
-    icon: "Instagram",
-  },
-  {
-    link: "",
-    text: "@toodyit",
+    link: "mail:",
+    text: "toody-it@toody-it.com",
     icon: "Email",
   },
   {
     link: "",
     text: "@toodyit",
+    icon: "Instagram",
+  },
+  {
+    link: "tel:+420773011578",
+    text: "+420 773 011 578",
     icon: "Phone",
   },
 ];
@@ -38,18 +38,17 @@ export const SocialMedia: FC<SocialMediaProps> = ({
   className,
 }) => {
   return (
-    <div
-      className={twMerge(
-        "flex gap-6 max-w-[500px] justify-between w-full",
-        className
-      )}
-    >
+    <div className={twMerge("flex gap-5 justify-center w-full", className)}>
       {SOCIAL_MEDIA.map((media, index) => (
-        <Link key={index} className="flex gap-3 items-center" href={media.link}>
+        <Link
+          key={index}
+          className="flex gap-3 items-center active:scale-[0.95] transition"
+          href={media.link}
+        >
           <div className="size-9 bg-primary flex rounded-full flex-center">
             <Icon icon={media.icon} className="w-5 h-5" />
           </div>
-          {withText && media.text}
+          <div className="hidden lg:block">{withText && media.text}</div>
         </Link>
       ))}
     </div>

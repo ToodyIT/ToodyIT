@@ -17,7 +17,7 @@ const HomepageHeaderMenu: FC = () => {
       animate={{ y: 0 }}
       initial={{ y: "-100%" }}
       exit={{ y: "-100%" }}
-      className="h-52 bg-neutral-800 w-full absolute top-0 left-0 z-20 lg:py-6 lg:px-10 px-5 py-3 flex justify-center"
+      className="h-52 bg-neutral-800 w-full absolute top-0 left-0 z-30 lg:py-6 lg:px-10 px-5 py-3 flex justify-center"
     >
       <div className="flex justify-between max-w-7xl w-full h-full items-center flex-wrap gap-3">
         <div className="flex flex-col gap-2 max-w-[48%] sm:max-w-[200px] w-full">

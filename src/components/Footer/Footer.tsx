@@ -4,6 +4,7 @@ import { NAVIGATION_ITEMS } from "../Navigation/Navigation";
 import Link from "next/link";
 import { SocialMedia } from "../SocialMedia/SocialMedia";
 import Image from "next/image";
+import { twJoin } from "tailwind-merge";
 
 const POSTS = [
   {
@@ -34,9 +35,9 @@ const Footer: FC = () => {
       animate={{ y: 0 }}
       initial={{ y: "100%" }}
       exit={{ y: "100%" }}
-      className="h-[350px] bg-neutral-800 absolute bottom-0 z-20 left-0 w-full flex flex-col gap-4 items-center px-8 py-4"
+      className="h-[350px] bg-neutral-800 absolute bottom-0 z-30 left-0 w-full flex flex-col gap-4 items-center px-8 py-4"
     >
-      <div className="flex gap-10 justify-between max-w-[800px] flex-wrap w-full">
+      <div className="flex gap-4 lg:gap-10 max-w-2xl justify-between flex-wrap w-full">
         {NAVIGATION_ITEMS.map((item) => (
           <Link
             key={item.title}
@@ -44,19 +45,22 @@ const Footer: FC = () => {
               pathname: item.link,
               query: { order: item.order },
             }}
-            className="text-xl"
+            className="text-xl active:scale-[0.95] hover:text-gray-400 transition duration-200 ease-in-out"
           >
             {item.title}
           </Link>
         ))}
       </div>
-      <div className="flex justify-between max-w-6xl h-full w-full">
+      <div className="flex justify-center gap-7 items-center max-w-6xl h-full w-full">
         {POSTS.map((post, index) => (
           <Link
             href={post.link}
             key={index}
             target="_blank"
-            className="relative h-full aspect-square rounded-2xl overflow-hidden border-8 border-primary"
+            className={twJoin(
+              "relative w-full h-fit aspect-square max-w-[180px] rounded-2xl overflow-hidden border-8 border-primary",
+              index > 1 && "hidden lg:block"
+            )}
           >
             <Image
               fill
