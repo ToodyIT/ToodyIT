@@ -9,7 +9,7 @@ import { TFunction } from "next-i18next";
 const getOurWorks = (t: TFunction) => {
   return [
     {
-      imagePath: "maria-poljanszska.png",
+      imagePath: "maria-poljanszka.png",
       name: t("BUSINESS CARD"),
       title: t("Stylish and modern website for you"),
       description: t(
@@ -17,6 +17,7 @@ const getOurWorks = (t: TFunction) => {
       ),
       customer: "MARIA POLJANSZKA",
       date: t("DECEMBER 16, 2023"),
+      alt: t("Maria Poljanszka"),
     },
     {
       imagePath: "marta-hnatojko.png",
@@ -27,6 +28,7 @@ const getOurWorks = (t: TFunction) => {
       ),
       customer: "MARTA HNATOJKO",
       date: t("NOVEMBER 21, 2022"),
+      alt: t("Marta Hnatojko"),
     },
     {
       imagePath: "salon-krasy-kwhite.png",
@@ -39,6 +41,7 @@ const getOurWorks = (t: TFunction) => {
       ),
       customer: "SALON KRASY KWHITE",
       date: t("APRIL 24, 2023"),
+      alt: t("Salon Krasy Kwhite"),
     },
   ];
 };
@@ -65,7 +68,7 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
               >
                 <Image
                   src={`/img/our-works/${work.imagePath}`}
-                  alt="image"
+                  alt={work.alt}
                   width="382"
                   height="215"
                   className="rounded-t-3xl"
