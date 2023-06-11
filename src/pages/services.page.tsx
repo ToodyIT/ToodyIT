@@ -1,11 +1,10 @@
 import { forwardRef, useState } from "react";
-import Image from "next/image";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { twJoin } from "tailwind-merge";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { TFunction } from "next-i18next";
+import { Icon } from "../components/Icons/Icon";
 
 const getServices = (t: TFunction) => {
   return [
@@ -100,12 +99,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
               >
                 <div className="p-5 flex justify-between w-full">
                   <h2 className="text-white text-xl">{service.title}</h2>
-                  <Image
-                    src="/img/arrow.svg"
-                    alt="arrow"
-                    width="20"
-                    height="20"
-                  />
+                  <Icon icon="Arrow" className="w-5 h-7 text-primary" />
                 </div>
               </div>
               <motion.div
