@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install",
     "translate": "i18next --config i18next-parser.config.js",
     "cs": "concurrently -g -r \"yarn:lint --cache\" \"yarn:typecheck\"",
     "component": "generate-react component",
