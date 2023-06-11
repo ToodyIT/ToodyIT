@@ -44,7 +44,6 @@ const Footer: FC = () => {
               pathname: item.link,
               query: { order: item.order },
             }}
-            as={item.link}
             className="text-xl"
           >
             {item.title}

@@ -1,29 +1,85 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useEffect, useMemo } from "react";
 import generateRingModel, { DimensionValues } from "../utils/models/ring";
+import { useRouter } from "next/router";
+import { usePreviousRouter } from "./usePreviousRouter";
+import {
+  ringZoomAnimation,
+  ringRotateAnimation,
+} from "../utils/models/ringAnimations";
+import { isServer } from "../utils/isServer";
 
 const useModel = (
   modelWrapperRef: RefObject<HTMLElement>,
   dimensionValues: DimensionValues
 ) => {
+  const router = useRouter();
+  const previousRouter = usePreviousRouter();
+
+  const { ring, renderer, camera, scene, cameraGroup } = useMemo(() => {
+    if (!isServer()) {
+      return generateRingModel(
+        document.querySelector("#ring")!,
+        dimensionValues
+      );
+    }
+
+    return {
+      ring: null,
+      renderer: null,
+      camera: null,
+      scene: null,
+      cameraGroup: null,
+    };
+  }, [modelWrapperRef.current, isServer]);
+
   useEffect(() => {
-    if (!modelWrapperRef.current) return;
+    if (
+      !modelWrapperRef.current ||
+      !ring ||
+      !renderer ||
+      !camera ||
+      !scene ||
+      !cameraGroup
+    )
+      return;
 
-    const { renderer, camera, scene } = generateRingModel(
-      modelWrapperRef.current,
-      dimensionValues
-    );
+    renderer.render(scene, camera);
 
-    const animateModel = () => {
+    let animationId;
+    const animateModel = (destinationOfRedirect: string) => {
+      animationId = requestAnimationFrame(() => {
+        animateModel(destinationOfRedirect);
+      });
+
+      if (!previousRouter) {
+        cancelAnimationFrame(animationId);
+        return;
+      }
+
+      if (previousRouter.asPath === "/" || destinationOfRedirect === "/") {
+        ringZoomAnimation(
+          destinationOfRedirect,
+          previousRouter,
+          camera,
+          animationId
+        );
+      } else {
+        ringRotateAnimation(cameraGroup, animationId, router, previousRouter);
+      }
+
       renderer.render(scene, camera);
     };
 
-    animateModel();
-    window.addEventListener("resize", animateModel, true);
+    const handleRouteChangeComplete = (destinationOfRedirect: string) => {
+      animateModel(destinationOfRedirect);
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
 
     return () => {
-      window.removeEventListener("resize", animateModel);
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
     };
-  }, [modelWrapperRef.current]);
+  }, [previousRouter, ring, renderer, camera, scene, cameraGroup, isServer]);
 };
 
 export default useModel;

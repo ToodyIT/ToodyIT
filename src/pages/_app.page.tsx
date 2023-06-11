@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next";
 import NextI18nextConfig from "../../next-i18next.config";
+import { RingModel } from "../components/RingModel/RingModel";
 import Head from "next/head";
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -35,6 +36,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           <Component {...pageProps} key={router.asPath} />
         </AnimatePresence>
       </main>
+      <RingModel />
     </>
   );
 };

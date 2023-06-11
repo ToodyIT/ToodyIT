@@ -8,8 +8,6 @@ import Overlay from "../Overlay/Overlay";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
-type NavigationProps = {};
-
 export const NAVIGATION_ITEMS = [
   {
     title: "Services",
@@ -38,7 +36,7 @@ export const NAVIGATION_ITEMS = [
   },
 ];
 
-export const Navigation: FC<NavigationProps> = ({}) => {
+export const Navigation: FC = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useTranslation();
@@ -102,7 +100,10 @@ export const Navigation: FC<NavigationProps> = ({}) => {
                 pathname: section.link,
                 query: getLinkQueries(section.order),
               }}
-              as={section.link}
+              as={{
+                pathname: section.link,
+                query: { order: section.order },
+              }}
               onClick={closeMobileMenu}
               className={twJoin(
                 "text-white text-xl lg:[writing-mode:vertical-lr] lg:[text-orientation:mixed] lg:rotate-180 whitespace-nowrap py-2 w-full text-center",

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer/Footer";
 import HomepageHeader from "../components/HomepageHeader/HomepageHeader";
 import HomepageHeaderMenu from "../components/HomepageHeader/HomepageHeaderMenu";
@@ -8,7 +8,6 @@ import Overlay from "../components/Overlay/Overlay";
 import Pagination, {
   PaginationItemProps,
 } from "../components/Pagination/Pagination";
-import useModel from "../hooks/useModel";
 import useWheelStopListener from "../hooks/useWheelStopListener";
 import Link from "next/link";
 import { Meta } from "../components/Meta/Meta";
@@ -31,11 +30,9 @@ const PAGINATION_ITEMS: Array<PaginationItemProps> = [
 
 const HomePage: NextPage = () => {
   const { t } = useTranslation();
-  const circleModelRef = useRef<HTMLCanvasElement>(null);
-  useModel(circleModelRef, { x: 0, y: 0, z: 30 });
   const [activeSection, setActiveSection] = useState<
     "header" | "main" | "footer"
-  >("header");
+  >("main");
 
   const isStoppedScrolling = useWheelStopListener();
 
@@ -75,62 +72,73 @@ const HomePage: NextPage = () => {
           "Discover ToodyIT, a leading web solutions provider specializing in tailored websites to meet your unique needs. Our expert team delivers innovative designs, seamless development, and strategic solutions for your online success."
         )}
       />
-      <motion.div
-        initial={{ scale: 5 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 5 }}
-        key="homepage"
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 20,
-        }}
-      >
-        <div className="bg-neutral-900 w-full h-screen flex flex-col overflow-hidden relative">
-          {activeSection === "header" && <HomepageHeaderMenu key="header" />}
-          <Overlay
-            isOpen={activeSection !== "main"}
-            onClose={() => setActiveSection("main")}
-            key="overlay"
-          />
-          <div className="mx-auto px-32 h-full flex flex-col">
-            <HomepageHeader />
-            <motion.div
-              key="main"
-              initial={{ y: 0 }}
-              animate={{
-                y:
-                  (activeSection === "header" && 208) ||
-                  (activeSection === "footer" && -208) ||
-                  (activeSection === "main" && 0),
+      <div className="bg-neutral-900 w-full h-screen flex flex-col relative">
+        {activeSection === "header" && <HomepageHeaderMenu key="header" />}
+        <Overlay
+          isOpen={activeSection !== "main"}
+          onClose={() => setActiveSection("main")}
+          key="overlay"
+        />
+        <div className="mx-auto flex flex-col h-full w-full">
+          <HomepageHeader />
+          <motion.div
+            key="main"
+            initial={{ y: 0 }}
+            animate={{
+              y:
+                (activeSection === "header" && 208) ||
+                (activeSection === "footer" && -208) ||
+                (activeSection === "main" && 0),
+            }}
+            className="flex flex-col h-full w-full"
+          >
+            {/* <motion.span
+                  initial={{ x: "0", y: "-15%" }}
+                  animate={{ x: "-210%", y: "-15%" }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 7,
+                    ease: "linear",
+                  }}
+                  className="absolute top-1/2 text-[170px] whitespace-nowrap w-screen"
+                >
+                  WE ARE HELPING TO GROW BUSINESS
+                </motion.span>
+                <motion.span
+                  initial={{ x: "210%", y: "-15%" }}
+                  animate={{ x: "0", y: "-15%" }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 7,
+                    ease: "linear",
+                  }}
+                  className="absolute top-1/2 text-[170px] whitespace-nowrap w-screen"
+                >
+                  WE ARE HELPING TO GROW BUSINESS
+                </motion.span> */}
+            <Link
+              href={{
+                pathname: "/services",
+                query: {
+                  order: 1,
+                },
               }}
-              className="h-full flex flex-col"
+              className="flex flex-col flex-center h-full w-full"
             >
-              <Link
-                href={{
-                  pathname: "/services",
-                  query: {
-                    order: 1,
-                  },
-                }}
-                className="h-full flex flex-col"
-              >
-                <canvas
-                  ref={circleModelRef}
-                  className="w-full h-full relative"
-                  id="ring"
-                />
-              </Link>
-              <Pagination
-                items={PAGINATION_ITEMS}
-                setActiveState={setActiveSection}
-                activeState={activeSection}
-              />
-            </motion.div>
-          </div>
-          {activeSection === "footer" && <Footer key="footer" />}
+              {/* <canvas
+                  ref={canvasElementRef}
+                  className="portrait:w-[calc(100vw-180px)] landscape:h-[calc(100vh-200px)] aspect-square relative max-w-7xl"
+                /> */}
+            </Link>
+            <Pagination
+              items={PAGINATION_ITEMS}
+              setActiveState={setActiveSection}
+              activeState={activeSection}
+            />
+          </motion.div>
         </div>
-      </motion.div>
+        {activeSection === "footer" && <Footer key="footer" />}
+      </div>
     </>
   );
 };

@@ -1,5 +1,4 @@
-import { FC, ReactNode, useRef } from "react";
-import useModel from "../../hooks/useModel";
+import { FC, ReactNode } from "react";
 import { Navigation } from "../Navigation/Navigation";
 import { Meta } from "../Meta/Meta";
 
@@ -14,9 +13,6 @@ const LayoutMain: FC<LayoutMainProps> = ({
   metaTitle,
   metaDescription,
 }) => {
-  const circleModelRef = useRef<HTMLCanvasElement>(null);
-  useModel(circleModelRef, { x: 2, y: 0, z: 7 });
-
   return (
     <>
       <Meta metaTitle={metaTitle} metaDescription={metaDescription} />
@@ -39,11 +35,11 @@ const LayoutMain: FC<LayoutMainProps> = ({
           damping: 20,
         }}
       > */}
-        <canvas
-          ref={circleModelRef}
-          className="w-full h-full top-0 absolute !bg-transparent pointer-events-none"
-          id="ring"
-        />
+        {/* <canvas
+        ref={canvasElementRef}
+        className="w-full h-full top-0 absolute !bg-transparent pointer-events-none"
+        id="ring"
+      /> */}
         {/* </motion.div> */}
       </div>
     </>

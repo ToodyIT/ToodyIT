@@ -1,5 +1,6 @@
 import {
   AmbientLight,
+  Group,
   Mesh,
   MeshStandardMaterial,
   PerspectiveCamera,
@@ -22,7 +23,6 @@ const generateRingModel = (
   dimensionValues: DimensionValues
 ) => {
   const scene = new Scene();
-
   const camera = new PerspectiveCamera(
     60,
     circleModelWrapper.offsetWidth / circleModelWrapper.offsetHeight,
@@ -59,7 +59,10 @@ const generateRingModel = (
   scene.background = null;
   renderer.setClearColor(0x000000, 0);
 
-  return { ring, scene, renderer, camera };
+  const cameraGroup = new Group();
+  cameraGroup.add(camera);
+  scene.add(cameraGroup);
+  return { ring, scene, renderer, camera, cameraGroup };
 };
 
 export default generateRingModel;
