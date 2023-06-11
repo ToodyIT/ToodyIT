@@ -53,9 +53,9 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <SlideAnimationLayout ref={ref}>
       <div className="flex flex-col gap-7 -mr-5">
-        <h2 className="text-white font-bold text-3xl flex text-center">
+        <h1 className="text-white font-bold text-3xl flex text-center">
           {t("RECENT WORK")}
-        </h2>
+        </h1>
         <div
           className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
           ref={emblaRef}
@@ -77,12 +77,12 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
                   {work.name}
                 </div>
                 <div className="flex flex-col px-6 pb-6 gap-7 h-full">
-                  <span className="font-bold">{work.title}</span>
-                  <span>{work.description}</span>
+                  <h2 className="font-bold">{work.title}</h2>
+                  <p>{work.description}</p>
                   <div className="bg-primary mt-auto w-full h-[1px]" />
                   <div className="flex flex-col">
-                    <span className="font-bold">{work.customer}</span>
-                    <span>{work.date}</span>
+                    <address className="font-bold">{work.customer}</address>
+                    <time>{work.date}</time>
                   </div>
                 </div>
               </div>

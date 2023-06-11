@@ -47,9 +47,9 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <SlideAnimationLayout ref={ref}>
       <div className="flex flex-col gap-7 -mr-5">
-        <h2 className="text-white font-bold text-3xl flex text-center">
+        <h1 className="text-white font-bold text-3xl flex text-center">
           {t("OUR TEAM")}
-        </h2>
+        </h1>
         <div
           className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
           ref={emblaRef}
@@ -72,7 +72,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <span className="text-primary">{team.name}</span>
+                    <h2 className="text-primary">{team.name}</h2>
                     <span>{team.position}</span>
                   </div>
                 </div>

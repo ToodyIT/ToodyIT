@@ -78,9 +78,9 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <SlideAnimationLayout ref={ref}>
       <div className="flex flex-col gap-7">
-        <h2 className="text-white text-3xl flex font-bold text-center">
+        <h1 className="text-white text-3xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}
-        </h2>
+        </h1>
         <div className="flex flex-col gap-4 w-full lg:h-screen">
           {services.map((service) => (
             <div className="flex flex-col items-end max-w-3xl" key={service.id}>
@@ -92,7 +92,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
                 onClick={() => toggleOpenedServiceId(service.id)}
               >
                 <div className="p-5 flex justify-between w-full">
-                  <div className="text-white text-xl">{service.title}</div>
+                  <h2 className="text-white text-xl">{service.title}</h2>
                   <Image
                     src="/img/Arrow.svg"
                     alt="arrow"
@@ -125,7 +125,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
                   "max-w-[90%] bg-neutral-600 mr-4 rounded-b-2xl overflow-hidden"
                 )}
               >
-                <span className="block m-4 mt-2">{service.description}</span>
+                <p className="block m-4 mt-2">{service.description}</p>
               </motion.div>
             </div>
           ))}
