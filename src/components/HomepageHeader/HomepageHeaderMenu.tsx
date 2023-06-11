@@ -7,7 +7,7 @@ import { LocaleToggler } from "../LocaleToggler/LocaleToggler";
 import { NAVIGATION_ITEMS } from "../Navigation/Navigation";
 
 const headerLinkTwClass =
-  "border-primary border-[3px] lg:w-[200px] block rounded-lg py-0.5 text-xl text-center";
+  "border-primary border-[3px] lg:w-[200px] block rounded-lg py-0.5 text-xl text-center bg-gray hover:bg-primary active:scale-[0.9] transition duration-300 ease-in-out ";
 
 const HomepageHeaderMenu: FC = () => {
   const { t } = useTranslation();

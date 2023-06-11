@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 type HeaderProps = {
   isMobileMenuOpen: boolean;
@@ -15,7 +16,9 @@ export const Header: FC<HeaderProps> = ({
 }) => {
   return (
     <div className="flex justify-between w-full items-center relative z-20 lg:hidden bg-neutral-900 px-5 py-4">
-      <Image src="/img/toodyit-logo.png" alt="logo" width="80" height="50" />
+      <Link href="/">
+        <Image src="/img/toodyit-logo.png" alt="logo" width="80" height="50" />
+      </Link>
       <div
         className="w-10 h-8 flex flex-col justify-between items-end"
         onClick={() => setIsMobileMenuOpen((prev) => !prev)}

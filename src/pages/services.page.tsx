@@ -80,7 +80,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
       ref={ref}
       metaTitle={t("Services")}
       metaDescription={t(
-        "Experience seamless website development from start to finish. Our services include requirements discussion, design creation, content filling, site development, analytics integration, thorough testing, and a successful site release. Trust us for professional and efficient website development."
+        "Website development from start to finish. Our services include a website for a salon, a business card website, a website for a cafe, a cheap website. Trust us with professional and efficient website development."
       )}
     >
       <div className="flex flex-col gap-7">

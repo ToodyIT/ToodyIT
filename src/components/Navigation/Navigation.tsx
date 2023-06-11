@@ -82,7 +82,10 @@ export const Navigation: FC = () => {
           }}
         >
           <Link href="/" className="w-full lg:w-auto">
-            <Icon icon="Arrow" className="w-5 h-7 text-primary rotate-90"  />
+            <Icon
+              icon="Arrow"
+              className="w-5 h-7 hidden lg:block text-primary rotate-90"
+            />
             <span className="block w-full py-2 text-xl text-center lg:hidden">
               {t("Home")}
             </span>
