@@ -3,7 +3,9 @@ module.exports = {
     defaultNamespace: 'common',
     indentation: 4,
     keepRemoved: false,
-    useKeysAsDefaultValue: (locale) => locale === 'en',
+    defaultValue: function (locale, namespace, key, value) {
+        return key;
+    },
     lexers: {
         jsx: [
             {
