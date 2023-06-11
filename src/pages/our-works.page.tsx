@@ -44,7 +44,7 @@ const getOurWorks = (t: TFunction) => {
     },
   ];
 };
-const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
+const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
   const [emblaRef] = useEmblaCarousel({ align: "start" });
   const { t } = useTranslation();
   const ourWorks = getOurWorks(t);
@@ -52,12 +52,14 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <SlideAnimationLayout
       ref={ref}
-      metaTitle={t("Our Work")}
-      metaDescription={t("")}
+      metaTitle={t("Our Works")}
+      metaDescription={t(
+        "Discover our impressive portfolio of completed website projects. Explore a diverse range of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online experiences. Browse through our works and witness the quality and innovation we bring to every website we create."
+      )}
     >
       <div className="flex flex-col gap-7 -mr-5">
         <h1 className="text-white font-bold text-3xl flex text-center">
-          {t("RECENT WORK")}
+          {t("RECENT WORKS")}
         </h1>
         <div
           className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
@@ -97,4 +99,4 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
   );
 });
 
-export default OurWorkPage;
+export default OurWorksPage;

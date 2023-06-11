@@ -65,7 +65,14 @@ const HomePage: NextPage = () => {
 
   return (
     <>
-      <Meta metaTitle="" metaDescription="" />
+      <Meta
+        metaTitle={t(
+          "Welcome to ToodyIT - Your Destination for Exceptional Web Solutions"
+        )}
+        metaDescription={t(
+          "Discover ToodyIT, where we specialize in creating exceptional websites tailored to meet your unique needs. Our team of experts delivers innovative designs, seamless development, and strategic digital solutions to help your business thrive online. Explore our services and let us take your online presence to new heights."
+        )}
+      />
       <motion.div
         initial={{ scale: 5 }}
         animate={{ scale: 1 }}

@@ -17,8 +17,8 @@ export const NAVIGATION_ITEMS = [
     order: 1,
   },
   {
-    title: "Our Work",
-    link: "/our-work",
+    title: "Our Works",
+    link: "/our-works",
     order: 2,
   },
   {

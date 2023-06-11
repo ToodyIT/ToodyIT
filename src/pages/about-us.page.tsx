@@ -9,7 +9,9 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
     <SlideAnimationLayout
       ref={ref}
       metaTitle={t("About Us")}
-      metaDescription={t("")}
+      metaDescription={t(
+        "Learn about our company and our mission to provide exceptional web solutions. Discover our goal of delivering innovative and tailored websites that meet the unique needs of our clients. With our expertise and dedication, we aim to exceed expectations and establish long-lasting partnerships."
+      )}
     >
       <div className="flex flex-col gap-6 lg:gap-10">
         <h1 className="text-white font-bold text-4xl flex text-center">

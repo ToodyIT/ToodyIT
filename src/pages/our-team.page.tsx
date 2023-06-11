@@ -48,7 +48,9 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
     <SlideAnimationLayout
       ref={ref}
       metaTitle={t("Our Team")}
-      metaDescription={t("")}
+      metaDescription={t(
+        "Meet our talented and dedicated team of professionals. Discover the expertise and passion that drives us to create exceptional websites. Learn about our diverse skills and experience, as well as our collaborative approach to delivering high-quality web solutions. Get to know the individuals behind our success."
+      )}
     >
       <div className="flex flex-col gap-7 -mr-5">
         <h1 className="text-white font-bold text-3xl flex text-center">

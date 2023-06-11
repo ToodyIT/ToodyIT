@@ -22,7 +22,7 @@ const SlideAnimationLayout = forwardRef<
         ref={ref}
         animate={{ y: 0 }}
         exit={{ y: router.query.direction === "top" ? "100%" : "-100%" }}
-        key="our-work"
+        key="our-works"
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className="w-full"
       >
