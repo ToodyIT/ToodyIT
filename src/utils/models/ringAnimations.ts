@@ -6,7 +6,8 @@ export const ringZoomAnimation = (
   destinationOfRedirect: string,
   previousRouter: NextRouter,
   camera: PerspectiveCamera,
-  animationId: number
+  animationId: number,
+  zoom: number
 ) => {
   if (destinationOfRedirect === "/") {
     if (camera.position.z < 30) {
@@ -17,7 +18,7 @@ export const ringZoomAnimation = (
       camera.position.x -= 0.05;
     }
   } else {
-    if (camera.position.z > 7) {
+    if (camera.position.z > zoom) {
       camera.position.z -= 0.2;
     }
 
@@ -25,14 +26,13 @@ export const ringZoomAnimation = (
       camera.position.x += 0.05;
     }
   }
-  //   console.log(camera.position.z)
 
   if (destinationOfRedirect === "/") {
     if (camera.position.z >= 30 && camera.position.x <= 0) {
       cancelAnimationFrame(animationId);
     }
   } else {
-    if (camera.position.z <= 7 && camera.position.x >= 2) {
+    if (camera.position.z <= zoom && camera.position.x >= 2) {
       cancelAnimationFrame(animationId);
     }
   }

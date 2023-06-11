@@ -1,3 +1,4 @@
+import { NextRouter } from "next/router";
 import {
   AmbientLight,
   Group,
@@ -19,13 +20,26 @@ export type DimensionValues = {
 };
 
 const generateRingModel = (
-  circleModelWrapper: HTMLElement,
-  dimensionValues: DimensionValues
+  canvasElementRef: HTMLElement,
+  dimensionValues: DimensionValues,
+  router: NextRouter
 ) => {
   const scene = new Scene();
+  const windowWidth = window.innerWidth;
+  const fovMin = 120; // Minimum FOV value
+  const fovMax = 60; // Maximum FOV value
+  const windowWidthMin = 360; // Minimum window width
+  const windowWidthMax = 2000; // Maximum window width
+
+  // Calculate the interpolated FOV value
+  const fov =
+    fovMin +
+    ((windowWidth - windowWidthMin) / (windowWidthMax - windowWidthMin)) *
+      (fovMax - fovMin);
+
   const camera = new PerspectiveCamera(
-    60,
-    circleModelWrapper.offsetWidth / circleModelWrapper.offsetHeight,
+    fov,
+    canvasElementRef.offsetWidth / canvasElementRef.offsetHeight,
     0.5,
     1000
   );
@@ -34,15 +48,12 @@ const generateRingModel = (
   camera.position.setZ(dimensionValues.z);
 
   const renderer = new WebGLRenderer({
-    canvas: circleModelWrapper,
+    canvas: canvasElementRef,
     alpha: true,
   });
 
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(
-    circleModelWrapper.offsetWidth,
-    circleModelWrapper.offsetHeight
-  );
+  renderer.setSize(canvasElementRef.offsetWidth, canvasElementRef.offsetHeight);
 
   const geometry = new TorusGeometry(12.2, 4.4, 16, 100);
   const material = new MeshStandardMaterial({
@@ -62,6 +73,7 @@ const generateRingModel = (
   const cameraGroup = new Group();
   cameraGroup.add(camera);
   scene.add(cameraGroup);
+
   return { ring, scene, renderer, camera, cameraGroup };
 };
 

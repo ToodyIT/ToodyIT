@@ -19,7 +19,8 @@ const useModel = (
     if (!isServer()) {
       return generateRingModel(
         document.querySelector("#ring")!,
-        dimensionValues
+        dimensionValues,
+        router
       );
     }
 
@@ -61,7 +62,8 @@ const useModel = (
           destinationOfRedirect,
           previousRouter,
           camera,
-          animationId
+          animationId,
+          dimensionValues.z
         );
       } else {
         ringRotateAnimation(cameraGroup, animationId, router, previousRouter);
