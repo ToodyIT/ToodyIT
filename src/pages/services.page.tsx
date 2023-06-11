@@ -99,7 +99,13 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
               >
                 <div className="p-5 flex justify-between w-full">
                   <h2 className="text-white text-xl">{service.title}</h2>
-                  <Icon icon="Arrow" className="w-5 h-7 text-primary" />
+                  <Icon
+                    icon="Arrow"
+                    className={twJoin(
+                      "w-5 h-7 text-primary transition",
+                      openedServiceId === service.id ? "rotate-180" : "rotate-0"
+                    )}
+                  />
                 </div>
               </div>
               <motion.div
