@@ -58,9 +58,9 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
           ref={emblaRef}
         >
-          <div className="flex gap-7 lg:gap-14 h-full">
+          <ul className="flex gap-7 lg:gap-14 h-full">
             {ourTeam.map((team) => (
-              <div
+              <li
                 className="h-auto lg:flex-none flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
                 key={team.name}
               >
@@ -80,9 +80,9 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
                     <span>{team.position}</span>
                   </div>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </SlideAnimationLayout>

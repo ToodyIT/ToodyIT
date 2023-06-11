@@ -85,9 +85,9 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
         <h1 className="text-white text-3xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}
         </h1>
-        <div className="flex flex-col gap-4 w-full lg:h-screen">
+        <ul className="flex flex-col gap-4 w-full lg:h-screen">
           {services.map((service) => (
-            <div className="flex flex-col items-end max-w-3xl" key={service.id}>
+            <li className="flex flex-col items-end max-w-3xl" key={service.id}>
               <div
                 className={twJoin(
                   "bg-neutral-800 flex items-center gap-4 w-full rounded-xl max-h-20 overflow-hidden cursor-pointer",
@@ -131,9 +131,9 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
               >
                 <p className="block m-4 mt-2">{service.description}</p>
               </motion.div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </SlideAnimationLayout>
   );

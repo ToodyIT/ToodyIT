@@ -67,7 +67,7 @@ export const Navigation: FC<NavigationProps> = ({}) => {
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
       <div className="relative lg:flex items-center pt-3 h-full">
-        <motion.div
+        <motion.nav
           className={twJoin(
             "flex-col z-20 rounded-3xl items-center justify-between my-auto lg:w-fit w-11/12 flex absolute bg-neutral-700 left-1/2 -translate-x-1/2 h-fit py-4",
             "lg:bg-transparent lg:left-0 lg:translate-x-0 lg:h-full lg:justify-center lg:gap-6 vl:gap-10 lg:p-0 lg:static lg:![clip-path:none]"
@@ -112,7 +112,7 @@ export const Navigation: FC<NavigationProps> = ({}) => {
               {section.title}
             </Link>
           ))}
-        </motion.div>
+        </motion.nav>
       </div>
       <Overlay
         isOpen={isMobileMenuOpen}
