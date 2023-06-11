@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 import { forwardRef, useMemo, useState } from "react";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
+import { SocialMedia } from "../components/SocialMedia/SocialMedia";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
@@ -192,6 +193,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
             {t("Send message")}
           </Button>
         </form>
+        <SocialMedia withText={false} className="justify-center mt-2" />
       </div>
     </SlideAnimationLayout>
   );
