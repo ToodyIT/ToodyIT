@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 import { useEffect, useRef, useState } from "react";
 import Footer from "../components/Footer/Footer";
@@ -75,50 +75,48 @@ const HomePage: NextPage = () => {
       }}
     >
       <div className="bg-neutral-900 w-full h-screen flex flex-col overflow-hidden relative">
-        <AnimatePresence>
-          {activeSection === "header" && <HomepageHeaderMenu key="header" />}
-          <Overlay
-            isOpen={activeSection !== "main"}
-            onClose={() => setActiveSection("main")}
-            key="overlay"
-          />
-          <div className="mx-auto px-32 h-full flex flex-col">
-            <HomepageHeader />
-            <motion.div
-              key="main"
-              initial={{ y: 0 }}
-              animate={{
-                y:
-                  (activeSection === "header" && 208) ||
-                  (activeSection === "footer" && -208) ||
-                  (activeSection === "main" && 0),
+        {activeSection === "header" && <HomepageHeaderMenu key="header" />}
+        <Overlay
+          isOpen={activeSection !== "main"}
+          onClose={() => setActiveSection("main")}
+          key="overlay"
+        />
+        <div className="mx-auto px-32 h-full flex flex-col">
+          <HomepageHeader />
+          <motion.div
+            key="main"
+            initial={{ y: 0 }}
+            animate={{
+              y:
+                (activeSection === "header" && 208) ||
+                (activeSection === "footer" && -208) ||
+                (activeSection === "main" && 0),
+            }}
+            className="h-full flex flex-col"
+          >
+            <Link
+              href={{
+                pathname: "/services",
+                query: {
+                  order: 1,
+                },
               }}
               className="h-full flex flex-col"
             >
-              <Link
-                href={{
-                  pathname: "/services",
-                  query: {
-                    order: 1,
-                  },
-                }}
-                className="h-full flex flex-col"
-              >
-                <canvas
-                  ref={circleModelRef}
-                  className="w-full h-full relative"
-                  id="ring"
-                />
-              </Link>
-              <Pagination
-                items={PAGINATION_ITEMS}
-                setActiveState={setActiveSection}
-                activeState={activeSection}
+              <canvas
+                ref={circleModelRef}
+                className="w-full h-full relative"
+                id="ring"
               />
-            </motion.div>
-          </div>
-          {activeSection === "footer" && <Footer key="footer" />}
-        </AnimatePresence>
+            </Link>
+            <Pagination
+              items={PAGINATION_ITEMS}
+              setActiveState={setActiveSection}
+              activeState={activeSection}
+            />
+          </motion.div>
+        </div>
+        {activeSection === "footer" && <Footer key="footer" />}
       </div>
     </motion.div>
   );
