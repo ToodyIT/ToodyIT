@@ -12,6 +12,7 @@ import useWheelStopListener from "../hooks/useWheelStopListener";
 import Link from "next/link";
 import { Meta } from "../components/Meta/Meta";
 import { useTranslation } from "react-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const PAGINATION_ITEMS: Array<PaginationItemProps> = [
   {
@@ -72,7 +73,7 @@ const HomePage: NextPage = () => {
           "Discover ToodyIT, a leading web solutions provider specializing in tailored websites to meet your unique needs. Our expert team delivers innovative designs, seamless development, and strategic solutions for your online success."
         )}
       />
-      <div className="bg-neutral-900 w-full h-screen flex flex-col relative">
+      <div className="bg-neutral-900 w-full h-screen overflow-hidden flex flex-col relative">
         {activeSection === "header" && <HomepageHeaderMenu key="header" />}
         <Overlay
           isOpen={activeSection !== "main"}
@@ -86,11 +87,10 @@ const HomePage: NextPage = () => {
             initial={{ y: 0 }}
             animate={{
               y:
-                (activeSection === "header" && 208) ||
-                (activeSection === "footer" && -208) ||
-                (activeSection === "main" && 0),
+                (activeSection === "footer" && -300) ||
+                ((activeSection === "main" || activeSection === "header") && 0),
             }}
-            className="flex flex-col h-full w-full"
+            className="flex flex-col h-full w-full z-20"
           >
             {/* <motion.span
                   initial={{ x: "0", y: "-15%" }}
@@ -141,6 +141,14 @@ const HomePage: NextPage = () => {
       </div>
     </>
   );
+};
+
+export const getStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
 };
 
 export default HomePage;
