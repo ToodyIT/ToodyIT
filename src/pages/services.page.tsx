@@ -85,23 +85,23 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <div className="flex flex-col gap-7">
-        <h1 className="text-white text-3xl flex font-bold text-center">
+        <h1 className="text-white text-xl lg:text-3xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}
         </h1>
-        <ul className="flex flex-col gap-4 w-full lg:h-screen">
+        <ul className="flex flex-col gap-4 w-full h-screen">
           {services.map((service) => (
             <li className="flex flex-col items-end max-w-3xl" key={service.id}>
               <div
                 className={twJoin(
-                  "bg-neutral-800 flex items-center gap-4 w-full rounded-xl max-h-20 overflow-hidden cursor-pointer",
-                  "before:content-[''] before:h-full before:w-4 before:bg-red-300 before:bg-gradient-to-b before:from-neutral-800 before:to-primary"
+                  "bg-neutral-800 flex items-center w-full rounded-xl max-h-20 overflow-hidden cursor-pointer",
+                  "before:content-[''] before:h-full before:w-4 before:bg-gradient-to-b before:from-neutral-800 before:to-primary"
                 )}
                 onClick={() => toggleOpenedServiceId(service.id)}
               >
                 <div className="p-5 flex justify-between w-full">
                   <h2 className="text-white text-xl">{service.title}</h2>
                   <Image
-                    src="/img/Arrow.svg"
+                    src="/img/arrow.svg"
                     alt="arrow"
                     width="20"
                     height="20"

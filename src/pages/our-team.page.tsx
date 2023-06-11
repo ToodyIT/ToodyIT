@@ -20,16 +20,16 @@ const getOurTeam = (t: TFunction) => {
       alt: t("Ivan Hodynchuk"),
     },
     {
-      imagePath: "natalie-lisenko.png",
+      imagePath: "natalie-lysenko.png",
       name: t("NATALIE LISENKO"),
       position: t("DESIGNER"),
-      alt: t("Natalie Lisenko"),
+      alt: t("Natalie Lysenko"),
     },
     {
-      imagePath: "andriy-kosarev.png",
+      imagePath: "andriy-kosarko.png",
       name: t("ANDRIY KOSAREV"),
       position: t("TRANSLATOR"),
-      alt: t("Andriy Kosarev"),
+      alt: t("Andriy Kosarko"),
     },
     {
       imagePath: "jakub-dvoracek.png",

@@ -18,11 +18,11 @@ const LayoutMain: FC<LayoutMainProps> = ({
       <Meta metaTitle={metaTitle} metaDescription={metaDescription} />
       <div className="w-full">
         <div
-          className="bg-neutral-900 w-full lg:h-screen flex flex-col lg:flex-row lg:overflow-hidden relative gap-4 lg:gap-16 lg:py-10 px-5 pb-4"
+          className="bg-neutral-900 w-full lg:h-screen flex flex-col lg:flex-row lg:overflow-hidden relative gap-4 lg:gap-10 lg:py-10 pb-4"
           id="innerElement"
         >
           <Navigation />
-          {children}
+          <div className="px-5">{children}</div>
         </div>
         {/* <motion.div
         initial={{ rotate: 180 }}

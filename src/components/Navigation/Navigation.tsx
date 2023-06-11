@@ -5,8 +5,8 @@ import { twJoin } from "tailwind-merge";
 import { Header } from "../Header/Header";
 import { motion } from "framer-motion";
 import Overlay from "../Overlay/Overlay";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { Icon } from "../Icons/Icon";
 
 export const NAVIGATION_ITEMS = [
   {
@@ -64,7 +64,7 @@ export const Navigation: FC = () => {
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
-      <div className="relative lg:flex items-center pt-3 h-full">
+      <div className="relative lg:flex items-center pl-5 pt-3 h-full">
         <motion.nav
           className={twJoin(
             "flex-col z-20 rounded-3xl items-center justify-between my-auto lg:w-fit w-11/12 flex absolute bg-neutral-700 left-1/2 -translate-x-1/2 h-fit py-4",
@@ -82,13 +82,7 @@ export const Navigation: FC = () => {
           }}
         >
           <Link href="/" className="w-full lg:w-auto">
-            <Image
-              src="/img/arrow.svg"
-              alt="arrow"
-              width="20"
-              height="20"
-              className="hidden lg:block rotate-90"
-            />
+            <Icon icon="Arrow" className="w-5 h-7 text-primary rotate-90"  />
             <span className="block w-full py-2 text-xl text-center lg:hidden">
               {t("Home")}
             </span>

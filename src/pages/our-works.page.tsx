@@ -4,7 +4,6 @@ import Image from "next/image";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const getOurWorks = (t: TFunction) => {
   return [
@@ -62,38 +61,40 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         <h1 className="text-white font-bold text-3xl flex text-center">
           {t("RECENT WORKS")}
         </h1>
-        <div
-          className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
-          ref={emblaRef}
-        >
-          <ul className="flex gap-7 lg:gap-14 h-full">
-            {ourWorks.map((work) => (
-              <li
-                className="h-auto max-w-[382px] flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
-                key={work.title}
-              >
-                <Image
-                  src={`/img/our-works/${work.imagePath}`}
-                  alt={work.alt}
-                  width="382"
-                  height="215"
-                  className="rounded-t-3xl"
-                />
-                <div className="bg-primary w-36 h-9 flex rounded-3xl py-0.5 -translate-y-1/2 ml-9 justify-center">
-                  {work.name}
-                </div>
-                <div className="flex flex-col px-6 pb-6 gap-7 h-full">
-                  <h2 className="font-bold">{work.title}</h2>
-                  <p>{work.description}</p>
-                  <div className="bg-primary mt-auto w-full h-[1px]" />
-                  <div className="flex flex-col">
-                    <address className="font-bold">{work.customer}</address>
-                    <time>{work.date}</time>
+        <div className="flex h-full flex-center">
+          <div
+            className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
+            ref={emblaRef}
+          >
+            <ul className="flex gap-7 lg:gap-14 h-full">
+              {ourWorks.map((work) => (
+                <li
+                  className="h-auto max-w-[382px] flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
+                  key={work.title}
+                >
+                  <Image
+                    src={`/img/our-works/${work.imagePath}`}
+                    alt={work.alt}
+                    width="382"
+                    height="215"
+                    className="rounded-t-3xl"
+                  />
+                  <div className="bg-primary w-36 h-9 flex rounded-3xl py-0.5 -translate-y-1/2 ml-9 justify-center">
+                    {work.name}
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                  <div className="flex flex-col px-6 pb-6 gap-7 h-full">
+                    <h2 className="font-bold">{work.title}</h2>
+                    <p>{work.description}</p>
+                    <div className="bg-primary mt-auto w-full h-[1px]" />
+                    <div className="flex flex-col">
+                      <address className="font-bold">{work.customer}</address>
+                      <time>{work.date}</time>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </SlideAnimationLayout>
