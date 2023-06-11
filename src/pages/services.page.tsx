@@ -76,7 +76,11 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
   };
 
   return (
-    <SlideAnimationLayout ref={ref}>
+    <SlideAnimationLayout
+      ref={ref}
+      metaTitle={t("Services")}
+      metaDescription={t("")}
+    >
       <div className="flex flex-col gap-7">
         <h1 className="text-white text-3xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}

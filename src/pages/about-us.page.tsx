@@ -6,14 +6,18 @@ import { useTranslation } from "react-i18next";
 const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
   return (
-    <SlideAnimationLayout ref={ref}>
+    <SlideAnimationLayout
+      ref={ref}
+      metaTitle={t("About Us")}
+      metaDescription={t("")}
+    >
       <div className="flex flex-col gap-6 lg:gap-10">
         <h1 className="text-white font-bold text-4xl flex text-center">
-        {t("ABOUT US")}
+          {t("ABOUT US")}
         </h1>
         <div className="flex flex-col gap-8 lg:gap-14 max-w-[800px] relative">
           <div className="flex flex-col text-white gap-3 lg:pl-10">
-          <h2 className="font-bold text-3xl">{t("Our mission")}</h2>
+            <h2 className="font-bold text-3xl">{t("Our mission")}</h2>
             <p className="text-base lg:text-base">
               {t(
                 "Our mission as a custom website development company is to provide high-quality web solutions that help our clients bring their ideas to life and achieve success in the online space. We strive to create unique, intuitive, and functional websites that are not only visually appealing but also effectively serve the goals of our clients."
@@ -38,9 +42,9 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
             height="402"
           />
           <div className="flex flex-col text-white gap-3 lg:pl-10">
-          <h2 className="font-bold text-3xl">{t("Our goal")}</h2>
+            <h2 className="font-bold text-3xl">{t("Our goal")}</h2>
             <p className="text-base relative">
-            {t(
+              {t(
                 "Our goal is not only to create a website but also to help our clients succeed in the online world. We offer tailored solutions that meet the needs of each client and provide support and maintenance after the project's launch."
               )}
               <br />

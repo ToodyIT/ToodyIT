@@ -45,7 +45,11 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
   const ourTeam = getOurTeam(t);
 
   return (
-    <SlideAnimationLayout ref={ref}>
+    <SlideAnimationLayout
+      ref={ref}
+      metaTitle={t("Our Team")}
+      metaDescription={t("")}
+    >
       <div className="flex flex-col gap-7 -mr-5">
         <h1 className="text-white font-bold text-3xl flex text-center">
           {t("OUR TEAM")}

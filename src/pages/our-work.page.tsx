@@ -5,7 +5,6 @@ import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "next-i18next";
 
-
 const getOurWorks = (t: TFunction) => {
   return [
     {
@@ -51,7 +50,11 @@ const OurWorkPage = forwardRef<HTMLDivElement>((_, ref) => {
   const ourWorks = getOurWorks(t);
 
   return (
-    <SlideAnimationLayout ref={ref}>
+    <SlideAnimationLayout
+      ref={ref}
+      metaTitle={t("Our Work")}
+      metaDescription={t("")}
+    >
       <div className="flex flex-col gap-7 -mr-5">
         <h1 className="text-white font-bold text-3xl flex text-center">
           {t("RECENT WORK")}

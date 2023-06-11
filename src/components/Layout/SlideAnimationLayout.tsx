@@ -5,16 +5,18 @@ import LayoutMain from "./LayoutMain";
 
 interface SlideAnimationLayoutProps {
   children: ReactNode;
+  metaTitle: string;
+  metaDescription: string;
 }
 
 const SlideAnimationLayout = forwardRef<
   HTMLDivElement,
   SlideAnimationLayoutProps
->(({ children }, ref) => {
+>(({ children, metaTitle, metaDescription }, ref) => {
   const router = useRouter();
 
   return (
-    <LayoutMain>
+    <LayoutMain metaTitle={metaTitle} metaDescription={metaDescription}>
       <motion.div
         initial={{ y: router.query.direction === "top" ? "-100%" : "100%" }}
         ref={ref}

@@ -107,7 +107,11 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
   };
 
   return (
-    <SlideAnimationLayout ref={ref}>
+    <SlideAnimationLayout
+      ref={ref}
+      metaTitle={t("Contacts")}
+      metaDescription={t("")}
+    >
       <div className="flex flex-col gap-4 vl:gap-8 xl:gap-14 w-full">
         <h1 className="text-white text-3xl flex text-center lg:pt-8">
           {t("Contacts")}
