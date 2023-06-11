@@ -72,7 +72,7 @@ const HomePage: NextPage = () => {
           "Welcome to ToodyIT - Your Destination for Exceptional Web Solutions"
         )}
         metaDescription={t(
-          "Discover ToodyIT, where we specialize in creating exceptional websites tailored to meet your unique needs. Our team of experts delivers innovative designs, seamless development, and strategic digital solutions to help your business thrive online. Explore our services and let us take your online presence to new heights."
+          "Discover ToodyIT, a leading web solutions provider specializing in tailored websites to meet your unique needs. Our expert team delivers innovative designs, seamless development, and strategic solutions for your online success."
         )}
       />
       <motion.div
