@@ -4,6 +4,7 @@ import Image from "next/image";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const getOurWorks = (t: TFunction) => {
   return [

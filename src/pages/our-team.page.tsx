@@ -91,4 +91,13 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
   );
 });
 
+
+// export const getStaticProps = async ({ locale }) => {
+//   return {
+//     props: {
+//       ...(await serverSideTranslations(locale, ["common"])),
+//     },
+//   };
+// };
+
 export default OurTeamPage;

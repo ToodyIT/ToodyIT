@@ -4,6 +4,7 @@ import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { twJoin } from "tailwind-merge";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { TFunction } from "next-i18next";
 
 const getServices = (t: TFunction) => {
@@ -140,13 +141,5 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
     </SlideAnimationLayout>
   );
 });
-
-// export const getStaticProps = async ({ locale }) => {
-//   return {
-//     props: {
-//       ...(await serverSideTranslations(locale, ["common"])),
-//     },
-//   };
-// };
 
 export default ServicesPage;
