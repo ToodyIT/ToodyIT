@@ -13,22 +13,22 @@ const getOurTeam = (t: TFunction) => {
       position: t("PROJECT MANAGER"),
     },
     {
-      imagePath: "vasyl-polyanskyy.png",
+      imagePath: "ivan-hodynchuk.png",
       name: t("IVAN HODYNCHUK"),
       position: t("DEVELOPER"),
     },
     {
-      imagePath: "vasyl-polyanskyy.png",
-      name: t("RADIM NOVOTNÝ"),
-      position: t("TRANSLATOR"),
-    },
-    {
-      imagePath: "vasyl-polyanskyy.png",
-      name: t("ANDRIY KOSAREV"),
+      imagePath: "natalie-lisenko.png",
+      name: t("NATALIE LISENKO"),
       position: t("DESIGNER"),
     },
     {
-      imagePath: "vasyl-polyanskyy.png",
+      imagePath: "andriy-kosarev.png",
+      name: t("ANDRIY KOSAREV"),
+      position: t("TRANSLATOR"),
+    },
+    {
+      imagePath: "jakub-dvoracek.png",
       name: t("JAKUB DVOŘÁČEK"),
       position: t("DEVELOPER"),
     },
@@ -61,7 +61,8 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
                       src={`/img/our-team/${team.imagePath}`}
                       alt="image"
                       fill
-                      className="rounded-t-3xl"
+                      quality={100}
+                      className="rounded-3xl"
                     />
                   </div>
 
