@@ -8,31 +8,31 @@ import { TFunction } from "next-i18next";
 const getOurTeam = (t: TFunction) => {
   return [
     {
-      imagePath: "vasyl-polyanskyy.png",
+      imagePath: "vasyl-polyanskyy.jpg",
       name: t("VASYL POLYANSKYY"),
       position: t("PROJECT MANAGER"),
       alt: t("Vasyl Polyanskyy"),
     },
     {
-      imagePath: "ivan-hodynchuk.png",
+      imagePath: "ivan-hodynchuk.jpg",
       name: t("IVAN HODYNCHUK"),
       position: t("DEVELOPER"),
       alt: t("Ivan Hodynchuk"),
     },
     {
-      imagePath: "natalie-lysenko.png",
+      imagePath: "natalie-lysenko.jpg",
       name: t("NATALIE LISENKO"),
       position: t("DESIGNER"),
       alt: t("Natalie Lysenko"),
     },
     {
-      imagePath: "andriy-kosarko.png",
+      imagePath: "andriy-kosarko.jpg",
       name: t("ANDRIY KOSAREV"),
       position: t("TRANSLATOR"),
       alt: t("Andriy Kosarko"),
     },
     {
-      imagePath: "jakub-dvoracek.png",
+      imagePath: "jakub-dvoracek.jpg",
       name: t("JAKUB DVOŘÁČEK"),
       position: t("DEVELOPER"),
       alt: t("Jakub Dvořáček"),
@@ -71,8 +71,8 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
                     <Image
                       src={`/img/our-team/${team.imagePath}`}
                       alt={team.alt}
-                      fill
-                      quality={100}
+                      width={327}
+                      height={400}
                       className="rounded-3xl"
                     />
                   </div>
@@ -90,7 +90,6 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
     </SlideAnimationLayout>
   );
 });
-
 
 // export const getStaticProps = async ({ locale }) => {
 //   return {
