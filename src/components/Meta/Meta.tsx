@@ -17,6 +17,7 @@ export const Meta: FC<MetaProps> = ({ metaTitle, metaDescription }) => {
   return (
     <Head>
       <title>{metaTitle}</title>
+      <meta name="robots" content="all" />
       <meta name="description" content={metaDescription} />
       {alternateLocales.map((locale) => (
         <link
