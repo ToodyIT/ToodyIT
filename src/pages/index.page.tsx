@@ -68,7 +68,7 @@ const HomePage: NextPage = () => {
           "Discover ToodyIT, a leading web solutions provider specializing in tailored websites to meet your unique needs. Our expert team delivers innovative designs, seamless development, and strategic solutions for your online success."
         )}
       />
-      <div className="bg-neutral-900 w-full h-screen overflow-hidden flex flex-col relative">
+      <div className="bg-neutral-900 w-full h-[100dvh] overflow-hidden flex flex-col relative">
         <HomepageHeaderMenu key="header" isOpen={openedSection === "header"} />
         <div className="mx-auto flex flex-col h-full w-full">
           <HomepageHeader />
