@@ -18,7 +18,7 @@ export const LocaleToggler: FC = () => {
             router.locale === locale && "text-primary"
           )}
         >
-          {locale.toUpperCase()}
+          {locale === "cs" ? "CZ" : locale.toUpperCase()}
         </Link>
       ))}
     </div>
