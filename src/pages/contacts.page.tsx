@@ -5,7 +5,7 @@ import { Button } from "../components/Button/Button";
 import { useTranslation } from "next-i18next";
 import emailjs from "@emailjs/browser";
 import { forwardRef, useMemo, useState } from "react";
-import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
+import LayoutMain from "../components/Layout/LayoutMain";
 import { SocialMedia } from "../components/SocialMedia/SocialMedia";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -111,7 +111,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
   };
 
   return (
-    <SlideAnimationLayout
+    <LayoutMain
       ref={ref}
       metaTitle={t("Contacts")}
       metaDescription={t(
@@ -125,7 +125,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
         <BlurredDecoration className="right-10" />
         <form
           onSubmit={onSubmit}
-          className="flex flex-col z-10 relative gap-7 max-w-[700px] h-screen w-full"
+          className="flex flex-col z-10 relative gap-7 max-w-[700px] w-full"
         >
           <FormLine>
             <Input
@@ -202,7 +202,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
           />
         </form>
       </div>
-    </SlideAnimationLayout>
+    </LayoutMain>
   );
 });
 

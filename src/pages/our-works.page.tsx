@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
-import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
+import LayoutMain from "../components/Layout/LayoutMain";
 import { useTranslation, TFunction } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
@@ -56,7 +56,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
   const ourWorks = getOurWorks(t);
 
   return (
-    <SlideAnimationLayout
+    <LayoutMain
       ref={ref}
       metaTitle={t("Our Works")}
       metaDescription={t(
@@ -69,7 +69,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         </h1>
         <BlurredDecoration />
 
-        <div className="flex h-screen">
+        <div className="flex">
           <div
             className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
             ref={emblaRef}
@@ -104,7 +104,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         </div>
       </div>
-    </SlideAnimationLayout>
+    </LayoutMain>
   );
 });
 

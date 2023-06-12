@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
-import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
+import LayoutMain from "../components/Layout/LayoutMain";
 import { useTranslation, TFunction } from "next-i18next";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -53,19 +53,19 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
   const ourTeam = getOurTeam(t);
 
   return (
-    <SlideAnimationLayout
+    <LayoutMain
       ref={ref}
       metaTitle={t("Our Team")}
       metaDescription={t(
         "Meet our talented and dedicated team of professionals. Discover the expertise and passion that drives us to create exceptional websites. Learn about our diverse skills and experience, as well as our collaborative approach to delivering high-quality web solutions. Get to know the individuals behind our success."
       )}
     >
-      <div className="flex flex-col gap-7 -mr-5 h-screen">
+      <div className="flex flex-col gap-7 -mr-5">
         <h1 className="text-white font-bold text-4xl flex text-center">
           {t("OUR TEAM")}
         </h1>
         <BlurredDecoration />
-        <div className="flex h-screen">
+        <div className="flex">
           <div
             className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
             ref={emblaRef}
@@ -96,7 +96,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         </div>
       </div>
-    </SlideAnimationLayout>
+    </LayoutMain>
   );
 });
 

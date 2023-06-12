@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
+import LayoutMain from "../components/Layout/LayoutMain";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { GetStaticProps } from "next";
@@ -10,7 +10,7 @@ import Planet from "/public/img/planet.png";
 const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
   return (
-    <SlideAnimationLayout
+    <LayoutMain
       ref={ref}
       metaTitle={t("About Us")}
       metaDescription={t(
@@ -22,7 +22,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
         <h1 className="text-white font-bold text-4xl flex text-center">
           {t("ABOUT US")}
         </h1>
-        <div className="flex flex-col gap-8 lg:gap-14 max-w-[800px] lg:h-screen relative">
+        <div className="flex flex-col gap-8 lg:gap-14 max-w-[800px] relative">
           <div className="flex flex-col text-white gap-3">
             <h2 className="font-bold text-3xl">{t("Our mission")}</h2>
             <p className="text-base lg:text-base">
@@ -62,7 +62,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
         </div>
         <BlurredDecoration className="right-2 lg:bottom-1 -bottom-10" />
       </div>
-    </SlideAnimationLayout>
+    </LayoutMain>
   );
 });
 

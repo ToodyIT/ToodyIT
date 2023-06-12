@@ -1,5 +1,5 @@
 import { forwardRef, useState } from "react";
-import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
+import LayoutMain from "../components/Layout/LayoutMain";
 import { twJoin } from "tailwind-merge";
 import { motion } from "framer-motion";
 import { TFunction, useTranslation } from "next-i18next";
@@ -79,7 +79,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
   };
 
   return (
-    <SlideAnimationLayout
+    <LayoutMain
       ref={ref}
       metaTitle={t("Services")}
       metaDescription={t(
@@ -91,7 +91,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
         <h1 className="text-white text-xl z-20 lg:text-4xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}
         </h1>
-        <ul className="flex flex-col gap-4 w-full h-screen z-20">
+        <ul className="flex flex-col gap-4 w-full z-20">
           {services.map((service) => (
             <li className="flex flex-col items-end max-w-3xl" key={service.id}>
               <div
@@ -143,7 +143,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
         </ul>
         <BlurredDecoration className="-right-5 bottom-5 hidden lg:block" />
       </div>
-    </SlideAnimationLayout>
+    </LayoutMain>
   );
 });
 
