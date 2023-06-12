@@ -18,6 +18,7 @@ const HomepageHeaderMenu: FC<HomepageHeaderMenuProps> = ({ isOpen }) => {
 
   return (
     <motion.div
+      initial={{ y: "-100%" }}
       animate={isOpen ? "open" : "closed"}
       variants={{
         open: { y: "0" },

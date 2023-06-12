@@ -34,8 +34,8 @@ export const RingModel: FC = memo(() => {
 
   return (
     <motion.canvas
-      initial={{ y: 0 }}
       animate={openedSection}
+      initial={{ y: 0 }}
       variants={{
         footer: { y: -200 },
         main: { y: 0 },

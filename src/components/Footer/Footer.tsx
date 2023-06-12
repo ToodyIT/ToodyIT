@@ -36,6 +36,7 @@ type FooterProps = {
 const Footer: FC<FooterProps> = ({ isOpen }) => {
   return (
     <motion.footer
+      initial={{ y: "100%" }}
       animate={isOpen ? "open" : "closed"}
       variants={{
         open: { y: "0" },

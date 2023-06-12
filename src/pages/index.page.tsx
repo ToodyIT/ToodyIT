@@ -82,6 +82,7 @@ const HomePage: NextPage = () => {
               key="overlay"
             />
             <motion.section
+              initial={{ y: "-50%" }}
               animate={openedSection}
               variants={{
                 footer: { y: -290 },

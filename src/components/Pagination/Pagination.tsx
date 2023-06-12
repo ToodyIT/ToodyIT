@@ -27,6 +27,7 @@ const Pagination = <T,>({
   return (
     <motion.div
       animate={openedSection}
+      initial={{ y: 0 }}
       variants={{
         footer: { y: -300 },
         main: { y: 0 },
