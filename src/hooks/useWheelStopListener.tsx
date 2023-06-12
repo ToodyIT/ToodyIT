@@ -5,7 +5,6 @@ const useWheelStopListener = (timeout = 200) => {
 
   let handle: null | NodeJS.Timeout = null;
 
-  console.log(isStoppedScrolling)
   const onScroll = () => {
     if (handle) {
       setIsStoppedScrolling(false);
@@ -15,10 +14,10 @@ const useWheelStopListener = (timeout = 200) => {
   };
 
   useEffect(() => {
-    // window.addEventListener("wheel", onScroll);
+    window.addEventListener("wheel", onScroll);
     window.addEventListener("touchmove", onScroll);
     return () => {
-      // window.removeEventListener("wheel", onScroll);
+      window.removeEventListener("wheel", onScroll);
       window.removeEventListener("touchmove", onScroll);
     };
   }, []);
