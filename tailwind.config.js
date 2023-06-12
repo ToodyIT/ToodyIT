@@ -13,6 +13,7 @@ module.exports = {
         lg: "769px",
         vl: "1024px",
         xl: "1440px",
+        notLg: { max: "768px" },
       },
       colors: {
         primary: "#139A20",

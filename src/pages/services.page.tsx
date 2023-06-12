@@ -133,7 +133,10 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
                   duration: 0.7,
                 }}
                 className={twJoin(
-                  "max-w-[90%] bg-neutral-600 mr-4 rounded-b-2xl overflow-hidden"
+                  "max-w-[90%] bg-neutral-600 mr-4 rounded-b-2xl overflow-hidden",
+                  openedServiceId === service.id
+                    ? "notLg:!h-auto"
+                    : "notLg:!h-0"
                 )}
               >
                 <p className="block m-4 mt-2">{service.description}</p>
