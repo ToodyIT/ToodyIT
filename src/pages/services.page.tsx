@@ -7,6 +7,7 @@ import { Icon } from "../components/Icons/Icon";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 import NextI18nextConfig from "../../next-i18next.config";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const getServices = (t: TFunction) => {
   return [
@@ -86,7 +87,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <div className="flex flex-col gap-7">
-        <div className="rounded-full bg-[#176E22] blur-3xl lg:top-3 bg-opacity-20 z-10 h-[300px] w-[300px] lg:h-[500px] lg:w-[500px] absolute"></div>
+        <BlurredDecoration className="top-1 left-1 lg:left-4" />
         <h1 className="text-white text-xl z-20 lg:text-3xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}
         </h1>
@@ -140,7 +141,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
             </li>
           ))}
         </ul>
-        <div className="rounded-full bg-[#176E22] blur-3xl -right-5 hidden lg:block -bottom-64 bg-opacity-10 z-10 h-[500px] w-[500px] absolute"></div>
+        <BlurredDecoration className="-right-5 -bottom-64 hidden lg:block" />
       </div>
     </SlideAnimationLayout>
   );

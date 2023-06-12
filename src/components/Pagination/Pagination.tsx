@@ -33,7 +33,7 @@ const Pagination = <T,>({
         main: { y: 0 },
         header: { y: 0 },
       }}
-      className="flex flex-col ml-auto w-fit fixed z-10 bottom-20 right-10"
+      className="flex flex-col ml-auto w-fit fixed z-30 bottom-20 right-10"
     >
       {items.map((item) => (
         <label

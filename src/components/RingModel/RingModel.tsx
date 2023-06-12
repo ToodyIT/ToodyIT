@@ -43,7 +43,7 @@ export const RingModel: FC = memo(() => {
       }}
       ref={canvasElementRef}
       id="ring"
-      className="w-full h-full top-0 absolute !bg-transparent pointer-events-none"
+      className="w-full h-full z-10 top-0 absolute !bg-transparent pointer-events-none"
     />
   );
 });

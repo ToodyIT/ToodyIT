@@ -64,10 +64,15 @@ export const Navigation: FC = () => {
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
+        <Overlay
+        isOpen={isMobileMenuOpen}
+        onClose={closeMobileMenu}
+        key="mobile-menu-overlay"
+      />
       <div className="relative lg:flex items-center pl-5 pt-3 h-full">
         <motion.nav
           className={twJoin(
-            "flex-col z-20 rounded-3xl items-center justify-between my-auto lg:w-fit w-11/12 flex absolute bg-neutral-700 left-1/2 -translate-x-1/2 h-fit py-4",
+            "flex-col z-30 rounded-3xl items-center justify-between my-auto lg:w-fit w-11/12 flex absolute bg-neutral-700 left-1/2 -translate-x-1/2 h-fit py-4",
             "lg:bg-transparent lg:left-0 lg:translate-x-0 lg:h-full lg:justify-center lg:gap-6 vl:gap-10 lg:p-0 lg:static lg:![clip-path:none]"
           )}
           animate={isMobileMenuOpen ? "open" : "closed"}
@@ -112,11 +117,7 @@ export const Navigation: FC = () => {
           ))}
         </motion.nav>
       </div>
-      <Overlay
-        isOpen={isMobileMenuOpen}
-        onClose={closeMobileMenu}
-        key="mobile-menu-overlay"
-      />
+    
     </div>
   );
 };

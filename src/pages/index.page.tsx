@@ -75,12 +75,17 @@ const HomePage: NextPage = () => {
         <HomepageHeaderMenu key="header" isOpen={openedSection === "header"} />
         <div className="mx-auto flex flex-col h-full w-full">
           <HomepageHeader />
-          <div className="flex flex-col h-full w-full z-10">
-            <Overlay
-              isOpen={openedSection !== "main"}
-              onClose={() => setOpenedSection("main")}
-              key="overlay"
+          <Pagination
+              items={PAGINATION_ITEMS}
+              setActiveState={setOpenedSection}
+              activeState={openedSection}
             />
+          <Overlay
+            isOpen={openedSection !== "main"}
+            onClose={() => setOpenedSection("main")}
+            key="overlay"
+          />
+          <div className="flex flex-col h-full w-full z-10">
             <motion.section
               initial={{ y: "-50%" }}
               animate={openedSection}
@@ -93,7 +98,7 @@ const HomePage: NextPage = () => {
             >
               <div className="list">
                 <div className="item">
-                  <span className="text-7xl vl:text-9xl tracking-wider">
+                  <span className="text-7xl z-10 vl:text-9xl tracking-wider">
                     We are helping to grow your business
                   </span>
                 </div>
@@ -115,11 +120,7 @@ const HomePage: NextPage = () => {
               }}
               className="flex flex-col flex-center h-full w-full"
             />
-            <Pagination
-              items={PAGINATION_ITEMS}
-              setActiveState={setOpenedSection}
-              activeState={openedSection}
-            />
+            
           </div>
         </div>
         <Footer key="footer" isOpen={openedSection === "footer"} />

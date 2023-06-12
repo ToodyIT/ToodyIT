@@ -15,7 +15,7 @@ export const Header: FC<HeaderProps> = ({
   setIsMobileMenuOpen,
 }) => {
   return (
-    <div className="flex shadow-lg justify-between w-full items-center relative z-20 lg:hidden bg-neutral-900 px-5 py-4">
+    <div className="flex shadow-lg justify-between w-full items-center relative z-30 lg:hidden bg-neutral-900 px-5 py-4">
       <Link href="/">
         <Image src="/img/toodyit-logo.png" alt="logo" width="80" height="50" />
       </Link>
