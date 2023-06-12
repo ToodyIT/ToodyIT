@@ -196,11 +196,11 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
           >
             {t("Send message")}
           </Button>
+          <SocialMedia
+            withText={false}
+            className="max-w-[700px] justify-center mt-2"
+          />
         </form>
-        <SocialMedia
-          withText={false}
-          className="max-w-[700px] justify-center mt-2"
-        />
       </div>
     </SlideAnimationLayout>
   );
