@@ -23,3 +23,11 @@ address {
         transform: translateX(-100%);
     }
 }
+
+#homepage-wrapper {
+    height: 100vh;
+
+    @supports (height: 100dvh) {
+        height: 100dvh !important;
+    }
+}
