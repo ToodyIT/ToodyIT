@@ -5,6 +5,7 @@ import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { useTranslation, TFunction } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const getOurWorks = (t: TFunction) => {
   return [
@@ -62,6 +63,8 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         <h1 className="text-white font-bold text-3xl flex text-center">
           {t("RECENT WORKS")}
         </h1>
+        <BlurredDecoration />
+
         <div className="flex h-full flex-center">
           <div
             className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"

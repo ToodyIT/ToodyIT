@@ -9,6 +9,7 @@ import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { SocialMedia } from "../components/SocialMedia/SocialMedia";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
@@ -117,13 +118,14 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
         "Contact us and share your information to get in touch with our team. We value your input and look forward to connecting with you. Leave your contact details, and we will reach out to discuss your project or answer any inquiries you may have. Start the conversation today."
       )}
     >
-      <div className="flex flex-col gap-7 w-full">
+      <div className="flex flex-col gap-7 w-full ">
         <h1 className="text-white text-3xl font-bold flex text-center lg:pt-8">
           {t("CONTACTS")}
         </h1>
+        <BlurredDecoration className="right-10" />
         <form
           onSubmit={onSubmit}
-          className="flex flex-col gap-7 max-w-[700px] w-full"
+          className="flex flex-col z-10 relative gap-7 max-w-[700px] w-full"
         >
           <FormLine>
             <Input

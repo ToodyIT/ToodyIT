@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
@@ -15,6 +16,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Learn about our company and our mission to provide exceptional web solutions. Discover our goal of delivering innovative and tailored websites that meet the unique needs of our clients. With our expertise and dedication, we aim to exceed expectations and establish long-lasting partnerships."
       )}
     >
+      <BlurredDecoration className="lg:-left-64 lg:-top-96" />
       <div className="flex flex-col gap-6 lg:gap-10">
         <h1 className="text-white font-bold text-4xl flex text-center">
           {t("ABOUT US")}
@@ -59,6 +61,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
             </p>
           </div>
         </div>
+        <BlurredDecoration className="-left-64 lg:-bottom-96 -bottom-10" />
       </div>
     </SlideAnimationLayout>
   );
