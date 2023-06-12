@@ -57,13 +57,7 @@ const useModel = (
       }
 
       if (previousRouter.asPath === "/" || destinationOfRedirect === "/") {
-        ringZoomAnimation(
-          destinationOfRedirect,
-          previousRouter,
-          camera,
-          animationId,
-          dimensionValues.z
-        );
+        ringZoomAnimation(destinationOfRedirect, camera, animationId);
       } else {
         ringRotateAnimation(cameraGroup, animationId, router, previousRouter);
       }

@@ -5,26 +5,26 @@ import { isServer } from "../../utils/isServer";
 import { useHomepageOpenSectionContext } from "../../utils/HomepageOpenSectionContext";
 import { motion } from "framer-motion";
 
+export const getZoom = () => {
+  if (isServer()) return 4.5;
+  const windowWidth = window.innerWidth;
+  const fovMin = 1.5; // Minimum FOV value
+  const fovMax = 4.5; // Maximum FOV value
+  const windowWidthMin = 700; // Minimum window width
+  const windowWidthMax = 1500; // Maximum window width
+  const fov =
+    fovMin +
+    ((windowWidth - windowWidthMin) / (windowWidthMax - windowWidthMin)) *
+      (fovMax - fovMin);
+
+  return fov;
+};
 export const RingModel: FC = memo(() => {
   const router = useRouter();
   const initialRoute = useMemo(() => router.asPath, []);
   const { openedSection } = useHomepageOpenSectionContext();
 
   const canvasElementRef = useRef<HTMLCanvasElement | null>(null);
-  const getZoom = () => {
-    if (isServer()) return;
-    const windowWidth = window.innerWidth;
-    const fovMin = 1.5; // Minimum FOV value
-    const fovMax = 4.5; // Maximum FOV value
-    const windowWidthMin = 700; // Minimum window width
-    const windowWidthMax = 1500; // Maximum window width
-    const fov =
-      fovMin +
-      ((windowWidth - windowWidthMin) / (windowWidthMax - windowWidthMin)) *
-        (fovMax - fovMin);
-
-    return fov;
-  };
 
   useModel(canvasElementRef, {
     x: initialRoute === "/" ? 0 : 2,
