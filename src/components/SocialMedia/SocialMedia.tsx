@@ -12,12 +12,12 @@ type SocialMediaType = {
 
 const SOCIAL_MEDIA: SocialMediaType[] = [
   {
-    link: "mail:",
+    link: "mail:toody-it@toody-it.com",
     text: "toody-it@toody-it.com",
     icon: "Email",
   },
   {
-    link: "",
+    link: "https://www.instagram.com/toodyit/",
     text: "@toodyit",
     icon: "Instagram",
   },
