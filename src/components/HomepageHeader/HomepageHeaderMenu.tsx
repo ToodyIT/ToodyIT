@@ -9,14 +9,20 @@ import { NAVIGATION_ITEMS } from "../Navigation/Navigation";
 const headerLinkTwClass =
   "border-primary border-[3px] lg:w-[200px] block rounded-lg py-0.5 text-xl text-center bg-gray hover:bg-primary active:scale-[0.9] transition duration-300 ease-in-out ";
 
-const HomepageHeaderMenu: FC = ({activeSection}) => {
+type HomepageHeaderMenuProps = {
+  isOpen: boolean;
+};
+
+const HomepageHeaderMenu: FC<HomepageHeaderMenuProps> = ({ isOpen }) => {
   const { t } = useTranslation();
 
   return (
     <motion.div
-      animate={{ y: 0 }}
-      initial={{ y: "-100%" }}
-      exit={{ y: "-100%" }}
+      animate={isOpen ? "open" : "closed"}
+      variants={{
+        open: { y: "0" },
+        closed: { y: "-100%" },
+      }}
       className="h-52 bg-neutral-800 w-full absolute top-0 left-0 z-30 lg:py-6 lg:px-10 px-5 py-3 flex justify-center"
     >
       <div className="flex justify-between max-w-7xl w-full h-full items-center flex-wrap gap-3">

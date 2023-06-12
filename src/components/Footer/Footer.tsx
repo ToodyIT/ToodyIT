@@ -29,12 +29,18 @@ const POSTS = [
   },
 ];
 
-const Footer: FC = () => {
+type FooterProps = {
+  isOpen: boolean;
+};
+
+const Footer: FC<FooterProps> = ({ isOpen }) => {
   return (
     <motion.footer
-      animate={{ y: 0 }}
-      initial={{ y: "100%" }}
-      exit={{ y: "100%" }}
+      animate={isOpen ? "open" : "closed"}
+      variants={{
+        open: { y: "0" },
+        closed: { y: "100%" },
+      }}
       className="h-[350px] bg-neutral-800 absolute bottom-0 z-30 left-0 w-full flex flex-col gap-4 items-center px-8 py-4"
     >
       <div className="flex gap-4 lg:gap-10 max-w-2xl justify-between flex-wrap w-full">

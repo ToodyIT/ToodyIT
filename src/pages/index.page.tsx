@@ -74,7 +74,7 @@ const HomePage: NextPage = () => {
         )}
       />
       <div className="bg-neutral-900 w-full h-screen overflow-hidden flex flex-col relative">
-        <HomepageHeaderMenu key="header" />
+        <HomepageHeaderMenu key="header" isOpen={activeSection === "header"} />
         <div className="mx-auto flex flex-col h-full w-full">
           <HomepageHeader />
           <motion.div
@@ -124,7 +124,7 @@ const HomePage: NextPage = () => {
             />
           </motion.div>
         </div>
-        <Footer key="footer" />
+        <Footer key="footer" isOpen={activeSection === "footer"} />
       </div>
     </>
   );
