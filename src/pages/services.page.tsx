@@ -69,7 +69,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
   const services = getServices(t);
 
   const toggleOpenedServiceId = (serviceId: string) => {
-    if (isAnimating) return;
+    if (isAnimating && window.innerWidth > 768) return;
 
     if (openedServiceId !== serviceId) {
       return setOpenedServiceId(serviceId);
