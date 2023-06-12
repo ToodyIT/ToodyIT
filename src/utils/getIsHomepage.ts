@@ -1,7 +1,17 @@
 export const getIsHomepage = (url: string, locale: string | undefined) => {
-  if (locale === "cz" && url === "/") return true;
-  if (locale === "en" && (url === "/en" || url === "/")) return true;
-  if (locale === "ru" && (url === "/ru" || url === "/")) return true;
+  const [urlWithoutQueryParams] = url.split("?");
+
+  if (locale === "cz" && urlWithoutQueryParams === "/") return true;
+  if (
+    locale === "en" &&
+    (urlWithoutQueryParams === "/en" || urlWithoutQueryParams === "/")
+  )
+    return true;
+  if (
+    locale === "ru" &&
+    (urlWithoutQueryParams === "/ru" || urlWithoutQueryParams === "/")
+  )
+    return true;
 
   return false;
 };
