@@ -122,7 +122,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
       "SwwxDOa6Jx-pezWyi"
     );
 
-    setIsSubmittedSuccessfully(isSubmittedSuccessfully);
+    setIsSubmittedSuccessfully(true);
 
     clearForm();
   };
