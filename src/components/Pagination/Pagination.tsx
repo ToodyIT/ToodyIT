@@ -40,11 +40,11 @@ const Pagination = <T,>({
           htmlFor={item.id}
           key={item.id}
           className={twJoin(
-            "flex rounded-full size-6 py-2 cursor-pointer flex-center",
+            "flex rounded-full size-10 py-2 cursor-pointer flex-center hover:bg-neutral-700 transition active:scale-[0.95]",
             activeState === item.value && "border border-white"
           )}
         >
-          <div className="size-2 bg-primary rounded-full" />
+          <div className="size-3 bg-primary rounded-full" />
           <input
             className="hidden"
             type="radio"

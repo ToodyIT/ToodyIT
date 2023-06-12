@@ -7,6 +7,7 @@ import {
   ringRotateAnimation,
 } from "../utils/models/ringAnimations";
 import { isServer } from "../utils/isServer";
+import { getIsHomepage } from "../utils/getIsHomepage";
 
 const useModel = (
   modelWrapperRef: RefObject<HTMLElement>,
@@ -56,8 +57,11 @@ const useModel = (
         return;
       }
 
-      if (previousRouter.asPath === "/" || destinationOfRedirect === "/") {
-        ringZoomAnimation(destinationOfRedirect, camera, animationId);
+      if (
+        getIsHomepage(previousRouter.asPath, previousRouter.locale) ||
+        getIsHomepage(destinationOfRedirect, router.locale)
+      ) {
+        ringZoomAnimation(destinationOfRedirect, camera, animationId, router);
       } else {
         ringRotateAnimation(cameraGroup, animationId, router, previousRouter);
       }

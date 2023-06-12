@@ -5,6 +5,7 @@ import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import { LocaleToggler } from "../LocaleToggler/LocaleToggler";
 import { NAVIGATION_ITEMS } from "../Navigation/Navigation";
+import { twJoin } from "tailwind-merge";
 
 const headerLinkTwClass =
   "border-primary border-[3px] lg:w-[200px] block rounded-lg py-0.5 text-xl text-center bg-gray hover:bg-primary active:scale-[0.9] transition duration-300 ease-in-out ";
@@ -24,7 +25,10 @@ const HomepageHeaderMenu: FC<HomepageHeaderMenuProps> = ({ isOpen }) => {
         open: { y: "0" },
         closed: { y: "-100%" },
       }}
-      className="h-52 bg-neutral-800 w-full absolute top-0 left-0 z-30 lg:py-6 lg:px-10 px-5 py-3 flex justify-center"
+      className={twJoin(
+        "h-52 bg-neutral-800 w-full absolute top-0 left-0 lg:py-6 lg:px-10 px-5 py-3 flex justify-center",
+        isOpen && "z-30"
+      )}
     >
       <div className="flex justify-between max-w-7xl w-full h-full items-center flex-wrap gap-3">
         <div className="flex flex-col gap-2 max-w-[48%] sm:max-w-[200px] w-full">

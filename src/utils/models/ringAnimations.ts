@@ -2,13 +2,15 @@ import { NextRouter } from "next/router";
 import { Group, PerspectiveCamera } from "three";
 import { getQueryParamsFromUrl } from "../getQueryParamsFromUrl";
 import { getZoom } from "../../components/RingModel/RingModel";
+import { getIsHomepage } from "../getIsHomepage";
 
 export const ringZoomAnimation = (
   destinationOfRedirect: string,
   camera: PerspectiveCamera,
-  animationId: number
+  animationId: number,
+  router: NextRouter
 ) => {
-  if (destinationOfRedirect === "/") {
+  if (getIsHomepage(destinationOfRedirect, router.locale)) {
     if (camera.position.z < 30) {
       camera.position.z += 0.35;
     }
@@ -26,7 +28,7 @@ export const ringZoomAnimation = (
     }
   }
 
-  if (destinationOfRedirect === "/") {
+  if (getIsHomepage(destinationOfRedirect, router.locale)) {
     if (camera.position.z >= 30 && camera.position.x <= 0) {
       cancelAnimationFrame(animationId);
     }

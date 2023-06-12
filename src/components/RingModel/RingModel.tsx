@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { isServer } from "../../utils/isServer";
 import { useHomepageOpenSectionContext } from "../../utils/HomepageOpenSectionContext";
 import { motion } from "framer-motion";
+import { getIsHomepage } from "../../utils/getIsHomepage";
 
 export const getZoom = () => {
   if (isServer()) return 4.5;
@@ -27,9 +28,9 @@ export const RingModel: FC = memo(() => {
   const canvasElementRef = useRef<HTMLCanvasElement | null>(null);
 
   useModel(canvasElementRef, {
-    x: initialRoute === "/" ? 0 : 2,
+    x: getIsHomepage(initialRoute, router.locale) ? 0 : 2,
     y: 0,
-    z: initialRoute === "/" ? 30 : getZoom(),
+    z: getIsHomepage(initialRoute, router.locale) ? 30 : getZoom(),
   });
 
   return (
