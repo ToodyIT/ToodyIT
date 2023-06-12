@@ -5,25 +5,29 @@ import Link from "next/link";
 import { SocialMedia } from "../SocialMedia/SocialMedia";
 import Image from "next/image";
 import { twJoin } from "tailwind-merge";
+import Development from "/public//img/posts/development.jpg";
+import Duration from "/public//img/posts/duration.jpg";
+import Price from "/public//img/posts/price.jpg";
+import Adds from "/public/img/posts/adds.jpg";
 
 const POSTS = [
   {
-    img: "development.jpg",
+    img: Development,
     alt: "development",
     link: "https://www.instagram.com/p/Cs9ptleI59w/",
   },
   {
-    img: "duration.jpg",
+    img: Duration,
     alt: "duration",
     link: "https://www.instagram.com/p/CtQ9sbyoHsj/",
   },
   {
-    img: "price.jpg",
+    img: Price,
     alt: "price",
     link: "https://www.instagram.com/p/Cs_AiX8IrjS/",
   },
   {
-    img: "adds.jpg",
+    img: Adds,
     alt: "adds",
     link: "https://www.instagram.com/p/CtMe918IusM/",
   },
@@ -71,7 +75,8 @@ const Footer: FC<FooterProps> = ({ isOpen }) => {
           >
             <Image
               fill
-              src={`/img/posts/${post.img}`}
+              placeholder="blur"
+              src={post.img}
               alt={`${post.alt} post`}
             />
           </Link>
