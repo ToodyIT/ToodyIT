@@ -96,8 +96,8 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
             <li className="flex flex-col items-end max-w-3xl" key={service.id}>
               <div
                 className={twJoin(
-                  "bg-neutral-800 flex items-center w-full rounded-xl max-h-20 overflow-hidden cursor-pointer",
-                  "before:content-[''] before:h-full before:w-4 before:bg-gradient-to-b before:from-neutral-800 before:to-primary"
+                  "bg-neutral-800 flex items-center w-full rounded-xl max-h-16 overflow-hidden cursor-pointer",
+                  "before:content-[''] before:h-16 before:block before:w-4 before:bg-gradient-to-b before:from-neutral-800 before:to-primary"
                 )}
                 onClick={() => toggleOpenedServiceId(service.id)}
               >

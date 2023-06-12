@@ -121,7 +121,7 @@ const HomePage: NextPage = () => {
                   order: 1,
                 },
               }}
-              className="flex flex-col flex-center h-full w-full"
+              className="flex flex-col flex-center h-full w-full z-10"
             />
           </div>
         </div>

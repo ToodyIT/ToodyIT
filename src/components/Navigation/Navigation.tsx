@@ -67,7 +67,7 @@ export const Navigation: FC = () => {
   }, []);
 
   return (
-    <div className="h-full">
+    <div className="h-full w-full lg:w-fit">
       <Header
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
@@ -77,7 +77,7 @@ export const Navigation: FC = () => {
         onClose={closeMobileMenu}
         key="mobile-menu-overlay"
       />
-      <div className="relative lg:flex items-center pl-5 h-full lg:min-h-screen">
+      <div className="relative lg:flex items-center pl-5 h-full">
         <motion.nav
           className={twJoin(
             "flex-col z-30 rounded-3xl items-center justify-between my-auto lg:w-fit w-11/12 flex absolute bg-neutral-700 left-1/2 -translate-x-1/2 h-fit py-4",
