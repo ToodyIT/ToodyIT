@@ -12,6 +12,13 @@ import {
 import { useEffect, useState } from "react";
 import { GTM_ID } from "../constants/gtm";
 import { install } from "ga-gtag";
+import { Overpass } from "@next/font/google";
+
+const poppins = Overpass({
+  subsets: ["latin-ext", "cyrillic", "latin"],
+  weight: ["400", "600", "500", "700"],
+  variable: "--font-overpass",
+});
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -26,6 +33,11 @@ const App = ({ Component, pageProps }: AppProps) => {
       <HomepageOpenSectionContext.Provider
         value={{ openedSection, setOpenedSection }}
       >
+        <style jsx global>{`
+          html {
+            font-family: ${poppins.style.fontFamily};
+          }
+        `}</style>
         <main>
           <AnimatePresence
             mode="wait"

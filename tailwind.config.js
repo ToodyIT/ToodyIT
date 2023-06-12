@@ -21,7 +21,7 @@ module.exports = {
         "neutral-900": "#141414",
       },
       fontFamily: {
-        poppins: ["Poppins"],
+        sans: ["var(--font-overpass)"],
       },
     },
   },
