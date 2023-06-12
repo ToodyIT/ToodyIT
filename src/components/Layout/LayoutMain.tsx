@@ -22,7 +22,7 @@ const LayoutMain: FC<LayoutMainProps> = ({
           id="innerElement"
         >
           <Navigation />
-          <div className="px-5">{children}</div>
+          <div className="px-5 w-full pb-5">{children}</div>
         </div>
         {/* <motion.div
         initial={{ rotate: 180 }}

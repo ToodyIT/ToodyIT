@@ -14,14 +14,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     forwardedRef
   ) => {
     return (
-      <div className="w-full flex flex-col gap-2 lg:gap-3">
+      <div className="w-full flex flex-col gap-2">
         <label htmlFor={id} className="text-xl font-medium">
           {label}
           {required && " *"}
         </label>
         <input
           id={id}
-          className="h-14 lg:h-16 w-full bg-grey-800 border border-primary rounded-full text-white pl-4"
+          className="h-12 w-full bg-grey-800 border border-primary rounded-full text-white pl-4"
           ref={forwardedRef}
           placeholder={placeholder ?? undefined}
           {...props}

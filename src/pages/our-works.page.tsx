@@ -69,7 +69,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
             <ul className="flex gap-7 lg:gap-14 h-full">
               {ourWorks.map((work) => (
                 <li
-                  className="h-auto max-w-[382px] flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
+                  className="h-auto max-w-[382px]  flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
                   key={work.title}
                 >
                   <Image
