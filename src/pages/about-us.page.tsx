@@ -21,7 +21,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
         <h1 className="text-white font-bold text-4xl flex text-center">
           {t("ABOUT US")}
         </h1>
-        <div className="flex flex-col gap-8 lg:gap-14 max-w-[800px] relative">
+        <div className="flex flex-col gap-8 lg:gap-14 max-w-[800px] h-screen relative">
           <div className="flex flex-col text-white gap-3">
             <h2 className="font-bold text-3xl">{t("Our mission")}</h2>
             <p className="text-base lg:text-base">

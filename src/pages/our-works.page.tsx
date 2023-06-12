@@ -65,7 +65,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         </h1>
         <BlurredDecoration />
 
-        <div className="flex h-full flex-center">
+        <div className="flex h-screen">
           <div
             className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
             ref={emblaRef}

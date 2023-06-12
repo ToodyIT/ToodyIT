@@ -125,7 +125,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
         <BlurredDecoration className="right-10" />
         <form
           onSubmit={onSubmit}
-          className="flex flex-col z-10 relative gap-7 max-w-[700px] w-full"
+          className="flex flex-col z-10 relative gap-7 max-w-[700px] h-screen w-full"
         >
           <FormLine>
             <Input

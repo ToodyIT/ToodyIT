@@ -86,7 +86,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Website development from start to finish. Our services include a website for a salon, a business card website, a website for a cafe, a cheap website. Trust us with professional and efficient website development."
       )}
     >
-      <div className="flex flex-col gap-7">
+      <div className="flex flex-col gap-7 ">
         <BlurredDecoration className="lg:top-1 top-7 left-1 lg:left-1" />
         <h1 className="text-white text-xl z-20 lg:text-3xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}

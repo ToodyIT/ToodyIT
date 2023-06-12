@@ -59,7 +59,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Meet our talented and dedicated team of professionals. Discover the expertise and passion that drives us to create exceptional websites. Learn about our diverse skills and experience, as well as our collaborative approach to delivering high-quality web solutions. Get to know the individuals behind our success."
       )}
     >
-      <div className="flex flex-col gap-7 -mr-5 h-full">
+      <div className="flex flex-col gap-7 -mr-5 h-screen">
         <h1 className="text-white font-bold text-3xl flex text-center">
           {t("OUR TEAM")}
         </h1>
@@ -67,7 +67,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
           ref={emblaRef}
         >
-          <ul className="flex gap-7 lg:gap-14 h-full">
+          <ul className="flex gap-7 lg:gap-14 h-fit">
             {ourTeam.map((team) => (
               <li
                 className="h-auto lg:flex-none flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
