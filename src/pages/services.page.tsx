@@ -86,10 +86,11 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <div className="flex flex-col gap-7">
-        <h1 className="text-white text-xl lg:text-3xl flex font-bold text-center">
+        <div className="rounded-full bg-[#176E22] blur-3xl lg:top-3 bg-opacity-20 z-10 h-[300px] w-[300px] lg:h-[500px] lg:w-[500px] absolute"></div>
+        <h1 className="text-white text-xl z-20 lg:text-3xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}
         </h1>
-        <ul className="flex flex-col gap-4 w-full h-screen">
+        <ul className="flex flex-col gap-4 w-full h-screen z-20">
           {services.map((service) => (
             <li className="flex flex-col items-end max-w-3xl" key={service.id}>
               <div
@@ -139,6 +140,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
             </li>
           ))}
         </ul>
+        <div className="rounded-full bg-[#176E22] blur-3xl -right-5 hidden lg:block -bottom-64 bg-opacity-10 z-10 h-[500px] w-[500px] absolute"></div>
       </div>
     </SlideAnimationLayout>
   );
