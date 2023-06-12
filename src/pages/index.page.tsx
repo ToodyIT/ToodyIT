@@ -82,12 +82,12 @@ const HomePage: NextPage = () => {
             activeState={openedSection}
           />
           <motion.section
-            initial={{ y: "-50%" }}
+            initial={{ y: "-50%", x: "50%" }}
             animate={openedSection}
             variants={{
               footer: { y: -290 },
-              main: { y: "-50%" },
-              header: { y: "-50%" },
+              main: { y: "-50%", x: "50%" },
+              header: { y: "-50%", x: "50%" },
             }}
             className="absolute top-1/3 translate-x-1/2 -translate-y-1/2 right-1/4 z-20"
           >
