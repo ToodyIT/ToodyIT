@@ -10,7 +10,9 @@ const useWheelStopListener = (timeout = 200) => {
       setIsStoppedScrolling(false);
       clearTimeout(handle);
     }
-    handle = setTimeout(() => setIsStoppedScrolling(true), timeout);
+    handle = setTimeout(() => {
+      setIsStoppedScrolling(true);
+    }, timeout);
   };
 
   useEffect(() => {

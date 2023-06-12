@@ -14,6 +14,7 @@ import { Meta } from "../components/Meta/Meta";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useHomepageOpenSectionContext } from "../utils/HomepageOpenSectionContext";
+import useScrollDirection from "../hooks/useScrollDirection";
 
 const PAGINATION_ITEMS: Array<PaginationItemProps> = [
   {
@@ -34,20 +35,15 @@ const HomePage: NextPage = () => {
   const { t } = useTranslation();
   const isStoppedScrolling = useWheelStopListener();
   const { openedSection, setOpenedSection } = useHomepageOpenSectionContext();
-
-  const handleWheel = (e: WheelEvent | TouchEvent) => {
-    const deltaY = e.deltaY || -e.touches[0].clientY + e.touches[0].screenY;
-    console.log(deltaY);
-
-    if (!isStoppedScrolling) return;
-
-    if (deltaY < 0) {
+  const scrollDirection = useScrollDirection();
+  const handleWheel = () => {
+    if (scrollDirection === "up") {
       if (openedSection === "footer") {
         setOpenedSection("main");
       } else {
         setOpenedSection("header");
       }
-    } else if (deltaY > 0) {
+    } else if (scrollDirection === "down") {
       if (openedSection === "header") {
         setOpenedSection("main");
       } else {
@@ -55,15 +51,10 @@ const HomePage: NextPage = () => {
       }
     }
   };
-
   useEffect(() => {
-    window.addEventListener("wheel", handleWheel, true);
-    window.addEventListener("touchmove", handleWheel, true);
+    if (!isStoppedScrolling) return;
 
-    return () => {
-      window.removeEventListener("touchmove", handleWheel);
-      window.removeEventListener("wheel", handleWheel);
-    };
+    handleWheel();
   }, [isStoppedScrolling]);
 
   return (
@@ -97,7 +88,7 @@ const HomePage: NextPage = () => {
               variants={{
                 footer: { y: -290 },
                 main: { y: "-50%" },
-                header: { y: 70 },
+                header: { y: "-50%" },
               }}
               className="flex whitespace-nowrap gap-10 absolute top-1/2 -translate-y-1/2"
             >

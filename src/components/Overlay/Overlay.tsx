@@ -20,7 +20,6 @@ const Overlay: FC<OverlayProps> = ({ onClose, isOpen }) => {
         animate={{ opacity: 1, backdropFilter: "blur(6px)" }}
         exit={{ opacity: 0, backdropFilter: "blur(0)" }}
         onClick={onClose}
-        //   transition={{ duration: 2000 }}
       ></motion.div>
     </AnimatePresence>
   );

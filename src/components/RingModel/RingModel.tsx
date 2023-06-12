@@ -40,7 +40,7 @@ export const RingModel: FC = memo(() => {
       variants={{
         footer: { y: -200 },
         main: { y: 0 },
-        header: { y: 140 },
+        header: { y: 0 },
       }}
       ref={canvasElementRef}
       id="ring"
