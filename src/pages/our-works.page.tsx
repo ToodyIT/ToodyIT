@@ -60,7 +60,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <div className="flex flex-col gap-7 -mr-5">
-        <h1 className="text-white font-bold text-3xl flex text-center">
+        <h1 className="text-white font-bold text-4xl flex text-center">
           {t("RECENT WORKS")}
         </h1>
         <BlurredDecoration />

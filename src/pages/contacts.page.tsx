@@ -119,7 +119,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <div className="flex flex-col gap-7 w-full ">
-        <h1 className="text-white text-3xl font-bold flex text-center lg:pt-8">
+        <h1 className="text-white text-4xl font-bold flex text-center lg:pt-8">
           {t("CONTACTS")}
         </h1>
         <BlurredDecoration className="right-10" />

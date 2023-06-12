@@ -17,7 +17,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className="w-full flex flex-col gap-2">
         <label htmlFor={id} className="text-xl font-medium">
           {label}
-          {required && " *"}
+          {required && <span className="text-red-600">{" *"}</span>}
         </label>
         <input
           id={id}

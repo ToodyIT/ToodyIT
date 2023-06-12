@@ -17,7 +17,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <BlurredDecoration className="lg:-left-64 lg:bottom-96" />
-      <div className="flex flex-col gap-6 lg:gap-10">
+      <div className="flex flex-col gap-7 lg:gap-10">
         <h1 className="text-white font-bold text-4xl flex text-center">
           {t("ABOUT US")}
         </h1>

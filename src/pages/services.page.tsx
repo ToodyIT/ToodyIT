@@ -88,7 +88,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
     >
       <div className="flex flex-col gap-7 ">
         <BlurredDecoration className="lg:top-1 top-7 left-1 lg:left-1" />
-        <h1 className="text-white text-xl z-20 lg:text-3xl flex font-bold text-center">
+        <h1 className="text-white text-xl z-20 lg:text-4xl flex font-bold text-center">
           {t("DEVELOPMENT OF A NEW SITE")}
         </h1>
         <ul className="flex flex-col gap-4 w-full h-screen z-20">
