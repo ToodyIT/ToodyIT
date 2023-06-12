@@ -16,6 +16,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useHomepageOpenSectionContext } from "../utils/HomepageOpenSectionContext";
 import useScrollDirection from "../hooks/useScrollDirection";
 import { gtag } from "ga-gtag";
+import { Icon } from "../components/Icons/Icon";
 
 const PAGINATION_ITEMS: Array<PaginationItemProps> = [
   {
@@ -80,6 +81,10 @@ const HomePage: NextPage = () => {
             setActiveState={setOpenedSection}
             activeState={openedSection}
           />
+          <Icon
+            icon="DrawnArrow"
+            className="text-white size-32 vl:size-40 rotate-[250deg] absolute top-1/3 translate-x-1/2 -translate-y-1/2 right-1/4 z-20"
+          />
           <Overlay
             isOpen={openedSection !== "main"}
             onClose={() => setOpenedSection("main")}
@@ -121,8 +126,8 @@ const HomePage: NextPage = () => {
                   order: 1,
                 },
               }}
-              className="flex flex-col flex-center h-full w-full z-10"
-            />
+              className="flex h-full w-full z-10 relative"
+            ></Link>
           </div>
         </div>
         <Footer key="footer" isOpen={openedSection === "footer"} />
