@@ -36,6 +36,7 @@ const HomePage: NextPage = () => {
   const { openedSection, setOpenedSection } = useHomepageOpenSectionContext();
 
   const handleWheel = (e: WheelEvent) => {
+    console.log("whell");
     if (!isStoppedScrolling) return;
 
     if (e.deltaY < 0) {
@@ -55,9 +56,11 @@ const HomePage: NextPage = () => {
 
   useEffect(() => {
     window.addEventListener("wheel", handleWheel, true);
+    window.addEventListener("touchmove", handleWheel, true);
 
     return () => {
-      window.removeEventListener("wheel", handleWheel, true);
+      window.removeEventListener("touchmove", handleWheel);
+      window.removeEventListener("wheel", handleWheel);
     };
   }, [isStoppedScrolling]);
 
@@ -76,10 +79,10 @@ const HomePage: NextPage = () => {
         <div className="mx-auto flex flex-col h-full w-full">
           <HomepageHeader />
           <Pagination
-              items={PAGINATION_ITEMS}
-              setActiveState={setOpenedSection}
-              activeState={openedSection}
-            />
+            items={PAGINATION_ITEMS}
+            setActiveState={setOpenedSection}
+            activeState={openedSection}
+          />
           <Overlay
             isOpen={openedSection !== "main"}
             onClose={() => setOpenedSection("main")}
@@ -120,7 +123,6 @@ const HomePage: NextPage = () => {
               }}
               className="flex flex-col flex-center h-full w-full"
             />
-            
           </div>
         </div>
         <Footer key="footer" isOpen={openedSection === "footer"} />

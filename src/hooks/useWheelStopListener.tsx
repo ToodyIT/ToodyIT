@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 const useWheelStopListener = (timeout = 200) => {
-  const [isStoppedScrolling, setIsStoppedScrolling] = useState(false);
+  const [isStoppedScrolling, setIsStoppedScrolling] = useState<boolean>(false);
 
   let handle: null | NodeJS.Timeout = null;
 
-  const onTouchMove = () => {
+  console.log(isStoppedScrolling)
+  const onScroll = () => {
     if (handle) {
       setIsStoppedScrolling(false);
       clearTimeout(handle);
@@ -14,9 +15,11 @@ const useWheelStopListener = (timeout = 200) => {
   };
 
   useEffect(() => {
-    window.addEventListener("touchmove", onTouchMove);
+    // window.addEventListener("wheel", onScroll);
+    window.addEventListener("touchmove", onScroll);
     return () => {
-      window.removeEventListener("touchmove", onTouchMove);
+      // window.removeEventListener("wheel", onScroll);
+      window.removeEventListener("touchmove", onScroll);
     };
   }, []);
 
