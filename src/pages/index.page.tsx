@@ -98,9 +98,9 @@ const HomePage: NextPage = () => {
             >
               <div className="list">
                 <div className="item">
-                  <span className="text-7xl z-10 vl:text-9xl tracking-wider">
+                  <h1 className="text-7xl z-10 vl:text-9xl tracking-wider">
                     We are helping to grow your business
-                  </span>
+                  </h1>
                 </div>
               </div>
               <div className="list">
