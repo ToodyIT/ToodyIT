@@ -79,3 +79,23 @@ export const Arrow: FC = () => {
     </svg>
   );
 };
+
+export const Checkmark: FC = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+      <g stroke-width="10">
+        <path
+          stroke="currentColor"
+          stroke-linejoin="round"
+          stroke-width="12"
+          d="M239 53c2 3 1 6-1 9L94 206c-3 3-9 3-12 0l-64-64a8 8 0 1 1 12-12l58 59L226 50a8 8 0 0 1 13 3z"
+        />
+        <path
+          fill="currentColor"
+          stroke-width="1"
+          d="m232 48-6 2L88 189l-58-59a8 8 0 1 0-12 12l64 64c3 3 9 3 12 0L238 62a8 8 0 0 0-6-14z"
+        />
+      </g>
+    </svg>
+  );
+};

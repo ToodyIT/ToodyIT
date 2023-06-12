@@ -5,6 +5,7 @@ export const IconsMap = {
   Email: <Icons.Email />,
   Phone: <Icons.Phone />,
   Arrow: <Icons.Arrow />,
+  Checkmark: <Icons.Checkmark />,
 };
 
 export type IconName = keyof typeof IconsMap;

@@ -4,18 +4,20 @@ import { Textarea } from "../components/Textarea/Textarea";
 import { Button } from "../components/Button/Button";
 import { useTranslation } from "next-i18next";
 import emailjs from "@emailjs/browser";
-import { forwardRef, useMemo, useState } from "react";
+import { forwardRef, useEffect, useMemo, useState } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
 import { SocialMedia } from "../components/SocialMedia/SocialMedia";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import { Icon } from "../components/Icons/Icon";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
 
 const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
+  const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
   const [shouldValidateEmail, setShouldValidateEmail] = useState(false);
   const [shouldValidatePhone, setShouldValidatePhone] = useState(false);
   const [shouldValidateFullName, setShouldValidateFullName] = useState(false);
@@ -24,6 +26,17 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+
+  const clearForm = () => {
+    setFullName("");
+    setCompany("");
+    setPhone("");
+    setMessage("");
+    setEmail("");
+    setShouldValidateEmail(false);
+    setShouldValidatePhone(false);
+    setShouldValidateFullName(false);
+  };
 
   const getEmailErrorMessage = () => {
     if (email === undefined || !shouldValidateEmail) {
@@ -108,7 +121,26 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
       templateParams,
       "SwwxDOa6Jx-pezWyi"
     );
+
+    setIsSubmittedSuccessfully(isSubmittedSuccessfully);
+
+    clearForm();
   };
+
+  useEffect(() => {
+    let timeout: null | NodeJS.Timeout = null;
+    if (isSubmittedSuccessfully) {
+      timeout = setTimeout(() => {
+        setIsSubmittedSuccessfully(false);
+      }, 5000);
+    }
+
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [isSubmittedSuccessfully]);
 
   return (
     <LayoutMain
@@ -194,7 +226,11 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
             type="submit"
             className="flex self-center active:scale-[0.95] mt-4 items-center justify-center w-full max-w-[350px]"
           >
-            {t("Send message")}
+            {isSubmittedSuccessfully ? (
+              <Icon icon="Checkmark" className="size-8 text-white" />
+            ) : (
+              t("Send message")
+            )}
           </Button>
           <SocialMedia
             withText={false}
