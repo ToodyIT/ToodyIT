@@ -1,7 +1,7 @@
 export const getIsHomepage = (url: string, locale: string | undefined) => {
   const [urlWithoutQueryParams] = url.split("?");
 
-  if (locale === "cz" && urlWithoutQueryParams === "/") return true;
+  if (locale === "cs" && urlWithoutQueryParams === "/") return true;
   if (
     locale === "en" &&
     (urlWithoutQueryParams === "/en" || urlWithoutQueryParams === "/")
