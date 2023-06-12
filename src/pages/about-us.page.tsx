@@ -16,12 +16,12 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Learn about our company and our mission to provide exceptional web solutions. Discover our goal of delivering innovative and tailored websites that meet the unique needs of our clients. With our expertise and dedication, we aim to exceed expectations and establish long-lasting partnerships."
       )}
     >
-      <BlurredDecoration className="lg:-left-64 lg:-top-96" />
+      <BlurredDecoration className="lg:-left-64 lg:bottom-96" />
       <div className="flex flex-col gap-6 lg:gap-10">
         <h1 className="text-white font-bold text-4xl flex text-center">
           {t("ABOUT US")}
         </h1>
-        <div className="flex flex-col gap-8 lg:gap-14 max-w-[800px] h-screen relative">
+        <div className="flex flex-col gap-8 lg:gap-14 max-w-[800px] lg:h-screen relative">
           <div className="flex flex-col text-white gap-3">
             <h2 className="font-bold text-3xl">{t("Our mission")}</h2>
             <p className="text-base lg:text-base">
@@ -61,7 +61,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
             </p>
           </div>
         </div>
-        <BlurredDecoration className="-left-64 lg:-bottom-96 -bottom-10" />
+        <BlurredDecoration className="right-2 lg:bottom-1 -bottom-10" />
       </div>
     </SlideAnimationLayout>
   );

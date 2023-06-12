@@ -141,7 +141,7 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
             </li>
           ))}
         </ul>
-        <BlurredDecoration className="-right-5 -bottom-64 hidden lg:block" />
+        <BlurredDecoration className="-right-5 bottom-5 hidden lg:block" />
       </div>
     </SlideAnimationLayout>
   );

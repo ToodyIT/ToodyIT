@@ -10,6 +10,7 @@ import VasylPolyasnkyyPhoto from "/public/img/our-team/vasyl-polyanskyy.jpg";
 import NatalieLysenkoPhoto from "/public/img/our-team/natalie-lysenko.jpg";
 import AndriyKosarkoPhoto from "/public/img/our-team/andriy-kosarko.jpg";
 import JakubDvoracekPhoto from "/public/img/our-team/jakub-dvoracek.jpg";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const getOurTeam = (t: TFunction) => {
   return [
@@ -67,10 +68,12 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
           ref={emblaRef}
         >
+          <BlurredDecoration className="" />
+
           <ul className="flex gap-7 lg:gap-14 h-fit">
             {ourTeam.map((team) => (
               <li
-                className="h-auto lg:flex-none flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
+                className="h-auto lg:flex-none  z-10 flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
                 key={team.name}
               >
                 <div className="p-5 flex gap-5 flex-col">
