@@ -5,6 +5,7 @@ import { useTranslation } from "next-i18next";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import Planet from "/public/img/planet.png";
 
 const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
@@ -42,10 +43,8 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <Image
             className="lg:absolute lg:top-[200px] lg:translate-x-1/2 w-4/5 flex self-end max-w-[402px]"
-            src="/img/planet.png"
+            src={Planet}
             alt="planet"
-            width="402"
-            height="402"
           />
           <div className="flex flex-col text-white gap-3 ">
             <h2 className="font-bold text-3xl">{t("Our goal")}</h2>

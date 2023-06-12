@@ -6,11 +6,15 @@ import { useTranslation, TFunction } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import MariaPoljanszkaPhoto from "/public/img/our-works/maria-poljanszka.png";
+import MartaHnatojkoPhoto from "/public/img/our-works/marta-hnatojko.png";
+import SalonKrasyKwhitePhoto from "/public/img/our-works/salon-krasy-kwhite.png";
+
 
 const getOurWorks = (t: TFunction) => {
   return [
     {
-      imagePath: "maria-poljanszka.png",
+      imagePath: MariaPoljanszkaPhoto,
       name: t("BUSINESS CARD"),
       title: t("Stylish and modern website for you"),
       description: t(
@@ -21,7 +25,7 @@ const getOurWorks = (t: TFunction) => {
       alt: t("Maria Poljanszka"),
     },
     {
-      imagePath: "marta-hnatojko.png",
+      imagePath: MartaHnatojkoPhoto,
       name: t("BUSINESS CARD"),
       title: t("Elegant and professional website reflecting your expertise"),
       description: t(
@@ -32,7 +36,7 @@ const getOurWorks = (t: TFunction) => {
       alt: t("Marta Hnatojko"),
     },
     {
-      imagePath: "salon-krasy-kwhite.png",
+      imagePath: SalonKrasyKwhitePhoto,
       name: t("WORK SITE"),
       title: t(
         "Vibrant and luxurious beauty salon website - your path to the perfect look"
@@ -73,14 +77,13 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
             <ul className="flex gap-7 lg:gap-14 h-full">
               {ourWorks.map((work) => (
                 <li
-                  className="h-auto max-w-[382px]  flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
+                  className="h-auto max-w-[382px] flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
                   key={work.title}
                 >
                   <Image
-                    src={`/img/our-works/${work.imagePath}`}
+                    src={work.imagePath}
                     alt={work.alt}
-                    width="382"
-                    height="215"
+                    placeholder="blur"
                     className="rounded-t-3xl"
                   />
                   <div className="bg-primary w-36 h-9 flex rounded-3xl py-0.5 -translate-y-1/2 ml-9 justify-center">

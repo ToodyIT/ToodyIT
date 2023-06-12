@@ -2,7 +2,13 @@ import { FC } from "react";
 
 export const Instagram: FC = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 23 23"
+      width="23"
+      height="23"
+      fill="none"
+    >
       <path
         fill="currentColor"
         d="M6.9.5a9 9 0 0 0-3.2.6A5.8 5.8 0 0 0 .4 5C0 6 0 7.2 0 11.5c0 4.2 0 5.3.3 6.4a5.8 5.8 0 0 0 5.2 4.5 55.3 55.3 0 0 0 11 0c1.5-.2 2.7-.7 3.6-1.6 1.1-1 1.7-2.3 1.9-4V6.1a6.8 6.8 0 0 0-1.2-3.3l-1.4-1.3c-.9-.6-2-1-3.5-1-.7-.1-7.8-.2-9-.1Zm9.3 2c1.3.3 2 .6 2.6 1.2.5.4.7.8.9 1.4.4 1 .4 1.5.4 6.4v4.6c-.2 1.5-.5 2.3-1.2 3-.7.9-1.6 1.2-3 1.4a175.7 175.7 0 0 1-10.1 0c-.8-.2-1.6-.5-2-.8a5 5 0 0 1-1-1.1C2.3 18 2 17 2 16c-.2-2-.1-8.7 0-9.8a4 4 0 0 1 1.2-2.6c.8-.7 1.7-1 3.3-1.2a207.6 207.6 0 0 1 9.6 0Z"
@@ -17,7 +23,13 @@ export const Instagram: FC = () => {
 
 export const Email: FC = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 23 19"
+      width="23"
+      height="19"
+      fill="none"
+    >
       <g fill="currentColor" clip-path="url(#a)">
         <path
           d="M21.2 13.6c0 3-2.4 5.3-5.3 5.4H5.4c-3 0-5.4-2.4-5.4-5.4v-7c0-.4.5-.7.9-.4l7 5.7a4.3 4.3 0 0 0 5.4 0l7-5.6c.4-.3.9 0 .9.4v7Z"
@@ -36,7 +48,13 @@ export const Email: FC = () => {
 
 export const Phone: FC = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 19 19"
+      width="19"
+      height="19"
+      fill="none"
+    >
       <path
         fill="currentColor"
         d="M3 0C1.8.5.9 1 .4 2c-.3.5-.3.8-.3 1.6A15.6 15.6 0 0 0 16.4 19c1.3-.3 2.2-1.4 2.5-3.1v-1.3c-.2-.5-.3-.6-1.6-1.6a8.2 8.2 0 0 0-2-1.5h-1.2c-.5 0-.7.2-1.5.9l-.6.6h-.2c-1.6-.4-3.8-2.2-5-3.9l-.7-1.8V7l.6-.6c.7-.8.8-1 1-1.5 0-.5 0-1-.2-1.4a22.4 22.4 0 0 0-3-3.4 3 3 0 0 0-1.4 0Zm1.3 1c.2 0 .3.2 1.3 1.4l1.1 1.5.1.5c0 .5 0 .7-.8 1.4-.9 1-.8.9-.8 1.2 0 1.8 2 4.2 4.3 5.7 1 .6 2.4 1.2 2.7 1.1l.9-.7c.9-.8 1-1 1.5-1l.5.2 1.5 1.1c1.5 1.2 1.5 1.2 1.5 1.7 0 .6-.2 1.4-.6 2-.3.5-.7.8-1.3 1H15c-.9 0-1.5 0-2.4-.2A14.8 14.8 0 0 1 1 2.9c.2-1 .8-1.5 2-1.9.6-.2 1-.2 1.4 0Z"
@@ -47,7 +65,13 @@ export const Phone: FC = () => {
 
 export const Arrow: FC = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="14" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 14"
+      width="24"
+      height="14"
+      fill="none"
+    >
       <path
         fill="currentColor"
         d="M11 13c.5.6 1.5.6 2 0l9.6-9.5a1.5 1.5 0 1 0-2.1-2.1L12 9.9 3.5 1.4a1.5 1.5 0 1 0-2.1 2.1l9.5 9.6Zm-.5-2v1h3v-1h-3Z"
