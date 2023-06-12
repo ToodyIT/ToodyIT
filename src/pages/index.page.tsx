@@ -81,10 +81,21 @@ const HomePage: NextPage = () => {
             setActiveState={setOpenedSection}
             activeState={openedSection}
           />
-          <Icon
-            icon="DrawnArrow"
-            className="text-white size-32 vl:size-40 rotate-[250deg] absolute top-1/3 translate-x-1/2 -translate-y-1/2 right-1/4 z-20"
-          />
+          <motion.section
+            initial={{ y: "-50%" }}
+            animate={openedSection}
+            variants={{
+              footer: { y: -290 },
+              main: { y: "-50%" },
+              header: { y: "-50%" },
+            }}
+            className="absolute top-1/3 translate-x-1/2 -translate-y-1/2 right-1/4 z-20"
+          >
+            <Icon
+              icon="DrawnArrow"
+              className="text-white size-32 vl:size-40 rotate-[250deg]"
+            />
+          </motion.section>
           <Overlay
             isOpen={openedSection !== "main"}
             onClose={() => setOpenedSection("main")}
@@ -127,7 +138,7 @@ const HomePage: NextPage = () => {
                 },
               }}
               className="flex h-full w-full z-10 relative"
-            ></Link>
+            />
           </div>
         </div>
         <Footer key="footer" isOpen={openedSection === "footer"} />
