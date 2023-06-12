@@ -21,25 +21,10 @@ const useScrollDirection = () => {
       previousScrollPosRef.current = getScrollPos();
     };
 
-    const handleTouchMove = (): void => {
-      const currentScrollPos = getScrollPos();
-      const delta = currentScrollPos - previousScrollPosRef.current;
-
-      if (delta > 0) {
-        scrollDirectionRef.current = "up";
-      } else if (delta < 0) {
-        scrollDirectionRef.current = "down";
-      }
-
-      previousScrollPosRef.current = currentScrollPos;
-    };
-
     window.addEventListener("wheel", handleWheel);
-    window.addEventListener("touchmove", handleTouchMove);
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 

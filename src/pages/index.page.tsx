@@ -90,7 +90,7 @@ const HomePage: NextPage = () => {
                 main: { y: "-50%" },
                 header: { y: "-50%" },
               }}
-              className="flex whitespace-nowrap gap-10 absolute top-1/2 -translate-y-1/2"
+              className="flex whitespace-nowrap gap-10 absolute top-1/2"
             >
               <div className="list">
                 <div className="item">

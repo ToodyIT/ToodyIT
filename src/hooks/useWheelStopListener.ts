@@ -17,10 +17,8 @@ const useWheelStopListener = (timeout = 200) => {
 
   useEffect(() => {
     window.addEventListener("wheel", onScroll);
-    window.addEventListener("touchmove", onScroll);
     return () => {
       window.removeEventListener("wheel", onScroll);
-      window.removeEventListener("touchmove", onScroll);
     };
   }, []);
 
