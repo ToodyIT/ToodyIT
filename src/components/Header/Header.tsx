@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { twJoin } from "tailwind-merge";
 
 type HeaderProps = {
   isMobileMenuOpen: boolean;
@@ -15,7 +16,12 @@ export const Header: FC<HeaderProps> = ({
   setIsMobileMenuOpen,
 }) => {
   return (
-    <div className="flex shadow-lg justify-between w-full items-center relative z-30 lg:hidden bg-neutral-900 px-5 py-4">
+    <div
+      className={twJoin(
+        "flex shadow-lg justify-between w-full items-center relative lg:hidden bg-neutral-900 px-5 py-4",
+        isMobileMenuOpen ? "z-30" : "z-[1]"
+      )}
+    >
       <Link href="/">
         <Image src="/img/toodyit-logo.png" alt="logo" width="80" height="50" />
       </Link>

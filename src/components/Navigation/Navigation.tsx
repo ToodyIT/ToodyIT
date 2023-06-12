@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { twJoin } from "tailwind-merge";
 import { Header } from "../Header/Header";
 import { motion } from "framer-motion";
@@ -57,6 +57,14 @@ export const Navigation: FC = () => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", closeMobileMenu);
+
+    return () => {
+      router.events.off("routeChangeStart", closeMobileMenu);
+    };
+  }, []);
 
   return (
     <div className="h-full">
