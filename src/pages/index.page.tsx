@@ -15,6 +15,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useHomepageOpenSectionContext } from "../utils/HomepageOpenSectionContext";
 import useScrollDirection from "../hooks/useScrollDirection";
+import { gtag } from "ga-gtag";
 
 const PAGINATION_ITEMS: Array<PaginationItemProps> = [
   {
@@ -108,6 +109,9 @@ const HomePage: NextPage = () => {
               </div>
             </motion.section>
             <Link
+              onClick={() => {
+                gtag("event", "click_on_ring", { click_on_ring: true });
+              }}
               href={{
                 pathname: "/services",
                 query: {

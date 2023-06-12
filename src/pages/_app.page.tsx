@@ -5,35 +5,24 @@ import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next";
 import NextI18nextConfig from "../../next-i18next.config";
 import { RingModel } from "../components/RingModel/RingModel";
-import Head from "next/head";
 import {
   HomepageOpenSectionContext,
   HomepageOpenedSectionType,
 } from "../utils/HomepageOpenSectionContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { GTM_ID } from "../constants/gtm";
+import { install } from "ga-gtag";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   const [openedSection, setOpenedSection] =
     useState<HomepageOpenedSectionType>("main");
 
+  useEffect(() => {
+    install(GTM_ID);
+  }, []);
   return (
     <>
-      <Head>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-JLQGWF292W"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JLQGWF292W');`,
-          }}
-        />
-      </Head>
       <HomepageOpenSectionContext.Provider
         value={{ openedSection, setOpenedSection }}
       >
