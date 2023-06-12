@@ -11,7 +11,7 @@ export const ringZoomAnimation = (
 ) => {
   if (destinationOfRedirect === "/") {
     if (camera.position.z < 30) {
-      camera.position.z += 0.2;
+      camera.position.z += 0.35;
     }
 
     if (camera.position.x > 0) {
@@ -19,7 +19,7 @@ export const ringZoomAnimation = (
     }
   } else {
     if (camera.position.z > zoom) {
-      camera.position.z -= 0.2;
+      camera.position.z -= 0.35;
     }
 
     if (camera.position.x < 2) {

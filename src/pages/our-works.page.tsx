@@ -2,8 +2,9 @@ import { forwardRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
-import { useTranslation } from "react-i18next";
-import { TFunction } from "next-i18next";
+import { useTranslation, TFunction } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticProps } from "next";
 
 const getOurWorks = (t: TFunction) => {
   return [
@@ -100,5 +101,13 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
     </SlideAnimationLayout>
   );
 });
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ["common"])),
+    },
+  };
+};
 
 export default OurWorksPage;

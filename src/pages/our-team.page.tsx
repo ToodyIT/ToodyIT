@@ -2,8 +2,9 @@ import { forwardRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
-import { useTranslation } from "react-i18next";
-import { TFunction } from "next-i18next";
+import { useTranslation, TFunction } from "next-i18next";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const getOurTeam = (t: TFunction) => {
   return [
@@ -91,12 +92,12 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
   );
 });
 
-// export const getStaticProps = async ({ locale }) => {
-//   return {
-//     props: {
-//       ...(await serverSideTranslations(locale, ["common"])),
-//     },
-//   };
-// };
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ["common"])),
+    },
+  };
+};
 
 export default OurTeamPage;

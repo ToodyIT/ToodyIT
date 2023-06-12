@@ -1,4 +1,3 @@
-import { NextRouter } from "next/router";
 import {
   AmbientLight,
   Group,
@@ -21,12 +20,11 @@ export type DimensionValues = {
 
 const generateRingModel = (
   canvasElementRef: HTMLElement,
-  dimensionValues: DimensionValues,
-  router: NextRouter
+  dimensionValues: DimensionValues
 ) => {
   const scene = new Scene();
   const windowWidth = window.innerWidth;
-  const fovMin = 120; // Minimum FOV value
+  const fovMin = 105; // Minimum FOV value
   const fovMax = 60; // Maximum FOV value
   const windowWidthMin = 360; // Minimum window width
   const windowWidthMax = 2000; // Maximum window width

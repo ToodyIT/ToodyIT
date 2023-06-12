@@ -2,11 +2,13 @@ import { Input } from "../components/Input/Input";
 import { FormLine } from "../components/FormColumn/FormColumn";
 import { Textarea } from "../components/Textarea/Textarea";
 import { Button } from "../components/Button/Button";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import emailjs from "@emailjs/browser";
 import { forwardRef, useMemo, useState } from "react";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { SocialMedia } from "../components/SocialMedia/SocialMedia";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
@@ -201,4 +203,13 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
     </SlideAnimationLayout>
   );
 });
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ["common"])),
+    },
+  };
+};
+
 export default Contacts;

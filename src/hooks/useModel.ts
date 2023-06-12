@@ -19,8 +19,7 @@ const useModel = (
     if (!isServer()) {
       return generateRingModel(
         document.querySelector("#ring")!,
-        dimensionValues,
-        router
+        dimensionValues
       );
     }
 

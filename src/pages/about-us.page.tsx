@@ -1,7 +1,9 @@
 import { forwardRef } from "react";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
@@ -61,5 +63,13 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
     </SlideAnimationLayout>
   );
 });
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ["common"])),
+    },
+  };
+};
 
 export default AboutUsPage;

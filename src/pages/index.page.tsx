@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer/Footer";
 import HomepageHeader from "../components/HomepageHeader/HomepageHeader";
@@ -11,7 +11,7 @@ import Pagination, {
 import useWheelStopListener from "../hooks/useWheelStopListener";
 import Link from "next/link";
 import { Meta } from "../components/Meta/Meta";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const PAGINATION_ITEMS: Array<PaginationItemProps> = [
@@ -74,12 +74,7 @@ const HomePage: NextPage = () => {
         )}
       />
       <div className="bg-neutral-900 w-full h-screen overflow-hidden flex flex-col relative">
-        {activeSection === "header" && <HomepageHeaderMenu key="header" />}
-        <Overlay
-          isOpen={activeSection !== "main"}
-          onClose={() => setActiveSection("main")}
-          key="overlay"
-        />
+        <HomepageHeaderMenu key="header" />
         <div className="mx-auto flex flex-col h-full w-full">
           <HomepageHeader />
           <motion.div
@@ -90,32 +85,29 @@ const HomePage: NextPage = () => {
                 (activeSection === "footer" && -300) ||
                 ((activeSection === "main" || activeSection === "header") && 0),
             }}
-            className="flex flex-col h-full w-full z-20"
+            className="flex flex-col h-full w-full z-10"
           >
-            {/* <motion.span
-                  initial={{ x: "0", y: "-15%" }}
-                  animate={{ x: "-210%", y: "-15%" }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 7,
-                    ease: "linear",
-                  }}
-                  className="absolute top-1/2 text-[170px] whitespace-nowrap w-screen"
-                >
-                  WE ARE HELPING TO GROW BUSINESS
-                </motion.span>
-                <motion.span
-                  initial={{ x: "210%", y: "-15%" }}
-                  animate={{ x: "0", y: "-15%" }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 7,
-                    ease: "linear",
-                  }}
-                  className="absolute top-1/2 text-[170px] whitespace-nowrap w-screen"
-                >
-                  WE ARE HELPING TO GROW BUSINESS
-                </motion.span> */}
+            <Overlay
+              isOpen={activeSection !== "main"}
+              onClose={() => setActiveSection("main")}
+              key="overlay"
+            />
+            <section className="flex whitespace-nowrap gap-10 absolute top-1/2 -translate-y-1/2">
+              <div className="list">
+                <div className="item">
+                  <span className="text-7xl vl:text-9xl tracking-wider">
+                    We are helping to grow your business
+                  </span>
+                </div>
+              </div>
+              <div className="list">
+                <div className="item">
+                  <span className="text-7xl vl:text-9xl tracking-wider">
+                    We are helping to grow your business
+                  </span>
+                </div>
+              </div>
+            </section>
             <Link
               href={{
                 pathname: "/services",
@@ -124,12 +116,7 @@ const HomePage: NextPage = () => {
                 },
               }}
               className="flex flex-col flex-center h-full w-full"
-            >
-              {/* <canvas
-                  ref={canvasElementRef}
-                  className="portrait:w-[calc(100vw-180px)] landscape:h-[calc(100vh-200px)] aspect-square relative max-w-7xl"
-                /> */}
-            </Link>
+            />
             <Pagination
               items={PAGINATION_ITEMS}
               setActiveState={setActiveSection}
@@ -137,16 +124,16 @@ const HomePage: NextPage = () => {
             />
           </motion.div>
         </div>
-        {activeSection === "footer" && <Footer key="footer" />}
+        <Footer key="footer" />
       </div>
     </>
   );
 };
 
-export const getStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale!, ["common"])),
     },
   };
 };

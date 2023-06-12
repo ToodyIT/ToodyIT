@@ -22,7 +22,7 @@ const Pagination = <T,>({
   };
 
   return (
-    <div className="flex flex-col ml-auto w-fit fixed z-30 bottom-20 right-10">
+    <div className="flex flex-col ml-auto w-fit fixed z-10 bottom-20 right-10">
       {items.map((item) => (
         <label
           htmlFor={item.id}

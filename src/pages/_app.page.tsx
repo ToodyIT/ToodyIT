@@ -41,6 +41,4 @@ const App = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default appWithTranslation(App, {
-  i18n: NextI18nextConfig,
-});
+export default appWithTranslation(App, NextI18nextConfig);

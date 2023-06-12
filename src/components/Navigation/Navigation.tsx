@@ -5,7 +5,7 @@ import { twJoin } from "tailwind-merge";
 import { Header } from "../Header/Header";
 import { motion } from "framer-motion";
 import Overlay from "../Overlay/Overlay";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Icon } from "../Icons/Icon";
 
 export const NAVIGATION_ITEMS = [

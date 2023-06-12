@@ -2,9 +2,11 @@ import { forwardRef, useState } from "react";
 import SlideAnimationLayout from "../components/Layout/SlideAnimationLayout";
 import { twJoin } from "tailwind-merge";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { TFunction } from "next-i18next";
+import { TFunction, useTranslation } from "next-i18next";
 import { Icon } from "../components/Icons/Icon";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticProps } from "next";
+import NextI18nextConfig from "../../next-i18next.config";
 
 const getServices = (t: TFunction) => {
   return [
@@ -141,5 +143,13 @@ const ServicesPage = forwardRef<HTMLDivElement>((_, ref) => {
     </SlideAnimationLayout>
   );
 });
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ["common"], NextI18nextConfig)),
+    },
+  };
+};
 
 export default ServicesPage;

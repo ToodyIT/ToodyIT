@@ -9,3 +9,17 @@ body {
 address {
     @apply not-italic;
 }
+
+.list {
+    display: flex;
+    align-items: top;
+    -webkit-animation: loop 15s infinite linear;
+    animation: loop 15s infinite linear;
+}
+
+@keyframes loop {
+    100% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
