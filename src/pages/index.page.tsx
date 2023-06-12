@@ -35,17 +35,19 @@ const HomePage: NextPage = () => {
   const isStoppedScrolling = useWheelStopListener();
   const { openedSection, setOpenedSection } = useHomepageOpenSectionContext();
 
-  const handleWheel = (e: WheelEvent) => {
-    console.log("whell");
+  const handleWheel = (e: WheelEvent | TouchEvent) => {
+    const deltaY = e.deltaY || -e.touches[0].clientY + e.touches[0].screenY;
+    console.log(deltaY);
+
     if (!isStoppedScrolling) return;
 
-    if (e.deltaY < 0) {
+    if (deltaY < 0) {
       if (openedSection === "footer") {
         setOpenedSection("main");
       } else {
         setOpenedSection("header");
       }
-    } else if (e.deltaY > 0) {
+    } else if (deltaY > 0) {
       if (openedSection === "header") {
         setOpenedSection("main");
       } else {
