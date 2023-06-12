@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { GetStaticProps, NextPage } from "next";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Footer from "../components/Footer/Footer";
 import HomepageHeader from "../components/HomepageHeader/HomepageHeader";
 import HomepageHeaderMenu from "../components/HomepageHeader/HomepageHeaderMenu";
@@ -13,6 +13,7 @@ import Link from "next/link";
 import { Meta } from "../components/Meta/Meta";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useHomepageOpenSectionContext } from "../utils/HomepageOpenSectionContext";
 
 const PAGINATION_ITEMS: Array<PaginationItemProps> = [
   {
@@ -31,26 +32,23 @@ const PAGINATION_ITEMS: Array<PaginationItemProps> = [
 
 const HomePage: NextPage = () => {
   const { t } = useTranslation();
-  const [activeSection, setActiveSection] = useState<
-    "header" | "main" | "footer"
-  >("main");
-
   const isStoppedScrolling = useWheelStopListener();
+  const { openedSection, setOpenedSection } = useHomepageOpenSectionContext();
 
   const handleWheel = (e: WheelEvent) => {
     if (!isStoppedScrolling) return;
 
     if (e.deltaY < 0) {
-      if (activeSection === "footer") {
-        setActiveSection("main");
+      if (openedSection === "footer") {
+        setOpenedSection("main");
       } else {
-        setActiveSection("header");
+        setOpenedSection("header");
       }
     } else if (e.deltaY > 0) {
-      if (activeSection === "header") {
-        setActiveSection("main");
+      if (openedSection === "header") {
+        setOpenedSection("main");
       } else {
-        setActiveSection("footer");
+        setOpenedSection("footer");
       }
     }
   };
@@ -74,25 +72,24 @@ const HomePage: NextPage = () => {
         )}
       />
       <div className="bg-neutral-900 w-full h-screen overflow-hidden flex flex-col relative">
-        <HomepageHeaderMenu key="header" isOpen={activeSection === "header"} />
+        <HomepageHeaderMenu key="header" isOpen={openedSection === "header"} />
         <div className="mx-auto flex flex-col h-full w-full">
           <HomepageHeader />
-          <motion.div
-            key="main"
-            initial={{ y: 0 }}
-            animate={{
-              y:
-                (activeSection === "footer" && -300) ||
-                ((activeSection === "main" || activeSection === "header") && 0),
-            }}
-            className="flex flex-col h-full w-full z-10"
-          >
+          <div className="flex flex-col h-full w-full z-10">
             <Overlay
-              isOpen={activeSection !== "main"}
-              onClose={() => setActiveSection("main")}
+              isOpen={openedSection !== "main"}
+              onClose={() => setOpenedSection("main")}
               key="overlay"
             />
-            <section className="flex whitespace-nowrap gap-10 absolute top-1/2 -translate-y-1/2">
+            <motion.section
+              animate={openedSection}
+              variants={{
+                footer: { y: -290 },
+                main: { y: "-50%" },
+                header: { y: 70 },
+              }}
+              className="flex whitespace-nowrap gap-10 absolute top-1/2 -translate-y-1/2"
+            >
               <div className="list">
                 <div className="item">
                   <span className="text-7xl vl:text-9xl tracking-wider">
@@ -107,7 +104,7 @@ const HomePage: NextPage = () => {
                   </span>
                 </div>
               </div>
-            </section>
+            </motion.section>
             <Link
               href={{
                 pathname: "/services",
@@ -119,12 +116,12 @@ const HomePage: NextPage = () => {
             />
             <Pagination
               items={PAGINATION_ITEMS}
-              setActiveState={setActiveSection}
-              activeState={activeSection}
+              setActiveState={setOpenedSection}
+              activeState={openedSection}
             />
-          </motion.div>
+          </div>
         </div>
-        <Footer key="footer" isOpen={activeSection === "footer"} />
+        <Footer key="footer" isOpen={openedSection === "footer"} />
       </div>
     </>
   );

@@ -104,11 +104,11 @@ module.exports = {
             selector: "TSInterfaceDeclaration[id.name=/^((?!Props).)*$/]",
             message: "Do not declare not props interface in tsx file",
           },
-          {
-            selector:
-              "JSXExpressionContainer LogicalExpression LogicalExpression LogicalExpression",
-            message: "Do not use more than 2 logical expression",
-          },
+          // {
+          //   selector:
+          //     "JSXExpressionContainer LogicalExpression LogicalExpression LogicalExpression",
+          //   message: "Do not use more than 2 logical expression",
+          // },
         ],
       },
     },

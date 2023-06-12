@@ -1,5 +1,7 @@
 import React, { SetStateAction } from "react";
 import { twJoin } from "tailwind-merge";
+import { motion } from "framer-motion";
+import { useHomepageOpenSectionContext } from "../../utils/HomepageOpenSectionContext";
 
 export interface PaginationItemProps {
   value: string;
@@ -17,12 +19,21 @@ const Pagination = <T,>({
   activeState,
   items,
 }: PaginationProps<T>) => {
+  const { openedSection } = useHomepageOpenSectionContext();
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setActiveState(e.target.value as T);
   };
 
   return (
-    <div className="flex flex-col ml-auto w-fit fixed z-10 bottom-20 right-10">
+    <motion.div
+      animate={openedSection}
+      variants={{
+        footer: { y: -300 },
+        main: { y: 0 },
+        header: { y: 0 },
+      }}
+      className="flex flex-col ml-auto w-fit fixed z-10 bottom-20 right-10"
+    >
       {items.map((item) => (
         <label
           htmlFor={item.id}
@@ -44,7 +55,7 @@ const Pagination = <T,>({
           />
         </label>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

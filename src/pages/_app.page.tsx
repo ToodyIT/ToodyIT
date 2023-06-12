@@ -6,9 +6,16 @@ import { appWithTranslation } from "next-i18next";
 import NextI18nextConfig from "../../next-i18next.config";
 import { RingModel } from "../components/RingModel/RingModel";
 import Head from "next/head";
+import {
+  HomepageOpenSectionContext,
+  HomepageOpenedSectionType,
+} from "../utils/HomepageOpenSectionContext";
+import { useState } from "react";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
+  const [openedSection, setOpenedSection] =
+    useState<HomepageOpenedSectionType>("main");
 
   return (
     <>
@@ -27,16 +34,20 @@ const App = ({ Component, pageProps }: AppProps) => {
           }}
         />
       </Head>
-      <main>
-        <AnimatePresence
-          mode="wait"
-          initial={false}
-          onExitComplete={() => window.scrollTo(0, 0)}
-        >
-          <Component {...pageProps} key={router.asPath} />
-        </AnimatePresence>
-      </main>
-      <RingModel />
+      <HomepageOpenSectionContext.Provider
+        value={{ openedSection, setOpenedSection }}
+      >
+        <main>
+          <AnimatePresence
+            mode="wait"
+            initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
+          >
+            <Component {...pageProps} key={router.asPath} />
+          </AnimatePresence>
+        </main>
+        <RingModel />
+      </HomepageOpenSectionContext.Provider>
     </>
   );
 };

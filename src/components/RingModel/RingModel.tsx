@@ -2,10 +2,13 @@ import { FC, memo, useMemo, useRef } from "react";
 import useModel from "../../hooks/useModel";
 import { useRouter } from "next/router";
 import { isServer } from "../../utils/isServer";
+import { useHomepageOpenSectionContext } from "../../utils/HomepageOpenSectionContext";
+import { motion } from "framer-motion";
 
 export const RingModel: FC = memo(() => {
   const router = useRouter();
   const initialRoute = useMemo(() => router.asPath, []);
+  const { openedSection } = useHomepageOpenSectionContext();
 
   const canvasElementRef = useRef<HTMLCanvasElement | null>(null);
   const getZoom = () => {
@@ -30,7 +33,14 @@ export const RingModel: FC = memo(() => {
   });
 
   return (
-    <canvas
+    <motion.canvas
+      initial={{ y: 0 }}
+      animate={openedSection}
+      variants={{
+        footer: { y: -200 },
+        main: { y: 0 },
+        header: { y: 140 },
+      }}
       ref={canvasElementRef}
       id="ring"
       className="w-full h-full top-0 absolute !bg-transparent pointer-events-none"
