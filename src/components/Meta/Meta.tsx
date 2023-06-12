@@ -41,7 +41,6 @@ export const Meta: FC<MetaProps> = ({ metaTitle, metaDescription }) => {
         color="#5bbad5"
       />
       <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#ffffff" />
       <meta name="robots" content="all" />
       <meta name="description" content={metaDescription} />
       {alternateLocales.map((locale) => (
