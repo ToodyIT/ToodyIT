@@ -110,7 +110,7 @@ const HomePage: NextPage = () => {
             </motion.section>
             <Link
               onClick={() => {
-                gtag("event", "click_on_ring", { click_on_ring: true });
+                gtag("event", "click_on_ring", { click_on_ring: "true" });
               }}
               href={{
                 pathname: "/services",
