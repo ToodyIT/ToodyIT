@@ -12,7 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import { GTM_ID } from "../constants/gtm";
 import { install } from "ga-gtag";
-import { Overpass } from "@next/font/google";
+import { Overpass } from "next/font/google";
 
 const poppins = Overpass({
   subsets: ["latin-ext", "cyrillic", "latin"],

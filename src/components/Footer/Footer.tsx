@@ -9,6 +9,7 @@ import Development from "/public//img/posts/development.jpg";
 import Duration from "/public//img/posts/duration.jpg";
 import Price from "/public//img/posts/price.jpg";
 import Adds from "/public/img/posts/adds.jpg";
+import { gtag } from "ga-gtag";
 
 const POSTS = [
   {
@@ -51,6 +52,11 @@ const Footer: FC<FooterProps> = ({ isOpen }) => {
       <div className="flex gap-4 lg:gap-10 max-w-2xl justify-between flex-wrap w-full">
         {NAVIGATION_ITEMS.map((item) => (
           <Link
+            onClick={() => {
+              gtag("event", "click_on_header_link", {
+                event_name: "click_on_header_link",
+              });
+            }}
             key={item.title}
             href={{
               pathname: item.link,
@@ -65,6 +71,11 @@ const Footer: FC<FooterProps> = ({ isOpen }) => {
       <div className="flex justify-center gap-7 items-center max-w-6xl h-full w-full">
         {POSTS.map((post, index) => (
           <Link
+            onClick={() => {
+              gtag("event", "click_on_footer_posts", {
+                event_name: "click_on_footer_posts",
+              });
+            }}
             href={post.link}
             key={index}
             target="_blank"

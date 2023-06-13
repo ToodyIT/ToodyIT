@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { twJoin } from "tailwind-merge";
 import { Header } from "../Header/Header";
 import { motion } from "framer-motion";
 import Overlay from "../Overlay/Overlay";
 import { useTranslation } from "next-i18next";
 import { Icon } from "../Icons/Icon";
+import { gtag } from "ga-gtag";
 
 export const NAVIGATION_ITEMS = [
   {
@@ -56,15 +57,10 @@ export const Navigation: FC = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    gtag("event", "click_on_navigation_link", {
+      event_name: "click_on_navigation_link",
+    });
   };
-
-  useEffect(() => {
-    router.events.on("routeChangeStart", closeMobileMenu);
-
-    return () => {
-      router.events.off("routeChangeStart", closeMobileMenu);
-    };
-  }, []);
 
   return (
     <div className="h-full w-full lg:w-fit">
@@ -94,7 +90,7 @@ export const Navigation: FC = () => {
             },
           }}
         >
-          <Link href="/" className="w-full lg:w-auto">
+          <Link href="/" className="w-full lg:w-auto" onClick={closeMobileMenu}>
             <Icon
               icon="Arrow"
               className="w-5 h-7 hidden lg:block text-primary rotate-90"

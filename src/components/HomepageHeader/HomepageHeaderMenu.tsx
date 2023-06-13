@@ -6,6 +6,7 @@ import Image from "next/image";
 import { LocaleToggler } from "../LocaleToggler/LocaleToggler";
 import { NAVIGATION_ITEMS } from "../Navigation/Navigation";
 import { twJoin } from "tailwind-merge";
+import { gtag } from "ga-gtag";
 
 const headerLinkTwClass =
   "border-primary border-[3px] lg:w-[200px] block rounded-lg py-0.5 text-xl text-center bg-gray hover:bg-primary active:scale-[0.9] transition duration-300 ease-in-out ";
@@ -37,6 +38,11 @@ const HomepageHeaderMenu: FC<HomepageHeaderMenuProps> = ({ isOpen }) => {
           </Link>
           {NAVIGATION_ITEMS.slice(0, 2).map((item) => (
             <Link
+              onClick={() => {
+                gtag("event", "click_on_header_link", {
+                  event_name: "click_on_header_link",
+                });
+              }}
               key={item.order}
               href={{
                 pathname: item.link,

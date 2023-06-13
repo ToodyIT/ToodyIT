@@ -11,6 +11,7 @@ import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 import { Icon } from "../components/Icons/Icon";
+import { gtag } from "ga-gtag";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
@@ -123,6 +124,9 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
     );
 
     setIsSubmittedSuccessfully(true);
+    if (message.toLocaleLowerCase() !== "test") {
+      gtag("event", "send_contact_form", { event_name: "send_contact_form" });
+    }
 
     clearForm();
   };

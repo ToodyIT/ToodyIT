@@ -59,6 +59,16 @@ const HomePage: NextPage = () => {
     handleWheel();
   }, [isStoppedScrolling]);
 
+  useEffect(() => {
+    if (openedSection === "header") {
+      gtag("event", "opened_header", { event_name: "opened_header" });
+    }
+
+    if (openedSection === "footer") {
+      gtag("event", "opened_footer", { event_name: "opened_footer" });
+    }
+  }, [openedSection]);
+
   return (
     <>
       <Meta
