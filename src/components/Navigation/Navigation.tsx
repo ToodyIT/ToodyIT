@@ -11,8 +11,8 @@ import { gtag } from "ga-gtag";
 
 export const NAVIGATION_ITEMS = [
   {
-    title: "Services",
-    link: "/services",
+    title: "Process",
+    link: "/process",
     order: 1,
   },
   {
@@ -34,6 +34,16 @@ export const NAVIGATION_ITEMS = [
     title: "Contacts",
     link: "/contacts",
     order: 5,
+  },
+  {
+    title: "Prices",
+    link: "/prices",
+    order: 6,
+  },
+  {
+    title: "Services",
+    link: "/services",
+    order: 6,
   },
 ];
 
@@ -77,7 +87,7 @@ export const Navigation: FC = () => {
         <motion.nav
           className={twJoin(
             "flex-col z-30 rounded-3xl items-center justify-between my-auto lg:w-fit w-11/12 flex absolute bg-neutral-700 left-1/2 -translate-x-1/2 h-fit py-4",
-            "lg:bg-transparent lg:left-0 lg:translate-x-0 lg:h-full lg:justify-center lg:gap-6 vl:gap-10 lg:p-0 lg:static lg:![clip-path:none]"
+            "lg:bg-transparent lg:left-0 lg:translate-x-0 lg:h-full lg:justify-center lg:gap-3 vl:gap-4 lg:p-0 lg:static lg:![clip-path:none]"
           )}
           animate={isMobileMenuOpen ? "open" : "closed"}
           initial={false}

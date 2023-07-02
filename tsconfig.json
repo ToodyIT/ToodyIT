@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".eslintrc.js", "./next-i18next.config.js", "./next.config.js", "./tailwind.config.js", "./postcss.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".eslintrc.js", "./next-i18next.config.js", "./next.config.js", "./tailwind.config.js", "./postcss.config.js", "src/pages/services"],
   "exclude": ["node_modules"]
 }

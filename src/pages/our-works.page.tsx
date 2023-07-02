@@ -18,7 +18,7 @@ const getOurWorks = (t: TFunction) => {
       name: t("BUSINESS CARD"),
       title: t("Stylish and modern website for you"),
       description: t(
-        "A website that catches attention at first glance and makes it easy to get in touch with you, representing you and your services at a high professional level."
+        "A website that catches attention at first glance and makes it easy to get in touch with you, representing you and your process at a high professional level."
       ),
       customer: "MARIA POLJANSZKA",
       date: t("DECEMBER 16, 2023"),
@@ -42,7 +42,7 @@ const getOurWorks = (t: TFunction) => {
         "Vibrant and luxurious beauty salon website - your path to the perfect look"
       ),
       description: t(
-        "A website with excellent design invites clients on a unique journey to improvement, showcasing your beauty salon and its services at a high level of professionalism."
+        "A website with excellent design invites clients on a unique journey to improvement, showcasing your beauty salon and its process at a high level of professionalism."
       ),
       customer: "SALON KRASY KWHITE",
       date: t("APRIL 24, 2023"),

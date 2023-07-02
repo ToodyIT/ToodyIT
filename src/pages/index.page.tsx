@@ -142,7 +142,7 @@ const HomePage: NextPage = () => {
                 gtag("event", "click_on_ring", { event_name: "click_on_ring" });
               }}
               href={{
-                pathname: "/services",
+                pathname: "/process",
                 query: {
                   order: 1,
                 },
