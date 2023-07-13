@@ -1,82 +1,81 @@
 import { forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
-import { useTranslation } from "react-i18next";
-import { TFunction } from "next-i18next";
+import { TFunction, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 
 const getServices = (t: TFunction) => [
   {
-    title: t("+ 1 язык"),
-    price: "750-2 500Kč",
+    title: t("+ 1 language"),
+    price: "750-2,500Kč",
   },
   {
-    title: t("+ 1 онлайн оплата"),
-    price: "3 000-6 000Kč",
+    title: t("+ 1 online payment"),
+    price: "3,000-6,000Kč",
   },
   {
-    title: t("+ Анимация и визуальные эффекты"),
-    price: "1 500-12 000Kč",
+    title: t("+ Animation and effects"),
+    price: "1,500-12,000Kč",
   },
   {
-    title: t("+ Форма обратной связи"),
-    price: "3 000-5 000Kč",
+    title: t("+ Feedback form"),
+    price: "3,000-5,000Kč",
   },
   {
-    title: t("+ Отслеживания заказов"),
-    price: "5 000Kč",
+    title: t("+ Order tracking"),
+    price: "5,000Kč",
   },
   {
-    title: t("+ Администрация"),
-    price: "10 000-30 000Kč",
+    title: t("+ Administration"),
+    price: "10,000-30,000Kč",
   },
   {
-    title: t("+ Поиск"),
-    price: "7 000Kč",
+    title: t("+ Search"),
+    price: "7,000Kč",
   },
   {
-    title: t("+ 1 способ доставки"),
-    price: "3 000-6 000Kč",
+    title: t("+ 1 delivery method"),
+    price: "3,000-6,000Kč",
   },
   {
-    title: t("+ Система оценок и отзывов"),
-    price: "7 500-10 000Kč",
+    title: t("+ Rating and review system"),
+    price: "7,500-10,000Kč",
   },
   {
-    title: t("+ Форма регистрации"),
-    price: "10 000-15 000Kč",
+    title: t("+ Registration form"),
+    price: "10,000-15,000Kč",
   },
   {
-    title: t("+ Карта"),
-    price: "2 500Kč",
+    title: t("+ Map"),
+    price: "2,500Kč",
   },
   {
-    title: t("+ Система поддержки"),
-    price: "5 000-10 000Kč",
+    title: t("+ Support system"),
+    price: "5,000-10,000Kč",
   },
   {
-    title: t("+ Комментарии и обсуждение"),
-    price: "10 000Kč",
+    title: t("+ Comments and discussion"),
+    price: "10,000Kč",
   },
   {
-    title: t("+ Подписка на новый контент на сайте"),
-    price: "7 500Kč",
+    title: t("+ Subscription to new content"),
+    price: "7,500Kč",
   },
   {
-    title: t("+ Личный кабинет"),
-    price: "5 000-12 000Kč",
+    title: t("+ Personal account"),
+    price: "5,000-12,000Kč",
   },
   {
-    title: t("+ Онлайн-чат "),
-    price: "25 000Kč",
+    title: t("+ Online chat"),
+    price: "25,000Kč",
   },
   {
-    title: t("+ Функция резервирование"),
-    price: "1 500-10 000Kč",
+    title: t("+ Reservation function"),
+    price: "1,500-10,000Kč",
   },
   {
-    title: t("+ Рекомендации"),
-    price: "7 000Kč",
+    title: t("+ Recommendations"),
+    price: "7,000Kč",
   },
 ];
 const Services = forwardRef<HTMLDivElement>((_, ref) => {

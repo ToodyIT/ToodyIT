@@ -10,9 +10,14 @@ import { Icon } from "../Icons/Icon";
 import { gtag } from "ga-gtag";
 
 export const NAVIGATION_ITEMS = [
+  // {
+  //   title: "Process",
+  //   link: "/process",
+  //   order: 1,
+  // },
   {
-    title: "Process",
-    link: "/process",
+    title: "About Us",
+    link: "/about-us",
     order: 1,
   },
   {
@@ -21,28 +26,23 @@ export const NAVIGATION_ITEMS = [
     order: 2,
   },
   {
-    title: "About Us",
-    link: "/about-us",
-    order: 3,
-  },
-  {
     title: "Our Team",
     link: "/our-team",
-    order: 4,
-  },
-  {
-    title: "Contacts",
-    link: "/contacts",
-    order: 5,
+    order: 3,
   },
   {
     title: "Prices",
     link: "/prices",
-    order: 6,
+    order: 4,
   },
   {
     title: "Services",
     link: "/services",
+    order: 5,
+  },
+  {
+    title: "Contacts",
+    link: "/contacts",
     order: 6,
   },
 ];

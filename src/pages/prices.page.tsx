@@ -1,7 +1,6 @@
 import { forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
-import { useTranslation } from "react-i18next";
-import { TFunction } from "next-i18next";
+import { TFunction, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 
@@ -40,15 +39,17 @@ const Prices = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <LayoutMain ref={ref} metaDescription="" metaTitle={t("Prices")}>
-      <div className="flex flex-col gap-7 -mr-5 max-w-[700px] vl:max-w-[950px] pr-5">
+      <div className="flex flex-col gap-7 -mr-5 max-w-[700px] vl:max-w-[1050px] pr-5">
         <h1 className="text-white font-bold text-4xl flex text-center">
           {t("PRICES")}
         </h1>
         <div className="h-full w-full gap-8 flex flex-col">
           <p className="bg-neutral-800 rounded-lg p-4">
-            База: Дизайн сайта, 1 язык, разработка сайта, домен, хостинг, SEO
-            оптимизация, добавление аналитики, цены на услуги, силки на
-            социальние сети, контактная информация
+            <span>
+              {t(
+                "Base: Website design, 1 language, website development, domain, hosting, SEO optimization, adding analytics, service prices, links to social networks, contact information."
+              )}
+            </span>
           </p>
           <div className="flex justify-between gap-8 lg:gap-5 flex-col lg:flex-row">
             {prices.map((priceBlock) => (

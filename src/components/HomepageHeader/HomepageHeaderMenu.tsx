@@ -65,7 +65,7 @@ const HomepageHeaderMenu: FC<HomepageHeaderMenuProps> = ({ isOpen }) => {
           <LocaleToggler />
         </div>
         <div className="flex flex-col gap-2 max-w-[48%] sm:max-w-[200px] w-full">
-          {NAVIGATION_ITEMS.slice(2).map((item) => (
+          {NAVIGATION_ITEMS.slice(3).map((item) => (
             <Link
               key={item.order}
               href={{
