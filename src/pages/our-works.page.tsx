@@ -50,6 +50,17 @@ const getOurWorks = (t: TFunction) => {
     },
     {
       imagePath: HulkAgencPhoto,
+      name: t("AGENCY SITE"),
+      title: t("Sleek and innovative agency website - your gateway to success"),
+      description: t(
+        "We, the developers, proudly present a cutting-edge agency website blending contemporary design and technology for a seamless, engaging user experience."
+      ),
+      customer: "HULK AGENC",
+      date: t("NOVEMBER 1, 2023"),
+      alt: t("Hulk Agenc"),
+    },
+    {
+      imagePath: HulkAgencPhoto,
       name: t("WORK SITE"),
       title: t(
         "Cutting-Edge Building Company Website - Your Path to Quality Construction"
