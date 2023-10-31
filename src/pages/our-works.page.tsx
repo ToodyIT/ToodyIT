@@ -6,10 +6,10 @@ import { useTranslation, TFunction } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
-import MariaPoljanszkaPhoto from "/public/img/our-works/maria-poljanszka.png";
-import MartaHnatojkoPhoto from "/public/img/our-works/marta-hnatojko.png";
-import SalonKrasyKwhitePhoto from "/public/img/our-works/salon-krasy-kwhite.png";
-
+import MariaPoljanszkaPhoto from "../../public/img/our-works/maria-poljanszka.png";
+import MartaHnatojkoPhoto from "../../public/img/our-works/marta-hnatojko.png";
+import SalonKrasyKwhitePhoto from "../../public/img/our-works/salon-krasy-kwhite.png";
+import HulkAgencPhoto from "../../public/img/our-works/hulk-agenc.png";
 
 const getOurWorks = (t: TFunction) => {
   return [
@@ -47,6 +47,19 @@ const getOurWorks = (t: TFunction) => {
       customer: "SALON KRASY KWHITE",
       date: t("APRIL 24, 2023"),
       alt: t("Salon Krasy Kwhite"),
+    },
+    {
+      imagePath: HulkAgencPhoto,
+      name: t("WORK SITE"),
+      title: t(
+        "Cutting-Edge Building Company Website - Your Path to Quality Construction"
+      ),
+      description: t(
+        "Explore our web development work for a top construction company, exemplifying quality and innovation. Elevate your online presence with our expertise."
+      ),
+      customer: "ECO TECH",
+      date: t("NOVEMBER 1, 2023"),
+      alt: t("Eco Tech"),
     },
   ];
 };
