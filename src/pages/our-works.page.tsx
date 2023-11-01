@@ -14,6 +14,30 @@ import HulkAgencPhoto from "../../public/img/our-works/hulk-agenc.png";
 const getOurWorks = (t: TFunction) => {
   return [
     {
+      imagePath: HulkAgencPhoto,
+      name: t("AGENCY SITE"),
+      title: t("Sleek and innovative agency website - your gateway to success"),
+      description: t(
+        "We, the developers, proudly present a cutting-edge agency website blending contemporary design and technology for a seamless, engaging user experience."
+      ),
+      customer: "HULK AGENC",
+      date: t("NOVEMBER 1, 2023"),
+      alt: t("Hulk Agenc"),
+    },
+    // {
+    //   imagePath: HulkAgencPhoto,
+    //   name: t("WORK SITE"),
+    //   title: t(
+    //     "Cutting-Edge Building Company Website - Your Path to Quality Construction"
+    //   ),
+    //   description: t(
+    //     "Explore our web development work for a top construction company, exemplifying quality and innovation. Elevate your online presence with our expertise."
+    //   ),
+    //   customer: "ECO TECH",
+    //   date: t("NOVEMBER 1, 2023"),
+    //   alt: t("Eco Tech"),
+    // },
+    {
       imagePath: MariaPoljanszkaPhoto,
       name: t("BUSINESS CARD"),
       title: t("Stylish and modern website for you"),
@@ -23,17 +47,6 @@ const getOurWorks = (t: TFunction) => {
       customer: "MARIA POLJANSZKA",
       date: t("DECEMBER 16, 2023"),
       alt: t("Maria Poljanszka"),
-    },
-    {
-      imagePath: MartaHnatojkoPhoto,
-      name: t("BUSINESS CARD"),
-      title: t("Elegant and professional website reflecting your expertise"),
-      description: t(
-        "The website emphasizes your expertise and experience, making it a reliable and attractive source of information about you."
-      ),
-      customer: "MARTA HNATOJKO",
-      date: t("NOVEMBER 21, 2022"),
-      alt: t("Marta Hnatojko"),
     },
     {
       imagePath: SalonKrasyKwhitePhoto,
@@ -49,28 +62,15 @@ const getOurWorks = (t: TFunction) => {
       alt: t("Salon Krasy Kwhite"),
     },
     {
-      imagePath: HulkAgencPhoto,
-      name: t("AGENCY SITE"),
-      title: t("Sleek and innovative agency website - your gateway to success"),
+      imagePath: MartaHnatojkoPhoto,
+      name: t("BUSINESS CARD"),
+      title: t("Elegant and professional website reflecting your expertise"),
       description: t(
-        "We, the developers, proudly present a cutting-edge agency website blending contemporary design and technology for a seamless, engaging user experience."
+        "The website emphasizes your expertise and experience, making it a reliable and attractive source of information about you."
       ),
-      customer: "HULK AGENC",
-      date: t("NOVEMBER 1, 2023"),
-      alt: t("Hulk Agenc"),
-    },
-    {
-      imagePath: HulkAgencPhoto,
-      name: t("WORK SITE"),
-      title: t(
-        "Cutting-Edge Building Company Website - Your Path to Quality Construction"
-      ),
-      description: t(
-        "Explore our web development work for a top construction company, exemplifying quality and innovation. Elevate your online presence with our expertise."
-      ),
-      customer: "ECO TECH",
-      date: t("NOVEMBER 1, 2023"),
-      alt: t("Eco Tech"),
+      customer: "MARTA HNATOJKO",
+      date: t("NOVEMBER 21, 2022"),
+      alt: t("Marta Hnatojko"),
     },
   ];
 };
