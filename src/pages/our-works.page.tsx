@@ -10,6 +10,7 @@ import MariaPoljanszkaPhoto from "../../public/img/our-works/maria-poljanszka.pn
 import MartaHnatojkoPhoto from "../../public/img/our-works/marta-hnatojko.png";
 import SalonKrasyKwhitePhoto from "../../public/img/our-works/salon-krasy-kwhite.png";
 import HulkAgencPhoto from "../../public/img/our-works/hulk-agenc.png";
+import EcoTechPhoto from "../../public/img/our-works/eco-tech.png";
 
 const getOurWorks = (t: TFunction) => {
   return [
@@ -24,19 +25,19 @@ const getOurWorks = (t: TFunction) => {
       date: t("NOVEMBER 1, 2023"),
       alt: t("Hulk Agenc"),
     },
-    // {
-    //   imagePath: HulkAgencPhoto,
-    //   name: t("WORK SITE"),
-    //   title: t(
-    //     "Cutting-Edge Building Company Website - Your Path to Quality Construction"
-    //   ),
-    //   description: t(
-    //     "Explore our web development work for a top construction company, exemplifying quality and innovation. Elevate your online presence with our expertise."
-    //   ),
-    //   customer: "ECO TECH",
-    //   date: t("NOVEMBER 1, 2023"),
-    //   alt: t("Eco Tech"),
-    // },
+    {
+      imagePath: EcoTechPhoto,
+      name: t("WORK SITE"),
+      title: t(
+        "Cutting-Edge Building Company Website - Your Path to Quality Construction"
+      ),
+      description: t(
+        "Explore our web development work for a top construction company, exemplifying quality and innovation. Elevate your online presence with our expertise."
+      ),
+      customer: "ECO TECH",
+      date: t("NOVEMBER 1, 2023"),
+      alt: t("Eco Tech"),
+    },
     {
       imagePath: MariaPoljanszkaPhoto,
       name: t("BUSINESS CARD"),
