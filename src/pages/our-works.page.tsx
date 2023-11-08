@@ -16,6 +16,7 @@ const getOurWorks = (t: TFunction) => {
   return [
     {
       imagePath: HulkAgencPhoto,
+      link: "https://www.hulkagenc.com/",
       name: t("AGENCY SITE"),
       title: t("Sleek and innovative agency website - your gateway to success"),
       description: t(
@@ -27,6 +28,7 @@ const getOurWorks = (t: TFunction) => {
     },
     {
       imagePath: EcoTechPhoto,
+      link: "https://www.eco-tech.cz/",
       name: t("WORK SITE"),
       title: t(
         "Cutting-Edge Building Company Website - Your Path to Quality Construction"
@@ -40,6 +42,7 @@ const getOurWorks = (t: TFunction) => {
     },
     {
       imagePath: MariaPoljanszkaPhoto,
+      link: "https://www.maria-poljanszka.com/",
       name: t("BUSINESS CARD"),
       title: t("Stylish and modern website for you"),
       description: t(
@@ -51,6 +54,7 @@ const getOurWorks = (t: TFunction) => {
     },
     {
       imagePath: SalonKrasyKwhitePhoto,
+      link: "https://salon-krasy-kwhite.com/",
       name: t("WORK SITE"),
       title: t(
         "Vibrant and luxurious beauty salon website - your path to the perfect look"
@@ -64,6 +68,7 @@ const getOurWorks = (t: TFunction) => {
     },
     {
       imagePath: MartaHnatojkoPhoto,
+      link: "https://www.marta-hnatojko.com/",
       name: t("BUSINESS CARD"),
       title: t("Elegant and professional website reflecting your expertise"),
       description: t(
@@ -105,24 +110,26 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
                   className="h-auto max-w-[382px] flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
                   key={work.title}
                 >
-                  <Image
-                    src={work.imagePath}
-                    alt={work.alt}
-                    placeholder="blur"
-                    className="rounded-t-3xl"
-                  />
-                  <div className="bg-primary w-36 h-9 flex rounded-3xl py-0.5 -translate-y-1/2 ml-9 justify-center">
-                    {work.name}
-                  </div>
-                  <div className="flex flex-col px-6 pb-6 gap-7 h-full">
-                    <h2 className="font-bold">{work.title}</h2>
-                    <p>{work.description}</p>
-                    <div className="bg-primary mt-auto w-full h-[1px]" />
-                    <div className="flex flex-col">
-                      <address className="font-bold">{work.customer}</address>
-                      <time>{work.date}</time>
+                  <a href={work.link} target="_blank" rel="noreferrer">
+                    <Image
+                      src={work.imagePath}
+                      alt={work.alt}
+                      placeholder="blur"
+                      className="rounded-t-3xl"
+                    />
+                    <div className="bg-primary w-36 h-9 flex rounded-3xl py-0.5 -translate-y-1/2 ml-9 justify-center items-center">
+                      {work.name}
                     </div>
-                  </div>
+                    <div className="flex flex-col px-6 pb-6 gap-7 h-full">
+                      <h2 className="font-bold">{work.title}</h2>
+                      <p>{work.description}</p>
+                      <div className="bg-primary mt-auto w-full h-[1px]" />
+                      <div className="flex flex-col">
+                        <address className="font-bold">{work.customer}</address>
+                        <time>{work.date}</time>
+                      </div>
+                    </div>
+                  </a>
                 </li>
               ))}
             </ul>
