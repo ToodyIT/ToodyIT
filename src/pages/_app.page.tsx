@@ -12,12 +12,12 @@ import {
 import { useEffect, useState } from "react";
 import { GTM_ID } from "../constants/gtm";
 import { install } from "ga-gtag";
-import { Overpass } from "next/font/google";
+import { Montserrat } from "next/font/google";
 
-const poppins = Overpass({
-  subsets: ["latin-ext", "cyrillic", "latin"],
+const poppins = Montserrat({
+  subsets: ["latin-ext", "latin", "cyrillic"],
   weight: ["400", "600", "500", "700"],
-  variable: "--font-overpass",
+  variable: "--font-poppins",
 });
 
 const App = ({ Component, pageProps }: AppProps) => {

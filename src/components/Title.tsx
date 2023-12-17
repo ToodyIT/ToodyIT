@@ -1,0 +1,49 @@
+import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
+
+type TitleProps = {
+  children: ReactNode;
+  type: "h1" | "h2" | "h3";
+  id?: string;
+};
+
+export const Title: FC<TitleProps> = ({ children, type, id, className }) => {
+  if (type === "h1") {
+    return (
+      <h1
+        className={twMerge(
+          "text-5xl vl:text-[100px] xl:!text-[200px] vl:mt-12 vl:mb-6 mt-8 mb-4 font-bold",
+          className
+        )}
+      >
+        {children}
+      </h1>
+    );
+  }
+
+  if (type === "h2") {
+    return (
+      <h2
+        id={id}
+        className={twMerge(
+          "text-3xl vl:mt-8 vl:mb-4 mt-6 mb-3 font-semibold vl:text-5xl",
+          className
+        )}
+      >
+        {children}
+      </h2>
+    );
+  }
+
+  return (
+    <h3
+      id={id}
+      className={twMerge(
+        "text-xl vl:mt-8 vl:mb-4 mt-6 mb-3 font-semibold vl:text-3xl",
+        className
+      )}
+    >
+      {children}
+    </h3>
+  );
+};

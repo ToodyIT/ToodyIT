@@ -12,10 +12,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       <div className="w-full flex flex-col gap-3">
         <label htmlFor={id} className="text-xl font-medium">
           {label}
-          {required && <span className="ml-1 text-grayDark">*</span>}
+          {required && <span className="ml-1 text-secondary">*</span>}
         </label>
         <textarea
-          className="h-36 w-full bg-grey-800 border border-primary rounded-2xl text-white p-4 resize-none"
+          className="h-36 w-full bg-secondary border border-primary rounded-2xl text-white p-4 resize-none"
           ref={forwardedRef}
           placeholder={placeholder ?? undefined}
           {...props}

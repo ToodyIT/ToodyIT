@@ -17,9 +17,9 @@ module.exports = {
       },
       colors: {
         primary: "#139A20",
-        secondary: "#8F56EB",
-        "grey-800": "#1F2125",
-        "neutral-900": "#141414",
+        secondary: "#1F2125",
+        grey: "#141414",
+        greyLight: "#9A9A9A",
       },
       fontFamily: {
         sans: ["var(--font-overpass)"],

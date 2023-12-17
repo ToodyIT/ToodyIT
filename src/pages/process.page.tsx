@@ -7,7 +7,7 @@ import { Icon } from "../components/Icons/Icon";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 import NextI18nextConfig from "../../next-i18next.config";
-import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import { WebLine } from "../components/Webline/WebLine";
 
 const getProcess = (t: TFunction) => {
   return [
@@ -86,66 +86,71 @@ const ProcessPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Website development from start to finish. Our process include a website for a salon, a business card website, a website for a cafe, a cheap website. Trust us with professional and efficient website development."
       )}
     >
-      <div className="flex flex-col gap-7 ">
-        <BlurredDecoration className="lg:top-1 top-7 left-1 lg:left-1" />
-        <h1 className="text-white text-xl z-20 lg:text-4xl flex font-bold text-center">
-          {t("DEVELOPMENT OF A NEW SITE")}
-        </h1>
-        <ul className="flex flex-col gap-4 w-full z-20">
-          {process.map((service) => (
-            <li className="flex flex-col items-end max-w-3xl" key={service.id}>
-              <div
-                className={twJoin(
-                  "bg-neutral-800 flex items-center w-full rounded-xl max-h-16 overflow-hidden cursor-pointer",
-                  "before:content-[''] before:h-16 before:block before:w-4 before:bg-gradient-to-b before:from-neutral-800 before:to-primary"
-                )}
-                onClick={() => toggleOpenedServiceId(service.id)}
+      <WebLine>
+        <div className="flex flex-col flex-center gap-7 ">
+          <h1 className="text-white text-xl z-20 lg:text-4xl flex font-bold text-center">
+            {t("DEVELOPMENT OF A NEW SITE")}
+          </h1>
+          <ul className="flex flex-col flex-center gap-4 w-full z-20">
+            {process.map((service) => (
+              <li
+                className="flex flex-col items-end max-w-3xl"
+                key={service.id}
               >
-                <div className="p-5 flex justify-between w-full">
-                  <h2 className="text-white text-xl">{service.title}</h2>
-                  <Icon
-                    icon="Arrow"
-                    className={twJoin(
-                      "w-5 h-7 text-primary transition",
-                      openedServiceId === service.id ? "rotate-180" : "rotate-0"
-                    )}
-                  />
+                <div
+                  className={twJoin(
+                    "bg-neutral-800 flex items-center w-full rounded-xl max-h-16 overflow-hidden cursor-pointer",
+                    "before:content-[''] before:h-16 before:block before:w-4 before:bg-gradient-to-b before:from-neutral-800 before:to-primary"
+                  )}
+                  onClick={() => toggleOpenedServiceId(service.id)}
+                >
+                  <div className="p-5 flex justify-between w-full">
+                    <h2 className="text-white text-xl">{service.title}</h2>
+                    {/* <Icon
+                      icon="Arrow"
+                      className={twJoin(
+                        "w-5 h-7 text-primary transition",
+                        openedServiceId === service.id
+                          ? "rotate-180"
+                          : "rotate-0"
+                      )}
+                    /> */}
+                  </div>
                 </div>
-              </div>
-              <motion.div
-                id={openedServiceId === service.id ? "open" : "closed"}
-                animate={openedServiceId === service.id ? "open" : "closed"}
-                variants={{
-                  closed: {
-                    height: 0,
-                  },
-                  open: {
-                    height: "auto",
-                  },
-                }}
-                onAnimationComplete={() => setIsAnimating(false)}
-                onAnimationStart={() => setIsAnimating(true)}
-                initial={false}
-                key={service.title}
-                transition={{
-                  type: "spring",
-                  bounce: 0.25,
-                  duration: 0.7,
-                }}
-                className={twJoin(
-                  "max-w-[90%] bg-neutral-600 mr-4 rounded-b-2xl overflow-hidden",
-                  openedServiceId === service.id
-                    ? "notLg:!h-auto"
-                    : "notLg:!h-0"
-                )}
-              >
-                <p className="block m-4 mt-2">{service.description}</p>
-              </motion.div>
-            </li>
-          ))}
-        </ul>
-        <BlurredDecoration className="-right-5 bottom-5 hidden lg:block" />
-      </div>
+                <motion.div
+                  id={openedServiceId === service.id ? "open" : "closed"}
+                  animate={openedServiceId === service.id ? "open" : "closed"}
+                  variants={{
+                    closed: {
+                      height: 0,
+                    },
+                    open: {
+                      height: "auto",
+                    },
+                  }}
+                  onAnimationComplete={() => setIsAnimating(false)}
+                  onAnimationStart={() => setIsAnimating(true)}
+                  initial={false}
+                  key={service.title}
+                  transition={{
+                    type: "spring",
+                    bounce: 0.25,
+                    duration: 0.7,
+                  }}
+                  className={twJoin(
+                    "max-w-[90%] bg-neutral-600 mr-4 rounded-b-2xl overflow-hidden",
+                    openedServiceId === service.id
+                      ? "notLg:!h-auto"
+                      : "notLg:!h-0"
+                  )}
+                >
+                  <p className="block m-4 mt-2">{service.description}</p>
+                </motion.div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </WebLine>
     </LayoutMain>
   );
 });

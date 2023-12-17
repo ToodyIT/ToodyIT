@@ -1,9 +1,8 @@
 import { FC } from "react";
-import { Icon } from "../Icons/Icon";
 import Link from "next/link";
-import { IconName } from "../Icons/IconsMap";
 import { twMerge } from "tailwind-merge";
 import { gtag } from "ga-gtag";
+import { EmailIcon, InstagramIcon, PhoneIcon } from "../Icons/Icons";
 
 type SocialMediaType = {
   link: string;
@@ -16,19 +15,19 @@ const SOCIAL_MEDIA: SocialMediaType[] = [
   {
     link: "mail:toody-it@toody-it.com",
     text: "toody-it@toody-it.com",
-    icon: "Email",
+    icon: <EmailIcon className="w-5 h-5" />,
     eventName: "click_on_email",
   },
   {
     link: "https://www.instagram.com/toodyit/",
     text: "@toodyit",
-    icon: "Instagram",
+    icon: <InstagramIcon className="w-5 h-5" />,
     eventName: "click_on_instagram",
   },
   {
     link: "tel:+420773011578",
     text: "+420 773 011 578",
-    icon: "Phone",
+    icon: <PhoneIcon className="w-5 h-5" />,
     eventName: "click_on_phone",
   },
 ];
@@ -54,7 +53,7 @@ export const SocialMedia: FC<SocialMediaProps> = ({
           href={media.link}
         >
           <div className="size-9 bg-primary flex rounded-full flex-center">
-            <Icon icon={media.icon} className="w-5 h-5" />
+            {media.icon}
           </div>
           <div className="hidden lg:block">{withText && media.text}</div>
         </Link>

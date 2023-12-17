@@ -2,16 +2,18 @@ import { Input } from "../components/Input/Input";
 import { FormLine } from "../components/FormColumn/FormColumn";
 import { Textarea } from "../components/Textarea/Textarea";
 import { Button } from "../components/Button/Button";
-import { useTranslation } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import emailjs from "@emailjs/browser";
 import { forwardRef, useEffect, useMemo, useState } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
 import { SocialMedia } from "../components/SocialMedia/SocialMedia";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
-import { Icon } from "../components/Icons/Icon";
+
 import { gtag } from "ga-gtag";
+import { WebLine } from "../components/Webline/WebLine";
+import { CheckmarkIcon } from "../components/Icons/Icons";
+import { Title } from "../components/Title";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
@@ -154,14 +156,19 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
         "Contact us and share your information to get in touch with our team. We value your input and look forward to connecting with you. Leave your contact details, and we will reach out to discuss your project or answer any inquiries you may have. Start the conversation today."
       )}
     >
-      <div className="flex flex-col gap-7 w-full ">
-        <h1 className="text-white text-4xl font-bold flex text-center lg:pt-8">
-          {t("CONTACTS")}
-        </h1>
-        <BlurredDecoration className="right-10" />
+      <WebLine innerClassName="flex-center flex flex-col">
+        <Title type="h1" className="vl:gap-12 gap-3 flex ">
+          <Trans
+            i18nKey="CONTACT<span>US</span>"
+            components={{
+              span: <span className="text-greyLight"></span>,
+            }}
+          />
+        </Title>
+
         <form
           onSubmit={onSubmit}
-          className="flex flex-col z-10 relative gap-7 max-w-[700px] w-full"
+          className="flex flex-col relative gap-7 max-w-[700px] w-full"
         >
           <FormLine>
             <Input
@@ -231,7 +238,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
             className="flex self-center active:scale-[0.95] mt-4 items-center justify-center w-full max-w-[350px]"
           >
             {isSubmittedSuccessfully ? (
-              <Icon icon="Checkmark" className="size-8 text-white" />
+              <CheckmarkIcon className="size-8 text-white/" />
             ) : (
               t("Send message")
             )}
@@ -241,7 +248,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
             className="max-w-[700px] justify-center mt-2"
           />
         </form>
-      </div>
+      </WebLine>
     </LayoutMain>
   );
 });

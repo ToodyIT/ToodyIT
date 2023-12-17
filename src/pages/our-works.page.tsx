@@ -1,89 +1,63 @@
 import { forwardRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
 import LayoutMain from "../components/Layout/LayoutMain";
-import { useTranslation, TFunction } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
-import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 import MariaPoljanszkaPhoto from "../../public/img/our-works/maria-poljanszka.png";
+import MariaPoljanszkaPhotoMobile from "../../public/img/our-works/maria-poljanszkaMobile.png";
 import MartaHnatojkoPhoto from "../../public/img/our-works/marta-hnatojko.png";
+import MartaHnatojkoPhotoMobile from "../../public/img/our-works/marta-hnatojkoMobile.png";
 import SalonKrasyKwhitePhoto from "../../public/img/our-works/salon-krasy-kwhite.png";
+import SalonKrasyKwhitePhotoMobile from "../../public/img/our-works/salon-krasy-kwhiteMobile.png";
 import HulkAgencPhoto from "../../public/img/our-works/hulk-agenc.png";
 import EcoTechPhoto from "../../public/img/our-works/eco-tech.png";
+import EcoTechPhotoMobile from "../../public/img/our-works/eco-techMobile.png";
+import HulkAgencPhotoMobile from "../../public/img/our-works/hulk-agencMobile.png";
 
-const getOurWorks = (t: TFunction) => {
-  return [
-    {
-      imagePath: HulkAgencPhoto,
-      link: "https://www.hulkagenc.com/",
-      name: t("AGENCY SITE"),
-      title: t("Sleek and innovative agency website - your gateway to success"),
-      description: t(
-        "We, the developers, proudly present a cutting-edge agency website blending contemporary design and technology for a seamless, engaging user experience."
-      ),
-      customer: "HULK AGENC",
-      date: t("NOVEMBER 1, 2023"),
-      alt: t("Hulk Agenc"),
-    },
-    {
-      imagePath: EcoTechPhoto,
-      link: "https://www.eco-tech.cz/",
-      name: t("WORK SITE"),
-      title: t(
-        "Cutting-Edge Building Company Website - Your Path to Quality Construction"
-      ),
-      description: t(
-        "Explore our web development work for a top construction company, exemplifying quality and innovation. Elevate your online presence with our expertise."
-      ),
-      customer: "ECO TECH",
-      date: t("NOVEMBER 1, 2023"),
-      alt: t("Eco Tech"),
-    },
-    {
-      imagePath: MariaPoljanszkaPhoto,
-      link: "https://www.maria-poljanszka.com/",
-      name: t("BUSINESS CARD"),
-      title: t("Stylish and modern website for you"),
-      description: t(
-        "A website that catches attention at first glance and makes it easy to get in touch with you, representing you and your process at a high professional level."
-      ),
-      customer: "MARIA POLJANSZKA",
-      date: t("DECEMBER 16, 2023"),
-      alt: t("Maria Poljanszka"),
-    },
-    {
-      imagePath: SalonKrasyKwhitePhoto,
-      link: "https://salon-krasy-kwhite.com/",
-      name: t("WORK SITE"),
-      title: t(
-        "Vibrant and luxurious beauty salon website - your path to the perfect look"
-      ),
-      description: t(
-        "A website with excellent design invites clients on a unique journey to improvement, showcasing your beauty salon and its process at a high level of professionalism."
-      ),
-      customer: "SALON KRASY KWHITE",
-      date: t("APRIL 24, 2023"),
-      alt: t("Salon Krasy Kwhite"),
-    },
-    {
-      imagePath: MartaHnatojkoPhoto,
-      link: "https://www.marta-hnatojko.com/",
-      name: t("BUSINESS CARD"),
-      title: t("Elegant and professional website reflecting your expertise"),
-      description: t(
-        "The website emphasizes your expertise and experience, making it a reliable and attractive source of information about you."
-      ),
-      customer: "MARTA HNATOJKO",
-      date: t("NOVEMBER 21, 2022"),
-      alt: t("Marta Hnatojko"),
-    },
-  ];
-};
+import { WebLine } from "../components/Webline/WebLine";
+import Image from "next/image";
+import Planet from "/public/img/planet.png";
+import { Title } from "../components/Title";
+import { LinkIcon } from "../components/Icons/Icons";
+
+const OUR_WORKS = [
+  {
+    desktopImagePath: HulkAgencPhoto,
+    mobileImagePath: HulkAgencPhotoMobile,
+    link: "https://www.hulkagenc.com/",
+    alt: "Hulk Agenc",
+  },
+  {
+    desktopImagePath: EcoTechPhoto,
+    mobileImagePath: EcoTechPhotoMobile,
+    link: "https://www.eco-tech.cz/",
+    alt: "Eco Tech",
+  },
+  {
+    desktopImagePath: MariaPoljanszkaPhoto,
+    mobileImagePath: MariaPoljanszkaPhotoMobile,
+    link: "https://www.maria-poljanszka.com/",
+    alt: "Maria Poljanszka",
+  },
+  {
+    desktopImagePath: SalonKrasyKwhitePhoto,
+    mobileImagePath: SalonKrasyKwhitePhotoMobile,
+    link: "https://salon-krasy-kwhite.com/",
+    alt: "Salon Krasy Kwhite",
+  },
+  {
+    desktopImagePath: MartaHnatojkoPhoto,
+    mobileImagePath: MartaHnatojkoPhotoMobile,
+    link: "https://www.marta-hnatojko.com/",
+    alt: "Marta Hnatojko",
+  },
+];
+
 const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
-  const [emblaRef] = useEmblaCarousel({ align: "start" });
+  const [emblaRef] = useEmblaCarousel({ align: "center", startIndex: 1 });
   const { t } = useTranslation();
-  const ourWorks = getOurWorks(t);
+  const ourWorks = OUR_WORKS;
 
   return (
     <LayoutMain
@@ -93,49 +67,69 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Discover our impressive portfolio of completed website projects. Explore a diverse range of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online experiences. Browse through our works and witness the quality and innovation we bring to every website we create."
       )}
     >
-      <div className="flex flex-col gap-7 -mr-5">
-        <h1 className="text-white font-bold text-4xl flex text-center">
-          {t("RECENT WORKS")}
-        </h1>
-        <BlurredDecoration />
-
-        <div className="flex">
-          <div
-            className="relative max-h-[600px] h-full w-full cursor-pointer overflow-hidden"
-            ref={emblaRef}
-          >
-            <ul className="flex gap-7 lg:gap-14 h-full">
-              {ourWorks.map((work) => (
-                <li
-                  className="h-auto max-w-[382px] flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
-                  key={work.title}
+      <WebLine innerClassName="overflow-hidden vl:overflow-visible flex flex-col">
+        <Title type="h1" className="vl:gap-12 gap-3 flex">
+          <Trans
+            i18nKey="OUR<span>WORKS</span>"
+            components={{
+              span: <span className="text-greyLight"></span>,
+            }}
+          />
+        </Title>
+        <div
+          className=" max-h-[700px] vl:max-h-[600px] flex flex-col gap-10 h-full w-full cursor-pointer"
+          ref={emblaRef}
+        >
+          <ul className="flex gap-8 vl:gap-10 h-full">
+            {ourWorks.map((work) => (
+              <li
+                className="h-80 relative vl:h-auto max-w-[200px] vl:max-w-[600px] border border-greyLight flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
+                key={work.link}
+              >
+                <Image
+                  src={work.desktopImagePath}
+                  alt={work.alt}
+                  placeholder="blur"
+                  className="rounded-3xl min-h-full hidden vl:block"
+                />
+                <Image
+                  src={work.mobileImagePath}
+                  alt={work.alt}
+                  placeholder="blur"
+                  className="rounded-3xl min-h-full vl:hidden object-cover object-top"
+                />
+                <a
+                  className="absolute bg-secondary active:scale-95 hover:bg-grey transition rounded-full border-greyLight border right-2 bottom-2 p-3"
+                  href={work.link}
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  <a href={work.link} target="_blank" rel="noreferrer">
-                    <Image
-                      src={work.imagePath}
-                      alt={work.alt}
-                      placeholder="blur"
-                      className="rounded-t-3xl"
-                    />
-                    <div className="bg-primary w-36 h-9 flex rounded-3xl py-0.5 -translate-y-1/2 ml-9 justify-center items-center">
-                      {work.name}
-                    </div>
-                    <div className="flex flex-col px-6 pb-6 gap-7 h-full">
-                      <h2 className="font-bold">{work.title}</h2>
-                      <p>{work.description}</p>
-                      <div className="bg-primary mt-auto w-full h-[1px]" />
-                      <div className="flex flex-col">
-                        <address className="font-bold">{work.customer}</address>
-                        <time>{work.date}</time>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  <LinkIcon className="size-7" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+        <div className="flex  vl:flex-row flex-col">
+          <div className="flex  flex-col">
+            <Title type="h2" className="text-primary">
+              {t("Experience")}
+            </Title>
+            <span className="vl:text-2xl">
+              <Trans
+                i18nKey="We <span>explore</span> with you an overview of the <span>most</span> significant things we have achieved for our customers in recent months."
+                components={{ span: <span className="text-primary"></span> }}
+              />
+            </span>
+          </div>
+
+          <Image
+            className="w-4/5 flex vl:max-w-[402px] pt-6 vl:pt-12 self-end max-w-[302px]"
+            src={Planet}
+            alt="planet"
+          />
+        </div>
+      </WebLine>
     </LayoutMain>
   );
 });

@@ -1,13 +1,8 @@
 import { motion } from "framer-motion";
 import { GetStaticProps, NextPage } from "next";
 import { useEffect } from "react";
-import Footer from "../components/Footer/Footer";
-import HomepageHeader from "../components/HomepageHeader/HomepageHeader";
-import HomepageHeaderMenu from "../components/HomepageHeader/HomepageHeaderMenu";
 import Overlay from "../components/Overlay/Overlay";
-import Pagination, {
-  PaginationItemProps,
-} from "../components/Pagination/Pagination";
+
 import useWheelStopListener from "../hooks/useWheelStopListener";
 import Link from "next/link";
 import { Meta } from "../components/Meta/Meta";
@@ -17,57 +12,17 @@ import { useHomepageOpenSectionContext } from "../utils/HomepageOpenSectionConte
 import useScrollDirection from "../hooks/useScrollDirection";
 import { gtag } from "ga-gtag";
 import { Icon } from "../components/Icons/Icon";
-
-const PAGINATION_ITEMS: Array<PaginationItemProps> = [
-  {
-    id: "header",
-    value: "header",
-  },
-  {
-    id: "main",
-    value: "main",
-  },
-  {
-    id: "footer",
-    value: "footer",
-  },
-];
+import { Footer } from "../components/Footer/Footer";
+import { ArrowIcon } from "../components/Icons/Icons";
 
 const HomePage: NextPage = () => {
   const { t } = useTranslation();
   const isStoppedScrolling = useWheelStopListener();
   const { openedSection, setOpenedSection } = useHomepageOpenSectionContext();
   const scrollDirection = useScrollDirection();
-  const handleWheel = () => {
-    if (scrollDirection === "up") {
-      if (openedSection === "footer") {
-        setOpenedSection("main");
-      } else {
-        setOpenedSection("header");
-      }
-    } else if (scrollDirection === "down") {
-      if (openedSection === "header") {
-        setOpenedSection("main");
-      } else {
-        setOpenedSection("footer");
-      }
-    }
-  };
   useEffect(() => {
     if (!isStoppedScrolling) return;
-
-    handleWheel();
-  }, [isStoppedScrolling]);
-
-  useEffect(() => {
-    if (openedSection === "header") {
-      gtag("event", "opened_header", { event_name: "opened_header" });
-    }
-
-    if (openedSection === "footer") {
-      gtag("event", "opened_footer", { event_name: "opened_footer" });
-    }
-  }, [openedSection]);
+  });
 
   return (
     <>
@@ -80,17 +35,11 @@ const HomePage: NextPage = () => {
         )}
       />
       <div
-        className="bg-neutral-900 w-full overflow-hidden flex flex-col relative"
+        className="bg-grey w-full overflow-hidden flex flex-col relative"
         id="homepage-wrapper"
       >
-        <HomepageHeaderMenu key="header" isOpen={openedSection === "header"} />
+
         <div className="mx-auto flex flex-col h-full w-full">
-          <HomepageHeader />
-          <Pagination
-            items={PAGINATION_ITEMS}
-            setActiveState={setOpenedSection}
-            activeState={openedSection}
-          />
           <motion.section
             initial={{ y: "-50%", x: "50%" }}
             animate={openedSection}
@@ -102,7 +51,7 @@ const HomePage: NextPage = () => {
             className="absolute top-1/3 translate-x-1/2 -translate-y-1/2 right-1/4 z-20"
           >
             <Icon
-              icon="DrawnArrow"
+              src={ArrowIcon}
               className="text-white size-32 vl:size-40 rotate-[250deg]"
             />
           </motion.section>
@@ -151,7 +100,7 @@ const HomePage: NextPage = () => {
             />
           </div>
         </div>
-        <Footer key="footer" isOpen={openedSection === "footer"} />
+        <Footer key="footer" />
       </div>
     </>
   );

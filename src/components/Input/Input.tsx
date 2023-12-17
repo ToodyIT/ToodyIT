@@ -21,7 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         </label>
         <input
           id={id}
-          className="h-12 w-full bg-grey-800 border border-primary rounded-full text-white pl-4"
+          className="h-12 w-full bg-secondary border border-primary rounded-full text-white pl-4"
           ref={forwardedRef}
           placeholder={placeholder ?? undefined}
           {...props}

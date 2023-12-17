@@ -1,56 +1,117 @@
-import Image from "next/image";
-import { FC } from "react";
+import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import { WebLine } from "../Webline/WebLine";
+
 import { motion } from "framer-motion";
+import { gtag } from "ga-gtag";
 import Link from "next/link";
 import { twJoin } from "tailwind-merge";
+import { useRouter } from "next/router";
 
-type HeaderProps = {
-  isMobileMenuOpen: boolean;
-  setIsMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
+export const HEADER_HEIGHT = 88;
 
-const BURGER_MENU_ITEMS_WIDTH = ["80%", "100%", "50%"];
+export const NAVIGATION_ITEMS = [
+  {
+    title: "About Us",
+    link: "/about-us",
+    order: 1,
+  },
+  {
+    title: "Our Works",
+    link: "/our-works",
+    order: 2,
+  },
+  {
+    title: "Our Team",
+    link: "/our-team",
+    order: 3,
+  },
+  {
+    title: "Services",
+    link: "/services",
+    order: 4,
+  },
+  {
+    title: "Contacts",
+    link: "/contacts",
+    order: 5,
+  },
+];
 
-export const Header: FC<HeaderProps> = ({
-  isMobileMenuOpen,
-  setIsMobileMenuOpen,
-}) => {
+export const Header: FC = () => {
+  const router = useRouter();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
+
+  const getLinkQueries = (order: number) => {
+    if (!Array.isArray(router.query.order) && router.query.order) {
+      return {
+        order,
+        direction: parseFloat(router.query.order) > order ? "top" : "bottom",
+      };
+    }
+
+    return {
+      order,
+    };
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    gtag("event", "click_on_navigation_link", {
+      event_name: "click_on_navigation_link",
+    });
+  };
+
   return (
-    <div
-      className={twJoin(
-        "flex shadow-lg justify-between w-full items-center relative lg:hidden bg-neutral-900 px-5 py-4",
-        isMobileMenuOpen ? "z-30" : "z-[1]"
-      )}
-    >
-      <Link href="/">
-        <Image src="/img/toodyit-logo.png" alt="logo" width="80" height="50" />
-      </Link>
-      <div
-        className="w-10 h-8 flex flex-col justify-between items-end"
-        onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+    <WebLine className="overflow-hidden w-full bg-secondary/30 backdrop-blur-xl">
+      <header
+        style={{ height: HEADER_HEIGHT }}
+        className="flex flex-row flex-center gap-20 w-full items-center"
       >
-        {BURGER_MENU_ITEMS_WIDTH.map((width, index) => (
-          <motion.div
-            key={index}
-            initial={false}
+        <div className="font-bold">
+          Toody<span className="text-primary">IT</span>
+        </div>
+        <div className="flex items-center">
+          <motion.nav
+            className={twJoin(
+              "items-center flex bg-neutral-700",
+              "lg:bg-transparent lg:h-full lg:justify-center lg:gap-3 vl:gap-4 lg:p-0 lg:![clip-path:none]"
+            )}
             animate={isMobileMenuOpen ? "open" : "closed"}
+            initial={false}
             variants={{
               open: {
-                width: "100%",
+                clipPath: "inset(0% 0% 0% 0% round 10px)",
               },
               closed: {
-                width,
+                clipPath: "inset(10% 50% 90% 50% round 10px)",
               },
             }}
-            transition={{
-              type: "spring",
-              duration: 0.5,
-              bounce: 0.4,
-            }}
-            className="bg-white rounded-full h-[3px]"
-          />
-        ))}
-      </div>
-    </div>
+          >
+            {NAVIGATION_ITEMS.map((section) => (
+              <Link
+                key={section.title}
+                href={{
+                  pathname: section.link,
+                  query: getLinkQueries(section.order),
+                }}
+                as={{
+                  pathname: section.link,
+                  query: { order: section.order },
+                }}
+                onClick={closeMobileMenu}
+                className={twJoin(
+                  router.asPath.includes(section.link) && "text-primary"
+                )}
+              >
+                {section.title}
+              </Link>
+            ))}
+          </motion.nav>
+        </div>
+      </header>
+    </WebLine>
   );
 };

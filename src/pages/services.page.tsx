@@ -3,6 +3,7 @@ import LayoutMain from "../components/Layout/LayoutMain";
 import { TFunction, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
+import { WebLine } from "../components/Webline/WebLine";
 
 const getServices = (t: TFunction) => [
   {
@@ -84,24 +85,26 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <LayoutMain ref={ref} metaDescription="" metaTitle={t("Services")}>
-      <div className="flex flex-col gap-7 -mr-5 max-w-[700px] vl:max-w-[950px] pr-5">
-        <h1 className="text-white font-bold text-4xl flex text-center">
-          {t("SERVICES")}
-        </h1>
-        <div className="h-full w-full gap-8 grid grid-cols-1 lg:grid-cols-2 vl:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.price}
-              className="bg-neutral-800 text-lg justify-center text-center flex flex-col p-3 rounded-xl"
-            >
-              {service.title}
-              <span className="text-primary text-center font-bold">
-                {service.price}
-              </span>
-            </div>
-          ))}
+      <WebLine>
+        <div className="flex flex-col gap-7 -mr-5 flex-center pr-5">
+          <h1 className="text-white font-bold text-4xl flex text-center">
+            {t("SERVICES")}
+          </h1>
+          <div className="h-full w-full gap-8 grid grid-cols-1 lg:grid-cols-2 vl:grid-cols-3">
+            {services.map((service) => (
+              <div
+                key={service.price}
+                className="bg-neutral-800 text-lg justify-center text-center flex flex-col p-3 rounded-xl"
+              >
+                {service.title}
+                <span className="text-primary text-center font-bold">
+                  {service.price}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </WebLine>
     </LayoutMain>
   );
 });
