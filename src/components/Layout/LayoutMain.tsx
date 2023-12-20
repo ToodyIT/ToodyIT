@@ -21,7 +21,7 @@ const LayoutMain = forwardRef<HTMLDivElement, LayoutMainProps>(
       <>
         <Meta metaTitle={metaTitle} metaDescription={metaDescription} />
         <div className="w-full">
-          <div className="bg-grey w-full flex min-h-screen flex-col lg:overflow-hidden  items-center">
+          <div className="bg-none w-full flex min-h-screen flex-col lg:overflow-hidden  items-center">
             <Header />
             <motion.div
               initial={{

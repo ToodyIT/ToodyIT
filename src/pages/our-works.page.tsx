@@ -20,6 +20,7 @@ import Image from "next/image";
 import Planet from "/public/img/planet.png";
 import { Title } from "../components/Title";
 import { LinkIcon } from "../components/Icons/Icons";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const OUR_WORKS = [
   {
@@ -67,7 +68,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Discover our impressive portfolio of completed website projects. Explore a diverse range of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online experiences. Browse through our works and witness the quality and innovation we bring to every website we create."
       )}
     >
-      <WebLine innerClassName="overflow-hidden vl:overflow-visible flex flex-col">
+      <WebLine innerClassName="overflow-hidden relative vl:overflow-visible flex flex-col">
         <Title type="h1" className="vl:gap-12 gap-3 flex">
           <Trans
             i18nKey="OUR<span>WORKS</span>"
@@ -99,12 +100,12 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
                   className="rounded-3xl min-h-full vl:hidden object-cover object-top"
                 />
                 <a
-                  className="absolute bg-secondary active:scale-95 hover:bg-grey transition rounded-full border-greyLight border right-2 bottom-2 p-3"
+                  className="absolute bg-secondary active:scale-95 hover:bg-grey transition rounded-full border-greyLight border right-2 bottom-2 p-2 vl:p-3"
                   href={work.link}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <LinkIcon className="size-7" />
+                  <LinkIcon className="vl:size-7 size-3" />
                 </a>
               </li>
             ))}
@@ -129,6 +130,10 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
             alt="planet"
           />
         </div>
+
+        <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
+
+        <BlurredDecoration className="vl:-right-80 vl:-bottom-64 -right-20 -bottom-20 vl:h-[600px] vl:w-[600px] " />
       </WebLine>
     </LayoutMain>
   );

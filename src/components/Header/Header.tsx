@@ -65,7 +65,7 @@ export const Header: FC = () => {
   };
 
   return (
-    <WebLine className="overflow-hidden w-full bg-secondary/30 backdrop-blur-xl">
+    <WebLine className="overflow-hidden w-full bg-secondary backdrop-blur-xl">
       <header
         style={{ height: HEADER_HEIGHT }}
         className="flex flex-row flex-center gap-20 w-full items-center"

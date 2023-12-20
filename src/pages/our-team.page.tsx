@@ -12,6 +12,7 @@ import AndriyKosarkoPhoto from "/public/img/our-team/andriy-kosarko.jpg";
 import JakubDvoracekPhoto from "/public/img/our-team/jakub-dvoracek.jpg";
 import { WebLine } from "../components/Webline/WebLine";
 import { Title } from "../components/Title";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const getOurTeam = (t: TFunction) => {
   return [
@@ -119,6 +120,9 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
             )}
           </span>
         </div>
+        <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
+        <BlurredDecoration className="vl:-right-96 vl:-bottom-96 -right-20 -bottom-full  vl:h-[700px] vl:w-[700px] " />
+
       </WebLine>
     </LayoutMain>
   );

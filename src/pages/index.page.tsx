@@ -35,7 +35,7 @@ const HomePage: NextPage = () => {
         )}
       />
       <div
-        className="bg-grey w-full overflow-hidden flex flex-col relative"
+        className="bg-neutral-900 w-full overflow-hidden flex flex-col relative"
         id="homepage-wrapper"
       >
 
