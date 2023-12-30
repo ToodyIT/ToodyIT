@@ -3,7 +3,6 @@ import LayoutMain from "../components/Layout/LayoutMain";
 import { twJoin } from "tailwind-merge";
 import { motion } from "framer-motion";
 import { TFunction, useTranslation } from "next-i18next";
-import { Icon } from "../components/Icons/Icon";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 import NextI18nextConfig from "../../next-i18next.config";

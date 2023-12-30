@@ -15,6 +15,15 @@ module.exports = {
       notLg: { max: "768px" },
     },
     extend: {
+      keyframes: {
+        circle: {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(6)", display: "none" },
+        },
+      },
+      animation: {
+        circle: "circle 1s ease-in-out forwards",
+      },
       colors: {
         primary: "#139A20",
         secondary: "#2E2E2E",
