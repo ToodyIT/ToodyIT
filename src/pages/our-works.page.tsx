@@ -69,7 +69,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <WebLine innerClassName="overflow-hidden relative vl:overflow-visible flex flex-col">
-        <Title type="h1" className="vl:gap-12 gap-3 flex">
+        <Title type="h1">
           <Trans
             i18nKey="OUR<span>WORKS</span>"
             components={{
@@ -116,9 +116,9 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
             <Title type="h2" className="text-primary">
               {t("Experience")}
             </Title>
-            <span className="vl:text-2xl">
+            <span className="vl:text-xl">
               <Trans
-                i18nKey="We <span>explore</span> with you an overview of the <span>most</span> significant things we have achieved for our customers in recent months."
+                i18nKey="We <span>explore</span> with you an overview of the <span>most</span> significant things we have achieved ew of the <span>most</span> significant things we have achieved for our customers in recent mon ew of the <span>most</span> significant things we have achieved for our customers in recent mon ew of the <span>most</span> significant things we have achieved for our customers in recent mon for our customers in recent months."
                 components={{ span: <span className="text-primary"></span> }}
               />
             </span>

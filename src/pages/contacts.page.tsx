@@ -157,7 +157,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <WebLine innerClassName="flex-center flex flex-col">
-        <Title type="h1" className="vl:gap-12 gap-3 flex ">
+        <Title type="h1">
           <Trans
             i18nKey="CONTACT<span>US</span>"
             components={{

@@ -59,7 +59,7 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <WebLine innerClassName="flex flex-col">
-        <Title type="h1" className=" vl:gap-12 gap-3 flex ">
+        <Title type="h1">
           <Trans
             i18nKey="ABOUT<span>US</span>"
             components={{
@@ -67,6 +67,14 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
             }}
           />
         </Title>
+        <Title type="h3" className="text-primary">
+          {t("Experience")}
+        </Title>
+        <span className="vl:text-xl vl:pb-10 pb-5">
+          {t(
+            "We explore with you an overview of the most significant things we have achieved for our We explore with you an overview of the most significant things we have achieved for our customers in recent months. We explore with you an overview of the most significant things we have achieved for our customers in recent months. customers in recent months."
+          )}
+        </span>
 
         <div className="vl:gap-7 gap-4 flex vl:grid vl:grid-cols-3 flex-col items-center">
           {usAbout.map((about, index) => (
@@ -88,6 +96,14 @@ const AboutUsPage = forwardRef<HTMLDivElement>((_, ref) => {
             {isExpanded ? t("Hide") : t("Show more")}
           </Button>
         </div>
+        <Title className="text-right text-primary" type="h3">
+          {t("Experience")}
+        </Title>
+        <span className="text-right vl:text-xl">
+          {t(
+            "We explore with you an overview of the most significant things we have achieved for our We explore with you an overview of the most significant things we have achieved for our customers in recent months. We explore with you an overview of the most significant things we have achieved for our customers in recent months. customers in recent months."
+          )}
+        </span>
       </WebLine>
     </LayoutMain>
   );

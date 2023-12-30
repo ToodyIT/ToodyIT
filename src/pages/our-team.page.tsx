@@ -63,7 +63,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <WebLine innerClassName="flex flex-col overflow-hidden vl:overflow-visible">
-        <Title type="h1" className="vl:gap-12 gap-3 flex ">
+        <Title type="h1">
           <Trans
             i18nKey="OUR<span>TEAM</span>"
             components={{

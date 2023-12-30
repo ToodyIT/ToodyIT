@@ -1,110 +1,163 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
-import { TFunction, useTranslation } from "next-i18next";
+import { TFunction, Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
+import { CartIcon, PlusIcon } from "../components/Icons/Icons";
 import { WebLine } from "../components/Webline/WebLine";
+import { Title } from "../components/Title";
+import Image from "next/image";
+import ServicesMenu from "../components/ServicesMenu/ServicesMenu";
+
+const getEshopBasic = (t: TFunction) => [
+  {
+    title: t("E-SHOP"),
+    price: 1000,
+    icon: <PlusIcon className="size-6" />,
+  },
+  {
+    title: t("WEBSITE"),
+    price: 1000,
+    icon: <PlusIcon className="size-6" />,
+  },
+];
+
+const getEshopAdditional = (t: TFunction) => [
+  {
+    title: t("E-SHOP"),
+    price: 1000,
+    icon: <PlusIcon className="size-6" />,
+  },
+  {
+    title: t("WEBSITE"),
+    price: 1000,
+    icon: <PlusIcon className="size-6" />,
+  },
+];
+
+const getWebsiteBasic = (t: TFunction) => [
+  {
+    title: t("E-SHOP"),
+    price: 1000,
+    icon: <PlusIcon className="size-6" />,
+  },
+  {
+    title: t("WEBSITE"),
+    price: 1000,
+    icon: <PlusIcon className="size-6" />,
+  },
+];
+
+const getWebsiteAdditional = (t: TFunction) => [
+  {
+    title: t("E-SHOP"),
+    price: 1000,
+    icon: <PlusIcon className="size-6" />,
+  },
+  {
+    title: t("WEBSITE"),
+    price: 1000,
+    icon: <PlusIcon className="size-6" />,
+  },
+];
 
 const getServices = (t: TFunction) => [
   {
-    title: t("+ 1 language"),
-    price: "750-2,500Kč",
+    image: "/img/imageEshops.jpg",
+    title: t("E-SHOP"),
+    subTitle: t("Experience"),
+    description: t(
+      "We <span>explore</span> with you an overview of the <span>most</span> significant things we have achieved for our customers in recent months."
+    ),
+    type: "e-shop" as const,
   },
   {
-    title: t("+ 1 online payment"),
-    price: "3,000-6,000Kč",
-  },
-  {
-    title: t("+ Animation and effects"),
-    price: "1,500-12,000Kč",
-  },
-  {
-    title: t("+ Feedback form"),
-    price: "3,000-5,000Kč",
-  },
-  {
-    title: t("+ Order tracking"),
-    price: "5,000Kč",
-  },
-  {
-    title: t("+ Administration"),
-    price: "10,000-30,000Kč",
-  },
-  {
-    title: t("+ Search"),
-    price: "7,000Kč",
-  },
-  {
-    title: t("+ 1 delivery method"),
-    price: "3,000-6,000Kč",
-  },
-  {
-    title: t("+ Rating and review system"),
-    price: "7,500-10,000Kč",
-  },
-  {
-    title: t("+ Registration form"),
-    price: "10,000-15,000Kč",
-  },
-  {
-    title: t("+ Map"),
-    price: "2,500Kč",
-  },
-  {
-    title: t("+ Support system"),
-    price: "5,000-10,000Kč",
-  },
-  {
-    title: t("+ Comments and discussion"),
-    price: "10,000Kč",
-  },
-  {
-    title: t("+ Subscription to new content"),
-    price: "7,500Kč",
-  },
-  {
-    title: t("+ Personal account"),
-    price: "5,000-12,000Kč",
-  },
-  {
-    title: t("+ Online chat"),
-    price: "25,000Kč",
-  },
-  {
-    title: t("+ Reservation function"),
-    price: "1,500-10,000Kč",
-  },
-  {
-    title: t("+ Recommendations"),
-    price: "7,000Kč",
+    image: "/img/imageWebsite.jpg",
+    title: t("WEBSITE"),
+    subTitle: t("Experience"),
+    description: t(
+      "We <span>explore</span> with you an overview of the <span>most</span> significant things we have achieved for our customers in recent months."
+    ),
+    type: "website" as const,
   },
 ];
+
+
 const Services = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
   const services = getServices(t);
+  const [visibleSection, setVisibleSection] = useState<
+    "e-shop" | "website" | "services"
+  >("services");
 
   return (
     <LayoutMain ref={ref} metaDescription="" metaTitle={t("Services")}>
       <WebLine>
-        <div className="flex flex-col gap-7 -mr-5 flex-center pr-5">
-          <h1 className="text-white font-bold text-4xl flex text-center">
-            {t("SERVICES")}
-          </h1>
-          <div className="h-full w-full gap-8 grid grid-cols-1 lg:grid-cols-2 vl:grid-cols-3">
+        <Title type="h1">
+          <Trans
+            i18nKey="OUR<span>SERVICES</span>"
+            components={{
+              span: <span className="text-greyLight"></span>,
+            }}
+          />
+        </Title>
+      </WebLine>
+      {visibleSection === "e-shop" && (
+        <ServicesMenu
+          setVisibleSection={setVisibleSection}
+          basicServices={getEshopBasic(t)}
+          additionalServices={getEshopAdditional(t)}
+        />
+      )}
+      {visibleSection === "website" && (
+        <ServicesMenu
+          setVisibleSection={setVisibleSection}
+          basicServices={getWebsiteBasic(t)}
+          additionalServices={getWebsiteAdditional(t)}
+        />
+      )}
+      {visibleSection === "services" && (
+        <WebLine>
+          <Title type="h2" className="">
+            {t("What are you planning to order?")}
+          </Title>
+          <div className="flex-center gap-5 vl:flex-row vl:gap-10 flex-col flex">
             {services.map((service) => (
-              <div
-                key={service.price}
-                className="bg-neutral-800 text-lg justify-center text-center flex flex-col p-3 rounded-xl"
-              >
-                {service.title}
-                <span className="text-primary text-center font-bold">
-                  {service.price}
-                </span>
+              <div className="flex-col flex" key={service.title}>
+                <button
+                  onClick={() => setVisibleSection(service.type)}
+                  className="group  cursor-pointer shadow-lg overflow-hidden relative vl:gap-7 gap-3 flex-col flex-center flex vl:text-5xl text-4xl bg-secondary transition vl:h-96 font-semibold w-full h-64 rounded-3xl"
+                >
+                  <div className="bg-[#148720] z-10 h-96 w-0 absolute left-0 group-hover:w-full transition-width "></div>
+                  <CartIcon className="z-10 vl:size-24 size-20" />
+                  <div className="z-10">{service.title}</div>
+                  <Image
+                    src={service.image}
+                    alt=""
+                    fill
+                    quality={20}
+                    blurDataURL="/img/imageEshopsBlur.jpg"
+                    placeholder="blur"
+                  />
+                </button>
+                <div className="flex flex-col">
+                  <Title type="h2" className="text-primary">
+                    {service.subTitle}
+                  </Title>
+                  <span className="vl:text-2xl">
+                    <Trans
+                      i18nKey={service.description}
+                      components={{
+                        span: <span className="text-primary"></span>,
+                      }}
+                    />
+                  </span>
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      </WebLine>
+        </WebLine>
+      )}
     </LayoutMain>
   );
 });
