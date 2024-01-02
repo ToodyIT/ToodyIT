@@ -1,5 +1,4 @@
-import { FC, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { FC, useEffect, useState } from "react";
 
 import { WebLine } from "../Webline/WebLine";
 
@@ -8,6 +7,15 @@ import { gtag } from "ga-gtag";
 import Link from "next/link";
 import { twJoin } from "tailwind-merge";
 import { useRouter } from "next/router";
+import {
+  AboutUsIcon,
+  ContactsIcon,
+  MenuIcon,
+  OurTeamIcon,
+  OurWorksIcon,
+  ServiceBellIcon,
+} from "../Icons/Icons";
+import Overlay from "../Overlay/Overlay";
 
 export const HEADER_HEIGHT = 88;
 
@@ -15,26 +23,31 @@ export const NAVIGATION_ITEMS = [
   {
     title: "About Us",
     link: "/about-us",
+    icon: <AboutUsIcon className="size-6" />,
     order: 1,
   },
   {
     title: "Our Works",
     link: "/our-works",
+    icon: <OurWorksIcon className="size-6" />,
     order: 2,
   },
   {
     title: "Our Team",
     link: "/our-team",
+    icon: <OurTeamIcon className="size-6" />,
     order: 3,
   },
   {
     title: "Services",
     link: "/services",
+    icon: <ServiceBellIcon className="size-6" />,
     order: 4,
   },
   {
     title: "Contacts",
     link: "/contacts",
+    icon: <ContactsIcon className="size-6" />,
     order: 5,
   },
 ];
@@ -42,7 +55,6 @@ export const NAVIGATION_ITEMS = [
 export const Header: FC = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useTranslation();
 
   const getLinkQueries = (order: number) => {
     if (!Array.isArray(router.query.order) && router.query.order) {
@@ -64,29 +76,48 @@ export const Header: FC = () => {
     });
   };
 
+  useEffect(() => {
+    const onRouteChangeStart = () => {
+      setIsMobileMenuOpen(false);
+    };
+
+    router.events.on("routeChangeStart", onRouteChangeStart);
+
+    return () => {
+      router.events.off("routeChangeStart", onRouteChangeStart);
+    };
+  }, [router]);
+
   return (
-    <WebLine className="overflow-hidden w-full bg-secondary backdrop-blur-xl">
-      <header
-        style={{ height: HEADER_HEIGHT }}
-        className="flex flex-row flex-center gap-20 w-full items-center"
-      >
-        <div className="font-bold">
-          Toody<span className="text-primary">IT</span>
-        </div>
-        <div className="flex items-center">
+    <>
+      <WebLine className="w-full bg-secondary backdrop-blur-xl relative z-50">
+        <header
+          style={{ height: HEADER_HEIGHT }}
+          className="flex justify-between gap-20 w-full items-center"
+        >
+          <div className="font-bold">
+            Toody<span className="text-primary">IT</span>
+          </div>
+          <button
+            className="vl:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <MenuIcon className="text-white size-10" />
+          </button>
           <motion.nav
             className={twJoin(
               "items-center flex bg-neutral-700",
-              "lg:bg-transparent lg:h-full lg:justify-center lg:gap-3 vl:gap-4 lg:p-0 lg:![clip-path:none]"
+              "absolute z-10 top-[88px] px-5 left-0 flex-col w-full py-5 rounded-br-lg",
+              "vl:static vl:flex-row vl:!translate-x-0 vl:bg-transparent vl:w-3/4 xl:w-2/3 vl:h-full vl:justify-center vl:gap-4 vl:p-0"
             )}
             animate={isMobileMenuOpen ? "open" : "closed"}
             initial={false}
             variants={{
               open: {
-                clipPath: "inset(0% 0% 0% 0% round 10px)",
+                x: "0",
               },
               closed: {
-                clipPath: "inset(10% 50% 90% 50% round 10px)",
+                x: "-100%",
               },
             }}
           >
@@ -103,15 +134,22 @@ export const Header: FC = () => {
                 }}
                 onClick={closeMobileMenu}
                 className={twJoin(
+                  "flex w-full border-b border-greyLight py-2 last:border-none font-medium last:!pb-0 gap-3 items-center",
+                  "vl:border-none vl:p-0",
                   router.asPath.includes(section.link) && "text-primary"
                 )}
               >
+                {section.icon && section.icon}
                 {section.title}
               </Link>
             ))}
           </motion.nav>
-        </div>
-      </header>
-    </WebLine>
+        </header>
+      </WebLine>
+      <Overlay
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
+    </>
   );
 };
