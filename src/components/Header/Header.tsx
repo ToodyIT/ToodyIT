@@ -16,6 +16,7 @@ import {
   ServiceBellIcon,
 } from "../Icons/Icons";
 import Overlay from "../Overlay/Overlay";
+import Image from "next/image";
 
 export const HEADER_HEIGHT = 88;
 
@@ -95,9 +96,14 @@ export const Header: FC = () => {
           style={{ height: HEADER_HEIGHT }}
           className="flex justify-between gap-20 w-full items-center"
         >
-          <div className="font-bold">
-            Toody<span className="text-primary">IT</span>
-          </div>
+          <Link href="/">
+            <Image
+              src="/img/toodyit-logo.png"
+              width="80"
+              height="50"
+              alt="logo"
+            />
+          </Link>
           <button
             className="vl:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
