@@ -142,7 +142,8 @@ export const Header: FC = () => {
                 className={twJoin(
                   "flex w-full border-b border-greyLight py-2 last:border-none font-medium last:!pb-0 gap-3 items-center",
                   "vl:border-none vl:p-0",
-                  router.asPath.includes(section.link) && "text-primary"
+                  router.asPath.includes(section.link) &&
+                    "text-primary pointer-events-none"
                 )}
               >
                 {section.icon && section.icon}
