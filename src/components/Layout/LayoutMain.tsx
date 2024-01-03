@@ -3,10 +3,8 @@ import { Meta } from "../Meta/Meta";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
-
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
-
 
 interface LayoutMainProps {
   children: ReactNode;
@@ -34,7 +32,7 @@ const LayoutMain = forwardRef<HTMLDivElement, LayoutMainProps>(
               }}
               key="our-works"
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="w-full h-full"
+              className="w-full h-full mb-5 lg:mb-8 vl:mb-12"
             >
               {children}
             </motion.div>

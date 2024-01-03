@@ -55,7 +55,9 @@ export const SocialMedia: FC<SocialMediaProps> = ({
           <div className="size-9 bg-primary flex rounded-full flex-center">
             {media.icon}
           </div>
-          <div className="hidden lg:block">{withText && media.text}</div>
+          <div className="hidden lg:block font-medium">
+            {withText && media.text}
+          </div>
         </Link>
       ))}
     </div>
