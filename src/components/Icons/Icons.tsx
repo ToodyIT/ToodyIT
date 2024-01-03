@@ -659,7 +659,7 @@ export const PlusIcon: SvgFC = ({ ...props }) => {
       viewBox="0 0 24 24"
     >
       <path
-        stroke="#fff"
+        stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="2"
@@ -748,6 +748,25 @@ export const ContactsIcon: SvgFC = ({ ...props }) => {
         fill="currentColor"
         fill-rule="nonzero"
         d="M18.8 4C20.4 4 22 5.5 22 7.3v9.5c0 1.7-1.5 3.2-3.3 3.2H5.3A3.3 3.3 0 0 1 2 16.8V7.2C2 5.5 3.4 4.2 5 4H18.8Zm-9.5 8.5H5.7c-.3 0-.6.3-.7.6v.7c0 1.3 1 2 2.5 2s2.4-.6 2.5-1.8v-.8c0-.3-.3-.6-.6-.7h-.1Zm3 0h-1.5l.2.6v1l-.2.9h.3c1 0 1.8-.4 1.9-1.3v-.4c0-.4-.3-.7-.6-.8H10.8h1.4Zm6 0H15a.8.8 0 0 0 0 1.5H18.4a.8.8 0 0 0 0-1.5h-.1Zm-10.8-4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm3.9.5a1.2 1.2 0 1 0 0 2.5 1.2 1.2 0 0 0 0-2.5Zm6.8.5h-3a.8.8 0 0 0 0 1.5h3.2a.8.8 0 0 0 0-1.5h-.1Z"
+      />
+    </svg>
+  );
+};
+
+export const MinusIcon: SvgFC = ({ ...props }) => {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 12h12"
       />
     </svg>
   );
