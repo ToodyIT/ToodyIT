@@ -132,9 +132,8 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         </div>
 
         <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
-
-        <BlurredDecoration className="vl:-right-80 vl:-bottom-64 -right-20 -bottom-20 vl:h-[600px] vl:w-[600px] " />
       </WebLine>
+      <BlurredDecoration className="vl:-right-80 vl:-bottom-64 -right-20 -bottom-20 vl:h-[600px] vl:w-[600px] " />
     </LayoutMain>
   );
 });
