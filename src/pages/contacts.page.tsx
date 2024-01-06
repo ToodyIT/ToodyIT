@@ -7,6 +7,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { WebLine } from "../components/Webline/WebLine";
 import { Title } from "../components/Title";
 import { ContactsForm } from "../components/Contacts/ContactsForm";
+import { SocialMedia } from "../components/SocialMedia/SocialMedia";
 import { ContactsSocialMedia } from "../components/Contacts/ContactsSocialMedia";
 
 const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
@@ -30,6 +31,10 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
           />
         </Title>
         <ContactsForm />
+        {/* <SocialMedia
+          withText
+          className="max-w-[700px] pt-8 justify-center mt-2"
+        /> */}
         <ContactsSocialMedia />
       </WebLine>
     </LayoutMain>

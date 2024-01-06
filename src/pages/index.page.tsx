@@ -9,39 +9,63 @@ import {
   AboutAnalysisIcon,
   AboutCloudIcon,
   AboutDatAnalysisIcon,
-  AboutMobileAppIcon,
+  AboutDnsIcon,
   AboutMobileIcon,
-  AboutPageAnalysisIcon,
+  AboutRecursiveIcon,
 } from "../components/Icons/Icons";
 import { Title } from "../components/Title";
-import { Button } from "../components/Button/Button";
 import { twJoin } from "tailwind-merge";
+import Image from "next/image";
 
 const getAboutUs = (t: TFunction) => {
   return [
     {
+      image: "/img/imageTailoredApproach.jpg",
       icon: <AboutMobileIcon className="vl:size-24 size-16" />,
-      title: t("Comprehensive IT Service: IT Projects, Administration"),
+      title: t("Tailored Approach"),
+      description: t(
+        "We eschew standard configurators, offering personalized solutions for each client."
+      ),
     },
     {
-      icon: <AboutAnalysisIcon className="vl:size-24 size-16" />,
-      title: t("Expertise and the highest authority in the IT field"),
-    },
-    {
-      icon: <AboutDatAnalysisIcon className="vl:size-24 size-16" />,
-      title: t("A team of specialists with international experience"),
-    },
-    {
+      image: "/img/imageSwiftExecution.jpg",
       icon: <AboutCloudIcon className="vl:size-24 size-16" />,
-      title: t("Clearly defined quality procedures and standards"),
+      title: t("Swift Execution"),
+      description: t(
+        "Our team responds promptly to tasks, ensuring high-speed project completion."
+      ),
     },
     {
-      icon: <AboutMobileAppIcon className="vl:size-24 size-16" />,
-      title: t("Friendly attitude and quality customer care"),
+      image: "/img/imageVersatileDesign.jpg",
+      icon: <AboutRecursiveIcon className="vl:size-24 size-16" />,
+      title: t("Versatile Design"),
+      description: t(
+        " Specializing in crafting unique designs across various styles, accentuating the individuality of each project."
+      ),
     },
     {
-      icon: <AboutPageAnalysisIcon className="vl:size-24 size-16" />,
-      title: t("A willing approach and precise care for the customer's needs."),
+      image: "/img/imageInnovationsInWebDevelopment.jpg",
+      icon: <AboutDatAnalysisIcon className="vl:size-24 size-16" />,
+      title: t("Innovations in Web Development"),
+      description: t(
+        "We consistently integrate new technologies into the web development process, guaranteeing modern and highly effective solutions."
+      ),
+    },
+    {
+      image: "/img/imagePartnershipForSuccess.jpg",
+      icon: <AboutDnsIcon className="vl:size-24 size-16" />,
+      title: t("Partnership for Success"),
+      description: t(
+        "We value our partners and provide comprehensive support, collaborating to achieve common goals."
+      ),
+    },
+    {
+      image: "/img/imagePromotionAndAnalytics.jpg",
+      icon: <AboutAnalysisIcon className="vl:size-24 size-16" />,
+      title: t("Promotion and Analytics"),
+      description: t(
+        "Our company offers SEO and analytics services, ensuring website optimization for search engines and providing insights for online visibility and effectiveness."
+      ),
     },
   ];
 };
@@ -76,43 +100,48 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
             }}
           />
         </Title>
-        <Title type="h3" className="text-primary">
-          {t("Experience")}
+        <Title type="h3" className="text-primary !mt-0">
+          {t("Who we are?")}
         </Title>
         <span className="vl:text-xl vl:pb-10 pb-5">
           {t(
-            "We explore with you an overview of the most significant things we have achieved for our We explore with you an overview of the most significant things we have achieved for our customers in recent months. We explore with you an overview of the most significant things we have achieved for our customers in recent months. customers in recent months."
+            "We are a young company passionate about IT technologies and website development. We have interesting offers for you, including our own reservation system. We specialize in creating online stores and websites of any size and industry - from personal portals to corporate web spaces. We are open to communication and ready to address your inquiries."
           )}
         </span>
 
-        <div className="vl:gap-7 gap-4 flex vl:grid vl:grid-cols-3 flex-col items-center">
+        <div className="vl:gap-7 gap-4 grid lg:grid-cols-2 vl:grid-cols-3">
           {usAbout.map((about, index) => (
-            <div
-              key={about.title}
-              className={twJoin(
-                "transition hover:scale-105 relative font-semibold bg-[#148720] flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl",
-                !isExpanded && index > 1 ? "hidden vl:flex" : "flex"
-              )}
-            >
-              {about.icon}
-              {about.title}
+            <div key={about.title} className="text-center gap-2 flex flex-col">
+              <div
+                className={twJoin(
+                  "transition hover:scale-105 z-0 border border-black/60 relative overflow-hidden font-semibold h-52 max-w-xl w-full flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl",
+                  !isExpanded && index > 1 ? "hidden vl:flex" : "flex"
+                )}
+              >
+                <Image
+                  src={about.image}
+                  alt=""
+                  fill
+                  quality={20}
+                  blurDataURL="/img/imageEshopsBlur.jpg"
+                  placeholder="blur"
+                  className="rounded-xl object-cover text-[0px]"
+                />
+                <div className="z-20"> {about.icon}</div>
+                <div className="z-20"> {about.title}</div>
+                <div className="bg-grey/80 absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
+              </div>
+
+              {about.description}
             </div>
           ))}
-          <Button
+          {/* <Button
             className="mx-auto h-12 min-h-[48px] font-semibold vl:hidden"
             onClick={() => setIsExpanded((prev) => !prev)}
           >
             {isExpanded ? t("Hide") : t("Show more")}
-          </Button>
+          </Button> */}
         </div>
-        <Title className="text-right text-primary" type="h3">
-          {t("Experience")}
-        </Title>
-        <span className="text-right vl:text-xl">
-          {t(
-            "We explore with you an overview of the most significant things we have achieved for our We explore with you an overview of the most significant things we have achieved for our customers in recent months. We explore with you an overview of the most significant things we have achieved for our customers in recent months. customers in recent months."
-          )}
-        </span>
       </WebLine>
     </LayoutMain>
   );

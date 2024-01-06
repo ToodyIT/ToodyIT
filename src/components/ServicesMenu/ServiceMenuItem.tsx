@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { ServiceType } from "../../types/services";
 import { MinusIcon, PlusIcon } from "../Icons/Icons";
 import { useTranslation } from "react-i18next";
+import { twJoin } from "tailwind-merge";
 
 type ServiceMenuItemProps = {
   service: ServiceType;
@@ -48,7 +49,10 @@ export const ServiceMenuItem: FC<ServiceMenuItemProps> = ({
       </div>
       <button
         onClick={handleOnServiceClick}
-        className="border rounded-full hover:bg-white hover:text-secondary transition size-8 flex flex-center mr-2"
+        className={twJoin(
+          "border rounded-full hover:bg-white hover:text-secondary transition size-8 flex flex-center mr-2",
+          isAdded ? "bg-primary" : "bg-none"
+        )}
       >
         {isAdded ? (
           <MinusIcon className="size-6" />

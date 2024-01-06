@@ -108,7 +108,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           </Title>
           <span className="text-lg max-w-5xl">
             {t(
-              "Our team integrates taking into account how we want to communicate with customers. The goal is to be a partner with clearly defined processes associated with a high level of work quality and maximum reliability, but at the same time we want to represent the human element in the field of ICT services. Communication with us should be a pleasure for customers. And we are also recruiting new people to our team – experts in their fields with a passion for IT who want to transfer their enthusiasm to clients as well."
+              "Our team integrates taking into account how we want to communicate with customers. The goal is to be a partner with clearly defined processes associated with a high level of work quality and maximum reliability, but at the same time we want to represent the human element in the field of IT services. Communication with us should be a pleasure for customers."
             )}
           </span>
           <Title type="h3" className=" text-primary text-right">
@@ -116,7 +116,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           </Title>
           <span className="text-lg text-end">
             {t(
-              "Solverita boasts an experienced team that has been formed through a combination of in-house IT specialists from the FWG Atlantiso group and the engagement of leading IT professionals and experts. The company can rely on the insights and knowledge of individuals who have been immersed in the IT field for a considerable period, continually enhancing their knowledge portfolios and skills in the realms of ICT services and IT products."
+              "ToodyIT boasts an experienced team that was formed by bringing together IT professionals. Professionals and experts.  The company can rely on the expertise of people who have been immersed in the IT field for a significant period of time, constantly improving their IT knowledge and skills."
             )}
           </span>
         </div>

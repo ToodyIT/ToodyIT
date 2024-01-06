@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type ServiceType = {
   title: string;
   price: number;
@@ -11,4 +13,5 @@ export type ServiceWrapperType = {
   image: string;
   description: string;
   type: ServiceKindType;
+  icon: ReactNode;
 };

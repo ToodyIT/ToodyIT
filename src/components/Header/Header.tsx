@@ -23,7 +23,7 @@ export const HEADER_HEIGHT = 88;
 export const NAVIGATION_ITEMS = [
   {
     title: "About Us",
-    link: "/about-us",
+    link: "/",
     icon: <AboutUsIcon className="size-6" />,
     order: 1,
   },
@@ -56,7 +56,7 @@ export const NAVIGATION_ITEMS = [
 export const Header: FC = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const urlWithoutQueryParams = router.asPath.split("?")[0];
   const getLinkQueries = (order: number) => {
     if (!Array.isArray(router.query.order) && router.query.order) {
       return {
@@ -142,7 +142,7 @@ export const Header: FC = () => {
                 className={twJoin(
                   "flex w-full border-b border-greyLight py-2 last:border-none font-medium last:!pb-0 gap-3 items-center",
                   "vl:border-none vl:p-0",
-                  router.asPath.includes(section.link) &&
+                  urlWithoutQueryParams === section.link &&
                     "text-primary pointer-events-none"
                 )}
               >

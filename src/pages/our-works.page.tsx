@@ -114,14 +114,21 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         <div className="flex  vl:flex-row flex-col">
           <div className="flex  flex-col">
             <Title type="h2" className="text-primary">
-              {t("Experience")}
+              {t("Project Excellence Unveiled")}
             </Title>
-            <span className="vl:text-xl">
-              <Trans
-                i18nKey="We <span>explore</span> with you an overview of the <span>most</span> significant things we have achieved ew of the <span>most</span> significant things we have achieved for our customers in recent mon ew of the <span>most</span> significant things we have achieved for our customers in recent mon ew of the <span>most</span> significant things we have achieved for our customers in recent mon for our customers in recent months."
-                components={{ span: <span className="text-primary"></span> }}
-              />
-            </span>
+            <div className=" gap-6  flex flex-col vl:text-xl">
+              <span>
+                {t(
+                  "Let us introduce you to some of our successful projects. We take pride in the results of our work and strive to ensure that each project reflects our commitment to quality and innovation."
+                )}{" "}
+              </span>
+
+              <span className="max-w-3xl">
+                {t(
+                  "Explore our portfolio to see the variety of our work. We are ready to realize your ideas and make your project unique and successful."
+                )}{" "}
+              </span>
+            </div>
           </div>
 
           <Image

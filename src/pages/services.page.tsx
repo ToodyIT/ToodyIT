@@ -62,7 +62,7 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
                   className="group  cursor-pointer shadow-lg overflow-hidden relative vl:gap-7 gap-3 flex-col flex-center flex vl:text-5xl text-4xl bg-secondary transition vl:h-96 font-semibold w-full h-64 rounded-3xl"
                 >
                   <div className="bg-[#148720] z-10 h-96 w-0 absolute left-0 group-hover:w-full transition-width "></div>
-                  <CartIcon className="z-10 vl:size-24 size-20" />
+                  {service.icon}
                   <div className="z-10">{service.title}</div>
                   <Image
                     src={service.image}
