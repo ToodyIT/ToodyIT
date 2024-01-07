@@ -1,11 +1,10 @@
 import { useTranslation } from "next-i18next";
 import { WebLine } from "../Webline/WebLine";
 import { Title } from "../Title";
-import { Dispatch, SetStateAction, useState } from "react";
-import { SendIcon } from "../Icons/Icons";
+import { Dispatch, ReactNode, SetStateAction, useState } from "react";
+import { ArrowIcon, SendIcon } from "../Icons/Icons";
 import { ServiceType } from "../../types/services";
 import { ServiceMenuItem } from "./ServiceMenuItem";
-import { Input } from "../Input/Input";
 import { Popup } from "../Popup/Popup";
 import { ContactsForm } from "../Contacts/ContactsForm";
 import { AnimatePresence } from "framer-motion";
@@ -16,12 +15,14 @@ type ServicesMenuProps = {
   setVisibleSection: Dispatch<
     SetStateAction<"e-shop" | "website" | "services">
   >;
+  description: ReactNode;
 };
 
 export const ServicesMenu: FC<ServicesMenuProps> = ({
   basicServices,
   additionalServices,
   setVisibleSection,
+  description,
 }) => {
   const { t } = useTranslation();
   const [addedServices, setAddedServices] =
@@ -38,7 +39,6 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
       0
     );
   };
-  console.log(isContactPopupOpen);
   const getDefaultMessageForContact = () => {
     const addedServicesMessage = addedServices
       .map((service) => service.title)
@@ -50,26 +50,19 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
     <>
       <WebLine className="bg-secondary/30 py-5 backdrop-blur-2xl">
         <div className="flex justify-between">
-          {/* <div className="flex gap-5 flex-center">
+          <div className="flex gap-5 flex-center">
             <button
               className="border p-2 rounded-full hover:bg-white hover:text-black transition"
               onClick={() => setVisibleSection("services")}
             >
               <ArrowIcon className="size-5 rotate-90" />
             </button>
-            <span className="text-primary font-bold text-3xl">
-              {t("E-SHOP")}
+
+            <span className="bg-primary flex vl:text-2xl flex-center vl:px-7 px-3 py-2 rounded-full pl-5 font-bold">
+              {getSumPrice()} {t("CZK")}
             </span>
-          </div> */}
-          <span className="bg-primary flex vl:text-2xl flex-center vl:px-7 px-3 py-2 rounded-full pl-5 font-bold">
-            {getSumPrice()} {t("CZK")}
-          </span>
-          <Input
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            wrapperClassName="max-w-[300px]"
-            placeholder="Search..."
-          />
+          </div>
+
           <div className="flex gap-3 items-center">
             <button
               onClick={() => setAddedServices(basicServices)}
@@ -88,7 +81,8 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
             </button>
           </div>
         </div>
-        <div className="">
+
+        <div>
           <Title type="h3">{t("Basic")}</Title>
           <div className="flex flex-col vl:grid vl:grid-cols-4 gap-4">
             {basicServices.map((basicService) => (
@@ -114,6 +108,7 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
             />
           ))}
         </div>
+        {description}
       </WebLine>
       <AnimatePresence>
         {isContactPopupOpen && (

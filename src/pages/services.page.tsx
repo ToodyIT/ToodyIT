@@ -3,7 +3,6 @@ import LayoutMain from "../components/Layout/LayoutMain";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
-import { CartIcon } from "../components/Icons/Icons";
 import { WebLine } from "../components/Webline/WebLine";
 import { Title } from "../components/Title";
 import Image from "next/image";
@@ -34,12 +33,27 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
             }}
           />
         </Title>
+        <span className="my-4 flex text-primary vl:text-xl">
+          {t(
+            "All prices are indicative, the site can be customized to suit your needs. For detailed information contact us!"
+          )}
+        </span>
       </WebLine>
       {visibleSection === "e-shop" && (
         <ServicesMenu
           setVisibleSection={setVisibleSection}
           basicServices={eShopBasicServices}
           additionalServices={eShopAdditionalServices}
+          description={
+            <div className="flex flex-col">
+              <Title type="h3" className="text-primary">
+                {servicesType[0].subTitle}
+              </Title>
+              <span className="vl:text-xl">
+                <Trans i18nKey={servicesType[0].description} />
+              </span>
+            </div>
+          }
         />
       )}
       {visibleSection === "website" && (
@@ -47,6 +61,16 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
           setVisibleSection={setVisibleSection}
           basicServices={websiteBasicServices}
           additionalServices={websiteAdditionalServices}
+          description={
+            <div className="flex flex-col">
+              <Title type="h3" className="text-primary">
+                {servicesType[1].subTitle}
+              </Title>
+              <span className="vl:text-xl">
+                <Trans i18nKey={servicesType[1].description} />
+              </span>
+            </div>
+          }
         />
       )}
       {visibleSection === "services" && (
@@ -54,7 +78,7 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
           <Title type="h2" className="">
             {t("What are you planning to order?")}
           </Title>
-          <div className="flex-center gap-5 vl:flex-row vl:gap-10 flex-col flex">
+          <div className="gap-5 vl:flex-row vl:gap-10 flex-col flex">
             {servicesType.map((service) => (
               <div className="flex-col flex" key={service.title}>
                 <button
@@ -74,16 +98,11 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
                   />
                 </button>
                 <div className="flex flex-col">
-                  <Title type="h2" className="text-primary">
+                  <Title type="h3" className="text-primary">
                     {service.subTitle}
                   </Title>
-                  <span className="vl:text-2xl">
-                    <Trans
-                      i18nKey={service.description}
-                      components={{
-                        span: <span className="text-primary"></span>,
-                      }}
-                    />
+                  <span className="vl:text-xl">
+                    <Trans i18nKey={service.description} />
                   </span>
                 </div>
               </div>
