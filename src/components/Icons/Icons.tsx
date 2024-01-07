@@ -864,3 +864,39 @@ export const WebIcon: SvgFC = ({ ...props }) => {
     </svg>
   );
 };
+
+export const SendIcon: SvgFC = ({ ...props }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m10.3 13.7 9.8-9.8m-9.5 10.2 2.2 4.5c.5 1 .8 1.6 1.1 1.7.3.2.7.1 1 0 .3-.2.5-.8.8-2L20 6.2c.4-1 .6-1.5.4-1.8a1 1 0 0 0-.6-.6c-.3-.2-.8 0-1.8.4L5.6 8.3c-1.1.3-1.7.5-1.9.9a1 1 0 0 0 0 .9c.1.3.6.6 1.7 1.1l4.5 2.2.3.2.2.2s0 .2.2.3Z"
+      />
+    </svg>
+  );
+};
+
+export const CloseIcon: SvgFC = ({ ...props }) => (
+  <svg
+    {...props}
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13 1L1 13M1 1L13 13"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+    />
+  </svg>
+);

@@ -1,8 +1,10 @@
 import { ComponentProps, forwardRef } from "react";
+import { twMerge } from "tailwind-merge";
 
 type InputProps = {
   placeholder?: string | null;
   label?: string | null;
+  wrapperClassName?: string;
   hasError?: boolean;
   required?: boolean;
   errorMessage?: string | null;
@@ -10,18 +12,31 @@ type InputProps = {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { placeholder, id, label, hasError, errorMessage, required, ...props },
+    {
+      placeholder,
+      id,
+      label,
+      hasError,
+      errorMessage,
+      required,
+      className,
+      wrapperClassName,
+      ...props
+    },
     forwardedRef
   ) => {
     return (
-      <div className="w-full flex flex-col gap-2">
+      <div className={twMerge("w-full flex flex-col gap-2", wrapperClassName)}>
         <label htmlFor={id} className="text-xl font-medium">
           {label}
           {required && <span className="text-red-600">{" *"}</span>}
         </label>
         <input
           id={id}
-          className="h-12 w-full bg-secondary border border-primary rounded-full text-white pl-4"
+          className={twMerge(
+            "h-12 w-full bg-secondary border border-primary rounded-full text-white pl-4",
+            className
+          )}
           ref={forwardedRef}
           placeholder={placeholder ?? undefined}
           {...props}

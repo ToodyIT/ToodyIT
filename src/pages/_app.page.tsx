@@ -47,6 +47,10 @@ const App = ({ Component, pageProps }: AppProps) => {
           >
             <Component {...pageProps} key={router.asPath} />
           </AnimatePresence>
+          <div
+            className="absolute left-0 top-0 z-maximumTop h-[1px] w-[1px]"
+            id="portal"
+          />
           <div className="z-50 top-0 animate-circle left-0 absolute h-screen w-screen overflow-hidden flex items-center justify-center">
             <div className="relative outline-[5000px] outline rounded-full outline-secondary w-1/2 max-h-screen max-w-[1440px] aspect-square">
               <Image src="/img/circle.png" fill alt="circle" />

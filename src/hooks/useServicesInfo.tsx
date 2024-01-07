@@ -9,15 +9,18 @@ export const useServicesInfo = () => {
     {
       title: t("+ 1 language"),
       price: 2500,
+      keywords: [t("translate")],
     },
     {
       title: t("+ Administration"),
       price: 15000,
+      keywords: [t("administration")],
     },
 
     {
       title: t("+ Order tracking"),
       price: 5000,
+      keywords: [t("order")],
     },
     {
       title: t("+ 1 online payment"),

@@ -11,7 +11,11 @@ import { CheckmarkIcon } from "../Icons/Icons";
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
 
-export const ContactsForm = () => {
+type ContactsFormProps = {
+  defaultMessage?: string;
+};
+
+export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
   const { t } = useTranslation();
   const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
   const [shouldValidateEmail, setShouldValidateEmail] = useState(false);
@@ -21,7 +25,7 @@ export const ContactsForm = () => {
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(defaultMessage ?? "");
 
   const clearForm = () => {
     setFullName("");
