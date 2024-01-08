@@ -65,7 +65,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
       ref={ref}
       metaTitle={t("Our Works")}
       metaDescription={t(
-        "Discover our impressive portfolio of completed website projects. Explore a diverse range of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online experiences. Browse through our works and witness the quality and innovation we bring to every website we create."
+        "Discover our impressive portfolio of completed web projects. Explore the variety of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online resources. Browse through our work and see the quality and innovation we bring to every website we create."
       )}
     >
       <WebLine innerClassName="overflow-hidden relative vl:overflow-visible flex flex-col">
@@ -140,7 +140,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
 
         <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
       </WebLine>
-      <BlurredDecoration className="vl:-right-80 vl:-bottom-64 -right-20 -bottom-20 vl:h-[600px] vl:w-[600px] " />
+      {/* <BlurredDecoration className="vl:-right-80 vl:-bottom-64 -right-20 -bottom-20 vl:h-[600px] vl:w-[600px] " /> */}
     </LayoutMain>
   );
 });

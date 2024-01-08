@@ -900,3 +900,17 @@ export const CloseIcon: SvgFC = ({ ...props }) => (
     />
   </svg>
 );
+
+export const Reset: SvgFC = ({ ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+    fill="currentColor"
+    viewBox="0 0 1920 1920"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M960 0v213a748 748 0 0 1 0 1494A748 748 0 0 1 427 439v254h213V107H53v213h191A959 959 0 1 0 960 0"
+    />
+  </svg>
+);

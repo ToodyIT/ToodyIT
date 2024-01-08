@@ -9,10 +9,10 @@ export type ServiceType = {
 export type ServiceKindType = "e-shop" | "website" | "services";
 
 export type ServiceWrapperType = {
+  link: string;
   title: string;
   subTitle: string;
   image: string;
   description: string;
-  type: ServiceKindType;
   icon: ReactNode;
 };

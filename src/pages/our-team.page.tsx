@@ -12,7 +12,6 @@ import AndriyKosarkoPhoto from "/public/img/our-team/andriy-kosarko.jpg";
 import JakubDvoracekPhoto from "/public/img/our-team/jakub-dvoracek.jpg";
 import { WebLine } from "../components/Webline/WebLine";
 import { Title } from "../components/Title";
-import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const getOurTeam = (t: TFunction) => {
   return [
@@ -59,10 +58,10 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
       ref={ref}
       metaTitle={t("Our Team")}
       metaDescription={t(
-        "Meet our talented and dedicated team of professionals. Discover the expertise and passion that drives us to create exceptional websites. Learn about our diverse skills and experience, as well as our collaborative approach to delivering high-quality web solutions. Get to know the individuals behind our success."
+        "Meet our talented team of professionals. Who make it possible to create exclusive web projects. "
       )}
     >
-      <WebLine innerClassName="flex flex-col overflow-hidden vl:overflow-visible">
+      <WebLine innerClassName="flex flex-col overflow-hidden xl:overflow-visible">
         <Title type="h1">
           <Trans
             i18nKey="OUR<span>TEAM</span>"
@@ -120,9 +119,8 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
             )}
           </span>
         </div>
-        <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
-        <BlurredDecoration className="vl:-right-96 vl:-bottom-96 -right-20 -bottom-full  vl:h-[700px] vl:w-[700px] " />
-
+        {/* <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
+        <BlurredDecoration className="vl:-right-96 vl:-bottom-96 -right-20 -bottom-full  vl:h-[700px] vl:w-[700px] " /> */}
       </WebLine>
     </LayoutMain>
   );

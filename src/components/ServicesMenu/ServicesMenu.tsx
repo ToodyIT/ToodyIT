@@ -1,33 +1,29 @@
 import { useTranslation } from "next-i18next";
 import { WebLine } from "../Webline/WebLine";
 import { Title } from "../Title";
-import { Dispatch, ReactNode, SetStateAction, useState } from "react";
+import { ReactNode, useState } from "react";
 import { ArrowIcon, SendIcon } from "../Icons/Icons";
 import { ServiceType } from "../../types/services";
 import { ServiceMenuItem } from "./ServiceMenuItem";
 import { Popup } from "../Popup/Popup";
 import { ContactsForm } from "../Contacts/ContactsForm";
 import { AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 type ServicesMenuProps = {
   basicServices: ServiceType[];
   additionalServices: ServiceType[];
-  setVisibleSection: Dispatch<
-    SetStateAction<"e-shop" | "website" | "services">
-  >;
   description: ReactNode;
 };
 
 export const ServicesMenu: FC<ServicesMenuProps> = ({
   basicServices,
   additionalServices,
-  setVisibleSection,
   description,
 }) => {
   const { t } = useTranslation();
   const [addedServices, setAddedServices] =
     useState<ServiceType[]>(basicServices);
-  const [searchQuery, setSearchQuery] = useState("");
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   const getSumPrice = () => {
@@ -48,40 +44,44 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
   };
   return (
     <>
-      <WebLine className="bg-secondary/30 py-5 backdrop-blur-2xl">
-        <div className="flex justify-between">
-          <div className="flex gap-5 flex-center">
-            <button
-              className="border p-2 rounded-full hover:bg-white hover:text-black transition"
-              onClick={() => setVisibleSection("services")}
-            >
-              <ArrowIcon className="size-5 rotate-90" />
-            </button>
-
-            <span className="bg-primary flex vl:text-2xl flex-center vl:px-7 px-3 py-2 rounded-full pl-5 font-bold">
-              {getSumPrice()} {t("CZK")}
-            </span>
-          </div>
-
-          <div className="flex gap-3 items-center">
-            <button
-              onClick={() => setAddedServices(basicServices)}
-              type="reset"
-              className=" flex vl:text-lg border-2 flex-center vl:px-5 px-3 h-fit py-1 rounded-full font-bold"
-            >
-              {t("Reset")}
-            </button>
-            <button
-              onClick={() => setIsContactPopupOpen(true)}
-              type="submit"
-              className="bg-primary gap-2 flex vl:text-2xl flex-center vl:px-7 px-3 py-2 rounded-full pl-5 font-bold"
-            >
-              {t("Sent to us")}
-              <SendIcon className="w-7" />
-            </button>
-          </div>
+      <WebLine
+        innerClassName="justify-between flex w-full "
+        className="sticky z-10 top-0 bg-secondary/30 py-5 backdrop-blur-2xl"
+      >
+        <div className="flex gap-5 flex-center">
+          <Link
+            href="/services"
+            className="border p-2 hidden vl:flex rounded-full hover:bg-white hover:text-black transition"
+          >
+            <ArrowIcon className="size-5 rotate-90" />
+          </Link>
+          <span className="bg-primary flex vl:text-2xl flex-center vl:px-7 px-3 py-2 rounded-full pl-5 font-bold">
+            {getSumPrice()} {t("CZK")}
+          </span>
         </div>
 
+        <div className="flex gap-3 items-center">
+          <button
+            onClick={() => setAddedServices(basicServices)}
+            type="reset"
+            className="flex vl:text-lg border-2 flex-center vl:px-5 px-3 h-fit py-1 rounded-full font-bold"
+          >
+            <div>
+              <span>{t("Reset")}</span>
+            </div>
+          </button>
+          <button
+            onClick={() => setIsContactPopupOpen(true)}
+            type="submit"
+            className="bg-primary gap-2 flex vl:text-2xl flex-center vl:px-7 p-2 rounded-full vl:pl-5 font-bold"
+          >
+            <div className="hidden vl:flex">{t("Sent to us")}</div>
+
+            <SendIcon className="w-7 " />
+          </button>
+        </div>
+      </WebLine>
+      <WebLine className="bg-secondary/30 py-5 backdrop-blur-2xl">
         <div>
           <Title type="h3">{t("Basic")}</Title>
           <div className="flex flex-col vl:grid vl:grid-cols-4 gap-4">

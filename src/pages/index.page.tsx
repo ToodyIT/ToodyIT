@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
 import { forwardRef, useState } from "react";
-import { Meta } from "../components/Meta/Meta";
 import { useTranslation, TFunction, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LayoutMain from "../components/Layout/LayoutMain";
@@ -78,19 +77,11 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <LayoutMain
       ref={ref}
-      metaTitle={t("Our Team")}
+      metaTitle={t("ToodyIT")}
       metaDescription={t(
-        "Meet our talented and dedicated team of professionals. Discover the expertise and passion that drives us to create exceptional websites. Learn about our diverse skills and experience, as well as our collaborative approach to delivering high-quality web solutions. Get to know the individuals behind our success."
+        "Welcome to ToodyIT - Your Destination for Exceptional Web Solutions"
       )}
     >
-      <Meta
-        metaTitle={t(
-          "Welcome to ToodyIT - Your Destination for Exceptional Web Solutions"
-        )}
-        metaDescription={t(
-          "Discover ToodyIT, a leading web solutions provider specializing in tailored websites to meet your unique needs. Our expert team delivers innovative designs, seamless development, and strategic solutions for your online success."
-        )}
-      />
       <WebLine innerClassName="flex flex-col">
         <Title type="h1">
           <Trans

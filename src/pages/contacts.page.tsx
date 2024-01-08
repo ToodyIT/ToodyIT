@@ -18,7 +18,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
       ref={ref}
       metaTitle={t("Contacts")}
       metaDescription={t(
-        "Contact us and share your information to get in touch with our team. We value your input and look forward to connecting with you. Leave your contact details, and we will reach out to discuss your project or answer any inquiries you may have. Start the conversation today."
+        "Leave your contact information and we'll get back to you to discuss your project or answer any questions you may have. Start the conversation today."
       )}
     >
       <WebLine innerClassName="flex-center flex flex-col">
