@@ -15,6 +15,7 @@ import {
 import { Title } from "../components/Title";
 import { twJoin } from "tailwind-merge";
 import Image from "next/image";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const getAboutUs = (t: TFunction) => {
   return [
@@ -83,6 +84,8 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <WebLine innerClassName="flex flex-col">
+        <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
+        <BlurredDecoration className="right-48 -bottom-0" />
         <Title type="h1">
           <Trans
             i18nKey="ABOUT<span>US</span>"
@@ -105,7 +108,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
             <div key={about.title} className="text-center gap-2 flex flex-col">
               <div
                 className={twJoin(
-                  "transition hover:scale-105 z-0 border border-black/60 relative overflow-hidden font-semibold h-52 max-w-xl w-full flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl",
+                  "transition hover:scale-105 z-0 border dark:border-black/60  relative overflow-hidden font-semibold h-52 max-w-xl w-full flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl",
                   !isExpanded && index > 1 ? "hidden vl:flex" : "flex"
                 )}
               >
@@ -120,7 +123,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
                 />
                 <div className="z-20"> {about.icon}</div>
                 <div className="z-20"> {about.title}</div>
-                <div className="bg-grey/80 absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
+                <div className="dark:bg-grey/80 bg-greyLight/80 absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
               </div>
 
               {about.description}

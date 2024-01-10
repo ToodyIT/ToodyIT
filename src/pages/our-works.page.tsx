@@ -68,7 +68,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Discover our impressive portfolio of completed web projects. Explore the variety of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online resources. Browse through our work and see the quality and innovation we bring to every website we create."
       )}
     >
-      <WebLine innerClassName="overflow-hidden relative vl:overflow-visible flex flex-col">
+      <WebLine innerClassName="overflow-hidden  vl:overflow-visible flex flex-col">
         <Title type="h1">
           <Trans
             i18nKey="OUR<span>WORKS</span>"
@@ -100,7 +100,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
                   className="rounded-3xl min-h-full vl:hidden object-cover object-top"
                 />
                 <a
-                  className="absolute bg-secondary active:scale-95 hover:bg-grey transition rounded-full border-greyLight border right-2 bottom-2 p-2 vl:p-3"
+                  className="absolute dark:bg-secondary bg-greyLight active:scale-95 hover:bg-grey transition rounded-full border-greyLight border right-2 bottom-2 p-2 vl:p-3"
                   href={work.link}
                   target="_blank"
                   rel="noreferrer"
@@ -139,8 +139,8 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         </div>
 
         <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
+        <BlurredDecoration className="right-48 -bottom-5" />
       </WebLine>
-      {/* <BlurredDecoration className="vl:-right-80 vl:-bottom-64 -right-20 -bottom-20 vl:h-[600px] vl:w-[600px] " /> */}
     </LayoutMain>
   );
 });

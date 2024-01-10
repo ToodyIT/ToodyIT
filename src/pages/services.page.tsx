@@ -8,6 +8,7 @@ import { Title } from "../components/Title";
 import Image from "next/image";
 import { useServicesInfo } from "../hooks/useServicesInfo";
 import Link from "next/link";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const Services = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
@@ -21,7 +22,8 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
       )}
       metaTitle={t("Services")}
     >
-      <WebLine>
+      <WebLine className="overflow-hidden!">
+        <BlurredDecoration className="vl:w-[700px] vl:h-[700px]" />
         <Title type="h1">{t("SERVICES")}</Title>
 
         <Title type="h2" className="">
@@ -32,7 +34,7 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
             <div className="flex-col flex" key={service.title}>
               <Link
                 href={service.link}
-                className="group  cursor-pointer shadow-lg overflow-hidden relative vl:gap-7 gap-3 flex-col flex-center flex vl:text-5xl text-4xl bg-secondary transition vl:h-96 font-semibold w-full h-64 rounded-3xl"
+                className="group  cursor-pointer shadow-lg overflow-hidden relative vl:gap-7 gap-3 flex-col flex-center flex vl:text-5xl text-4xl dark:bg-secondary bg-greyLight transition vl:h-96 font-semibold w-full h-64 rounded-3xl"
               >
                 <div className="bg-[#148720] z-10 h-96 w-0 absolute left-0 group-hover:w-full transition-width "></div>
                 {service.icon}
@@ -57,6 +59,7 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
               </div>
             </div>
           ))}
+          <BlurredDecoration className="right-48 -bottom-5" />
         </div>
       </WebLine>
     </LayoutMain>

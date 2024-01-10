@@ -46,7 +46,7 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
     <>
       <WebLine
         innerClassName="justify-between flex w-full "
-        className="sticky z-10 top-0 bg-secondary/30 py-5 backdrop-blur-2xl"
+        className="sticky z-10 top-0 dark:bg-secondary/30 bg-greyLight py-5 backdrop-blur-2xl"
       >
         <div className="flex gap-5 flex-center">
           <Link
@@ -81,7 +81,7 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
           </button>
         </div>
       </WebLine>
-      <WebLine className="bg-secondary/30 py-5 backdrop-blur-2xl">
+      <WebLine className="dark:bg-secondary/30 bg-greyLight py-5 backdrop-blur-2xl">
         <div>
           <Title type="h3">{t("Basic")}</Title>
           <div className="flex flex-col vl:grid vl:grid-cols-4 gap-4">

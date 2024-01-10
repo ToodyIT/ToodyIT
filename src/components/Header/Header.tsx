@@ -91,7 +91,7 @@ export const Header: FC = () => {
 
   return (
     <>
-      <WebLine className="w-full bg-secondary backdrop-blur-xl relative z-50">
+      <WebLine className="w-full dark:bg-secondary bg-greyLight backdrop-blur-xl relative z-50">
         <header
           style={{ height: HEADER_HEIGHT }}
           className="flex justify-between gap-20 w-full items-center"

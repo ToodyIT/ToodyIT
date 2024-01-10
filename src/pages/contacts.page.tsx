@@ -7,8 +7,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { WebLine } from "../components/Webline/WebLine";
 import { Title } from "../components/Title";
 import { ContactsForm } from "../components/Contacts/ContactsForm";
-import { SocialMedia } from "../components/SocialMedia/SocialMedia";
 import { ContactsSocialMedia } from "../components/Contacts/ContactsSocialMedia";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
@@ -22,6 +22,8 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <WebLine innerClassName="flex-center flex flex-col">
+        <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
+        <BlurredDecoration className="right-48 -bottom-5" />
         <Title type="h1">
           <Trans
             i18nKey="CONTACT<span>US</span>"

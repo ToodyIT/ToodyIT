@@ -28,7 +28,9 @@ module.exports = {
         primary: "#139A20",
         secondary: "#2E2E2E",
         grey: "#141414",
-        greyLight: "#9A9A9A",
+        greyLight: "#BEBEBE",
+        greyLighter: "#DADADA",
+        greyDark: "#171717",
       },
       fontFamily: {
         sans: ["var(--font-overpass)"],

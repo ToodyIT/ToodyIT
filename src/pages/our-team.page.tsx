@@ -12,6 +12,7 @@ import AndriyKosarkoPhoto from "/public/img/our-team/andriy-kosarko.jpg";
 import JakubDvoracekPhoto from "/public/img/our-team/jakub-dvoracek.jpg";
 import { WebLine } from "../components/Webline/WebLine";
 import { Title } from "../components/Title";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
 const getOurTeam = (t: TFunction) => {
   return [
@@ -62,6 +63,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <WebLine innerClassName="flex flex-col overflow-hidden xl:overflow-visible">
+        <BlurredDecoration className="vl:w-[700px] vl:h-[700px]" />
         <Title type="h1">
           <Trans
             i18nKey="OUR<span>TEAM</span>"
@@ -79,7 +81,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
             <ul className="flex gap-7 lg:gap-14  h-fit max-w-[317px]">
               {ourTeam.map((team) => (
                 <li
-                  className="h-auto lg:flex-none  z-10 flex flex-col rounded-3xl bg-secondary transition hover:scale-105 flex-[0_0_80%]"
+                  className="h-auto lg:flex-none  z-10 flex flex-col rounded-3xl bg-greyLight dark:bg-secondary transition hover:scale-105 flex-[0_0_80%]"
                   key={team.name}
                 >
                   <div className="p-5 flex gap-5 flex-col">
@@ -119,8 +121,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
             )}
           </span>
         </div>
-        {/* <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
-        <BlurredDecoration className="vl:-right-96 vl:-bottom-96 -right-20 -bottom-full  vl:h-[700px] vl:w-[700px] " /> */}
+        <BlurredDecoration className="right-48 -bottom-5" />
       </WebLine>
     </LayoutMain>
   );
