@@ -107,19 +107,19 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           <Title type="h2" className="text-primary">
             {t("Professionalism")}
           </Title>
-          <span className="text-lg max-w-5xl">
+          <p className="text-lg max-w-5xl">
             {t(
               "Our team integrates taking into account how we want to communicate with customers. The goal is to be a partner with clearly defined processes associated with a high level of work quality and maximum reliability, but at the same time we want to represent the human element in the field of IT services. Communication with us should be a pleasure for customers."
             )}
-          </span>
+          </p>
           <Title type="h3" className=" text-primary text-right">
             {t("Experience, Competence, Reliability")}
           </Title>
-          <span className="text-lg text-end">
+          <p className="text-lg text-end">
             {t(
               "ToodyIT boasts an experienced team that was formed by bringing together IT professionals. Professionals and experts.  The company can rely on the expertise of people who have been immersed in the IT field for a significant period of time, constantly improving their IT knowledge and skills."
             )}
-          </span>
+          </p>
         </div>
         <BlurredDecoration className="right-48 -bottom-5" />
       </WebLine>

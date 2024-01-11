@@ -82,32 +82,32 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
         </div>
       </WebLine>
       <WebLine className="dark:bg-secondary/30 bg-greyLight py-5 backdrop-blur-2xl">
-        <div>
-          <Title type="h3">{t("Basic")}</Title>
-          <div className="flex flex-col vl:grid vl:grid-cols-4 gap-4">
-            {basicServices.map((basicService) => (
+        <Title type="h3">{t("Basic")}</Title>
+        <ul className="flex flex-col vl:grid vl:grid-cols-4 gap-4">
+          {basicServices.map((basicService) => (
+            <li key={basicService.title}>
               <ServiceMenuItem
-                key={basicService.title}
                 service={basicService}
                 addedServices={addedServices}
                 setAddedServices={setAddedServices}
               />
-            ))}
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
       </WebLine>
       <WebLine>
         <Title type="h3">{t("Additional")}</Title>
-        <div className="flex flex-col vl:grid vl:grid-cols-4 gap-4">
+        <ul className="flex flex-col vl:grid vl:grid-cols-4 gap-4">
           {additionalServices.map((additionalService) => (
-            <ServiceMenuItem
-              key={additionalService.title}
-              service={additionalService}
-              addedServices={addedServices}
-              setAddedServices={setAddedServices}
-            />
+            <li key={additionalService.title}>
+              <ServiceMenuItem
+                service={additionalService}
+                addedServices={addedServices}
+                setAddedServices={setAddedServices}
+              />
+            </li>
           ))}
-        </div>
+        </ul>
         {description}
       </WebLine>
       <AnimatePresence>

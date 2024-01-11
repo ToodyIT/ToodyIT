@@ -29,16 +29,16 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
         <Title type="h2" className="">
           {t("What are you planning to order?")}
         </Title>
-        <div className="gap-5 vl:flex-row vl:gap-10 flex-col flex">
+        <ul className="gap-5 vl:flex-row vl:gap-10 flex-col flex">
           {servicesType.map((service) => (
-            <div className="flex-col flex" key={service.title}>
+            <li className="flex-col flex" key={service.title}>
               <Link
                 href={service.link}
                 className="group  cursor-pointer shadow-lg overflow-hidden relative vl:gap-7 gap-3 flex-col flex-center flex vl:text-5xl text-4xl dark:bg-secondary bg-greyLight transition vl:h-96 font-semibold w-full h-64 rounded-3xl"
               >
                 <div className="bg-[#148720] z-10 h-96 w-0 absolute left-0 group-hover:w-full transition-width "></div>
                 {service.icon}
-                <div className="z-10">{service.title}</div>
+                <h3 className="z-10">{service.title}</h3>
                 <Image
                   src={service.image}
                   alt=""
@@ -53,14 +53,14 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
                 <Title type="h3" className="text-primary">
                   {service.subTitle}
                 </Title>
-                <span className="vl:text-xl">
+                <p className="vl:text-xl">
                   <Trans i18nKey={service.description} />
-                </span>
+                </p>
               </div>
-            </div>
+            </li>
           ))}
           <BlurredDecoration className="right-48 -bottom-5" />
-        </div>
+        </ul>
       </WebLine>
     </LayoutMain>
   );

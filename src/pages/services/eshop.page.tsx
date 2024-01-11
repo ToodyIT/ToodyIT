@@ -28,11 +28,11 @@ const Eshop = forwardRef<HTMLDivElement>((_, ref) => {
             }}
           />
         </Title>
-        <span className="my-4 flex text-primary vl:text-xl">
+        <p className="my-4 flex text-primary vl:text-xl">
           {t(
             "All prices are indicative, the site can be customized to suit your needs. For detailed information contact us!"
           )}
-        </span>
+        </p>
       </WebLine>
       <ServicesMenu
         basicServices={eShopBasicServices}
@@ -42,9 +42,9 @@ const Eshop = forwardRef<HTMLDivElement>((_, ref) => {
             <Title type="h3" className="text-primary">
               {servicesType[0].subTitle}
             </Title>
-            <span className="vl:text-xl">
+            <p className="vl:text-xl">
               <Trans i18nKey={servicesType[0].description} />
-            </span>
+            </p>
           </div>
         }
       />

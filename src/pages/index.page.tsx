@@ -97,15 +97,15 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
         <Title type="h3" className="text-primary !mt-0">
           {t("Who we are?")}
         </Title>
-        <span className="vl:text-xl vl:pb-10 pb-5">
+        <p className="vl:text-xl vl:pb-10 pb-5">
           {t(
             "We are a young company passionate about IT technologies and website development. We have interesting offers for you, including our own reservation system. We specialize in creating online stores and websites of any size and industry - from personal portals to corporate web spaces. We are open to communication and ready to address your inquiries."
           )}
-        </span>
+        </p>
 
-        <div className="vl:gap-7 gap-4 grid lg:grid-cols-2 vl:grid-cols-3">
+        <ul className="vl:gap-7 gap-4 grid lg:grid-cols-2 vl:grid-cols-3">
           {usAbout.map((about, index) => (
-            <div key={about.title} className="text-center gap-2 flex flex-col">
+            <li key={about.title} className="text-center gap-2 flex flex-col">
               <div
                 className={twJoin(
                   "transition hover:scale-105 z-0 border dark:border-black/60  relative overflow-hidden font-semibold h-52 max-w-xl w-full flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl",
@@ -122,12 +122,11 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
                   className="rounded-xl object-cover text-[0px]"
                 />
                 <div className="z-20"> {about.icon}</div>
-                <div className="z-20"> {about.title}</div>
+                <h3 className="z-20"> {about.title}</h3>
                 <div className="dark:bg-grey/80 bg-greyLight/80 absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
               </div>
-
-              {about.description}
-            </div>
+              <p>{about.description}</p>
+            </li>
           ))}
           {/* <Button
             className="mx-auto h-12 min-h-[48px] font-semibold vl:hidden"
@@ -135,7 +134,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
           >
             {isExpanded ? t("Hide") : t("Show more")}
           </Button> */}
-        </div>
+        </ul>
       </WebLine>
     </LayoutMain>
   );

@@ -9,6 +9,7 @@ import { Title } from "../components/Title";
 import { ContactsForm } from "../components/Contacts/ContactsForm";
 import { ContactsSocialMedia } from "../components/Contacts/ContactsSocialMedia";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import { SocialMedia } from "../components/SocialMedia/SocialMedia";
 
 const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
@@ -33,10 +34,6 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
           />
         </Title>
         <ContactsForm />
-        {/* <SocialMedia
-          withText
-          className="max-w-[700px] pt-8 justify-center mt-2"
-        /> */}
         <ContactsSocialMedia />
       </WebLine>
     </LayoutMain>

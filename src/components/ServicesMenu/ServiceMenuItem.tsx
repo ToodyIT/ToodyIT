@@ -41,7 +41,7 @@ export const ServiceMenuItem: FC<ServiceMenuItemProps> = ({
   return (
     <div className="flex rounded-2xl justify-between items-center border dark:bg-secondary bg-greyLight text-lg p-2 pl-3 vl:pl-4">
       <div className="flex flex-col">
-        <span className="font-medium">{service.title}</span>
+        <h4 className="font-medium">{service.title}</h4>
         <span>
           <span className="font-semibold">{service.price} </span>
           {t("CZK")}

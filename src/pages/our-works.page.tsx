@@ -117,17 +117,17 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
               {t("Project Excellence Unveiled")}
             </Title>
             <div className=" gap-6  flex flex-col vl:text-xl">
-              <span>
+              <p>
                 {t(
                   "Let us introduce you to some of our successful projects. We take pride in the results of our work and strive to ensure that each project reflects our commitment to quality and innovation."
                 )}{" "}
-              </span>
+              </p>
 
-              <span className="max-w-3xl">
+              <p className="max-w-3xl">
                 {t(
                   "Explore our portfolio to see the variety of our work. We are ready to realize your ideas and make your project unique and successful."
                 )}{" "}
-              </span>
+              </p>
             </div>
           </div>
 
