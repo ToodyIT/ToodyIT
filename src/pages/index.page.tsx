@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import { useTranslation, TFunction, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LayoutMain from "../components/Layout/LayoutMain";
@@ -74,7 +74,6 @@ const getAboutUs = (t: TFunction) => {
 const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
   const usAbout = getAboutUs(t);
-  const [isExpanded, setIsExpanded] = useState(true);
 
   return (
     <LayoutMain
@@ -85,7 +84,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <WebLine innerClassName="flex flex-col">
-        <div className="absolute z-[-1px] xl:-right-40 hidden xl:flex xl:-top-20 w-[50%] aspect-square">
+        <div className="vl:absolute vl:z-[-1px] vl:right-0 xl:top-1/2 vl:-translate-y-1/2 hidden vl:flex vl:w-1/3 vl:aspect-square vl:top-1/3">
           <Image src={illustration} alt="illustration" fill />
         </div>
         <BlurredDecoration className="right-48 -bottom-0" />
@@ -107,12 +106,11 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
         </p>
 
         <ul className="vl:gap-7 gap-4 grid lg:grid-cols-2 vl:grid-cols-3">
-          {usAbout.map((about, index) => (
+          {usAbout.map((about) => (
             <li key={about.title} className="text-center gap-2 flex flex-col">
               <div
                 className={twJoin(
-                  "transition hover:scale-105 z-0 border dark:border-black/60  relative overflow-hidden font-semibold h-52 max-w-xl w-full flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl",
-                  !isExpanded && index > 1 ? "hidden vl:flex" : "flex"
+                  "transition hover:scale-105 z-0 border dark:border-black/60  relative overflow-hidden font-semibold h-52 max-w-xl w-full flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl"
                 )}
               >
                 <Image
@@ -131,12 +129,6 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
               <p className="z-0">{about.description}</p>
             </li>
           ))}
-          {/* <Button
-            className="mx-auto h-12 min-h-[48px] font-semibold vl:hidden"
-            onClick={() => setIsExpanded((prev) => !prev)}
-          >
-            {isExpanded ? t("Hide") : t("Show more")}
-          </Button> */}
         </ul>
       </WebLine>
     </LayoutMain>

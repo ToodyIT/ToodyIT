@@ -15,20 +15,19 @@ import { Title } from "../components/Title";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 import illustrationBottom from "/public/img/illustrationBottom.png";
 
-
 const getOurTeam = (t: TFunction) => {
   return [
-    {
-      imagePath: VasylPolyasnkyyPhoto,
-      name: t("VASYL POLYANSKYY"),
-      position: t("PROJECT MANAGER"),
-      alt: t("Vasyl Polyanskyy"),
-    },
     {
       imagePath: IvanHodynchukPhoto,
       name: t("IVAN HODYNCHUK"),
       position: t("DEVELOPER"),
       alt: t("Ivan Hodynchuk"),
+    },
+    {
+      imagePath: VasylPolyasnkyyPhoto,
+      name: t("VASYL POLYANSKYY"),
+      position: t("PROJECT MANAGER"),
+      alt: t("Vasyl Polyanskyy"),
     },
     {
       imagePath: NatalieLysenkoPhoto,
@@ -64,9 +63,9 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Meet our talented team of professionals. Who make it possible to create exclusive web projects. "
       )}
     >
-      <WebLine innerClassName="flex flex-col relative overflow-hidden xl:overflow-visible">
+      <WebLine innerClassName="flex flex-col relative">
         <Image
-          className="w-full z-[-1px] absolute xl:-left-64 hidden xl:flex xl:-top-72 self-end"
+          className="w-full z-[-1px] absolute vl:-left-64 hidden vl:flex vl:-top-72 self-end"
           src={illustrationBottom}
           alt="illustrationBottom"
         />
@@ -114,7 +113,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           <Title type="h2" className="text-primary">
             {t("Professionalism")}
           </Title>
-          <p className="text-lg max-w-5xl">
+          <p className="text-base vl:text-lg max-w-5xl">
             {t(
               "Our team integrates taking into account how we want to communicate with customers. The goal is to be a partner with clearly defined processes associated with a high level of work quality and maximum reliability, but at the same time we want to represent the human element in the field of IT services. Communication with us should be a pleasure for customers."
             )}
@@ -122,7 +121,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           <Title type="h3" className=" text-primary text-right">
             {t("Experience, Competence, Reliability")}
           </Title>
-          <p className="text-lg text-end">
+          <p className="text-base vl:text-lg text-end">
             {t(
               "ToodyIT boasts an experienced team that was formed by bringing together IT professionals. Professionals and experts.  The company can rely on the expertise of people who have been immersed in the IT field for a significant period of time, constantly improving their IT knowledge and skills."
             )}

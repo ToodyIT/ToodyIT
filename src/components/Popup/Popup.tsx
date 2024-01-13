@@ -46,7 +46,7 @@ export const Popup: FC<PopupProps> = ({
       <m.div
         key="popup"
         // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1}}
+        // animate={{ opacity: 1 }}
         // exit={{ opacity: 0 }}
       >
         <Overlay isOpen onClose={onClickCloseActionHandler} />

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import emailjs from "@emailjs/browser";
 import { gtag } from "ga-gtag";
 import { FormLine } from "../FormColumn/FormColumn";

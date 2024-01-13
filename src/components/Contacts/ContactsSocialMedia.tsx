@@ -7,7 +7,7 @@ import Link from "next/link";
 import { gtag } from "ga-gtag";
 import { twJoin } from "tailwind-merge";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Title } from "../Title";
 
 const POSTS = [

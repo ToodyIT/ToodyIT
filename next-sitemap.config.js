@@ -1,18 +1,20 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: 'https://www.toody-it.com',
-    generateRobotsTxt: true,
-    alternateRefs: [
-      {
-        href: 'https://www.toody-it.com/en',
-        hreflang: 'en',
-      },
-      {
-        href: 'https://www.toody-it.com/ru',
-        hreflang: 'ru',
-      },
-    ],
-    exclude: ['/exclude-page'],
-    pagesDirectory: 'pages',
-  };
-  
+  siteUrl: process.env.BASE_URL,
+  generateRobotsTxt: true,
+  alternateRefs: [
+    {
+      href: `${process.env.BASE_URL}/en`,
+      hreflang: 'en',
+    },
+    {
+      href: `${process.env.BASE_URL}/ru`,
+      hreflang: 'ru',
+    },
+    {
+      href: `${process.env.BASE_URL}/cz`,
+      hreflang: "cs",
+    },
+  ],
+  pagesDirectory: 'pages',
+};

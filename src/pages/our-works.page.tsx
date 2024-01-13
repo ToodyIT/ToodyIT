@@ -56,7 +56,7 @@ const OUR_WORKS = [
 ];
 
 const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
-  const [emblaRef] = useEmblaCarousel({ align: "center", startIndex: 1 });
+  const [emblaRef] = useEmblaCarousel({ align: "center", startIndex: 2 });
   const { t } = useTranslation();
   const ourWorks = OUR_WORKS;
 
@@ -68,7 +68,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Discover our impressive portfolio of completed web projects. Explore the variety of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online resources. Browse through our work and see the quality and innovation we bring to every website we create."
       )}
     >
-      <WebLine innerClassName="overflow-hidden relative  vl:overflow-visible flex flex-col">
+      <WebLine innerClassName="relative flex flex-col">
         <Title type="h1">
           <Trans
             i18nKey="OUR<span>WORKS</span>"
@@ -78,7 +78,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
           />
         </Title>
         <div
-          className=" max-h-[700px] vl:max-h-[600px] flex flex-col gap-10 h-full w-full cursor-pointer"
+          className="max-h-[700px] vl:max-h-[600px] flex flex-col gap-10 h-full w-full cursor-pointer"
           ref={emblaRef}
         >
           <ul className="flex gap-8 vl:gap-10 h-full">

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { ServiceType } from "../../types/services";
 import { MinusIcon, PlusIcon } from "../Icons/Icons";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { twJoin } from "tailwind-merge";
 
 type ServiceMenuItemProps = {
@@ -39,7 +39,7 @@ export const ServiceMenuItem: FC<ServiceMenuItemProps> = ({
   };
 
   return (
-    <div className="flex rounded-2xl justify-between items-center border dark:bg-secondary bg-greyLight text-lg p-2 pl-3 vl:pl-4">
+    <div className="flex rounded-2xl justify-between items-center border dark:bg-secondary bg-greyLight text-base vl:Etext-lg p-2 pl-3 vl:pl-4">
       <div className="flex flex-col">
         <h4 className="font-medium">{service.title}</h4>
         <span>

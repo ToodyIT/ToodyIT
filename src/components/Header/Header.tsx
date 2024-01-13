@@ -17,6 +17,7 @@ import {
 } from "../Icons/Icons";
 import Overlay from "../Overlay/Overlay";
 import Image from "next/image";
+import { LocaleToggler } from "../LocaleToggler/LocaleToggler";
 
 export const HEADER_HEIGHT = 88;
 
@@ -56,7 +57,7 @@ export const NAVIGATION_ITEMS = [
 export const Header: FC = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const urlWithoutQueryParams = router.asPath.split("?")[0];
+  const [urlWithoutQueryParams] = router.asPath.split("?");
   const getLinkQueries = (order: number) => {
     if (!Array.isArray(router.query.order) && router.query.order) {
       return {
@@ -104,17 +105,17 @@ export const Header: FC = () => {
               alt="logo"
             />
           </Link>
-          <button
-            className="vl:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <MenuIcon className="text-white size-10" />
-          </button>
+          <div className="vl:hidden flex items-center gap-4">
+            <LocaleToggler />
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <MenuIcon className="text-white size-10" />
+            </button>
+          </div>
           <motion.nav
             className={twJoin(
               "items-center flex bg-neutral-700",
               "absolute z-10 top-[88px] px-5 left-0 flex-col w-full py-5 rounded-br-lg",
-              "vl:static vl:flex-row vl:!translate-x-0 vl:bg-transparent vl:w-3/4 xl:w-2/3 vl:h-full vl:justify-center vl:gap-4 vl:p-0"
+              "vl:static vl:flex-row vl:!translate-x-0 vl:bg-transparent vl:w-4/5 exl:w-2/3 vl:h-full vl:justify-center vl:gap-4 vl:p-0"
             )}
             animate={isMobileMenuOpen ? "open" : "closed"}
             initial={false}
@@ -136,7 +137,6 @@ export const Header: FC = () => {
                 }}
                 as={{
                   pathname: section.link,
-                  query: { order: section.order },
                 }}
                 onClick={closeMobileMenu}
                 className={twJoin(
@@ -150,6 +150,7 @@ export const Header: FC = () => {
                 {section.title}
               </Link>
             ))}
+            <LocaleToggler className="mt-4 vl:mt-0" />
           </motion.nav>
         </header>
       </WebLine>

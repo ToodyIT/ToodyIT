@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC } from "react";
-import { twJoin } from "tailwind-merge";
+import { twJoin, twMerge } from "tailwind-merge";
 
-export const LocaleToggler: FC = () => {
+export const LocaleToggler: FC = ({ className }) => {
   const router = useRouter();
 
   return (
-    <div className="flex gap-2.5">
+    <div className={twMerge("flex gap-2.5", className)}>
       {router.locales?.map((locale) => (
         <Link
           key={locale}

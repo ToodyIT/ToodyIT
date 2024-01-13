@@ -10,7 +10,7 @@ export const Footer: FC = () => {
   const { t } = useTranslation("common");
 
   return (
-    <footer className="mt-auto w-full pt-8 flex bottom-0 rounded-t-2xl bg-greyLight dark:bg-secondary vl:rounded-none">
+    <footer className="mt-auto w-full pt-8 flex rounded-t-2xl z-[1] bg-greyLight dark:bg-secondary vl:rounded-none">
       <WebLine className="w-full" innerClassName="gap-7 flex flex-col">
         <Image src="/img/toodyit-logo.png" width="80" height="50" alt="logo" />
         <div className="flex gap-5 flex-col vl:flex-row vl:justify-between">

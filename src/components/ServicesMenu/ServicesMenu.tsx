@@ -38,7 +38,7 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
   const getDefaultMessageForContact = () => {
     const addedServicesMessage = addedServices
       .map((service) => service.title)
-      .join("\n");
+      .join(", ");
 
     return `${t("My wants:")} ${addedServicesMessage}`;
   };
