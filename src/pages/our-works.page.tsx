@@ -68,7 +68,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Discover our impressive portfolio of completed web projects. Explore the variety of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online resources. Browse through our work and see the quality and innovation we bring to every website we create."
       )}
     >
-      <WebLine innerClassName="overflow-hidden  vl:overflow-visible flex flex-col">
+      <WebLine innerClassName="overflow-hidden relative  vl:overflow-visible flex flex-col">
         <Title type="h1">
           <Trans
             i18nKey="OUR<span>WORKS</span>"

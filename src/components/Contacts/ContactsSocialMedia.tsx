@@ -58,6 +58,7 @@ export const ContactsSocialMedia: FC = () => {
                 }}
                 href={post.link}
                 target="_blank"
+                rel="noreferrer"
               >
                 <Image
                   fill

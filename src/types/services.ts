@@ -14,5 +14,6 @@ export type ServiceWrapperType = {
   subTitle: string;
   image: string;
   description: string;
+  firstDescription: string;
   icon: ReactNode;
 };

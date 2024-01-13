@@ -16,6 +16,7 @@ import { Title } from "../components/Title";
 import { twJoin } from "tailwind-merge";
 import Image from "next/image";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import illustration from "/public/img/illustration.png";
 
 const getAboutUs = (t: TFunction) => {
   return [
@@ -84,9 +85,11 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
       )}
     >
       <WebLine innerClassName="flex flex-col">
-        <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
+        <div className="absolute z-[-1px] xl:-right-40 hidden xl:flex xl:-top-20 w-[50%] aspect-square">
+          <Image src={illustration} alt="illustration" fill />
+        </div>
         <BlurredDecoration className="right-48 -bottom-0" />
-        <Title type="h1">
+        <Title type="h1" className="z-0">
           <Trans
             i18nKey="ABOUT<span>US</span>"
             components={{
@@ -94,10 +97,10 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
             }}
           />
         </Title>
-        <Title type="h3" className="text-primary !mt-0">
+        <Title type="h3" className="text-primary z-0 !mt-0">
           {t("Who we are?")}
         </Title>
-        <p className="vl:text-xl vl:pb-10 pb-5">
+        <p className="vl:text-xl vl:max-w-5xl vl:pb-10 z-0 pb-5">
           {t(
             "We are a young company passionate about IT technologies and website development. We have interesting offers for you, including our own reservation system. We specialize in creating online stores and websites of any size and industry - from personal portals to corporate web spaces. We are open to communication and ready to address your inquiries."
           )}
@@ -125,7 +128,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
                 <h3 className="z-20"> {about.title}</h3>
                 <div className="dark:bg-grey/80 bg-greyLight/80 absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
               </div>
-              <p>{about.description}</p>
+              <p className="z-0">{about.description}</p>
             </li>
           ))}
           {/* <Button

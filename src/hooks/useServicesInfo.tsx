@@ -203,8 +203,11 @@ export const useServicesInfo = () => {
       title: t("E-SHOP"),
       icon: <CartIcon className="z-10 vl:size-24 size-20" />,
       subTitle: t("Choose your path to creating an E-shop"),
+      firstDescription: t(
+        "The price configurator provides quotes for building through Shopify. If you don't find the service you need, contact us to discuss."
+      ),
       description: t(
-        "The price configurator provides quotes for building through Shopify. If you don't find the service you need, contact us to discuss.<br/><br/>We also have an option to create an online store without the configurator: provide your details and we will contact you with prices and details!"
+        "We also have an option to create an online store without the configurator: provide your details and we will contact you with prices and details!"
       ),
     },
     {
@@ -213,8 +216,11 @@ export const useServicesInfo = () => {
       title: t("WEBSITE"),
       icon: <WebIcon className="z-10 vl:size-28 size-20" />,
       subTitle: t("Information"),
+      firstDescription: t(
+        "Our configurator provides the basic elements required to create a website, as well as the ability to select the additional services you need."
+      ),
       description: t(
-        "Our configurator provides the basic elements required to create a website, as well as the ability to select the additional services you need.<br/><br/>If you don't find the service you need in the configurator, you can always suggest your specific requirements and we will contact you to discuss your site."
+        "If you don't find the service you need in the configurator, you can always suggest your specific requirements and we will contact you to discuss your site."
       ),
     },
   ];

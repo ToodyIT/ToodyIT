@@ -52,6 +52,7 @@ export const SocialMedia: FC<SocialMediaProps> = ({
           className="flex gap-3 items-center active:scale-[0.95] transition"
           href={media.link}
           target="_blank"
+          rel="noreferrer"
         >
           <div className="size-9 bg-primary flex rounded-full flex-center">
             {media.icon}

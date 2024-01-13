@@ -42,9 +42,14 @@ const Eshop = forwardRef<HTMLDivElement>((_, ref) => {
             <Title type="h3" className="text-primary">
               {servicesType[0].subTitle}
             </Title>
-            <p className="vl:text-xl">
-              <Trans i18nKey={servicesType[0].description} />
-            </p>
+            <div className="vl:text-xl flex flex-col gap-5">
+              <p>
+                <Trans i18nKey={servicesType[0].firstDescription} />
+              </p>
+              <p>
+                <Trans i18nKey={servicesType[0].description} />
+              </p>
+            </div>
           </div>
         }
       />

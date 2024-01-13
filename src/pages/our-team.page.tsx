@@ -13,6 +13,8 @@ import JakubDvoracekPhoto from "/public/img/our-team/jakub-dvoracek.jpg";
 import { WebLine } from "../components/Webline/WebLine";
 import { Title } from "../components/Title";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import illustrationBottom from "/public/img/illustrationBottom.png";
+
 
 const getOurTeam = (t: TFunction) => {
   return [
@@ -62,7 +64,12 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
         "Meet our talented team of professionals. Who make it possible to create exclusive web projects. "
       )}
     >
-      <WebLine innerClassName="flex flex-col overflow-hidden xl:overflow-visible">
+      <WebLine innerClassName="flex flex-col relative overflow-hidden xl:overflow-visible">
+        <Image
+          className="w-full z-[-1px] absolute xl:-left-64 hidden xl:flex xl:-top-72 self-end"
+          src={illustrationBottom}
+          alt="illustrationBottom"
+        />
         <BlurredDecoration className="vl:w-[700px] vl:h-[700px]" />
         <Title type="h1">
           <Trans

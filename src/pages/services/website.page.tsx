@@ -44,9 +44,14 @@ const Website = forwardRef<HTMLDivElement>((_, ref) => {
             <Title type="h3" className="text-primary">
               {servicesType[1].subTitle}
             </Title>
-            <p className="vl:text-xl">
-              <Trans i18nKey={servicesType[1].description} />
-            </p>
+            <div className="vl:text-xl flex flex-col gap-5">
+              <p>
+                <Trans i18nKey={servicesType[1].firstDescription} />
+              </p>
+              <p>
+                <Trans i18nKey={servicesType[1].description} />
+              </p>
+            </div>
           </div>
         }
       />
