@@ -55,9 +55,9 @@ const getAboutUs = (t: TFunction) => {
     {
       image: "/img/imagePartnershipForSuccess.jpg",
       icon: <AboutDnsIcon className="vl:size-24 size-16" />,
-      title: t("Partnership for Success"),
+      title: t("Partnership"),
       description: t(
-        "We value our partners and provide comprehensive support, collaborating to achieve common goals."
+        "We have partners who collaborate with us and provide all the support you need to achieve your success."
       ),
     },
     {
@@ -101,7 +101,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
         </Title>
         <p className="vl:text-xl vl:max-w-5xl vl:pb-10 z-0 pb-5">
           {t(
-            "We are a young company passionate about IT technologies and website development. We have interesting offers for you, including our own reservation system. We specialize in creating online stores and websites of any size and industry - from personal portals to corporate web spaces. We are open to communication and ready to address your inquiries."
+            "We are a young company passionate about IT technologies and website development. We specialize in building websites of all sizes and industries, as well as online store development. We are open to communication and ready to address your inquiries."
           )}
         </p>
 
