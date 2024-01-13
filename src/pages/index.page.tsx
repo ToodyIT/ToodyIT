@@ -16,7 +16,7 @@ import { Title } from "../components/Title";
 import { twJoin } from "tailwind-merge";
 import Image from "next/image";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
-import illustration from "/public/img/about-us/illustration.png";
+import illustration from "/public/img/illustration.png";
 
 const getAboutUs = (t: TFunction) => {
   return [

@@ -122,11 +122,10 @@ export const Header: FC = () => {
             variants={{
               open: {
                 x: "0",
-                display: "flex",
               },
               closed: {
                 transitionEnd: {
-                  display: "hidden",
+                  opacity: 0,
                 },
                 x: "-100%",
               },
