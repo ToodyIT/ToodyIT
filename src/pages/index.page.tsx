@@ -16,12 +16,12 @@ import { Title } from "../components/Title";
 import { twJoin } from "tailwind-merge";
 import Image from "next/image";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
-import illustration from "/public/img/illustration.png";
+import illustration from "/public/img/about-us/illustration.png";
 
 const getAboutUs = (t: TFunction) => {
   return [
     {
-      image: "/img/imageTailoredApproach.jpg",
+      image: "/img/about-us/imageTailoredApproach.jpg",
       icon: <AboutMobileIcon className="vl:size-24 size-16" />,
       title: t("Tailored Approach"),
       description: t(
@@ -29,7 +29,7 @@ const getAboutUs = (t: TFunction) => {
       ),
     },
     {
-      image: "/img/imageSwiftExecution.jpg",
+      image: "/img/about-us/imageSwiftExecution.jpg",
       icon: <AboutCloudIcon className="vl:size-24 size-16" />,
       title: t("Swift Execution"),
       description: t(
@@ -37,7 +37,7 @@ const getAboutUs = (t: TFunction) => {
       ),
     },
     {
-      image: "/img/imageVersatileDesign.jpg",
+      image: "/img/about-us/imageVersatileDesign.jpg",
       icon: <AboutRecursiveIcon className="vl:size-24 size-16" />,
       title: t("Versatile Design"),
       description: t(
@@ -45,7 +45,7 @@ const getAboutUs = (t: TFunction) => {
       ),
     },
     {
-      image: "/img/imageInnovationsInWebDevelopment.jpg",
+      image: "/img/about-us/imageInnovationsInWebDevelopment.jpg",
       icon: <AboutDatAnalysisIcon className="vl:size-24 size-16" />,
       title: t("Innovations in Web Development"),
       description: t(
@@ -53,7 +53,7 @@ const getAboutUs = (t: TFunction) => {
       ),
     },
     {
-      image: "/img/imagePartnershipForSuccess.jpg",
+      image: "/img/about-us/imagePartnershipForSuccess.jpg",
       icon: <AboutDnsIcon className="vl:size-24 size-16" />,
       title: t("Partnership"),
       description: t(
@@ -61,7 +61,7 @@ const getAboutUs = (t: TFunction) => {
       ),
     },
     {
-      image: "/img/imagePromotionAndAnalytics.jpg",
+      image: "/img/about-us/imagePromotionAndAnalytics.jpg",
       icon: <AboutAnalysisIcon className="vl:size-24 size-16" />,
       title: t("Promotion and Analytics"),
       description: t(
@@ -118,7 +118,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
                   alt=""
                   fill
                   quality={20}
-                  blurDataURL="/img/imageEshopsBlur.jpg"
+                  blurDataURL="/img/about-us/imageEshopsBlur.jpg"
                   placeholder="blur"
                   className="rounded-xl object-cover text-[0px]"
                 />
