@@ -1,107 +1,67 @@
 import { forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
-import { TFunction, useTranslation } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
+import { WebLine } from "../components/Webline/WebLine";
+import { Title } from "../components/Title";
+import Image from "next/image";
+import { useServicesInfo } from "../hooks/useServicesInfo";
+import Link from "next/link";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
-const getServices = (t: TFunction) => [
-  {
-    title: t("+ 1 language"),
-    price: "750-2,500Kč",
-  },
-  {
-    title: t("+ 1 online payment"),
-    price: "3,000-6,000Kč",
-  },
-  {
-    title: t("+ Animation and effects"),
-    price: "1,500-12,000Kč",
-  },
-  {
-    title: t("+ Feedback form"),
-    price: "3,000-5,000Kč",
-  },
-  {
-    title: t("+ Order tracking"),
-    price: "5,000Kč",
-  },
-  {
-    title: t("+ Administration"),
-    price: "10,000-30,000Kč",
-  },
-  {
-    title: t("+ Search"),
-    price: "7,000Kč",
-  },
-  {
-    title: t("+ 1 delivery method"),
-    price: "3,000-6,000Kč",
-  },
-  {
-    title: t("+ Rating and review system"),
-    price: "7,500-10,000Kč",
-  },
-  {
-    title: t("+ Registration form"),
-    price: "10,000-15,000Kč",
-  },
-  {
-    title: t("+ Map"),
-    price: "2,500Kč",
-  },
-  {
-    title: t("+ Support system"),
-    price: "5,000-10,000Kč",
-  },
-  {
-    title: t("+ Comments and discussion"),
-    price: "10,000Kč",
-  },
-  {
-    title: t("+ Subscription to new content"),
-    price: "7,500Kč",
-  },
-  {
-    title: t("+ Personal account"),
-    price: "5,000-12,000Kč",
-  },
-  {
-    title: t("+ Online chat"),
-    price: "25,000Kč",
-  },
-  {
-    title: t("+ Reservation function"),
-    price: "1,500-10,000Kč",
-  },
-  {
-    title: t("+ Recommendations"),
-    price: "7,000Kč",
-  },
-];
 const Services = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
-  const services = getServices(t);
+  const { servicesType } = useServicesInfo();
 
   return (
-    <LayoutMain ref={ref} metaDescription="" metaTitle={t("Services")}>
-      <div className="flex flex-col gap-7 -mr-5 max-w-[700px] vl:max-w-[950px] pr-5">
-        <h1 className="text-white font-bold text-4xl flex text-center">
-          {t("SERVICES")}
-        </h1>
-        <div className="h-full w-full gap-8 grid grid-cols-1 lg:grid-cols-2 vl:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.price}
-              className="bg-neutral-800 text-lg justify-center text-center flex flex-col p-3 rounded-xl"
-            >
-              {service.title}
-              <span className="text-primary text-center font-bold">
-                {service.price}
-              </span>
-            </div>
+    <LayoutMain
+      ref={ref}
+      metaDescription={t(
+        "Here you will find services that our team offers you to realize with us. Development of websites, online stores and any web projects at your request!"
+      )}
+      metaTitle={t("Services")}
+    >
+      <WebLine className="overflow-hidden!">
+        <BlurredDecoration className="vl:w-[700px] vl:h-[700px]" />
+        <Title type="h1">{t("SERVICES")}</Title>
+
+        <Title type="h2" className="">
+          {t("What are you planning to order?")}
+        </Title>
+        <ul className="gap-5 vl:flex-row vl:gap-10 flex-col flex">
+          {servicesType.map((service) => (
+            <li className="flex-col flex" key={service.title}>
+              <Link
+                href={service.link}
+                className="group  cursor-pointer shadow-lg overflow-hidden relative vl:gap-7 gap-3 flex-col flex-center flex vl:text-5xl text-4xl dark:bg-secondary bg-greyLight transition vl:h-96 font-semibold w-full h-64 rounded-3xl"
+              >
+                <div className="bg-[#148720] z-10 h-96 w-0 absolute left-0 group-hover:w-full transition-width "></div>
+                {service.icon}
+                <h3 className="z-10">{service.title}</h3>
+                <Image
+                  src={service.image}
+                  alt=""
+                  fill
+                  quality={20}
+                  blurDataURL="/img/imageEshopsBlur.jpg"
+                  placeholder="blur"
+                  className="rounded-xl object-cover text-[0px]"
+                />
+              </Link>
+              <div className="flex flex-col">
+                <Title type="h3" className="text-primary">
+                  {service.subTitle}
+                </Title>
+                <p className="vl:text-xl">
+                  <Trans i18nKey={service.description} />
+                </p>
+              </div>
+            </li>
           ))}
-        </div>
-      </div>
+          <BlurredDecoration className="right-48 -bottom-5" />
+        </ul>
+      </WebLine>
     </LayoutMain>
   );
 });

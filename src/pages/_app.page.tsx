@@ -4,7 +4,6 @@ import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next";
 import NextI18nextConfig from "../../next-i18next.config";
-import { RingModel } from "../components/RingModel/RingModel";
 import {
   HomepageOpenSectionContext,
   HomepageOpenedSectionType,
@@ -12,12 +11,13 @@ import {
 import { useEffect, useState } from "react";
 import { GTM_ID } from "../constants/gtm";
 import { install } from "ga-gtag";
-import { Overpass } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import Image from "next/image";
 
-const poppins = Overpass({
-  subsets: ["latin-ext", "cyrillic", "latin"],
+const poppins = Montserrat({
+  subsets: ["latin-ext", "latin", "cyrillic"],
   weight: ["400", "600", "500", "700"],
-  variable: "--font-overpass",
+  variable: "--font-poppins",
 });
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -28,6 +28,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     install(GTM_ID);
   }, []);
+
   return (
     <>
       <HomepageOpenSectionContext.Provider
@@ -46,8 +47,16 @@ const App = ({ Component, pageProps }: AppProps) => {
           >
             <Component {...pageProps} key={router.asPath} />
           </AnimatePresence>
+          <div
+            className="absolute left-0 top-0 z-maximumTop h-[1px] w-[1px]"
+            id="portal"
+          />
+          <div className="z-50 top-0 animate-circle left-0 absolute h-screen w-screen overflow-hidden flex items-center justify-center">
+            <div className="relative outline-[5000px] outline rounded-full outline-secondary w-1/2 max-h-screen max-w-[1440px] aspect-square">
+              <Image src="/img/circle.png" fill alt="circle" />
+            </div>
+          </div>
         </main>
-        <RingModel />
       </HomepageOpenSectionContext.Provider>
     </>
   );

@@ -5,24 +5,39 @@ const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: ["./src/**/*.tsx"],
   theme: {
+    screens: {
+      xs: "320px",
+      sm: "480px",
+      md: "600px",
+      lg: "769px",
+      vl: "1024px",
+      xl: "1440px",
+      notLg: { max: "768px" },
+    },
     extend: {
-      screens: {
-        xs: "320px",
-        sm: "480px",
-        md: "600px",
-        lg: "769px",
-        vl: "1024px",
-        xl: "1440px",
-        notLg: { max: "768px" },
+      keyframes: {
+        circle: {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(6)", display: "none" },
+        },
+      },
+      animation: {
+        circle: "circle 1s ease-in-out forwards",
       },
       colors: {
         primary: "#139A20",
-        secondary: "#8F56EB",
-        "grey-800": "#1F2125",
-        "neutral-900": "#141414",
+        secondary: "#2E2E2E",
+        grey: "#141414",
+        greyLight: "#BEBEBE",
+        greyLighter: "#DADADA",
+        greyDark: "#171717",
       },
       fontFamily: {
         sans: ["var(--font-overpass)"],
+      },
+      transitionProperty: {
+        height: "height",
+        width: "width",
       },
     },
   },

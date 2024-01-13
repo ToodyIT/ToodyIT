@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply text-white bg-neutral-900;
+    @apply max-w-[100vw] overflow-x-hidden bg-white dark:bg-greyDark text-greyDark dark:text-white bg-[url('/img/stardustWhite.png')] dark:bg-[url('/img/stardust.png')] bg-[length:170px_170px];
 }
 
 address {

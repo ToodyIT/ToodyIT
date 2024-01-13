@@ -1,161 +1,139 @@
-import { motion } from "framer-motion";
-import { GetStaticProps, NextPage } from "next";
-import { useEffect } from "react";
-import Footer from "../components/Footer/Footer";
-import HomepageHeader from "../components/HomepageHeader/HomepageHeader";
-import HomepageHeaderMenu from "../components/HomepageHeader/HomepageHeaderMenu";
-import Overlay from "../components/Overlay/Overlay";
-import Pagination, {
-  PaginationItemProps,
-} from "../components/Pagination/Pagination";
-import useWheelStopListener from "../hooks/useWheelStopListener";
-import Link from "next/link";
-import { Meta } from "../components/Meta/Meta";
-import { useTranslation } from "next-i18next";
+import { GetStaticProps } from "next";
+import { forwardRef } from "react";
+import { useTranslation, TFunction, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useHomepageOpenSectionContext } from "../utils/HomepageOpenSectionContext";
-import useScrollDirection from "../hooks/useScrollDirection";
-import { gtag } from "ga-gtag";
-import { Icon } from "../components/Icons/Icon";
+import LayoutMain from "../components/Layout/LayoutMain";
+import { WebLine } from "../components/Webline/WebLine";
+import {
+  AboutAnalysisIcon,
+  AboutCloudIcon,
+  AboutDatAnalysisIcon,
+  AboutDnsIcon,
+  AboutMobileIcon,
+  AboutRecursiveIcon,
+} from "../components/Icons/Icons";
+import { Title } from "../components/Title";
+import { twJoin } from "tailwind-merge";
+import Image from "next/image";
+import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import illustration from "/public/img/illustration.png";
 
-const PAGINATION_ITEMS: Array<PaginationItemProps> = [
-  {
-    id: "header",
-    value: "header",
-  },
-  {
-    id: "main",
-    value: "main",
-  },
-  {
-    id: "footer",
-    value: "footer",
-  },
-];
+const getAboutUs = (t: TFunction) => {
+  return [
+    {
+      image: "/img/imageTailoredApproach.jpg",
+      icon: <AboutMobileIcon className="vl:size-24 size-16" />,
+      title: t("Tailored Approach"),
+      description: t(
+        "We eschew standard configurators, offering personalized solutions for each client."
+      ),
+    },
+    {
+      image: "/img/imageSwiftExecution.jpg",
+      icon: <AboutCloudIcon className="vl:size-24 size-16" />,
+      title: t("Swift Execution"),
+      description: t(
+        "Our team responds promptly to tasks, ensuring high-speed project completion."
+      ),
+    },
+    {
+      image: "/img/imageVersatileDesign.jpg",
+      icon: <AboutRecursiveIcon className="vl:size-24 size-16" />,
+      title: t("Versatile Design"),
+      description: t(
+        " Specializing in crafting unique designs across various styles, accentuating the individuality of each project."
+      ),
+    },
+    {
+      image: "/img/imageInnovationsInWebDevelopment.jpg",
+      icon: <AboutDatAnalysisIcon className="vl:size-24 size-16" />,
+      title: t("Innovations in Web Development"),
+      description: t(
+        "We consistently integrate new technologies into the web development process, guaranteeing modern and highly effective solutions."
+      ),
+    },
+    {
+      image: "/img/imagePartnershipForSuccess.jpg",
+      icon: <AboutDnsIcon className="vl:size-24 size-16" />,
+      title: t("Partnership for Success"),
+      description: t(
+        "We value our partners and provide comprehensive support, collaborating to achieve common goals."
+      ),
+    },
+    {
+      image: "/img/imagePromotionAndAnalytics.jpg",
+      icon: <AboutAnalysisIcon className="vl:size-24 size-16" />,
+      title: t("Promotion and Analytics"),
+      description: t(
+        "Our company offers SEO and analytics services, ensuring website optimization for search engines and providing insights for online visibility and effectiveness."
+      ),
+    },
+  ];
+};
 
-const HomePage: NextPage = () => {
+const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
-  const isStoppedScrolling = useWheelStopListener();
-  const { openedSection, setOpenedSection } = useHomepageOpenSectionContext();
-  const scrollDirection = useScrollDirection();
-  const handleWheel = () => {
-    if (scrollDirection === "up") {
-      if (openedSection === "footer") {
-        setOpenedSection("main");
-      } else {
-        setOpenedSection("header");
-      }
-    } else if (scrollDirection === "down") {
-      if (openedSection === "header") {
-        setOpenedSection("main");
-      } else {
-        setOpenedSection("footer");
-      }
-    }
-  };
-  useEffect(() => {
-    if (!isStoppedScrolling) return;
-
-    handleWheel();
-  }, [isStoppedScrolling]);
-
-  useEffect(() => {
-    if (openedSection === "header") {
-      gtag("event", "opened_header", { event_name: "opened_header" });
-    }
-
-    if (openedSection === "footer") {
-      gtag("event", "opened_footer", { event_name: "opened_footer" });
-    }
-  }, [openedSection]);
+  const usAbout = getAboutUs(t);
 
   return (
-    <>
-      <Meta
-        metaTitle={t(
-          "Welcome to ToodyIT - Your Destination for Exceptional Web Solutions"
-        )}
-        metaDescription={t(
-          "Discover ToodyIT, a leading web solutions provider specializing in tailored websites to meet your unique needs. Our expert team delivers innovative designs, seamless development, and strategic solutions for your online success."
-        )}
-      />
-      <div
-        className="bg-neutral-900 w-full overflow-hidden flex flex-col relative"
-        id="homepage-wrapper"
-      >
-        <HomepageHeaderMenu key="header" isOpen={openedSection === "header"} />
-        <div className="mx-auto flex flex-col h-full w-full">
-          <HomepageHeader />
-          <Pagination
-            items={PAGINATION_ITEMS}
-            setActiveState={setOpenedSection}
-            activeState={openedSection}
-          />
-          <motion.section
-            initial={{ y: "-50%", x: "50%" }}
-            animate={openedSection}
-            variants={{
-              footer: { y: -290 },
-              main: { y: "-50%", x: "50%" },
-              header: { y: "-50%", x: "50%" },
-            }}
-            className="absolute top-1/3 translate-x-1/2 -translate-y-1/2 right-1/4 z-20"
-          >
-            <Icon
-              icon="DrawnArrow"
-              className="text-white size-32 vl:size-40 rotate-[250deg]"
-            />
-          </motion.section>
-          <Overlay
-            isOpen={openedSection !== "main"}
-            onClose={() => setOpenedSection("main")}
-            key="overlay"
-          />
-          <div className="flex flex-col h-full w-full z-10">
-            <motion.section
-              initial={{ y: "-50%" }}
-              animate={openedSection}
-              variants={{
-                footer: { y: -290 },
-                main: { y: "-50%" },
-                header: { y: "-50%" },
-              }}
-              className="flex whitespace-nowrap gap-10 absolute top-1/2"
-            >
-              <div className="list">
-                <div className="item">
-                  <h1 className="text-7xl z-10 vl:text-9xl tracking-wider">
-                    We are helping to grow your business
-                  </h1>
-                </div>
-              </div>
-              <div className="list">
-                <div className="item">
-                  <span className="text-7xl vl:text-9xl tracking-wider">
-                    We are helping to grow your business
-                  </span>
-                </div>
-              </div>
-            </motion.section>
-            <Link
-              onClick={() => {
-                gtag("event", "click_on_ring", { event_name: "click_on_ring" });
-              }}
-              href={{
-                pathname: "/process",
-                query: {
-                  order: 1,
-                },
-              }}
-              className="flex h-full w-full z-10 relative"
-            />
-          </div>
+    <LayoutMain
+      ref={ref}
+      metaTitle={t("ToodyIT")}
+      metaDescription={t(
+        "Welcome to ToodyIT - Your Destination for Exceptional Web Solutions"
+      )}
+    >
+      <WebLine innerClassName="flex flex-col">
+        <div className="vl:absolute vl:z-[-1px] vl:right-0 xl:top-1/2 vl:-translate-y-1/2 hidden vl:flex vl:w-1/3 vl:aspect-square vl:top-1/3">
+          <Image src={illustration} alt="illustration" fill />
         </div>
-        <Footer key="footer" isOpen={openedSection === "footer"} />
-      </div>
-    </>
+        <BlurredDecoration className="right-48 -bottom-0" />
+        <Title type="h1" className="z-0">
+          <Trans
+            i18nKey="ABOUT<span>US</span>"
+            components={{
+              span: <span className="text-greyLight"></span>,
+            }}
+          />
+        </Title>
+        <Title type="h3" className="text-primary z-0 !mt-0">
+          {t("Who we are?")}
+        </Title>
+        <p className="vl:text-xl vl:max-w-5xl vl:pb-10 z-0 pb-5">
+          {t(
+            "We are a young company passionate about IT technologies and website development. We have interesting offers for you, including our own reservation system. We specialize in creating online stores and websites of any size and industry - from personal portals to corporate web spaces. We are open to communication and ready to address your inquiries."
+          )}
+        </p>
+
+        <ul className="vl:gap-7 gap-4 grid lg:grid-cols-2 vl:grid-cols-3">
+          {usAbout.map((about) => (
+            <li key={about.title} className="text-center gap-2 flex flex-col">
+              <div
+                className={twJoin(
+                  "transition hover:scale-105 z-0 border dark:border-black/60  relative overflow-hidden font-semibold h-52 max-w-xl w-full flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl"
+                )}
+              >
+                <Image
+                  src={about.image}
+                  alt=""
+                  fill
+                  quality={20}
+                  blurDataURL="/img/imageEshopsBlur.jpg"
+                  placeholder="blur"
+                  className="rounded-xl object-cover text-[0px]"
+                />
+                <div className="z-20"> {about.icon}</div>
+                <h3 className="z-20"> {about.title}</h3>
+                <div className="dark:bg-grey/80 bg-greyLight/80 absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
+              </div>
+              <p className="z-0">{about.description}</p>
+            </li>
+          ))}
+        </ul>
+      </WebLine>
+    </LayoutMain>
   );
-};
+});
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
