@@ -18,7 +18,7 @@ module.exports = {
       keyframes: {
         circle: {
           "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(6)", display: "none" },
+          "100%": { transform: "scale(10)", display: "none" },
         },
       },
       animation: {
