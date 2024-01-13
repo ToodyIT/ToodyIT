@@ -25,6 +25,7 @@
     "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-i18next": "^14.0.0",
     "sass": "^1.56.2",
     "sitemap": "^7.1.1",
     "tailwind-merge": "^1.13.0"
