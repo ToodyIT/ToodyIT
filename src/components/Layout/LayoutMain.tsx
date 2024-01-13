@@ -19,7 +19,7 @@ const LayoutMain = forwardRef<HTMLDivElement, LayoutMainProps>(
       <>
         <Meta metaTitle={metaTitle} metaDescription={metaDescription} />
         <div className="w-full">
-          <div className="bg-none w-full flex min-h-screen flex-col items-center">
+          <div className="bg-none w-full flex min-h-screen flex-col items-center max-w-[100vw] overflow-y-visible overflow-x-hidden">
             <Header />
             <motion.div
               initial={{

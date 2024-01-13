@@ -121,7 +121,8 @@ export const Header: FC = () => {
             initial={false}
             variants={{
               open: {
-                x: "0",
+                opacity: 1,
+                x: 0,
               },
               closed: {
                 transitionEnd: {
