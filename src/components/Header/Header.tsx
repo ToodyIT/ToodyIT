@@ -135,7 +135,7 @@ export const Header: FC = () => {
             className={twJoin(
               "items-center flex bg-neutral-700",
               "absolute z-10 top-[88px] px-5 left-0 flex-col w-full py-5 rounded-br-lg",
-              "vl:static vl:!opacity-100 vl:flex-row vl:!translate-x-0 vl:bg-transparent vl:w-4/5 exl:w-2/3 vl:h-full vl:justify-center vl:gap-4 vl:p-0"
+              "vl:static vl:!opacity-100 vl:flex-row vl:!translate-x-0 vl:bg-transparent vl:w-4/5 exl:w-2/3 vl:h-full vl:gap-4 justify-between vl:p-0"
             )}
             animate={isMobileMenuOpen ? "open" : "closed"}
             initial={false}
@@ -164,7 +164,7 @@ export const Header: FC = () => {
                 }}
                 onClick={closeMobileMenu}
                 className={twJoin(
-                  "flex w-full border-b border-greyLight py-2 last:border-none font-medium last:!pb-0 gap-3 items-center",
+                  "flex border-b border-greyLight py-2 last:border-none font-medium last:!pb-0 gap-3 items-center",
                   "vl:border-none vl:p-0",
                   urlWithoutQueryParams === section.link &&
                     "text-primary pointer-events-none"

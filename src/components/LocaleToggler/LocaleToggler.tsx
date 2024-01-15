@@ -10,7 +10,7 @@ export const LocaleToggler: FC = ({ className }) => {
       {router.locales?.map((locale) => (
         <Link
           key={locale}
-          href="/"
+          href={router.asPath}
           locale={locale}
           className={twJoin(
             "text-lg",

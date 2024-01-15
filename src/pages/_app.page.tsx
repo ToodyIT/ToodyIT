@@ -1,6 +1,5 @@
 import type { AppProps } from "next/app";
 import "../styles/global.scss";
-import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next";
 import NextI18nextConfig from "../../next-i18next.config";
@@ -39,13 +38,13 @@ const App = ({ Component, pageProps }: AppProps) => {
           }
         `}</style>
         <main>
-          <AnimatePresence
+          {/* <AnimatePresence
             mode="wait"
             initial={false}
             onExitComplete={() => window.scrollTo(0, 0)}
-          >
-            <Component {...pageProps} key={router.asPath} />
-          </AnimatePresence>
+          > */}
+          <Component {...pageProps} key={router.asPath} />
+          {/* </AnimatePresence> */}
           <div
             className="absolute left-0 top-0 z-maximumTop h-[1px] w-[1px]"
             id="portal"

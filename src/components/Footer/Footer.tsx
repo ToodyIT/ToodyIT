@@ -16,7 +16,7 @@ export const Footer: FC = () => {
     <footer className="mt-8 vl:mt-12 w-full flex rounded-t-2xl z-[1] bg-greyLight dark:bg-secondary vl:rounded-none">
       <WebLine
         className="w-full"
-        innerClassName="py-4 vl:py-8 flex flex-col gap-8 items-center vl:flex-row-reverse"
+        innerClassName="py-4 vl:py-12 flex flex-col gap-8 items-center vl:flex-row-reverse"
       >
         <div className="flex flex-col w-full">
           <nav className="border-white border-b pb-5 vl:pb-10">
@@ -79,7 +79,7 @@ export const Footer: FC = () => {
               <span>{t("Address")}</span>
               <div className="h-[1px] bg-white w-16 vl:w-20" />
               <span className="font-semibold text-primary">
-                Chvalská 718/10, Hloubětín, 198 00 Praha
+                Chvalská 718/10, Praha
               </span>
             </li>
           </ul>
