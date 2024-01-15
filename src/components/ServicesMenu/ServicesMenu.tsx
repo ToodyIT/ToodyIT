@@ -82,7 +82,7 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
         </div>
       </WebLine>
       <WebLine className="dark:bg-secondary/30 bg-greyLight py-5 backdrop-blur-2xl">
-        <Title type="h3">{t("Basic")}</Title>
+        <Title type="h3">{t("Mandatory")}</Title>
         <ul className="flex flex-col vl:grid vl:grid-cols-4 gap-4">
           {basicServices.map((basicService) => (
             <li key={basicService.title}>

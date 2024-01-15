@@ -10,8 +10,8 @@ import { ServicesMenu } from "../../components/ServicesMenu/ServicesMenu";
 
 const Eshop = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
-  const { eShopAdditionalServices, eShopBasicServices, servicesType } =
-    useServicesInfo();
+  // const { eShopAdditionalServices, eShopBasicServices, servicesType } =
+  //   useServicesInfo();
 
   return (
     <LayoutMain
@@ -28,13 +28,13 @@ const Eshop = forwardRef<HTMLDivElement>((_, ref) => {
             }}
           />
         </Title>
-        <p className="my-4 flex text-primary vl:text-xl">
+        {/* <p className="my-4 flex text-primary vl:text-xl">
           {t(
             "All prices are indicative, the site can be customized to suit your needs. For detailed information contact us!"
           )}
-        </p>
+        </p> */}
       </WebLine>
-      <ServicesMenu
+      {/* <ServicesMenu
         basicServices={eShopBasicServices}
         additionalServices={eShopAdditionalServices}
         description={
@@ -52,7 +52,7 @@ const Eshop = forwardRef<HTMLDivElement>((_, ref) => {
             </div>
           </div>
         }
-      />
+      /> */}
     </LayoutMain>
   );
 });

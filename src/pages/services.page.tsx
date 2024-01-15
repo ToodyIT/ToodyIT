@@ -31,7 +31,7 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
         </Title>
         <ul className="gap-5 vl:flex-row vl:gap-10 flex-col flex">
           {servicesType.map((service) => (
-            <li className="flex-col flex" key={service.title}>
+            <li className="flex-col flex w-1/2" key={service.title}>
               <Link
                 href={service.link}
                 className="group  cursor-pointer shadow-lg overflow-hidden relative vl:gap-7 gap-3 flex-col flex-center flex vl:text-5xl text-4xl dark:bg-secondary bg-greyLight transition vl:h-96 font-semibold w-full h-64 rounded-3xl"
@@ -53,8 +53,14 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
                 <Title type="h3" className="text-primary">
                   {service.subTitle}
                 </Title>
-                <p className="vl:text-xl">
-                  <Trans i18nKey={service.description} />
+                <p className="vl:text-xl gap-3 flex flex-col">
+                  <p>
+                    <Trans i18nKey={service.firstDescription} />
+                  </p>
+                  <p>
+                    {" "}
+                    <Trans i18nKey={service.description} />
+                  </p>
                 </p>
               </div>
             </li>
