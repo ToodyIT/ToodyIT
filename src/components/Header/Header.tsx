@@ -164,7 +164,7 @@ export const Header: FC = () => {
                 }}
                 onClick={closeMobileMenu}
                 className={twJoin(
-                  "flex border-b border-greyLight py-2 last:border-none font-medium last:!pb-0 gap-3 items-center",
+                  "w-full vl:w-fit flex border-b border-greyLight py-2 last:border-none font-medium last:!pb-0 gap-3 items-center",
                   "vl:border-none vl:p-0",
                   urlWithoutQueryParams === section.link &&
                     "text-primary pointer-events-none"
