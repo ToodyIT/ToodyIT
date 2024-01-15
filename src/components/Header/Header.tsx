@@ -17,6 +17,8 @@ import Overlay from "../Overlay/Overlay";
 import Image from "next/image";
 import { LocaleToggler } from "../LocaleToggler/LocaleToggler";
 import { TFunction, useTranslation } from "next-i18next";
+import Head from "next/head";
+import { BASE_URL } from "../../constants/common";
 
 export const HEADER_HEIGHT = 88;
 
@@ -95,6 +97,21 @@ export const Header: FC = () => {
 
   return (
     <>
+      <Head>
+        <script
+          key="logo-metadata"
+          id="logo-metadata"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              url: BASE_URL,
+              logo: "/img/toodyit-logo.png",
+            }),
+          }}
+        />
+      </Head>
       <WebLine className="w-full dark:bg-secondary bg-greyLight backdrop-blur-xl relative z-50">
         <header
           style={{ height: HEADER_HEIGHT }}

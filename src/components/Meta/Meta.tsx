@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { FC } from "react";
+import { BASE_URL } from "../../constants/common";
 
 type MetaProps = {
   metaTitle: string;
@@ -13,7 +14,7 @@ export const Meta: FC<MetaProps> = ({ metaTitle, metaDescription }) => {
   const alternateLocales = router.locales!.filter(
     (locale) => locale !== router.locale
   );
-  console.log(alternateLocales)
+  console.log(alternateLocales);
 
   return (
     <Head>
@@ -46,7 +47,7 @@ export const Meta: FC<MetaProps> = ({ metaTitle, metaDescription }) => {
           key={locale}
           rel="alternate"
           hrefLang={locale}
-          href={`http://www.toody-it.com/${locale}${router.asPath}`}
+          href={`${BASE_URL}/${locale}${router.asPath}`}
         />
       ))}
     </Head>
