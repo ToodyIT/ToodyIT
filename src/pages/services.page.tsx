@@ -31,7 +31,7 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
         </Title>
         <ul className="gap-5 vl:flex-row vl:gap-10 flex-col flex">
           {servicesType.map((service) => (
-            <li className="flex-col flex w-1/2" key={service.title}>
+            <li className="flex-col flex vl:w-1/2 w-full" key={service.title}>
               <Link
                 href={service.link}
                 className="group  cursor-pointer shadow-lg overflow-hidden relative vl:gap-7 gap-3 flex-col flex-center flex vl:text-5xl text-4xl dark:bg-secondary bg-greyLight transition vl:h-96 font-semibold w-full h-64 rounded-3xl"
