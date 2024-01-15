@@ -123,7 +123,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
           </Title>
           <p className="text-base vl:text-lg text-end">
             {t(
-              "ToodyIT boasts an experienced team that was formed by bringing together IT professionals. Professionals and experts.  The company can rely on the expertise of people who have been immersed in the IT field for a significant period of time, constantly improving their IT knowledge and skills."
+              "ToodyIT boasts an experienced team that was formed by bringing together IT professionals. The company can rely on the expertise of people who have been immersed in the IT field for a significant period of time, constantly improving their IT knowledge and skills."
             )}
           </p>
         </div>

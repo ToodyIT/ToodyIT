@@ -114,7 +114,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
         <div className="flex  vl:flex-row flex-col">
           <div className="flex  flex-col">
             <Title type="h2" className="text-primary">
-              {t("Project Excellence Unveiled")}
+              {t("Immersion in the world of our projects")}
             </Title>
             <div className=" gap-6  flex flex-col vl:text-xl">
               <p>

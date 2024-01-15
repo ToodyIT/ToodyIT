@@ -1,7 +1,5 @@
 import { FC, useEffect, useState } from "react";
-
 import { WebLine } from "../Webline/WebLine";
-
 import { motion } from "framer-motion";
 import { gtag } from "ga-gtag";
 import Link from "next/link";
@@ -18,41 +16,44 @@ import {
 import Overlay from "../Overlay/Overlay";
 import Image from "next/image";
 import { LocaleToggler } from "../LocaleToggler/LocaleToggler";
+import { TFunction, useTranslation } from "next-i18next";
 
 export const HEADER_HEIGHT = 88;
 
-export const NAVIGATION_ITEMS = [
-  {
-    title: "About Us",
-    link: "/",
-    icon: <AboutUsIcon className="size-6" />,
-    order: 1,
-  },
-  {
-    title: "Our Works",
-    link: "/our-works",
-    icon: <OurWorksIcon className="size-6" />,
-    order: 2,
-  },
-  {
-    title: "Our Team",
-    link: "/our-team",
-    icon: <OurTeamIcon className="size-6" />,
-    order: 3,
-  },
-  {
-    title: "Services",
-    link: "/services",
-    icon: <ServiceBellIcon className="size-6" />,
-    order: 4,
-  },
-  {
-    title: "Contacts",
-    link: "/contacts",
-    icon: <ContactsIcon className="size-6" />,
-    order: 5,
-  },
-];
+export const getNavigationItems = (t: TFunction) => {
+  return [
+    {
+      title: t("About Us"),
+      link: "/",
+      icon: <AboutUsIcon className="size-6" />,
+      order: 1,
+    },
+    {
+      title: t("Our Works"),
+      link: "/our-works",
+      icon: <OurWorksIcon className="size-6" />,
+      order: 2,
+    },
+    {
+      title: t("Our Team"),
+      link: "/our-team",
+      icon: <OurTeamIcon className="size-6" />,
+      order: 3,
+    },
+    {
+      title: t("Services"),
+      link: "/services",
+      icon: <ServiceBellIcon className="size-6" />,
+      order: 4,
+    },
+    {
+      title: t("Contacts"),
+      link: "/contacts",
+      icon: <ContactsIcon className="size-6" />,
+      order: 5,
+    },
+  ];
+};
 
 export const Header: FC = () => {
   const router = useRouter();
@@ -89,6 +90,8 @@ export const Header: FC = () => {
       router.events.off("routeChangeStart", onRouteChangeStart);
     };
   }, [router]);
+  const { t } = useTranslation();
+  const navigationItems = getNavigationItems(t);
 
   return (
     <>
@@ -132,7 +135,7 @@ export const Header: FC = () => {
               },
             }}
           >
-            {NAVIGATION_ITEMS.map((section) => (
+            {navigationItems.map((section) => (
               <Link
                 key={section.title}
                 href={{
