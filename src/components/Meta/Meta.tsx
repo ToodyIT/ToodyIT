@@ -13,6 +13,7 @@ export const Meta: FC<MetaProps> = ({ metaTitle, metaDescription }) => {
   const alternateLocales = router.locales!.filter(
     (locale) => locale !== router.locale
   );
+  console.log(alternateLocales)
 
   return (
     <Head>

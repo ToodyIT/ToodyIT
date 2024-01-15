@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { gtag } from "ga-gtag";
 import Link from "next/link";
 import { twJoin } from "tailwind-merge";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import {
   AboutUsIcon,
   ContactsIcon,
@@ -54,23 +54,23 @@ export const getNavigationItems = (t: TFunction) => {
     },
   ];
 };
+export const getLinkQueries = (order: number, router: NextRouter) => {
+  if (!Array.isArray(router.query.order) && router.query.order) {
+    return {
+      order,
+      direction: parseFloat(router.query.order) > order ? "top" : "bottom",
+    };
+  }
+
+  return {
+    order,
+  };
+};
 
 export const Header: FC = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [urlWithoutQueryParams] = router.asPath.split("?");
-  const getLinkQueries = (order: number) => {
-    if (!Array.isArray(router.query.order) && router.query.order) {
-      return {
-        order,
-        direction: parseFloat(router.query.order) > order ? "top" : "bottom",
-      };
-    }
-
-    return {
-      order,
-    };
-  };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
@@ -118,7 +118,7 @@ export const Header: FC = () => {
             className={twJoin(
               "items-center flex bg-neutral-700",
               "absolute z-10 top-[88px] px-5 left-0 flex-col w-full py-5 rounded-br-lg",
-              "vl:static vl:flex-row vl:!translate-x-0 vl:bg-transparent vl:w-4/5 exl:w-2/3 vl:h-full vl:justify-center vl:gap-4 vl:p-0"
+              "vl:static vl:!opacity-100 vl:flex-row vl:!translate-x-0 vl:bg-transparent vl:w-4/5 exl:w-2/3 vl:h-full vl:justify-center vl:gap-4 vl:p-0"
             )}
             animate={isMobileMenuOpen ? "open" : "closed"}
             initial={false}
@@ -140,7 +140,7 @@ export const Header: FC = () => {
                 key={section.title}
                 href={{
                   pathname: section.link,
-                  query: getLinkQueries(section.order),
+                  query: getLinkQueries(section.order, router),
                 }}
                 as={{
                   pathname: section.link,
