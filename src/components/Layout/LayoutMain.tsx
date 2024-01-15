@@ -1,6 +1,5 @@
 import { ReactNode, forwardRef } from "react";
 import { Meta } from "../Meta/Meta";
-import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 import { Footer } from "../Footer/Footer";
@@ -21,21 +20,21 @@ const LayoutMain = forwardRef<HTMLDivElement, LayoutMainProps>(
         <div className="w-full">
           <div className="bg-none w-full flex min-h-screen flex-col items-center max-w-[100vw] overflow-y-visible overflow-x-hidden">
             <Header />
-            <motion.div
-              initial={{
-                y: router.query.direction === "top" ? "-150%" : "150%",
-              }}
-              ref={ref}
-              animate={{ y: 0 }}
-              exit={{
-                y: router.query.direction === "top" ? "150%" : "-150%",
-              }}
+            <div
+              // initial={{
+              //   y: router.query.direction === "top" ? "-150%" : "150%",
+              // }}
+              // ref={ref}
+              // animate={{ y: 0 }}
+              // exit={{
+              //   y: router.query.direction === "top" ? "150%" : "-150%",
+              // }}
+              // transition={{ duration: 0.6, ease: "easeInOut" }}
               key="our-works"
-              transition={{ duration: 0.6, ease: "easeInOut" }}
               className="w-full h-full mb-5 lg:mb-8 vl:mb-12"
             >
               {children}
-            </motion.div>
+            </div>
             <Footer />
           </div>
         </div>

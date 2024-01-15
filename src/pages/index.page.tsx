@@ -105,7 +105,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
           )}
         </p>
 
-        <ul className="vl:gap-7 gap-4 grid lg:grid-cols-2 vl:grid-cols-3">
+        <ul className="vl:gap-7 gap-6 grid lg:grid-cols-2 vl:grid-cols-3">
           {usAbout.map((about) => (
             <li key={about.title} className="text-center gap-2 flex flex-col">
               <div
