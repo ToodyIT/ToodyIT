@@ -13,7 +13,7 @@ export const Footer: FC = () => {
   const [urlWithoutQueryParams] = router.asPath.split("?");
 
   return (
-    <footer className="mt-auto w-full flex rounded-t-2xl z-[1] bg-greyLight dark:bg-secondary vl:rounded-none">
+    <footer className="mt-8 vl:mt-12 w-full flex rounded-t-2xl z-[1] bg-greyLight dark:bg-secondary vl:rounded-none">
       <WebLine
         className="w-full"
         innerClassName="py-4 vl:py-8 flex flex-col gap-8 items-center vl:flex-row-reverse"

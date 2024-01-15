@@ -55,7 +55,7 @@ export const Popup: FC<PopupProps> = ({
           data-testid={TEST_IDENTIFIER}
           role="dialog"
           className={twMerge(
-            "fixed left-1/2 top-1/2 z-30 flex max-h-[94vh] min-w-[300px] -translate-x-1/2 -translate-y-1/2 cursor-auto flex-col rounded-lg bg-secondary shadow-2xl transition-opacity md:min-w-[500px]",
+            "fixed left-1/2 top-1/2 z-30 flex max-h-[94vh] min-w-[360px] -translate-x-1/2 -translate-y-1/2 cursor-auto flex-col rounded-lg bg-secondary shadow-2xl transition-opacity md:min-w-[500px]",
             variant === "wide" && "w-11/12 md:max-w-[1200px]",
             variant === "narrow" &&
               " lg:w-[700px] vl:w-[840px] xl:max-w-screen-xl",

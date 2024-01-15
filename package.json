@@ -16,7 +16,7 @@
     "@emailjs/browser": "^3.11.0",
     "classnames": "^2.3.2",
     "embla-carousel-react": "^8.0.0-rc03",
-    "framer-motion": "^7.10.2",
+    "framer-motion": "^10.18.0",
     "ga-gtag": "^1.1.7",
     "i18next": "^22.4.5",
     "next": "13.4.5",

@@ -105,7 +105,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <LinkIcon className="vl:size-7 size-3" />
+                  <LinkIcon className="vl:size-7 size-5" />
                 </a>
               </li>
             ))}

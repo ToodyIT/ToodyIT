@@ -7,7 +7,7 @@ export const Button: FC<ButtonProps> = ({ children, className, ...props }) => {
   return (
     <button
       className={twMerge(
-        "bg-primary rounded-full w-fit px-8 uppercase font-medium tracking-wider h-16",
+        "bg-primary font-bold rounded-full w-fit px-8 uppercase tracking-wider h-16",
         className
       )}
       {...props}
