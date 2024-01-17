@@ -15,7 +15,7 @@ const SOCIAL_MEDIA: SocialMediaType[] = [
   {
     link: "mail:toody-it@toody-it.com",
     text: "toody-it@toody-it.com",
-    icon: <EmailIcon className="size-5" />,
+    icon: <EmailIcon className="size-6" />,
     eventName: "click_on_email",
   },
   {
@@ -27,7 +27,7 @@ const SOCIAL_MEDIA: SocialMediaType[] = [
   {
     link: "tel:+420773011578",
     text: "+420 773 011 578",
-    icon: <PhoneIcon className="size-4" />,
+    icon: <PhoneIcon className="size-6" />,
     eventName: "click_on_phone",
   },
 ];

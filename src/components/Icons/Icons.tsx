@@ -25,23 +25,18 @@ export const InstagramIcon: SvgFC = ({ ...props }) => {
 export const EmailIcon: SvgFC = ({ ...props }) => {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 23 19"
+      {...props}
       fill="none"
+      viewBox="0 0 24 24"
     >
-      <g fill="currentColor" clip-path="url(#a)">
-        <path
-          d="M21.2 13.6c0 3-2.4 5.3-5.3 5.4H5.4c-3 0-5.4-2.4-5.4-5.4v-7c0-.4.5-.7.9-.4l7 5.7a4.3 4.3 0 0 0 5.4 0l7-5.6c.4-.3.9 0 .9.4v7Z"
-          opacity=".4"
-        />
-        <path d="M20.6 2.8A5.3 5.3 0 0 0 16 0H5.4C3.4 0 1.6 1.1.6 2.8c-.2.4 0 .9.3 1.2l7.8 6.2a3 3 0 0 0 3.8 0l8-6.2c.3-.3.4-.8.1-1.2Z" />
-      </g>
-      <defs>
-        <clipPath id="a">
-          <path fill="currentColor" d="M0 0h22v19H0z" />
-        </clipPath>
-      </defs>
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m3 8 5.45 3.63c1.28.86 1.92 1.29 2.62 1.45a4 4 0 0 0 1.86 0c.7-.16 1.34-.6 2.62-1.45L21 8M6.2 19h11.6c1.12 0 1.68 0 2.1-.22a2 2 0 0 0 .88-.87c.22-.43.22-.99.22-2.11V8.2c0-1.12 0-1.68-.22-2.1a2 2 0 0 0-.87-.88C19.48 5 18.92 5 17.8 5H6.2c-1.12 0-1.68 0-2.1.22a2 2 0 0 0-.88.87C3 6.52 3 7.08 3 8.2v7.6c0 1.12 0 1.68.22 2.1.19.38.5.69.87.88.43.22.99.22 2.11.22Z"
+      />
     </svg>
   );
 };
@@ -78,17 +73,6 @@ export const CheckmarkIcon: SvgFC = ({ ...props }) => {
           d="m232 48-6 2L88 189l-58-59a8 8 0 1 0-12 12l64 64c3 3 9 3 12 0L238 62a8 8 0 0 0-6-14z"
         />
       </g>
-    </svg>
-  );
-};
-
-export const PhoneIcon: SvgFC = ({ ...props }) => {
-  return (
-    <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none">
-      <path
-        fill="currentColor"
-        d="m27.9 24-1 1s-2.4 2.3-8.8-4c-6.4-6.5-4-8.8-4-8.8l.6-.6c1.5-1.5 1.7-4 .3-5.8l-2.7-3.6a4.5 4.5 0 0 0-6.7-.6L2.2 5C1.2 5.9.6 7 .7 8.4.9 12 2.4 19.3 11 28c9.2 9.2 17.8 9.5 21.4 9.2 1-.1 2-.7 2.8-1.5l3.1-3c2-2 1.5-5.6-1.2-7l-4-2.3c-1.8-1-4-.7-5.3.7Z"
-      />
     </svg>
   );
 };
@@ -901,7 +885,7 @@ export const CloseIcon: SvgFC = ({ ...props }) => (
   </svg>
 );
 
-export const Reset: SvgFC = ({ ...props }) => (
+export const ResetIcon: SvgFC = ({ ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     {...props}
@@ -911,6 +895,20 @@ export const Reset: SvgFC = ({ ...props }) => (
     <path
       fill-rule="evenodd"
       d="M960 0v213a748 748 0 0 1 0 1494A748 748 0 0 1 427 439v254h213V107H53v213h191A959 959 0 1 0 960 0"
+    />
+  </svg>
+);
+
+export const PhoneIcon: SvgFC = ({ ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      fill="currentColor"
+      d="M18.4 20.75h-.23a16.73 16.73 0 0 1-7.27-2.58A16.72 16.72 0 0 1 3.26 5.83 2.3 2.3 0 0 1 3.8 4.1a2.32 2.32 0 0 1 1.6-.84H8a2.36 2.36 0 0 1 2.33 2c.1.71.27 1.42.53 2.09a2.37 2.37 0 0 1-.54 2.49l-.61.61a12 12 0 0 0 3.77 3.75l.61-.6a2.37 2.37 0 0 1 2.49-.54c.67.25 1.38.43 2.09.53a2.35 2.35 0 0 1 2 2.38v2.4a2.36 2.36 0 0 1-2.35 2.36l.08.02ZM8 4.75H5.61a.87.87 0 0 0-.81.93 15.17 15.17 0 0 0 6.9 11.21c2 1.29 4.27 2.1 6.63 2.36A.9.9 0 0 0 19 19a.88.88 0 0 0 .25-.61V16a.86.86 0 0 0-.74-.87c-.83-.11-1.64-.31-2.42-.6a.87.87 0 0 0-.91.19l-1 1a.76.76 0 0 1-.9.12 13.53 13.53 0 0 1-5.11-5.1.74.74 0 0 1 .12-.9l1-1a.85.85 0 0 0 .19-.9c-.29-.78-.49-1.6-.6-2.42A.87.87 0 0 0 8 4.75Z"
     />
   </svg>
 );

@@ -160,7 +160,7 @@ export const useServicesInfo = () => {
       price: 750,
     },
     {
-      title: t("+ 1 language"),
+      title: t("1 language"),
       price: 750,
     },
     {

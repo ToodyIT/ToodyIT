@@ -78,9 +78,9 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <LayoutMain
       ref={ref}
-      metaTitle={t("ToodyIT")}
+      metaTitle={t("ToodyIT - Your home for excellent web solutions")}
       metaDescription={t(
-        "Welcome to ToodyIT - Your Destination for Exceptional Web Solutions"
+        "We develop unique websites and create all your IT needs"
       )}
     >
       <WebLine innerClassName="flex flex-col">
@@ -115,7 +115,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
               >
                 <Image
                   src={about.image}
-                  alt=""
+                  alt="photo"
                   fill
                   quality={20}
                   blurDataURL="/img/about-us/imageEshopsBlur.jpg"
