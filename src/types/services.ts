@@ -16,4 +16,5 @@ export type ServiceWrapperType = {
   description: string;
   firstDescription: string;
   icon: ReactNode;
+  isDisabled: boolean;
 };

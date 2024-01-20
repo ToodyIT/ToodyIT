@@ -96,7 +96,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
             }}
           />
         </Title>
-        <Title type="h3" className="text-primary z-0 !mt-0">
+        <Title type="h2" className="text-primary z-0 !mt-0">
           {t("Who we are?")}
         </Title>
         <p className="vl:text-xl vl:max-w-5xl vl:pb-10 z-0 pb-5">

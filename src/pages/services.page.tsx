@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useServicesInfo } from "../hooks/useServicesInfo";
 import Link from "next/link";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import { twJoin } from "tailwind-merge";
 
 const Services = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
@@ -31,16 +32,20 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
         </Title>
         <ul className="gap-5 vl:flex-row vl:gap-10 flex-col flex">
           {servicesType.map((service) => (
-            <li className="flex-col flex vl:w-1/2 w-full" key={service.title}>
+            <li
+              className={twJoin(
+                "flex-col flex vl:w-1/2 w-full",
+                service.isDisabled ? "pointer-events-none" : ""
+              )}
+              key={service.title}
+            >
               <Link
                 href={service.link}
                 className="group  cursor-pointer shadow-lg overflow-hidden relative vl:gap-7 gap-3 flex-col flex-center flex vl:text-5xl text-4xl dark:bg-secondary  bg-greyLight transition vl:h-96 font-semibold w-full h-64 rounded-3xl"
               >
                 <div className="bg-[#148720] z-10 h-96 w-0 absolute left-0 group-hover:w-full transition-width "></div>
                 {service.icon}
-                <h3 className="z-10 dark:text-secondary  text-greyLight">
-                  {service.title}
-                </h3>
+                <h3 className="z-10 text-white">{service.title}</h3>
                 <Image
                   src={service.image}
                   alt=""

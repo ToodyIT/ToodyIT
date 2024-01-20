@@ -209,6 +209,7 @@ export const useServicesInfo = () => {
       description: t(
         "We also have the option to create an online store without Shopify, let's contact you for pricing and details!"
       ),
+      isDisabled: true,
     },
     {
       link: "/services/website",
@@ -222,6 +223,7 @@ export const useServicesInfo = () => {
       description: t(
         "If you don't find the service you need in the configurator, you can always suggest your specific requirements and we will contact you to discuss your site."
       ),
+      isDisabled: false,
     },
   ];
 
