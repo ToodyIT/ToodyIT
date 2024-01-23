@@ -68,14 +68,19 @@ export const Footer: FC = () => {
           <ul className="mt-5 grid grid-cols-1 gap-3 vl:grid-cols-5 vl:mt-10">
             <li className="flex flex-col gap-1">
               <span>{t("CIN")}</span>
+<<<<<<< Updated upstream
               <div className="h-[1px] dark:bg-white bg-black w-16 vl:w-20" />
               <span className="font-semibold text-primary">094 59 584</span>
+=======
+              <div className="h-[1px] bg-white w-16 vl:w-20" />
+              <span className="font-semibold text-primary">211 10 581</span>
+>>>>>>> Stashed changes
             </li>
-            <li className="flex flex-col gap-1">
+            {/* <li className="flex flex-col gap-1">
               <span>{t("Data box")}</span>
               <div className="h-[1px] dark:bg-white bg-black w-16 vl:w-20" />
               <span className="font-semibold text-primary">sdff5ge</span>
-            </li>
+            </li> */}
             <li className="flex flex-col gap-1">
               <span>{t("Email")}</span>
               <div className="h-[1px] dark:bg-white bg-black w-16 vl:w-20" />
