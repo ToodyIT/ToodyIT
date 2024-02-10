@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import emailjs from "@emailjs/browser";
-import { gtag } from "ga-gtag";
 import { FormLine } from "../FormColumn/FormColumn";
 import { Input } from "../Input/Input";
 import { Textarea } from "../Textarea/Textarea";
 import { Button } from "../Button/Button";
 import { CheckmarkIcon } from "../Icons/Icons";
+import { GTMSendEvent } from "../../utils/gtm";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
@@ -124,7 +124,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
 
     setIsSubmittedSuccessfully(true);
     if (message.toLocaleLowerCase() !== "test") {
-      gtag("event", "send_contact_form", { event_name: "send_contact_form" });
+      GTMSendEvent("send_contact_form");
     }
 
     clearForm();

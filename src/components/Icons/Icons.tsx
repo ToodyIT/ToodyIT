@@ -32,9 +32,9 @@ export const EmailIcon: SvgFC = ({ ...props }) => {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="m3 8 5.45 3.63c1.28.86 1.92 1.29 2.62 1.45a4 4 0 0 0 1.86 0c.7-.16 1.34-.6 2.62-1.45L21 8M6.2 19h11.6c1.12 0 1.68 0 2.1-.22a2 2 0 0 0 .88-.87c.22-.43.22-.99.22-2.11V8.2c0-1.12 0-1.68-.22-2.1a2 2 0 0 0-.87-.88C19.48 5 18.92 5 17.8 5H6.2c-1.12 0-1.68 0-2.1.22a2 2 0 0 0-.88.87C3 6.52 3 7.08 3 8.2v7.6c0 1.12 0 1.68.22 2.1.19.38.5.69.87.88.43.22.99.22 2.11.22Z"
       />
     </svg>
@@ -60,16 +60,16 @@ export const ArrowIcon: SvgFC = ({ ...props }) => {
 export const CheckmarkIcon: SvgFC = ({ ...props }) => {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-      <g stroke-width="10">
+      <g strokeWidth="10">
         <path
           stroke="currentColor"
-          stroke-linejoin="round"
-          stroke-width="12"
+          strokeLinejoin="round"
+          strokeWidth="12"
           d="M239 53c2 3 1 6-1 9L94 206c-3 3-9 3-12 0l-64-64a8 8 0 1 1 12-12l58 59L226 50a8 8 0 0 1 13 3z"
         />
         <path
           fill="currentColor"
-          stroke-width="1"
+          strokeWidth="1"
           d="m232 48-6 2L88 189l-58-59a8 8 0 1 0-12 12l64 64c3 3 9 3 12 0L238 62a8 8 0 0 0-6-14z"
         />
       </g>
@@ -87,9 +87,9 @@ export const TimeIcon: SvgFC = ({ ...props }) => {
     >
       <path
         fill="#00934E"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="m31.2 28 6.9 4c.7.4.9 1.3.5 2-.4.6-1.2.8-2 .4l-7-4c-.7.5-1.6.9-2.6.9a4.3 4.3 0 0 1-1.4-8.3V10c0-.8.6-1.5 1.4-1.5.8 0 1.4.7 1.4 1.5v13a4.3 4.3 0 0 1 2.8 5ZM27 54a27 27 0 1 0 0-54 27 27 0 0 0 0 54Z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       />
     </svg>
   );
@@ -121,9 +121,9 @@ export const PersonIcon: SvgFC = ({ ...props }) => {
     >
       <path
         fill="#00934E"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M20.8 9a6.2 6.2 0 1 1 12.4 0 6.2 6.2 0 0 1-12.4 0Z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       />
       <path
         fill="#00934E"
@@ -262,9 +262,9 @@ export const LogisticsIcon: SvgFC = ({ ...props }) => {
       <g clip-path="url(#a)">
         <path
           fill="#00934E"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M34.28 15.6V24c0 1.66-1.28 3-2.86 3h-.05a5.09 5.09 0 0 1-4.95 4.5 5.09 5.09 0 0 1-4.94-4.5h-7.25a5.09 5.09 0 0 1-4.95 4.5A5.09 5.09 0 0 1 4.34 27H2.86A2.93 2.93 0 0 1 0 24V7.5c0-1.66 1.28-3 2.86-3h18.57a2.93 2.93 0 0 1 2.85 3V9h3.3c1.01 0 1.98.37 2.75 1.04l2.4 2.11a4.6 4.6 0 0 1 1.55 3.46Zm-2.86.9v-.9c0-.44-.18-.86-.51-1.14l-2.4-2.11a1.39 1.39 0 0 0-.92-.35h-3.3v4.5h7.13Zm-22.14 12c1.19 0 2.15-1 2.15-2.25A2.2 2.2 0 0 0 9.28 24a2.2 2.2 0 0 0-2.14 2.25 2.2 2.2 0 0 0 2.14 2.25Zm17.14 0c1.19 0 2.15-1 2.15-2.25A2.2 2.2 0 0 0 26.42 24a2.2 2.2 0 0 0-2.14 2.25 2.2 2.2 0 0 0 2.14 2.25Z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         />
       </g>
       <defs>
@@ -671,8 +671,8 @@ export const LinkIcon: SvgFC = ({ ...props }) => {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-width="2.385"
+        strokeLinecap="round"
+        strokeWidth="2.385"
         d="M9.785 16.53c-.285.268-.507.446-.733.577-1.107.639-2.47.639-3.577 0-.408-.236-.8-.628-1.584-1.412-.784-.784-1.176-1.176-1.412-1.584a3.577 3.577 0 0 1 0-3.577c.236-.408.628-.8 1.412-1.584l3.373-3.373c.784-.784 1.176-1.176 1.584-1.411a3.577 3.577 0 0 1 3.577 0c.408.235.8.627 1.584 1.411s1.176 1.176 1.412 1.584a3.577 3.577 0 0 1 0 3.578c-.13.226-.31.447-.576.733m-3.358-3.358c-.267.286-.446.508-.576.734a3.577 3.577 0 0 0 0 3.577c.235.408.628.8 1.412 1.584.784.784 1.176 1.176 1.584 1.412a3.577 3.577 0 0 0 3.577 0c.408-.236.8-.628 1.584-1.412l3.373-3.373c.784-.784 1.176-1.176 1.411-1.584a3.577 3.577 0 0 0 0-3.577c-.235-.408-.627-.8-1.411-1.584s-1.176-1.176-1.584-1.412a3.577 3.577 0 0 0-3.578 0c-.226.13-.447.31-.733.576"
       />
     </svg>
@@ -689,9 +689,9 @@ export const CartIcon: SvgFC = ({ ...props }) => {
     >
       <path
         stroke="#fff"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M7.3 5H22l-2 7H8.4M21 16H9L7 3H4m0 5H2m3 3H2m4 3H2m8 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm11 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
       />
     </svg>
@@ -708,9 +708,9 @@ export const PlusIcon: SvgFC = ({ ...props }) => {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M4 12h16m-8-8v16"
       />
     </svg>
@@ -727,9 +727,9 @@ export const MenuIcon: SvgFC = ({ ...props }) => {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M4 6h16M4 12h16M4 18h16"
       />
     </svg>
@@ -746,9 +746,9 @@ export const AboutUsIcon: SvgFC = ({ ...props }) => {
     >
       <path
         fill="currentColor"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M9.3 4a2.7 2.7 0 1 1 5.4 0 2.7 2.7 0 0 1-5.4 0Z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       />
       <path
         fill="currentColor"
@@ -794,7 +794,7 @@ export const ContactsIcon: SvgFC = ({ ...props }) => {
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path
         fill="currentColor"
-        fill-rule="nonzero"
+        fillRule="nonzero"
         d="M18.8 4C20.4 4 22 5.5 22 7.3v9.5c0 1.7-1.5 3.2-3.3 3.2H5.3A3.3 3.3 0 0 1 2 16.8V7.2C2 5.5 3.4 4.2 5 4H18.8Zm-9.5 8.5H5.7c-.3 0-.6.3-.7.6v.7c0 1.3 1 2 2.5 2s2.4-.6 2.5-1.8v-.8c0-.3-.3-.6-.6-.7h-.1Zm3 0h-1.5l.2.6v1l-.2.9h.3c1 0 1.8-.4 1.9-1.3v-.4c0-.4-.3-.7-.6-.8H10.8h1.4Zm6 0H15a.8.8 0 0 0 0 1.5H18.4a.8.8 0 0 0 0-1.5h-.1Zm-10.8-4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm3.9.5a1.2 1.2 0 1 0 0 2.5 1.2 1.2 0 0 0 0-2.5Zm6.8.5h-3a.8.8 0 0 0 0 1.5h3.2a.8.8 0 0 0 0-1.5h-.1Z"
       />
     </svg>
@@ -811,9 +811,9 @@ export const MinusIcon: SvgFC = ({ ...props }) => {
       viewBox="0 0 24 24"
     >
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M6 12h12"
       />
     </svg>
@@ -841,9 +841,9 @@ export const WebIcon: SvgFC = ({ ...props }) => {
     >
       <path
         fill="#fff"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M9.84 18.45c.17.32.34.61.5.87a7.5 7.5 0 0 1-4.31-2.78c.7-.4 1.58-.8 2.65-1.1.3 1.2.73 2.2 1.16 3Zm1.32-.7c-.37-.7-.74-1.58-1.01-2.61a12.61 12.61 0 0 1 3.7 0A11.92 11.92 0 0 1 12 19.08c-.24-.33-.54-.78-.84-1.34ZM9.75 12c0 .58.04 1.14.1 1.66a14.11 14.11 0 0 1 4.3 0 12.65 12.65 0 0 0 0-3.32 14.1 14.1 0 0 1-4.3 0c-.06.52-.1 1.08-.1 1.66Zm-1.36-1.97a14.13 14.13 0 0 0 0 3.94c-1.28.34-2.33.83-3.15 1.29a7.47 7.47 0 0 1 0-6.52c.82.46 1.87.95 3.15 1.29Zm1.76-1.17a12.61 12.61 0 0 0 3.7 0A11.92 11.92 0 0 0 12 4.92a11.92 11.92 0 0 0-1.85 3.94Zm5.46 1.17a14.13 14.13 0 0 1 0 3.94c1.28.34 2.33.83 3.15 1.29a7.47 7.47 0 0 0 0-6.52c-.82.46-1.87.95-3.15 1.29Zm2.36-2.57c-.7.4-1.58.8-2.65 1.1a13.43 13.43 0 0 0-1.67-3.88 7.5 7.5 0 0 1 4.32 2.78Zm-9.3 1.1c-1.06-.3-1.95-.7-2.64-1.1a7.5 7.5 0 0 1 4.32-2.78 12.84 12.84 0 0 0-1.67 3.87Zm6.65 6.89a13.43 13.43 0 0 1-1.67 3.87 7.5 7.5 0 0 0 4.32-2.78c-.7-.4-1.58-.8-2.65-1.1ZM12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       />
     </svg>
   );
@@ -859,9 +859,9 @@ export const SendIcon: SvgFC = ({ ...props }) => {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="m10.3 13.7 9.8-9.8m-9.5 10.2 2.2 4.5c.5 1 .8 1.6 1.1 1.7.3.2.7.1 1 0 .3-.2.5-.8.8-2L20 6.2c.4-1 .6-1.5.4-1.8a1 1 0 0 0-.6-.6c-.3-.2-.8 0-1.8.4L5.6 8.3c-1.1.3-1.7.5-1.9.9a1 1 0 0 0 0 .9c.1.3.6.6 1.7 1.1l4.5 2.2.3.2.2.2s0 .2.2.3Z"
       />
     </svg>
@@ -893,7 +893,7 @@ export const ResetIcon: SvgFC = ({ ...props }) => (
     viewBox="0 0 1920 1920"
   >
     <path
-      fill-rule="evenodd"
+      fillRule="evenodd"
       d="M960 0v213a748 748 0 0 1 0 1494A748 748 0 0 1 427 439v254h213V107H53v213h191A959 959 0 1 0 960 0"
     />
   </svg>

@@ -4,7 +4,6 @@ import Duration from "/public/img/posts/duration.jpg";
 import Price from "/public/img/posts/price.jpg";
 import Adds from "/public/img/posts/adds.jpg";
 import Link from "next/link";
-import { gtag } from "ga-gtag";
 import { twJoin } from "tailwind-merge";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
@@ -50,16 +49,7 @@ export const ContactsSocialMedia: FC = () => {
                 index > 1 && "hidden lg:block"
               )}
             >
-              <Link
-                onClick={() => {
-                  gtag("event", "click_on_footer_posts", {
-                    event_name: "click_on_footer_posts",
-                  });
-                }}
-                href={post.link}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Link href={post.link} target="_blank" rel="noreferrer">
                 <Image
                   fill
                   placeholder="blur"

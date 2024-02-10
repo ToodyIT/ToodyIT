@@ -9,8 +9,9 @@ import {
 } from "../utils/HomepageOpenSectionContext";
 import { useEffect, useState } from "react";
 import { GTM_ID } from "../constants/gtm";
-import { install } from "ga-gtag";
 import { Montserrat } from "next/font/google";
+import ga4 from "react-ga4";
+import { GTMSendPageView } from "../utils/gtm";
 
 const poppins = Montserrat({
   subsets: ["latin-ext", "latin", "cyrillic"],
@@ -24,8 +25,9 @@ const App = ({ Component, pageProps }: AppProps) => {
     useState<HomepageOpenedSectionType>("main");
 
   useEffect(() => {
-    install(GTM_ID);
-  }, []);
+    ga4.initialize(GTM_ID);
+    GTMSendPageView(router.asPath);
+  }, [router.asPath]);
 
   return (
     <>
@@ -38,22 +40,11 @@ const App = ({ Component, pageProps }: AppProps) => {
           }
         `}</style>
         <main>
-          {/* <AnimatePresence
-            mode="wait"
-            initial={false}
-            onExitComplete={() => window.scrollTo(0, 0)}
-          > */}
           <Component {...pageProps} key={router.asPath} />
-          {/* </AnimatePresence> */}
           <div
             className="absolute left-0 top-0 z-maximumTop h-[1px] w-[1px]"
             id="portal"
           />
-          {/* <div className="z-50 top-0 animate-circle left-0 absolute h-screen w-screen overflow-hidden flex items-center justify-center">
-            <div className="relative outline-[5000px] outline rounded-full outline-secondary w-1/2 max-h-screen max-w-[1440px] aspect-square">
-              <Image src="/img/circle.png" fill alt="circle" />
-            </div>
-          </div> */}
         </main>
       </HomepageOpenSectionContext.Provider>
     </>

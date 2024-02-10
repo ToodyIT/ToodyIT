@@ -118,8 +118,6 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
                   alt="photo"
                   fill
                   quality={20}
-                  blurDataURL="/img/about-us/imageEshopsBlur.jpg"
-                  placeholder="blur"
                   className="rounded-xl object-cover text-[0px]"
                 />
                 <div className="z-20"> {about.icon}</div>

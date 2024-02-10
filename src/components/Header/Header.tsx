@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { WebLine } from "../Webline/WebLine";
 import { motion } from "framer-motion";
-import { gtag } from "ga-gtag";
 import Link from "next/link";
 import { twJoin } from "tailwind-merge";
 import { NextRouter, useRouter } from "next/router";
@@ -76,9 +75,6 @@ export const Header: FC = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    gtag("event", "click_on_navigation_link", {
-      event_name: "click_on_navigation_link",
-    });
   };
 
   useEffect(() => {
