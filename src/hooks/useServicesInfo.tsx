@@ -60,7 +60,7 @@ export const useServicesInfo = () => {
       link: "/services/eshop",
       image: "/img/imageEshops.jpg",
       title: t("E-SHOP"),
-      status: t("(Coming soon...)"),
+      status: "(Coming soon...)",
       icon: <CartIcon className="z-10 vl:size-24 size-20" />,
       subTitle: t("Choose your path to creating an E-shop"),
       firstDescription: t(
