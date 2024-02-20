@@ -33,8 +33,8 @@ module.exports = {
         primary: "#139A20",
         secondary: "#2E2E2E",
         grey: "#141414",
-        greyLight: "#BEBEBE",
-        greyLighter: "#DADADA",
+        greyLight: "#FAF9F6",
+        greyLighter: "#6C6C6C",
         greyDark: "#171717",
       },
       fontFamily: {

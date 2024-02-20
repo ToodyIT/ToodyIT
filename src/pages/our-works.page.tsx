@@ -73,7 +73,9 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
           <Trans
             i18nKey="OUR<span>WORKS</span>"
             components={{
-              span: <span className="text-greyLight"></span>,
+              span: (
+                <span className="text-greyLighter dark:text-greyLight/50"></span>
+              ),
             }}
           />
         </Title>

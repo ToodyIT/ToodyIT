@@ -107,10 +107,18 @@ export const Footer: FC = () => {
         </div>
         <Link href="/">
           <Image
+            src="/img/dark-logo.png"
+            width="250"
+            height="157"
+            alt="logo"
+            className="dark:hidden"
+          />
+          <Image
             src="/img/toodyit-logo.png"
             width="250"
             height="157"
             alt="logo"
+            className="hidden dark:block"
           />
         </Link>
       </WebLine>

@@ -9,7 +9,6 @@ import { Title } from "../components/Title";
 import { ContactsForm } from "../components/Contacts/ContactsForm";
 import { ContactsSocialMedia } from "../components/Contacts/ContactsSocialMedia";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
-import { SocialMedia } from "../components/SocialMedia/SocialMedia";
 
 const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
@@ -29,7 +28,9 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
           <Trans
             i18nKey="CONTACT<span>US</span>"
             components={{
-              span: <span className="text-greyLight"></span>,
+              span: (
+                <span className="dark:text-greyLight text-greyLighter"></span>
+              ),
             }}
           />
         </Title>

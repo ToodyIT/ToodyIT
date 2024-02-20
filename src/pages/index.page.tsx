@@ -92,7 +92,9 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
           <Trans
             i18nKey="ABOUT<span>US</span>"
             components={{
-              span: <span className="text-greyLight"></span>,
+              span: (
+                <span className="dark:text-greyLight/50 text-greyLighter"></span>
+              ),
             }}
           />
         </Title>
@@ -121,8 +123,11 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
                   className="rounded-xl object-cover text-[0px]"
                 />
                 <div className="z-20"> {about.icon}</div>
-                <h3 className="z-20"> {about.title}</h3>
-                <div className="dark:bg-grey/80 bg-greyLight/80 absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
+                <h3 className="z-20 bg-greyLight/80 p-2 dark:p-0 dark:bg-greyLight/0 rounded-md">
+                  {" "}
+                  {about.title}
+                </h3>
+                <div className="dark:bg-grey/80  absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
               </div>
               <p className="z-0">{about.description}</p>
             </li>

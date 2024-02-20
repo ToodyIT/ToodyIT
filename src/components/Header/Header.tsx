@@ -115,10 +115,18 @@ export const Header: FC = () => {
         >
           <Link href="/">
             <Image
+              src="/img/dark-logo.png"
+              width="80"
+              height="50"
+              alt="logo"
+              className="dark:hidden"
+            />
+            <Image
               src="/img/toodyit-logo.png"
               width="80"
               height="50"
               alt="logo"
+              className="hidden dark:block"
             />
           </Link>
           <div className="vl:hidden flex items-center gap-4">
