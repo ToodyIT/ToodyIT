@@ -46,6 +46,9 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
                 <div className="bg-[#148720] z-10 h-96 w-0 absolute left-0 group-hover:w-full transition-width "></div>
                 {service.icon}
                 <h3 className="z-10 text-white">{service.title}</h3>
+                <span className="z-10 text-3xl text-white">
+                  {service.status}
+                </span>
                 <Image
                   src={service.image}
                   alt=""

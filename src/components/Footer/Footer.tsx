@@ -53,7 +53,7 @@ export const Footer: FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <EmailIcon className="size-8" />
+                <EmailIcon className="size-7" />
               </Link>
               <Link
                 href="https://www.instagram.com/toodyit/"

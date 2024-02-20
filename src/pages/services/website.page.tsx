@@ -22,14 +22,7 @@ const Website = forwardRef<HTMLDivElement>((_, ref) => {
       metaTitle={t("WebSite")}
     >
       <WebLine>
-        <Title type="h1">
-          <Trans
-            i18nKey="OUR<span>SERVICES</span>"
-            components={{
-              span: <span className="text-greyLight"></span>,
-            }}
-          />
-        </Title>
+        <Title type="h1">{t("SERVICES")}</Title>
         <p className="my-4 flex text-primary vl:text-xl">
           {t(
             "All prices are indicative, the site can be customized to suit your needs. For detailed information contact us!"
