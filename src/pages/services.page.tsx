@@ -30,11 +30,11 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
         <Title type="h2" className="">
           {t("What are you planning to order?")}
         </Title>
-        <ul className="gap-5 vl:flex-row vl:gap-10 flex-col flex">
+        <ul className="gap-5 lg:flex-row justify-center vl:gap-10 flex-col flex">
           {servicesType.map((service) => (
             <li
               className={twJoin(
-                "flex-col flex vl:w-1/2 w-full",
+                "flex-col flex lg:w-1/2 w-full",
                 service.isDisabled ? "pointer-events-none" : ""
               )}
               key={service.title}

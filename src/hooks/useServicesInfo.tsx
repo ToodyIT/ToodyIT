@@ -1,6 +1,6 @@
 import { useTranslation } from "next-i18next";
 import { ServiceType, ServiceWrapperType } from "../types/services";
-import { CartIcon, WebIcon } from "../components/Icons/Icons";
+import { WebIcon } from "../components/Icons/Icons";
 
 export const useServicesInfo = () => {
   const { t } = useTranslation();
@@ -56,21 +56,6 @@ export const useServicesInfo = () => {
   ];
 
   const servicesType: ServiceWrapperType[] = [
-    {
-      link: "/services/eshop",
-      image: "/img/imageEshops.jpg",
-      title: t("E-SHOP"),
-      status: "(Coming soon...)",
-      icon: <CartIcon className="z-10 vl:size-24 size-20" />,
-      subTitle: t("Choose your path to creating an E-shop"),
-      firstDescription: t(
-        "The price configurator provides quotes for building through Shopify. If you don't find the service you need, contact us to discuss."
-      ),
-      description: t(
-        "We also have the option to create an online store without Shopify, let's contact you for pricing and details!"
-      ),
-      isDisabled: true,
-    },
     {
       link: "/services/website",
       image: "/img/imageWebsite.jpg",
