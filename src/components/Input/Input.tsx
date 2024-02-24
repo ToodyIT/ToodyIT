@@ -34,7 +34,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           id={id}
           className={twMerge(
-            "h-12 w-full dark:bg-secondary bg-greyLight border border-primary rounded-full dark:text-white text-greyDark pl-4",
+            "h-12 w-full dark:bg-secondary bg-gray-200 placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-primary rounded-full dark:text-white text-greyDark pl-4",
             className
           )}
           ref={forwardedRef}

@@ -12,7 +12,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <button
       className={twMerge(
-        "bg-primary font-bold rounded-full w-fit px-8 uppercase tracking-wider h-16",
+        "bg-primary font-bold rounded-full w-fit px-8 uppercase tracking-wider h-16 dark:text-black text-white",
         disabled && "bg-gray-500 pointer-events-none",
         className
       )}

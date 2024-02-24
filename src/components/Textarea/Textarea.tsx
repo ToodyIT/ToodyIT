@@ -15,7 +15,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           {required && <span className="ml-1 text-secondary">*</span>}
         </label>
         <textarea
-          className="h-36 w-full dark:bg-secondary bg-greyLight border border-primary rounded-2xl dark:text-white text-greyDark p-4 resize-none"
+          className="h-36 w-full dark:bg-secondary bg-gray-200 placeholder:text-gray-500 border border-primary rounded-2xl dark:text-white text-greyDark p-4 resize-none"
           ref={forwardedRef}
           placeholder={placeholder ?? undefined}
           {...props}
