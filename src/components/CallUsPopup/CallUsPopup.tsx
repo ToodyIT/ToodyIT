@@ -68,7 +68,7 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
       onCloseCallback={onCloseCallback}
       title={t("Let's discuss your future website and get a 10% discount")}
       innerContentClassName="flex flex-col items-center pt-1"
-      className="!max-w-[700px]"
+      className="!max-w-[750px]"
     >
       <div className="flex flex-col gap-2 items-center">
         <a href="tel:+420773011578" className="text-primary font-bold text-2xl">
