@@ -78,8 +78,10 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <LayoutMain
       ref={ref}
-      metaTitle={t("ToodyIT - Your home for excellent web solutions")}
-      metaDescription={t("We develop websites for you, for any request")}
+      metaTitle={t("We develop websites for you, for any request")}
+      metaDescription={t(
+        "We develop unique websites and create all your IT needs"
+      )}
     >
       <WebLine innerClassName="flex flex-col">
         <div className="vl:absolute vl:z-[-1px] vl:right-0 xl:top-1/2 vl:-translate-y-1/2 hidden vl:flex vl:w-1/3 vl:aspect-square vl:top-1/3">

@@ -14,6 +14,8 @@ import HulkAgencPhoto from "../../public/img/our-works/hulk-agenc.png";
 import EcoTechPhoto from "../../public/img/our-works/eco-tech.png";
 import EcoTechPhotoMobile from "../../public/img/our-works/eco-techMobile.png";
 import HulkAgencPhotoMobile from "../../public/img/our-works/hulk-agencMobile.png";
+import AmatiDentalPhoto from "../../public/img/our-works/amati-dental.png";
+import AmatiDentalPhotoMobile from "../../public/img/our-works/amati-dentalMobile.png";
 
 import { WebLine } from "../components/Webline/WebLine";
 import Image from "next/image";
@@ -52,6 +54,12 @@ const OUR_WORKS = [
     mobileImagePath: MartaHnatojkoPhotoMobile,
     link: "https://www.marta-hnatojko.com/",
     alt: "Marta Hnatojko",
+  },
+  {
+    desktopImagePath: AmatiDentalPhoto,
+    mobileImagePath: AmatiDentalPhotoMobile,
+    link: "https://amatidental.cz/",
+    alt: "Amati Dental Clinic",
   },
 ];
 
