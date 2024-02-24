@@ -28,7 +28,7 @@ const LayoutMain: FC<LayoutMainProps> = ({
     if (!(CALL_US_POPUP_COOKIE in cookies)) {
       setTimeout(() => {
         setIsCallUsPopupOpen(true);
-      }, 10000);
+      }, 6000);
     }
   }, []);
 
