@@ -37,10 +37,10 @@ const Website = () => {
             </Title>
             <div className="vl:text-xl flex flex-col gap-5">
               <p>
-                <Trans i18nKey={servicesType[1].firstDescription} />
+                <Trans i18nKey={servicesType[0].firstDescription} />
               </p>
               <p>
-                <Trans i18nKey={servicesType[1].description} />
+                <Trans i18nKey={servicesType[0].description} />
               </p>
             </div>
           </div>
