@@ -9,7 +9,7 @@ type PopupProps = {
   onCloseCallback: () => void;
   hideCloseButton?: boolean;
   innerContentClassName?: string;
-  title?: string;
+  title?: string | null;
   variant?: "wide" | "narrow";
 };
 
@@ -43,12 +43,7 @@ export const Popup: FC<PopupProps> = ({
 
   return (
     <Portal>
-      <m.div
-        key="popup"
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        // exit={{ opacity: 0 }}
-      >
+      <m.div key="popup">
         <Overlay isOpen onClose={onClickCloseActionHandler} />
         <div
           aria-modal
@@ -63,14 +58,16 @@ export const Popup: FC<PopupProps> = ({
           )}
         >
           <div
-            className={twMerge("z-above mb-4 flex justify-between p-6 pb-0")}
+            className={twMerge(
+              "z-above mb-4 flex justify-between items-center p-6 pb-0"
+            )}
           >
             <span className="w-[calc(100%-46px)] text-2xl font-bold text-dark">
               {title}
             </span>
             {!hideCloseButton && (
               <button
-                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-0 text-xs text-white no-underline outline-none transition active:scale-95"
+                className="flex border h-10 w-10 cursor-pointer items-center justify-center rounded-full text-xs text-white no-underline outline-none transition active:scale-95"
                 onClick={onClickCloseActionHandler}
               >
                 <CloseIcon className="h-3 w-3 text-white" />

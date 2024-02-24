@@ -1,5 +1,4 @@
 import { Trans, useTranslation } from "next-i18next";
-import { forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -10,12 +9,11 @@ import { ContactsForm } from "../components/Contacts/ContactsForm";
 import { ContactsSocialMedia } from "../components/Contacts/ContactsSocialMedia";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
-const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
+const Contacts: FC<HTMLDivElement> = () => {
   const { t } = useTranslation();
 
   return (
     <LayoutMain
-      ref={ref}
       metaTitle={t("Contacts")}
       metaDescription={t(
         "Leave your contact information and we'll get back to you to discuss your project or answer any questions you may have. Start the conversation today."
@@ -39,7 +37,7 @@ const Contacts = forwardRef<HTMLDivElement>((_, ref) => {
       </WebLine>
     </LayoutMain>
   );
-});
+};
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {

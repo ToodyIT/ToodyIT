@@ -1,5 +1,4 @@
 import { GetStaticProps } from "next";
-import { forwardRef } from "react";
 import { useTranslation, TFunction, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LayoutMain from "../components/Layout/LayoutMain";
@@ -71,13 +70,12 @@ const getAboutUs = (t: TFunction) => {
   ];
 };
 
-const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
+const HomePage: FC<HTMLDivElement> = () => {
   const { t } = useTranslation();
   const usAbout = getAboutUs(t);
 
   return (
     <LayoutMain
-      ref={ref}
       metaTitle={t("We develop websites for you, for any request")}
       metaDescription={t(
         "We develop unique websites and create all your IT needs"
@@ -136,7 +134,7 @@ const HomePage = forwardRef<HTMLDivElement>((_, ref) => {
       </WebLine>
     </LayoutMain>
   );
-});
+};
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {

@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import LayoutMain from "../components/Layout/LayoutMain";
@@ -50,14 +49,13 @@ const getOurTeam = (t: TFunction) => {
   ];
 };
 
-const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
+const OurTeamPage: FC<HTMLDivElement> = () => {
   const [emblaRef] = useEmblaCarousel({ align: "center", startIndex: 1 });
   const { t } = useTranslation();
   const ourTeam = getOurTeam(t);
 
   return (
     <LayoutMain
-      ref={ref}
       metaTitle={t("Our Team")}
       metaDescription={t(
         "Meet our talented team of professionals. Who make it possible to create exclusive web projects. "
@@ -133,7 +131,7 @@ const OurTeamPage = forwardRef<HTMLDivElement>((_, ref) => {
       </WebLine>
     </LayoutMain>
   );
-});
+};
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {

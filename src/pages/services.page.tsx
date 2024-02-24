@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import LayoutMain from "../components/Layout/LayoutMain";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -11,13 +10,12 @@ import Link from "next/link";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 import { twJoin } from "tailwind-merge";
 
-const Services = forwardRef<HTMLDivElement>((_, ref) => {
+const Services = () => {
   const { t } = useTranslation();
   const { servicesType } = useServicesInfo();
 
   return (
     <LayoutMain
-      ref={ref}
       metaDescription={t(
         "Here you will find services that our team offers you to realize with us. Development of websites, online stores and any web projects at your request!"
       )}
@@ -80,7 +78,8 @@ const Services = forwardRef<HTMLDivElement>((_, ref) => {
       </WebLine>
     </LayoutMain>
   );
-});
+};
+
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {

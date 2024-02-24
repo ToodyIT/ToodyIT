@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import LayoutMain from "../components/Layout/LayoutMain";
 import { Trans, useTranslation } from "next-i18next";
@@ -63,14 +62,13 @@ const OUR_WORKS = [
   },
 ];
 
-const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
+const OurWorksPage = () => {
   const [emblaRef] = useEmblaCarousel({ align: "center", startIndex: 2 });
   const { t } = useTranslation();
   const ourWorks = OUR_WORKS;
 
   return (
     <LayoutMain
-      ref={ref}
       metaTitle={t("Our Works")}
       metaDescription={t(
         "Discover our impressive portfolio of completed web projects. Explore the variety of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online resources. Browse through our work and see the quality and innovation we bring to every website we create."
@@ -153,7 +151,7 @@ const OurWorksPage = forwardRef<HTMLDivElement>((_, ref) => {
       </WebLine>
     </LayoutMain>
   );
-});
+};
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {

@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import LayoutMain from "../../components/Layout/LayoutMain";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -8,14 +7,13 @@ import { Title } from "../../components/Title";
 import { useServicesInfo } from "../../hooks/useServicesInfo";
 import { ServicesMenu } from "../../components/ServicesMenu/ServicesMenu";
 
-const Website = forwardRef<HTMLDivElement>((_, ref) => {
+const Website = () => {
   const { t } = useTranslation();
   const { servicesType, websiteAdditionalServices, websiteBasicServices } =
     useServicesInfo();
 
   return (
     <LayoutMain
-      ref={ref}
       metaDescription={t(
         "We have created a configurator with which you can select the services you need and also immediately see the approximate cost of your project!"
       )}
@@ -50,7 +48,8 @@ const Website = forwardRef<HTMLDivElement>((_, ref) => {
       />
     </LayoutMain>
   );
-});
+};
+
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
