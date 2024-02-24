@@ -33,7 +33,7 @@ const Website = () => {
         description={
           <div className="flex flex-col">
             <Title type="h3" className="text-primary">
-              {servicesType[1].subTitle}
+              {servicesType[0].subTitle}
             </Title>
             <div className="vl:text-xl flex flex-col gap-5">
               <p>
