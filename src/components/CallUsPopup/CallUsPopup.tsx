@@ -66,7 +66,7 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
   return (
     <Popup
       onCloseCallback={onCloseCallback}
-      title={t("Let's discuss your website and get 10% discount")}
+      title={t("Let's discuss your future website and get a 10% discount")}
       innerContentClassName="flex flex-col items-center pt-1"
       className="!max-w-[700px]"
     >
