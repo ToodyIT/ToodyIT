@@ -25,6 +25,25 @@ const Document = () => {
             `,
           }}
         />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16474957346"
+          strategy="lazyOnload"
+        />
+        <Script
+          id="gtm"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'AW-16474957346');
+            `,
+          }}
+        />
+        <script></script>
       </Head>
       <body>
         <NextScript />
