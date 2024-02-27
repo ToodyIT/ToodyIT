@@ -26,12 +26,13 @@ const Document = () => {
           }}
         />
         <Script
+          id="gtagAds"
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16474957346"
           strategy="lazyOnload"
         />
         <Script
-          id="gtm"
+          id="gtmAds"
           strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
@@ -43,7 +44,15 @@ const Document = () => {
             `,
           }}
         />
-        <script></script>
+        <Script
+          id="gtmAdsEvent"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+              gtag('event', 'conversion', {'send_to': 'AW-16474957346/w_rgCIDQ1ZYZEKLM7689'});
+            `,
+          }}
+        />
       </Head>
       <body>
         <NextScript />
