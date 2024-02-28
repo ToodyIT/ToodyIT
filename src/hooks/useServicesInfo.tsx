@@ -8,23 +8,23 @@ export const useServicesInfo = () => {
   const websiteBasicServices: ServiceType[] = [
     {
       title: t("Development"),
-      price: 8000,
+      price: 5500,
     },
     {
       title: t("Design"),
-      price: 3500,
+      price: 2500,
     },
     {
       title: t("Domain and hosting"),
-      price: 750,
+      price: 500,
     },
     {
       title: t("1 language"),
-      price: 750,
+      price: 500,
     },
     {
       title: t("SEO optimization"),
-      price: 2000,
+      price: 1000,
     },
   ];
 
