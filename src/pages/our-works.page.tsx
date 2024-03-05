@@ -23,7 +23,7 @@ import { Title } from "../components/Title";
 import { LinkIcon } from "../components/Icons/Icons";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
-const OUR_WORKS = [
+export const OUR_WORKS = [
   {
     desktopImagePath: HulkAgencPhoto,
     mobileImagePath: HulkAgencPhotoMobile,
