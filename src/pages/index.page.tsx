@@ -7,13 +7,16 @@ import { twJoin } from "tailwind-merge";
 import Image from "next/image";
 import { WebLine } from "../components/Webline/WebLine";
 import { ContactsForm } from "../components/Contacts/ContactsForm";
-import { OUR_WORKS } from "./our-works.page";
+import { OUR_WORKS, getOurWorks } from "./our-works.page";
 import { Title } from "../components/Title";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import { HomepageContact } from "../components/HomepageContact/HomepageContact";
 
 const HomePage: FC = () => {
   const { t } = useTranslation();
   const aboutUs = getAboutUs(t);
+  const ourWorks = getOurWorks(t);
+
 
   return (
     <LayoutMain
@@ -26,7 +29,7 @@ const HomePage: FC = () => {
         <Title type="h2">{t("Benefits")}</Title>
         <Title type="h2">{t("Our Works")}</Title>
         <ul className="flex flex-col vl:flex-row gap-8 vl:gap-10 h-full">
-          {OUR_WORKS.slice(0, 2).map((work, index) => (
+          {ourWorks.slice(0, 2).map((work, index) => (
             <div
               key={work.link}
               className={twJoin(
@@ -61,14 +64,13 @@ const HomePage: FC = () => {
               <div className="py-6 px-4 flex flex-col gap-2 bg-gray-200 dark:bg-secondary">
                 <h4 className="text-xl font-semibold">{work.alt}</h4>
                 <p className="text-greyLighter dark:text-gray-400">
-                  {work.link}
+                  {work.description}
                 </p>
               </div>
             </div>
           ))}
         </ul>
-        <Title type="h2">{t("Contacts")}</Title>
-        <ContactsForm />
+        <HomepageContact />
       </WebLine>
     </LayoutMain>
   );
