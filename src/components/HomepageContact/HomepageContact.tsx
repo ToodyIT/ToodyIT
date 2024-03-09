@@ -61,9 +61,9 @@ export const HomepageContact: FC = () => {
       className="w-full rounded-xl mt-10 vl:mt-20 items-center px-5 py-8 justify-between dark:bg-secondary bg-greyLight flex flex-col vl:flex-row"
     >
       <div className="flex gap-4 item flex-col">
-        <span className="text-4xl font-bold">
+        <h3 className="text-4xl font-bold">
           {t("Application for the site")}
-        </span>
+        </h3>
         <span className="text-lg">
           {t("Leave your phone number so we can contact you")}
         </span>

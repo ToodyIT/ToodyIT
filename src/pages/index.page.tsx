@@ -10,6 +10,7 @@ import { Title } from "../components/Title";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 import { HomepageContact } from "../components/HomepageContact/HomepageContact";
 import { HomepageIntro } from "../components/HomepageIntro/HomepageIntro";
+import { HomepageServices } from "../components/HomepageServices/HomepageServices";
 
 const HomePage: FC = () => {
   const { t } = useTranslation();
@@ -67,6 +68,9 @@ const HomePage: FC = () => {
             </div>
           ))}
         </ul>
+      </WebLine>
+      <HomepageServices />
+      <WebLine>
         <HomepageContact />
       </WebLine>
     </LayoutMain>
