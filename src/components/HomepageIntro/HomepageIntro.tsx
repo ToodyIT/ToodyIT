@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Button } from "../Button/Button";
 import { Title } from "../Title";
 import { StarIcon } from "../Icons/Icons";
@@ -13,7 +13,7 @@ export const HomepageIntro: FC = () => {
       <div className="flex gap-4 justify-between flex-col lg:flex-row-reverse">
         <div className="flex flex-col gap-4 vl:gap-6 xl:gap-8 w-full lg:items-end vl:mt-8">
           <div className="flex items-end gap-4 vl:gap-6 xl:gap-12">
-            <div className="shadow-md px-3 dark:bg-gray-700 py-5 flex items-center bg-greyLight rounded-xl gap-3 uppercase">
+            <div className="shadow-md px-3 dark:bg-gray-700 py-5 min-w-[160px] vl:min-w-[250px] flex items-center bg-greyLight rounded-xl gap-3 uppercase">
               <div className="bg-white dark:bg-secondary shadow-md rounded-full p-2">
                 <div className="bg-primary rounded-full w-4 h-4"></div>
               </div>
