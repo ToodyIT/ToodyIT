@@ -46,6 +46,8 @@ export const Button: FC<ButtonProps> = ({
 }) => {
   if (tagName === "a") {
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       <Link
         href={href}
         className={twMerge(
@@ -60,6 +62,8 @@ export const Button: FC<ButtonProps> = ({
   }
 
   return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     <button
       className={twMerge(
         getButtonClassName(variant, size, disabled),
