@@ -31,7 +31,7 @@ export const getOurWorks = (t: TFunction) => {
       link: "https://www.hulkagenc.com/",
       alt: "Hulk Agenc",
       description: t(
-        "Introducing Hulk Agenc website - a modern platform for job searching with dynamic design and appealing illustrations. We created it using cutting-edge web development and design technologies to provide users with a convenient and effective way to find vacancies. Explore this and other projects in our portfolio and learn how we can turn your ideas into reality."
+        "Hulk Agenc - a modern job search platform with dynamic design. Check out our portfolio to bring your ideas to life."
       ),
     },
     {
@@ -40,7 +40,7 @@ export const getOurWorks = (t: TFunction) => {
       link: "https://www.eco-tech.cz/",
       alt: "Eco Tech",
       description: t(
-        "EcoTech is one of our recent web development projects. We have created a modern and professional website for a company specializing in construction and engineering solutions. The site provides information about the company, its services, and advantages. Feel free to explore our portfolio for more details about our work."
+        "EcoTech is our recent project for a construction and engineering solutions company. The site features company info and services."
       ),
     },
     {

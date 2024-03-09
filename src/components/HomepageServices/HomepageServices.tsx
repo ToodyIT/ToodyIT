@@ -16,18 +16,18 @@ export const HomepageServices = () => {
       <div className="flex py-10 flex-col vl:flex-row">
         <div className="flex flex-col max-w-3xl">
           <h3 className="text-4xl font-bold">
-            {t("Integrate critical workflows")}
+            {t("Website price calculator")}
           </h3>
           <span className="text-lg mt-4">
             {t(
-              "Link Airtable to your existing tools, connect important business processes, and build more powerful applications."
+              "In our calculator you can immediately see the approximate cost of the website; for detailed information and more specific prices, please contact us"
             )}
           </span>
           <Link
             href="services/website"
             className="text-primary mt-2 text-xl underline"
           >
-            {t("Explore all integrations")}
+            {t("Find out the cost of a website")}
           </Link>
         </div>
         <div className="flex pt-8 vl:pt-0 flex-col vl:gap-4 relative overflow-hidden">
