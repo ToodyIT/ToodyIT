@@ -13,7 +13,7 @@ export const HomepageIntro: FC = () => {
       <div className="flex gap-4 justify-between flex-col lg:flex-row-reverse">
         <div className="flex flex-col gap-4 vl:gap-6 xl:gap-8 w-full lg:items-end vl:mt-8">
           <div className="flex items-end gap-4 vl:gap-6 xl:gap-12">
-            <div className="shadow-md px-3 dark:bg-gray-700 py-5 min-w-[160px] vl:min-w-[250px] flex items-center bg-greyLight rounded-xl gap-3 uppercase">
+            <div className="shadow-md px-3 dark:bg-gray-600 py-5 min-w-[160px] vl:min-w-[250px] flex items-center bg-greyLight rounded-xl gap-3 uppercase">
               <div className="bg-white dark:bg-secondary shadow-md rounded-full p-2">
                 <div className="bg-primary rounded-full w-4 h-4"></div>
               </div>
@@ -51,7 +51,7 @@ export const HomepageIntro: FC = () => {
               <div className="mb-2 text-gray-700 text-sm vl:text-base dark:text-white">
                 {t("After developing the website, you can leave your feedback")}
               </div>
-              <div className="bg-white w-full h-[160px] dark:bg-gray-700 text-left rounded-lg flex flex-col justify-center p-4">
+              <div className="bg-white w-full h-[160px] dark:bg-gray-600 text-left rounded-lg flex flex-col justify-center p-4">
                 <div className="leading-5 font-semibold">
                   {t("Customer Reviews")}
                 </div>
@@ -76,7 +76,7 @@ export const HomepageIntro: FC = () => {
           >
             {t("Start developing your website")}
           </Title>
-          <p className="text-base vl:text-lg mb-2 vl:mb-4 font-medium">
+          <p className="text-base vl:text-xl mb-2 vl:mb-4 font-medium">
             {t("Leave your phone number or fill out the contact form")}
           </p>
           <div className="flex flex-col vl:flex-row gap-4">
