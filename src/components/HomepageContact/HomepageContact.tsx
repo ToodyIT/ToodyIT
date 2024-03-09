@@ -56,7 +56,10 @@ export const HomepageContact: FC = () => {
   };
 
   return (
-    <div className="w-full rounded-xl mt-10 vl:mt-20 items-center px-5 py-8 justify-between dark:bg-secondary bg-greyLight flex flex-col vl:flex-row">
+    <div
+      id="contacts"
+      className="w-full rounded-xl mt-10 vl:mt-20 items-center px-5 py-8 justify-between dark:bg-secondary bg-greyLight flex flex-col vl:flex-row"
+    >
       <div className="flex gap-4 item flex-col">
         <span className="text-4xl font-bold">
           {t("Application for the site")}

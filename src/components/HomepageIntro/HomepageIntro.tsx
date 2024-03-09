@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../Button/Button";
 import { Title } from "../Title";
 import { StarIcon } from "../Icons/Icons";
+import { scrollToSection } from "../../utils/scrollToElement";
 
 export const HomepageIntro: FC = () => {
   const { t } = useTranslation();
@@ -79,8 +80,20 @@ export const HomepageIntro: FC = () => {
             {t("Leave your phone number or fill out the contact form")}
           </p>
           <div className="flex flex-col vl:flex-row gap-4">
-            <Button size="md">{t("Phone number")}</Button>
-            <Button size="md" variant="primaryOutlined">
+            <Button
+              size="md"
+              tagName="a"
+              href="#contacts"
+              onClick={(e) => scrollToSection(e, 0, "#contacts")}
+            >
+              {t("Phone number")}
+            </Button>
+            <Button
+              size="md"
+              variant="primaryOutlined"
+              tagName="a"
+              href="/contacts"
+            >
               {t("Contact form")}
             </Button>
           </div>
