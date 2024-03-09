@@ -24,8 +24,8 @@ const getButtonClassName = (
   disabled?: boolean
 ) =>
   twJoin(
-    "font-bold rounded-full w-fit tracking-wider flex items-center",
-    variant === "primary" && "bg-primary text-white",
+    "font-bold rounded-full transition active:scale-95 w-fit tracking-wider flex items-center",
+    variant === "primary" && "bg-primary text-white hover:brightness-75",
     variant === "primaryOutlined" &&
       "bg-transparent border-2 border-primary text-primary",
     disabled && "bg-gray-500 pointer-events-none",
