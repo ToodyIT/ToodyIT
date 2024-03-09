@@ -215,7 +215,8 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
       />
       <Button
         type="submit"
-        className="flex self-center active:scale-[0.95] mt-4 items-center justify-center w-full max-w-[350px]"
+        size="lg"
+        className="uppercase flex self-center active:scale-[0.95] mt-4 items-center justify-center w-full max-w-[350px]"
       >
         {isSubmittedSuccessfully ? (
           <CheckmarkIcon className="size-8 text-white/" />

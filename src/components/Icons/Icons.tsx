@@ -912,3 +912,17 @@ export const PhoneIcon: SvgFC = ({ ...props }) => (
     />
   </svg>
 );
+
+export const StarIcon: SvgFC = ({ ...props }) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 23 22"
+  >
+    <path
+      fill="#FFB545"
+      d="M10 1.5c.4-1.1 2-1.1 2.4 0L14 6.7c.2.6.6 1 1.2 1h5.5c1.2 0 1.7 1.5.7 2.2l-4.4 3.2c-.5.4-.6 1-.5 1.5l1.7 5.2c.4 1.1-1 2.1-2 1.4L12 18c-.4-.4-1-.4-1.5 0L6 21.2c-1 .7-2.3-.3-2-1.4l1.7-5.2c.2-.6 0-1.1-.4-1.5L.9 10c-1-.7-.5-2.3.7-2.3h5.5c.5 0 1-.3 1.2-.9L10 1.5Z"
+    />
+  </svg>
+);

@@ -73,7 +73,7 @@ export const getOurWorks = (t: TFunction) => {
 const OurWorksPage = () => {
   const [emblaRef] = useEmblaCarousel({ align: "center", startIndex: 2 });
   const { t } = useTranslation();
-  const ourWorks = OUR_WORKS;
+  const ourWorks = getOurWorks(t);
 
   return (
     <LayoutMain

@@ -2,21 +2,18 @@ import { useTranslation } from "react-i18next";
 import LayoutMain from "../components/Layout/LayoutMain";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
-import { getAboutUs } from "./about-us.page";
 import { twJoin } from "tailwind-merge";
 import Image from "next/image";
 import { WebLine } from "../components/Webline/WebLine";
-import { ContactsForm } from "../components/Contacts/ContactsForm";
-import { OUR_WORKS, getOurWorks } from "./our-works.page";
+import { getOurWorks } from "./our-works.page";
 import { Title } from "../components/Title";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 import { HomepageContact } from "../components/HomepageContact/HomepageContact";
+import { HomepageIntro } from "../components/HomepageIntro/HomepageIntro";
 
 const HomePage: FC = () => {
   const { t } = useTranslation();
-  const aboutUs = getAboutUs(t);
   const ourWorks = getOurWorks(t);
-
 
   return (
     <LayoutMain
@@ -25,8 +22,8 @@ const HomePage: FC = () => {
         "We develop unique websites and create all your IT needs"
       )}
     >
-      <WebLine>
-        <Title type="h2">{t("Benefits")}</Title>
+      <WebLine innerClassName="relative">
+        <HomepageIntro />
         <Title type="h2">{t("Our Works")}</Title>
         <ul className="flex flex-col vl:flex-row gap-8 vl:gap-10 h-full">
           {ourWorks.slice(0, 2).map((work, index) => (

@@ -3,11 +3,7 @@ import "../styles/global.scss";
 import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next";
 import NextI18nextConfig from "../../next-i18next.config";
-import {
-  HomepageOpenSectionContext,
-  HomepageOpenedSectionType,
-} from "../utils/HomepageOpenSectionContext";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { GTM_ID } from "../constants/gtm";
 import { Montserrat } from "next/font/google";
 import ga4 from "react-ga4";
@@ -21,8 +17,6 @@ const poppins = Montserrat({
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
-  const [openedSection, setOpenedSection] =
-    useState<HomepageOpenedSectionType>("main");
 
   useEffect(() => {
     ga4.initialize(GTM_ID);
@@ -31,22 +25,18 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <HomepageOpenSectionContext.Provider
-        value={{ openedSection, setOpenedSection }}
-      >
-        <style jsx global>{`
-          html {
-            font-family: ${poppins.style.fontFamily};
-          }
-        `}</style>
-        <main>
-          <Component {...pageProps} key={router.asPath} />
-          <div
-            className="absolute left-0 top-0 z-maximumTop h-[1px] w-[1px]"
-            id="portal"
-          />
-        </main>
-      </HomepageOpenSectionContext.Provider>
+      <style jsx global>{`
+        html {
+          font-family: ${poppins.style.fontFamily};
+        }
+      `}</style>
+      <main>
+        <Component {...pageProps} key={router.asPath} />
+        <div
+          className="absolute left-0 top-0 z-maximumTop h-[1px] w-[1px]"
+          id="portal"
+        />
+      </main>
     </>
   );
 };

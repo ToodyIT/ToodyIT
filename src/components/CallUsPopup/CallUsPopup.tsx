@@ -11,7 +11,7 @@ type CallUsPopupProps = {
   onCloseCallback: () => void;
 };
 
-const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
+export const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
 
 export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
   const { t } = useTranslation();
@@ -96,6 +96,7 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
           }}
         />
         <Button
+          size="lg"
           disabled={!!getPhoneErrorMessage()}
           type="submit"
           className="flex self-center active:scale-[0.95] mt-5 items-center justify-center w-full max-w-[350px] max-h-[56px]"
