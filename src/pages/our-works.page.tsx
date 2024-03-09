@@ -1,6 +1,6 @@
 import useEmblaCarousel from "embla-carousel-react";
 import LayoutMain from "../components/Layout/LayoutMain";
-import { Trans, useTranslation } from "next-i18next";
+import { TFunction, Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 import MariaPoljanszkaPhoto from "../../public/img/our-works/maria-poljanszka.png";
@@ -23,49 +23,57 @@ import { Title } from "../components/Title";
 import { LinkIcon } from "../components/Icons/Icons";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
 
-const OUR_WORKS = [
-  {
-    desktopImagePath: HulkAgencPhoto,
-    mobileImagePath: HulkAgencPhotoMobile,
-    link: "https://www.hulkagenc.com/",
-    alt: "Hulk Agenc",
-  },
-  {
-    desktopImagePath: EcoTechPhoto,
-    mobileImagePath: EcoTechPhotoMobile,
-    link: "https://www.eco-tech.cz/",
-    alt: "Eco Tech",
-  },
-  {
-    desktopImagePath: MariaPoljanszkaPhoto,
-    mobileImagePath: MariaPoljanszkaPhotoMobile,
-    link: "https://www.maria-poljanszka.com/",
-    alt: "Maria Poljanszka",
-  },
-  {
-    desktopImagePath: SalonKrasyKwhitePhoto,
-    mobileImagePath: SalonKrasyKwhitePhotoMobile,
-    link: "https://salon-krasy-kwhite.com/",
-    alt: "Salon Krasy Kwhite",
-  },
-  {
-    desktopImagePath: MartaHnatojkoPhoto,
-    mobileImagePath: MartaHnatojkoPhotoMobile,
-    link: "https://www.marta-hnatojko.com/",
-    alt: "Marta Hnatojko",
-  },
-  {
-    desktopImagePath: AmatiDentalPhoto,
-    mobileImagePath: AmatiDentalPhotoMobile,
-    link: "https://amatidental.cz/",
-    alt: "Amati Dental Clinic",
-  },
-];
+export const getOurWorks = (t: TFunction) => {
+  return [
+    {
+      desktopImagePath: HulkAgencPhoto,
+      mobileImagePath: HulkAgencPhotoMobile,
+      link: "https://www.hulkagenc.com/",
+      alt: "Hulk Agenc",
+      description: t(
+        "Hulk Agenc - a modern job search platform with dynamic design. Check out our portfolio to bring your ideas to life."
+      ),
+    },
+    {
+      desktopImagePath: EcoTechPhoto,
+      mobileImagePath: EcoTechPhotoMobile,
+      link: "https://www.eco-tech.cz/",
+      alt: "Eco Tech",
+      description: t(
+        "EcoTech is our recent project for a construction and engineering solutions company. The site features company info and services."
+      ),
+    },
+    {
+      desktopImagePath: MariaPoljanszkaPhoto,
+      mobileImagePath: MariaPoljanszkaPhotoMobile,
+      link: "https://www.maria-poljanszka.com/",
+      alt: "Maria Poljanszka",
+    },
+    {
+      desktopImagePath: SalonKrasyKwhitePhoto,
+      mobileImagePath: SalonKrasyKwhitePhotoMobile,
+      link: "https://salon-krasy-kwhite.com/",
+      alt: "Salon Krasy Kwhite",
+    },
+    {
+      desktopImagePath: MartaHnatojkoPhoto,
+      mobileImagePath: MartaHnatojkoPhotoMobile,
+      link: "https://www.marta-hnatojko.com/",
+      alt: "Marta Hnatojko",
+    },
+    {
+      desktopImagePath: AmatiDentalPhoto,
+      mobileImagePath: AmatiDentalPhotoMobile,
+      link: "https://amatidental.cz/",
+      alt: "Amati Dental Clinic",
+    },
+  ];
+};
 
 const OurWorksPage = () => {
   const [emblaRef] = useEmblaCarousel({ align: "center", startIndex: 2 });
   const { t } = useTranslation();
-  const ourWorks = OUR_WORKS;
+  const ourWorks = getOurWorks(t);
 
   return (
     <LayoutMain

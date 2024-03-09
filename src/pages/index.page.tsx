@@ -1,78 +1,20 @@
-import { GetStaticProps } from "next";
-import { useTranslation, TFunction, Trans } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import LayoutMain from "../components/Layout/LayoutMain";
-import { WebLine } from "../components/Webline/WebLine";
-import {
-  AboutAnalysisIcon,
-  AboutCloudIcon,
-  AboutDatAnalysisIcon,
-  AboutDnsIcon,
-  AboutMobileIcon,
-  AboutRecursiveIcon,
-} from "../components/Icons/Icons";
-import { Title } from "../components/Title";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticProps } from "next";
 import { twJoin } from "tailwind-merge";
 import Image from "next/image";
+import { WebLine } from "../components/Webline/WebLine";
+import { getOurWorks } from "./our-works.page";
+import { Title } from "../components/Title";
 import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
-import illustration from "/public/img/illustration.png";
+import { HomepageContact } from "../components/HomepageContact/HomepageContact";
+import { HomepageIntro } from "../components/HomepageIntro/HomepageIntro";
+import { HomepageServices } from "../components/HomepageServices/HomepageServices";
 
-const getAboutUs = (t: TFunction) => {
-  return [
-    {
-      image: "/img/about-us/imageTailoredApproach.jpg",
-      icon: <AboutMobileIcon className="vl:size-24 size-16" />,
-      title: t("Tailored Approach"),
-      description: t(
-        "We eschew standard configurators, offering personalized solutions for each client."
-      ),
-    },
-    {
-      image: "/img/about-us/imageSwiftExecution.jpg",
-      icon: <AboutCloudIcon className="vl:size-24 size-16" />,
-      title: t("Swift Execution"),
-      description: t(
-        "Our team responds promptly to tasks, ensuring high-speed project completion."
-      ),
-    },
-    {
-      image: "/img/about-us/imageVersatileDesign.jpg",
-      icon: <AboutRecursiveIcon className="vl:size-24 size-16" />,
-      title: t("Versatile Design"),
-      description: t(
-        " Specializing in crafting unique designs across various styles, accentuating the individuality of each project."
-      ),
-    },
-    {
-      image: "/img/about-us/imageInnovationsInWebDevelopment.jpg",
-      icon: <AboutDatAnalysisIcon className="vl:size-24 size-16" />,
-      title: t("Innovations in Web Development"),
-      description: t(
-        "We consistently integrate new technologies into the web development process, guaranteeing modern and highly effective solutions."
-      ),
-    },
-    {
-      image: "/img/about-us/imagePartnershipForSuccess.jpg",
-      icon: <AboutDnsIcon className="vl:size-24 size-16" />,
-      title: t("Partnership"),
-      description: t(
-        "We have partners who collaborate with us and provide all the support you need to achieve your success."
-      ),
-    },
-    {
-      image: "/img/about-us/imagePromotionAndAnalytics.jpg",
-      icon: <AboutAnalysisIcon className="vl:size-24 size-16" />,
-      title: t("Promotion and Analytics"),
-      description: t(
-        "Our company offers SEO and analytics services, ensuring website optimization for search engines and providing insights for online visibility and effectiveness."
-      ),
-    },
-  ];
-};
-
-const HomePage: FC<HTMLDivElement> = () => {
+const HomePage: FC = () => {
   const { t } = useTranslation();
-  const usAbout = getAboutUs(t);
+  const ourWorks = getOurWorks(t);
 
   return (
     <LayoutMain
@@ -81,56 +23,55 @@ const HomePage: FC<HTMLDivElement> = () => {
         "We develop unique websites and create all your IT needs"
       )}
     >
-      <WebLine innerClassName="flex flex-col">
-        <div className="vl:absolute vl:z-[-1px] vl:right-0 xl:top-1/2 vl:-translate-y-1/2 hidden vl:flex vl:w-1/3 vl:aspect-square vl:top-1/3">
-          <Image src={illustration} alt="illustration" fill />
-        </div>
-        <BlurredDecoration className="right-48 -bottom-0" />
-        <Title type="h1" className="z-0">
-          <Trans
-            i18nKey="ABOUT<span>US</span>"
-            components={{
-              span: (
-                <span className="dark:text-greyLight/50 text-greyLighter"></span>
-              ),
-            }}
-          />
-        </Title>
-        <Title type="h2" className="text-primary z-0 !mt-0">
-          {t("Who we are?")}
-        </Title>
-        <p className="vl:text-xl vl:max-w-5xl vl:pb-10 z-0 pb-5">
-          {t(
-            "We are a young company passionate about IT technologies and website development. We specialize in building websites of all sizes and industries, as well as online store development. We are open to communication and ready to address your inquiries."
-          )}
-        </p>
-
-        <ul className="vl:gap-7 gap-6 grid lg:grid-cols-2 vl:grid-cols-3">
-          {usAbout.map((about) => (
-            <li key={about.title} className="text-center gap-2 flex flex-col">
+      <WebLine innerClassName="relative">
+        <HomepageIntro />
+        <Title type="h2">{t("Our Works")}</Title>
+        <ul className="flex flex-col vl:flex-row gap-8 vl:gap-10 h-full">
+          {ourWorks.slice(0, 2).map((work, index) => (
+            <div
+              key={work.link}
+              className={twJoin(
+                "flex flex-col group border-gray-200 border-[5px] dark:border-secondary bg-gray-200 dark:bg-secondary rounded-xl vl:w-1/2 overflow-hidden shadow-lg h-fit",
+                index === 0 && "vl:mt-16"
+              )}
+            >
               <div
                 className={twJoin(
-                  "transition hover:scale-105 z-0 border dark:border-black/60  relative overflow-hidden font-semibold h-52 max-w-xl w-full flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl"
+                  "relative overflow-hidden rounded-lg from-primary/50 to-gray-200 dark:to-greyDark dark:from-primary",
+                  index === 0 ? "bg-gradient-to-r" : "bg-gradient-to-l"
                 )}
               >
-                <Image
-                  src={about.image}
-                  alt="photo"
-                  fill
-                  quality={20}
-                  className="rounded-xl object-cover text-[0px]"
+                <BlurredDecoration
+                  className={twJoin(
+                    "top-0 transition opacity-0 !w-[300px] !h-[300px] duration-300 !bg-primary z-[0] group-hover:opacity-100",
+                    index === 0 ? "right-0" : "left-0"
+                  )}
                 />
-                <div className="z-20"> {about.icon}</div>
-                <h3 className="z-20 bg-greyLight/80 p-2 dark:p-0 dark:bg-greyLight/0 rounded-md">
-                  {" "}
-                  {about.title}
-                </h3>
-                <div className="dark:bg-grey/80  absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
+                <Image
+                  src={work.desktopImagePath}
+                  alt={work.alt}
+                  placeholder="blur"
+                  className={twJoin(
+                    "rounded-3xl min-h-full group-hover:translate-y-6 duration-300",
+                    index === 0
+                      ? "translate-x-10 translate-y-14"
+                      : "-translate-x-14 translate-y-10"
+                  )}
+                />
               </div>
-              <p className="z-0">{about.description}</p>
-            </li>
+              <div className="py-6 px-4 flex flex-col gap-2 bg-gray-200 dark:bg-secondary">
+                <h4 className="text-xl font-semibold">{work.alt}</h4>
+                <p className="text-greyLighter dark:text-gray-400">
+                  {work.description}
+                </p>
+              </div>
+            </div>
           ))}
         </ul>
+      </WebLine>
+      <HomepageServices />
+      <WebLine>
+        <HomepageContact />
       </WebLine>
     </LayoutMain>
   );

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import { Meta } from "../Meta/Meta";
 import nookies from "nookies";
 import { Footer } from "../Footer/Footer";
@@ -21,16 +21,6 @@ const LayoutMain: FC<LayoutMainProps> = ({
 }) => {
   const { t } = useTranslation();
   const [isCallUsPopupOpen, setIsCallUsPopupOpen] = useState(false);
-
-  useEffect(() => {
-    const cookies = nookies.get();
-
-    if (!(CALL_US_POPUP_COOKIE in cookies)) {
-      setTimeout(() => {
-        setIsCallUsPopupOpen(true);
-      }, 6000);
-    }
-  }, []);
 
   return (
     <>
