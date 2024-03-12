@@ -33,7 +33,7 @@ export const HomepageIntro: FC = () => {
               <span className="vl:text-lg">
                 {t("Price of your website from")}
               </span>
-              <span className="font-semibold vl:text-lg">{t("9 990 Kč")}</span>
+              <span className="font-semibold vl:text-lg">{t("4 990 Kč")}</span>
             </div>
           </div>
           <div className="flex gap-4 vl:gap-10 xl:gap-16 xl:ml-4 items-start">
