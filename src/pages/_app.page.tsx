@@ -8,6 +8,8 @@ import { GTM_ID } from "../constants/gtm";
 import { Montserrat } from "next/font/google";
 import ga4 from "react-ga4";
 import { GTMSendPageView } from "../utils/gtm";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const poppins = Montserrat({
   subsets: ["latin-ext", "latin", "cyrillic"],
@@ -32,6 +34,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       `}</style>
       <main>
         <Component {...pageProps} key={router.asPath} />
+        <ToastContainer />
         <div
           className="absolute left-0 top-0 z-maximumTop h-[1px] w-[1px]"
           id="portal"

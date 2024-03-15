@@ -4,8 +4,9 @@ import { Button } from "../Button/Button";
 import { useMemo, useState } from "react";
 import { PHONE_REGEX } from "../CallUsPopup/CallUsPopup";
 import { GTMSendEvent } from "../../utils/gtm";
-import emailjs from "@emailjs/browser";
 import { CheckmarkIcon } from "../Icons/Icons";
+import { showSuccessMessage } from "../../utils/toasts";
+import emailjs from "@emailjs/browser";
 
 export const HomepageContact: FC = () => {
   const { t } = useTranslation();
@@ -49,6 +50,7 @@ export const HomepageContact: FC = () => {
       templateParams,
       "SwwxDOa6Jx-pezWyi"
     );
+    showSuccessMessage(t("Successfully sent"));
 
     setIsSubmittedSuccessfully(true);
 

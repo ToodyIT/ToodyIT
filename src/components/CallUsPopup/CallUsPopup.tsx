@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser";
 import { Button } from "../Button/Button";
 import { CheckmarkIcon } from "../Icons/Icons";
 import { GTMSendEvent } from "../../utils/gtm";
+import { showSuccessMessage } from "../../utils/toasts";
 
 type CallUsPopupProps = {
   onCloseCallback: () => void;
@@ -55,6 +56,7 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
       templateParams,
       "SwwxDOa6Jx-pezWyi"
     );
+    showSuccessMessage(t("Successfully sent"));
 
     setIsSubmittedSuccessfully(true);
 

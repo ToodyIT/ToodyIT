@@ -7,6 +7,7 @@ import { Textarea } from "../Textarea/Textarea";
 import { Button } from "../Button/Button";
 import { CheckmarkIcon } from "../Icons/Icons";
 import { GTMSendEvent } from "../../utils/gtm";
+import { showSuccessMessage } from "../../utils/toasts";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
@@ -121,6 +122,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
       templateParams,
       "SwwxDOa6Jx-pezWyi"
     );
+    showSuccessMessage(t("Successfully sent"));
 
     setIsSubmittedSuccessfully(true);
     if (message.toLocaleLowerCase() !== "test") {

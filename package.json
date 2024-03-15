@@ -25,6 +25,7 @@
     "react-dom": "18.2.0",
     "react-ga4": "^2.1.0",
     "react-i18next": "^14.0.5",
+    "react-toastify": "^10.0.5",
     "sass": "^1.56.2",
     "sitemap": "^7.1.1",
     "tailwind-merge": "^1.13.0"
