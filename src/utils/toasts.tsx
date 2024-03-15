@@ -3,7 +3,7 @@ import { Slide, toast } from "react-toastify";
 export const showSuccessMessage = (message: string, toastId: string) => {
   toast.success(message, {
     position: "top-center",
-    autoClose: 50000,
+    autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
