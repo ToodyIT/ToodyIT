@@ -56,7 +56,7 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
       templateParams,
       "SwwxDOa6Jx-pezWyi"
     );
-    showSuccessMessage(t("Successfully sent"));
+    showSuccessMessage(t("Successfully sent"), "call-us-form");
 
     setIsSubmittedSuccessfully(true);
 

@@ -122,7 +122,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
       templateParams,
       "SwwxDOa6Jx-pezWyi"
     );
-    showSuccessMessage(t("Successfully sent"));
+    showSuccessMessage(t("Successfully sent"), "contact-form");
 
     setIsSubmittedSuccessfully(true);
     if (message.toLocaleLowerCase() !== "test") {

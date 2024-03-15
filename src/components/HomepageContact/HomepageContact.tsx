@@ -50,7 +50,7 @@ export const HomepageContact: FC = () => {
       templateParams,
       "SwwxDOa6Jx-pezWyi"
     );
-    showSuccessMessage(t("Successfully sent"));
+    showSuccessMessage(t("Successfully sent"), "phone-form");
 
     setIsSubmittedSuccessfully(true);
 
