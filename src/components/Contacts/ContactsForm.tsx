@@ -116,12 +116,12 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
       message,
     };
 
-    emailjs.send(
-      "service_wpxiwwr",
-      "template_jiplvcb",
-      templateParams,
-      "SwwxDOa6Jx-pezWyi"
-    );
+    // emailjs.send(
+    //   "service_wpxiwwr",
+    //   "template_jiplvcb",
+    //   templateParams,
+    //   "SwwxDOa6Jx-pezWyi"
+    // );
     showSuccessMessage(t("Successfully sent"), "contact-form");
 
     setIsSubmittedSuccessfully(true);
