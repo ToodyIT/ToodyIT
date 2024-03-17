@@ -13,6 +13,7 @@ export const HomepageContact: FC = () => {
   const [phone, setPhone] = useState("");
   const [shouldValidatePhone, setShouldValidatePhone] = useState(false);
   const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
+  const [countOfSentForms, setCountOfSentForms] = useState(0);
 
   const getPhoneErrorMessage = () => {
     if (phone === undefined || !shouldValidatePhone) {
@@ -44,16 +45,19 @@ export const HomepageContact: FC = () => {
       phone,
     };
 
-    // emailjs.send(
-    //   "service_wpxiwwr",
-    //   "template_yi8fpd5",
-    //   templateParams,
-    //   "SwwxDOa6Jx-pezWyi"
-    // );
+    if (countOfSentForms < 3) {
+      emailjs.send(
+        "service_wpxiwwr",
+        "template_yi8fpd5",
+        templateParams,
+        "SwwxDOa6Jx-pezWyi"
+      );
+    }
     showSuccessMessage(t("Successfully sent"), "phone-form");
 
     setIsSubmittedSuccessfully(true);
 
+    setCountOfSentForms((prev) => prev + 1);
     GTMSendEvent("send_phone_form");
   };
 

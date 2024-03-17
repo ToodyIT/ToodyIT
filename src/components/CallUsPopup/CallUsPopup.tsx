@@ -19,12 +19,9 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
   const [phone, setPhone] = useState("");
   const [shouldValidatePhone, setShouldValidatePhone] = useState(false);
   const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
+  const [countOfSentForms, setCountOfSentForms] = useState(0);
 
   const getPhoneErrorMessage = () => {
-    if (phone === undefined || !shouldValidatePhone) {
-      return null;
-    }
-
     if (phone === "") {
       return t("Phone  required field");
     }
@@ -50,18 +47,21 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
       phone,
     };
 
-    emailjs.send(
-      "service_wpxiwwr",
-      "template_yi8fpd5",
-      templateParams,
-      "SwwxDOa6Jx-pezWyi"
-    );
+    if (countOfSentForms < 3) {
+      emailjs.send(
+        "service_wpxiwwr",
+        "template_yi8fpd5",
+        templateParams,
+        "SwwxDOa6Jx-pezWyi"
+      );
+    }
     showSuccessMessage(t("Successfully sent"), "call-us-form");
 
     setIsSubmittedSuccessfully(true);
 
     GTMSendEvent("send_phone_form");
 
+    setCountOfSentForms((prev) => prev + 1);
     onCloseCallback();
   };
 
@@ -87,7 +87,7 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
           onChange={(e) => setPhone(e.target.value)}
           onBlur={() => setShouldValidatePhone(true)}
           placeholder={t("Your phone number")}
-          hasError={!!phoneErrorMessage}
+          hasError={!!phoneErrorMessage && shouldValidatePhone}
           errorMessage={phoneErrorMessage}
           label={t("Phone")}
           autoComplete="tel"

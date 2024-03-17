@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
-import emailjs from "@emailjs/browser";
 import { FormLine } from "../FormColumn/FormColumn";
 import { Input } from "../Input/Input";
 import { Textarea } from "../Textarea/Textarea";
@@ -8,6 +7,7 @@ import { Button } from "../Button/Button";
 import { CheckmarkIcon } from "../Icons/Icons";
 import { GTMSendEvent } from "../../utils/gtm";
 import { showSuccessMessage } from "../../utils/toasts";
+import emailjs from "@emailjs/browser";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PHONE_REGEX = /^\+?(420)? ?(\d{3}){1,4}( |-)?\d{3}( |-)?\d{3}$/;
@@ -27,6 +27,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState(defaultMessage ?? "");
+  const [countOfSentForms, setCountOfSentForms] = useState(0);
 
   const clearForm = () => {
     setFullName("");
@@ -40,10 +41,6 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
   };
 
   const getEmailErrorMessage = () => {
-    if (email === undefined || !shouldValidateEmail) {
-      return null;
-    }
-
     if (email === "") {
       return t("Email  required field");
     }
@@ -56,10 +53,6 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
   };
 
   const getPhoneErrorMessage = () => {
-    if (phone === undefined || !shouldValidatePhone) {
-      return null;
-    }
-
     if (phone === "") {
       return t("Phone  required field");
     }
@@ -79,10 +72,11 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
     return getPhoneErrorMessage();
   }, [phone, shouldValidatePhone]);
 
+  const isEmailValid = getEmailErrorMessage();
+  const isPhoneValid = getPhoneErrorMessage();
+
   const getIsFormValid = () => {
     let hasInvalidFields = false;
-    const isEmailValid = getEmailErrorMessage();
-    const isPhoneValid = getPhoneErrorMessage();
     const isFullNameValid = fullName !== "";
     if (!isEmailValid) {
       setShouldValidateEmail(true);
@@ -115,20 +109,21 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
       phone,
       message,
     };
-
-    // emailjs.send(
-    //   "service_wpxiwwr",
-    //   "template_jiplvcb",
-    //   templateParams,
-    //   "SwwxDOa6Jx-pezWyi"
-    // );
+    if (countOfSentForms < 3) {
+      emailjs.send(
+        "service_wpxiwwr",
+        "template_jiplvcb",
+        templateParams,
+        "SwwxDOa6Jx-pezWyi"
+      );
+    }
     showSuccessMessage(t("Successfully sent"), "contact-form");
 
     setIsSubmittedSuccessfully(true);
     if (message.toLocaleLowerCase() !== "test") {
       GTMSendEvent("send_contact_form");
     }
-
+    setCountOfSentForms((prev) => prev + 1);
     clearForm();
   };
 
@@ -163,7 +158,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
           label={t("Full name")}
           autoComplete="name"
           hasError={shouldValidateFullName && fullName === ""}
-          errorMessage={t("Full name is required field")}
+          errorMessage={t("Full name is requsired field")}
         />
         <Input
           required
@@ -172,7 +167,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onBlur={() => setShouldValidateEmail(true)}
-          hasError={!!emailErrorMessage}
+          hasError={!!emailErrorMessage && shouldValidateEmail}
           errorMessage={emailErrorMessage}
           placeholder={t("Your email")}
           autoComplete="email"
@@ -188,7 +183,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
           onChange={(e) => setPhone(e.target.value)}
           onBlur={() => setShouldValidatePhone(true)}
           placeholder={t("Your phone number")}
-          hasError={!!phoneErrorMessage}
+          hasError={!!phoneErrorMessage && shouldValidatePhone}
           errorMessage={phoneErrorMessage}
           label={t("Phone")}
           autoComplete="tel"
@@ -216,6 +211,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
         label={t("Message")}
       />
       <Button
+        disabled={!!(getEmailErrorMessage() || getPhoneErrorMessage())}
         type="submit"
         size="lg"
         className="uppercase flex self-center active:scale-[0.95] mt-4 items-center justify-center w-full max-w-[350px]"
