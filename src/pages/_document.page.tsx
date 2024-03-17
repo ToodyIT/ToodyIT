@@ -6,7 +6,7 @@ const Document = () => {
     <Html>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <Script
+        {/* <Script
           strategy="lazyOnload"
           id="cookieyes"
           type="text/javascript"
@@ -52,7 +52,7 @@ const Document = () => {
               gtag('event', 'conversion', {'send_to': 'AW-16474957346/w_rgCIDQ1ZYZEKLM7689'});
             `,
           }}
-        />
+        /> */}
       </Head>
       <body>
         <NextScript />
