@@ -8,11 +8,13 @@ export const HomepageIntro: FC = () => {
   const { t } = useTranslation();
   return (
     <>
-      <div className="z-[-1] -top-40 -right-10 rotate-[330deg] vl:w-[500px] vl:-top-72 vl:h-[800px] w-[300px] absolute h-[500px] bg-[conic-gradient(#109A20,#E4E4E4)] rounded-3xl"></div>
-      <Title type="h1">{t("DEVELOPMENT OF CUSTOM WEBSITES")}</Title>
-      <div className="flex gap-4 justify-between flex-col lg:flex-row-reverse">
-        <div className="flex flex-col gap-4 vl:gap-6 xl:gap-8 w-full lg:items-end vl:mt-8">
-          <div className="flex items-end gap-4 vl:gap-6 xl:gap-12">
+      <div className="z-[-1] -top-40 -right-10 rotate-[330deg] vl:w-[500px] vl:-top-72 vl:h-[800px] w-[300px] absolute h-[500px] bg-[conic-gradient(#109A20,#C4C4C4)] rounded-3xl"></div>
+      <Title type="h1" className="">
+        {t("DEVELOPMENT OF CUSTOM WEBSITES")}
+      </Title>
+      <div className="flex gap-6 justify-between flex-col lg:flex-row-reverse">
+        <div className="flex flex-col gap-6 vl:gap-6 xl:gap-8 w-full lg:items-end vl:mt-8">
+          <div className="flex items-end gap-6 vl:gap-6 xl:gap-12">
             <div className="shadow-md px-3 dark:bg-gray-600 py-5 min-w-[160px] vl:min-w-[250px] flex items-center bg-greyLight rounded-xl gap-3 uppercase">
               <div className="bg-white dark:bg-secondary shadow-md rounded-full p-2">
                 <div className="bg-primary rounded-full w-4 h-4"></div>
@@ -36,7 +38,7 @@ export const HomepageIntro: FC = () => {
               <span className="font-semibold vl:text-lg">{t("4 990 Kč")}</span>
             </div>
           </div>
-          <div className="flex gap-4 vl:gap-10 xl:gap-16 xl:ml-4 items-start">
+          <div className="flex gap-6 vl:gap-10 xl:gap-16 xl:ml-4 items-start">
             <div className="p-3 vl:p-4 bg-gray-200 dark:bg-secondary shadow-md flex flex-col items-center rounded-xl font-medium">
               <div className="mb-2 vl:mb-3 vl:text-lg text-gray-700 dark:text-white text-center">
                 {t("Statistics of satisfied clients")}
