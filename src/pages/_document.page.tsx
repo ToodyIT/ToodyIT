@@ -25,35 +25,6 @@ const Document = () => {
             `,
           }}
         />
-
-        {/* <Script
-          id="gtagAds"
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-16474957346"
-          strategy="lazyOnload"
-        />
-        <Script
-          id="gtmAds"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          
-            gtag('config', 'AW-16474957346');
-            `,
-          }}
-        />
-        <Script
-          id="gtmAdsEvent"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-              gtag('event', 'conversion', {'send_to': 'AW-16474957346/w_rgCIDQ1ZYZEKLM7689'});
-            `,
-          }}
-        /> */}
       </Head>
       <body>
         <NextScript />

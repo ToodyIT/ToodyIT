@@ -44,12 +44,12 @@ export const HomepageContact: FC = () => {
       phone,
     };
 
-    emailjs.send(
-      "service_wpxiwwr",
-      "template_yi8fpd5",
-      templateParams,
-      "SwwxDOa6Jx-pezWyi"
-    );
+    // emailjs.send(
+    //   "service_wpxiwwr",
+    //   "template_yi8fpd5",
+    //   templateParams,
+    //   "SwwxDOa6Jx-pezWyi"
+    // );
     showSuccessMessage(t("Successfully sent"), "phone-form");
 
     setIsSubmittedSuccessfully(true);
