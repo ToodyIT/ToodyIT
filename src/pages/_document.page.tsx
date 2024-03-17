@@ -12,7 +12,7 @@ const Document = () => {
           type="text/javascript"
           src="https://cdn-cookieyes.com/client_data/44d0af6cd902359de29ba189/script.js"
         />
-        {/* <Script
+        <Script
           id="gtm"
           strategy="lazyOnload"
           dangerouslySetInnerHTML={{
@@ -25,7 +25,7 @@ const Document = () => {
             `,
           }}
         />
-        <Script
+        {/* <Script
           id="gtagAds"
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16474957346"
