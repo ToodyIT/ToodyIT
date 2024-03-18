@@ -48,12 +48,12 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
     };
 
     if (countOfSentForms < 3) {
-      emailjs.send(
-        "service_wpxiwwr",
-        "template_yi8fpd5",
-        templateParams,
-        "SwwxDOa6Jx-pezWyi"
-      );
+      // emailjs.send(
+      //   "service_wpxiwwr",
+      //   "template_yi8fpd5",
+      //   templateParams,
+      //   "SwwxDOa6Jx-pezWyi"
+      // );
     }
     showSuccessMessage(t("Successfully sent"), "call-us-form");
 
