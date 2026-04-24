@@ -15,7 +15,7 @@ import { HomepageServices } from "../components/HomepageServices/HomepageService
 const HomePage: FC = () => {
   const { t } = useTranslation();
   const ourWorks = getOurWorks(t);
-
+  
   return (
     <LayoutMain
       metaTitle={t("We develop websites for you, for any request")}

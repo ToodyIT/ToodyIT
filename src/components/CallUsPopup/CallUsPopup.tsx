@@ -73,9 +73,6 @@ export const CallUsPopup: FC<CallUsPopupProps> = ({ onCloseCallback }) => {
       className="!max-w-[770px]"
     >
       <div className="flex flex-col gap-2 items-center">
-        <a href="tel:+420773011578" className="text-primary font-bold text-2xl">
-          +420 773 011 578
-        </a>
         <span className="text-lg">{t("or let us call you back")}</span>
       </div>
       <form onSubmit={onSubmit} className="flex w-full items-center flex-col">

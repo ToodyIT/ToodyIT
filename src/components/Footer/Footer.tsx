@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { twJoin } from "tailwind-merge";
-import { EmailIcon, InstagramIcon, PhoneIcon } from "../Icons/Icons";
+import { EmailIcon, InstagramIcon } from "../Icons/Icons";
 
 export const Footer: FC = () => {
   const { t } = useTranslation("common");
@@ -45,9 +45,6 @@ export const Footer: FC = () => {
               ))}
             </ul>
             <div className="gap-4 items-center flex pt-4 vl:pt-0 flex-row">
-              <Link href="tel:+420773011578" target="_blank" rel="noreferrer">
-                <PhoneIcon className="size-7" />
-              </Link>
               <Link
                 href="mail:toody-it@toody-it.com"
                 target="_blank"
@@ -84,16 +81,6 @@ export const Footer: FC = () => {
                 className="font-semibold text-primary"
               >
                 toody-it@toody-it.com
-              </a>
-            </li>
-            <li className="flex flex-col gap-1">
-              <span>{t("Number")}</span>
-              <div className="h-[1px] dark:bg-white bg-black w-16 vl:w-20" />
-              <a
-                href="tel:+420773011578"
-                className="font-semibold text-primary"
-              >
-                +420 773 011 578
               </a>
             </li>
             <li className="flex flex-col gap-1">

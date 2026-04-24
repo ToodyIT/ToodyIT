@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
-import { EmailIcon, InstagramIcon, PhoneIcon } from "../Icons/Icons";
+import { EmailIcon, InstagramIcon } from "../Icons/Icons";
 
 type SocialMediaType = {
   link: string;
@@ -22,12 +22,6 @@ const SOCIAL_MEDIA: SocialMediaType[] = [
     text: "@toodyit",
     icon: <InstagramIcon className="size-5" />,
     eventName: "click_on_instagram",
-  },
-  {
-    link: "tel:+420773011578",
-    text: "+420 773 011 578",
-    icon: <PhoneIcon className="size-6" />,
-    eventName: "click_on_phone",
   },
 ];
 
