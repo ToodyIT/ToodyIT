@@ -11,7 +11,7 @@ const Overlay: FC<OverlayProps> = ({ onClose, isOpen }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed z-20 inset-0 bg-opacity-50 bg-black cursor-pointer opacity-0"
+          className="fixed z-[60] inset-0 cursor-pointer bg-black/50"
           key="overlay"
           initial={{ opacity: 0, backdropFilter: "blur(0)" }}
           animate={{ opacity: 1, backdropFilter: "blur(6px)" }}

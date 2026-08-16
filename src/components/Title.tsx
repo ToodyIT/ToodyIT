@@ -12,7 +12,7 @@ export const Title: FC<TitleProps> = ({ children, type, id, className }) => {
     return (
       <h1
         className={twMerge(
-          "text-4xl vl:text-[60px] vl:leading-[70px] xl:!leading-[100px] xl:text-[100px] flex vl:gap-8 xl:gap-12 flex-wrap vl:flex-nowrap w-full gap-3 vl:mt-12 vl:mb-6 mt-8 mb-4 font-bold",
+          "font-display text-fg mb-6 mt-4 max-w-[16ch] text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl",
           className
         )}
       >
@@ -26,7 +26,7 @@ export const Title: FC<TitleProps> = ({ children, type, id, className }) => {
       <h2
         id={id}
         className={twMerge(
-          "text-3xl vl:mt-8 vl:mb-4 mt-6 mb-3 font-semibold vl:text-5xl",
+          "font-display text-fg mb-4 mt-6 text-3xl font-bold tracking-tight sm:text-5xl",
           className
         )}
       >
@@ -39,7 +39,7 @@ export const Title: FC<TitleProps> = ({ children, type, id, className }) => {
     <h3
       id={id}
       className={twMerge(
-        "text-xl vl:mt-8 vl:mb-4 mt-6 mb-3 font-semibold vl:text-3xl",
+        "font-display text-fg mb-3 mt-5 text-xl font-semibold sm:text-2xl",
         className
       )}
     >

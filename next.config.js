@@ -13,6 +13,15 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   i18n,
+  async redirects() {
+    return [
+      {
+        source: "/services/website",
+        destination: "/contacts",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

@@ -63,10 +63,10 @@ export const useServicesInfo = () => {
       icon: <WebIcon className="z-10 vl:size-28 size-20" />,
       subTitle: t("Information"),
       firstDescription: t(
-        "Our configurator provides the basic elements required to create a website, as well as the ability to select the additional services you need."
+        "Custom websites for any client and any request — or a full project from idea to launch."
       ),
       description: t(
-        "If you don't find the service you need in the configurator, you can always suggest your specific requirements and we will contact you to discuss your site."
+        "If you need a full custom project instead of a site, write us — we can build that too."
       ),
       isDisabled: false,
     },

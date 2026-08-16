@@ -15,6 +15,10 @@ module.exports = {
       href: `${process.env.BASE_URL}/cz`,
       hreflang: "cs",
     },
+    {
+      href: `${process.env.BASE_URL}/uk`,
+      hreflang: "uk",
+    },
   ],
   pagesDirectory: 'pages',
 };

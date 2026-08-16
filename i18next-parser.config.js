@@ -15,7 +15,7 @@ module.exports = {
         ],
     },
     lineEnding: 'lf',
-    locales: ['cs', 'ru', 'en'],
+    locales: ['cs', 'ru', 'en', 'uk'],
     output: 'public/locales/$LOCALE/$NAMESPACE.json',
     namespaceSeparator: false,
     keySeparator: false,

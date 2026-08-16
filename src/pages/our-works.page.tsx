@@ -1,6 +1,5 @@
-import useEmblaCarousel from "embla-carousel-react";
 import LayoutMain from "../components/Layout/LayoutMain";
-import { TFunction, Trans, useTranslation } from "next-i18next";
+import { TFunction, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 import MariaPoljanszkaPhoto from "../../public/img/our-works/maria-poljanszka.png";
@@ -15,13 +14,10 @@ import EcoTechPhotoMobile from "../../public/img/our-works/eco-techMobile.png";
 import HulkAgencPhotoMobile from "../../public/img/our-works/hulk-agencMobile.png";
 import AmatiDentalPhoto from "../../public/img/our-works/amati-dental.png";
 import AmatiDentalPhotoMobile from "../../public/img/our-works/amati-dentalMobile.png";
-
 import { WebLine } from "../components/Webline/WebLine";
 import Image from "next/image";
-import Planet from "/public/img/planet.png";
-import { Title } from "../components/Title";
-import { LinkIcon } from "../components/Icons/Icons";
-import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
+import { PageHero } from "../components/PageHero/PageHero";
+import { Reveal } from "../components/Motion/Reveal";
 
 export const getOurWorks = (t: TFunction) => {
   return [
@@ -71,7 +67,6 @@ export const getOurWorks = (t: TFunction) => {
 };
 
 const OurWorksPage = () => {
-  const [emblaRef] = useEmblaCarousel({ align: "center", startIndex: 2 });
   const { t } = useTranslation();
   const ourWorks = getOurWorks(t);
 
@@ -79,83 +74,52 @@ const OurWorksPage = () => {
     <LayoutMain
       metaTitle={t("Our Works")}
       metaDescription={t(
-        "Discover our impressive portfolio of completed web projects. Explore the variety of websites we have designed and developed, showcasing our expertise in creating visually stunning and functional online resources. Browse through our work and see the quality and innovation we bring to every website we create."
+        "Client projects we built. We also have our own product, ToodyMenu."
       )}
     >
-      <WebLine innerClassName="relative flex flex-col">
-        <Title type="h1">
-          <Trans
-            i18nKey="OUR<span>WORKS</span>"
-            components={{
-              span: (
-                <span className="text-greyLighter dark:text-greyLight/50"></span>
-              ),
-            }}
-          />
-        </Title>
-        <div
-          className="max-h-[700px] vl:max-h-[600px] flex flex-col gap-10 h-full w-full cursor-pointer"
-          ref={emblaRef}
-        >
-          <ul className="flex gap-8 vl:gap-10 h-full">
-            {ourWorks.map((work) => (
-              <li
-                className="h-80 relative vl:h-auto max-w-[200px] vl:max-w-[600px] border border-greyLight flex flex-col rounded-3xl bg-grey-800 flex-[0_0_80%]"
-                key={work.link}
-              >
+      <PageHero
+        kicker={t("Our Works")}
+        title={t("Selected work")}
+        text={t(
+          "Client projects we built. We also have our own product, ToodyMenu."
+        )}
+      />
+      <WebLine innerClassName="grid gap-4 pb-20 md:grid-cols-2">
+        {ourWorks.map((work, index) => (
+          <Reveal delay={(index % 2) * 0.05} key={work.link}>
+            <a
+              className="border-line bg-panel group block overflow-hidden rounded-[1.4rem] border transition-colors hover:border-brand/30"
+              href={work.link}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="relative h-64 overflow-hidden sm:h-80">
                 <Image
+                  alt={work.alt}
+                  className="object-cover object-top transition duration-700 group-hover:scale-105"
+                  fill
+                  placeholder="blur"
                   src={work.desktopImagePath}
-                  alt={work.alt}
-                  placeholder="blur"
-                  className="rounded-3xl min-h-full hidden vl:block"
                 />
-                <Image
-                  src={work.mobileImagePath}
-                  alt={work.alt}
-                  placeholder="blur"
-                  className="rounded-3xl min-h-full vl:hidden object-cover object-top"
-                />
-                <a
-                  className="absolute dark:bg-secondary bg-greyLight active:scale-95 hover:bg-grey transition rounded-full border-greyLight border right-2 bottom-2 p-2 vl:p-3"
-                  href={work.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <LinkIcon className="vl:size-7 size-5" />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="flex  vl:flex-row flex-col">
-          <div className="flex  flex-col">
-            <Title type="h2" className="text-primary">
-              {t("Immersion in the world of our projects")}
-            </Title>
-            <div className=" gap-6  flex flex-col vl:text-xl">
-              <p>
-                {t(
-                  "Let us introduce you to some of our successful projects. We take pride in the results of our work and strive to ensure that each project reflects our commitment to quality and innovation."
-                )}{" "}
-              </p>
-
-              <p className="max-w-3xl">
-                {t(
-                  "Explore our portfolio to see the variety of our work. We are ready to realize your ideas and make your project unique and successful."
-                )}{" "}
-              </p>
-            </div>
-          </div>
-
-          <Image
-            className="w-4/5 flex vl:max-w-[402px] pt-6 vl:pt-12 self-end max-w-[302px]"
-            src={Planet}
-            alt="planet"
-          />
-        </div>
-
-        <BlurredDecoration className="vl:h-[700px] vl:w-[700px]" />
-        <BlurredDecoration className="right-48 -bottom-5" />
+              </div>
+              <div className="p-5">
+                <div className="flex items-baseline justify-between gap-3">
+                  <h2 className="font-display text-fg text-lg font-semibold">
+                    {work.alt}
+                  </h2>
+                  <span className="text-xs font-semibold text-brand">
+                    0{index + 1}
+                  </span>
+                </div>
+                {work.description && (
+                  <p className="text-muted mt-2 text-sm leading-6">
+                    {work.description}
+                  </p>
+                )}
+              </div>
+            </a>
+          </Reveal>
+        ))}
       </WebLine>
     </LayoutMain>
   );

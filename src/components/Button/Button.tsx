@@ -24,14 +24,15 @@ const getButtonClassName = (
   disabled?: boolean
 ) =>
   twJoin(
-    "font-bold rounded-full transition active:scale-95 w-fit tracking-wider flex items-center",
-    variant === "primary" && "bg-primary text-white hover:brightness-75",
+    "inline-flex items-center justify-center rounded-full font-semibold tracking-wide transition-all duration-300",
+    variant === "primary" &&
+      "bg-brand text-white shadow-[0_12px_40px_rgba(26,176,48,0.28)] hover:-translate-y-0.5 hover:bg-[#22c43a]",
     variant === "primaryOutlined" &&
-      "bg-transparent border-2 border-primary text-primary",
-    disabled && "bg-gray-500 pointer-events-none",
-    size === "lg" && "h-12 vl:h-14 px-4 vl:px-6",
-    size === "md" && "h-10 vl:h-12 px-4 vl:px-6",
-    size === "sm" && "h-8 vl:h-10 px-2 vl:px-4"
+      "border-line bg-glass text-fg border backdrop-blur-sm hover:border-brand/40",
+    disabled && "pointer-events-none translate-y-0 opacity-60",
+    size === "lg" && "px-6 py-3 text-sm vl:px-7",
+    size === "md" && "px-6 py-3 text-sm",
+    size === "sm" && "px-4 py-2 text-xs"
   );
 
 export const Button: FC<ButtonProps> = ({
@@ -69,6 +70,7 @@ export const Button: FC<ButtonProps> = ({
         getButtonClassName(variant, size, disabled),
         className
       )}
+      disabled={disabled}
       {...props}
     >
       {children}

@@ -26,24 +26,29 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     forwardedRef
   ) => {
     return (
-      <div className={twMerge("w-full flex flex-col gap-2", wrapperClassName)}>
+      <div className={twMerge("flex w-full flex-col gap-2", wrapperClassName)}>
         {label && (
-          <label htmlFor={id} className="text-xl font-medium">
+          <label
+            htmlFor={id}
+            className="text-muted text-xs uppercase tracking-wide"
+          >
             {label}
-            {required && <span className="text-red-600">{" *"}</span>}
+            {required && <span className="text-red-500">{" *"}</span>}
           </label>
         )}
         <input
           id={id}
           className={twMerge(
-            "h-12 w-full dark:bg-secondary bg-gray-200 placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-primary rounded-full dark:text-white text-greyDark pl-4",
+            "border-line bg-glass text-fg placeholder:text-muted focus:border-brand/60 h-12 w-full rounded-2xl border px-4 text-sm outline-none transition",
             className
           )}
           ref={forwardedRef}
           placeholder={placeholder ?? undefined}
           {...props}
         />
-        {hasError && <span className="text-red-600">{errorMessage}</span>}
+        {hasError && (
+          <span className="text-sm text-red-400">{errorMessage}</span>
+        )}
       </div>
     );
   }

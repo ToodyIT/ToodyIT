@@ -14,7 +14,7 @@ export const WebLine: FC<WebLineProps> = ({
   <div className={twMerge(className)} style={style}>
     <div
       className={twMerge(
-        "max-w-[1440px] h-full px-4 xl:mx-auto xl:w-full 3xl:px-0",
+        "mx-auto h-full w-full max-w-[1180px] px-5 sm:px-8",
         innerClassName
       )}
     >

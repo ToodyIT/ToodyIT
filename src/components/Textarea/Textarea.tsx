@@ -9,13 +9,16 @@ type TextareaProps = {
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ placeholder, id, label, required, ...props }, forwardedRef) => {
     return (
-      <div className="w-full flex flex-col gap-3">
-        <label htmlFor={id} className="text-xl font-medium">
+      <div className="flex w-full flex-col gap-2">
+        <label
+          htmlFor={id}
+          className="text-muted text-xs uppercase tracking-wide"
+        >
           {label}
-          {required && <span className="ml-1 text-secondary">*</span>}
+          {required && <span className="ml-1 text-brand">*</span>}
         </label>
         <textarea
-          className="h-36 w-full dark:bg-secondary bg-gray-200 placeholder:text-gray-500 border border-primary rounded-2xl dark:text-white text-greyDark p-4 resize-none"
+          className="border-line bg-glass text-fg placeholder:text-muted focus:border-brand/60 min-h-32 w-full resize-y rounded-2xl border px-4 py-3 text-sm outline-none"
           ref={forwardedRef}
           placeholder={placeholder ?? undefined}
           {...props}

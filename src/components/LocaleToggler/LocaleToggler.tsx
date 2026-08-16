@@ -6,18 +6,25 @@ export const LocaleToggler: FC = ({ className }) => {
   const router = useRouter();
 
   return (
-    <div className={twMerge("flex gap-2.5", className)}>
+    <div
+      className={twMerge(
+        "border-line bg-glass flex items-center gap-1 rounded-full border p-1",
+        className
+      )}
+    >
       {router.locales?.map((locale) => (
         <Link
           key={locale}
           href={router.asPath}
           locale={locale}
           className={twJoin(
-            "text-lg",
-            router.locale === locale && "text-primary"
+            "rounded-full px-2 py-1 text-[11px] font-semibold tracking-wide",
+            router.locale === locale
+              ? "bg-brand text-white"
+              : "text-muted hover:text-fg"
           )}
         >
-          {locale === "cs" ? "CZ" : locale.toUpperCase()}
+          {locale === "cs" ? "CZ" : locale === "uk" ? "UA" : locale.toUpperCase()}
         </Link>
       ))}
     </div>

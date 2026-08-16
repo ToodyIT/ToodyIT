@@ -38,7 +38,7 @@ export const Meta: FC<MetaProps> = ({ metaTitle, metaDescription }) => {
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" />
       <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#141414" />
+      <meta name="theme-color" content="#07080a" />
       <meta name="robots" content="all" />
       <meta name="description" content={metaDescription} />
       {alternateLocales.map((locale) => (

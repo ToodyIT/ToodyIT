@@ -1,70 +1,47 @@
 import { GetStaticProps } from "next";
-import { useTranslation, TFunction, Trans } from "next-i18next";
+import { useTranslation, TFunction } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LayoutMain from "../components/Layout/LayoutMain";
 import { WebLine } from "../components/Webline/WebLine";
-import {
-  AboutAnalysisIcon,
-  AboutCloudIcon,
-  AboutDatAnalysisIcon,
-  AboutDnsIcon,
-  AboutMobileIcon,
-  AboutRecursiveIcon,
-} from "../components/Icons/Icons";
-import { Title } from "../components/Title";
-import { twJoin } from "tailwind-merge";
-import Image from "next/image";
-import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
-import illustration from "/public/img/illustration.png";
+import { PageHero } from "../components/PageHero/PageHero";
+import { Reveal } from "../components/Motion/Reveal";
 
 export const getAboutUs = (t: TFunction) => {
   return [
     {
-      image: "/img/about-us/imageTailoredApproach.jpg",
-      icon: <AboutMobileIcon className="vl:size-24 size-16" />,
-      title: t("Tailored Approach"),
+      title: t("3 years"),
       description: t(
-        "We eschew standard configurators, offering personalized solutions for each client."
+        "We have been working since 2023. A small Prague team with our own product and client projects."
       ),
     },
     {
-      image: "/img/about-us/imageSwiftExecution.jpg",
-      icon: <AboutCloudIcon className="vl:size-24 size-16" />,
-      title: t("Swift Execution"),
+      title: t("Prague"),
       description: t(
-        "Our team responds promptly to tasks, ensuring high-speed project completion. We guarantee delivery of the site within 14 days"
+        "ToodyIT s.r.o. is based in Prague. We work with clients in Czechia and beyond."
       ),
     },
     {
-      image: "/img/about-us/imageVersatileDesign.jpg",
-      icon: <AboutRecursiveIcon className="vl:size-24 size-16" />,
-      title: t("Versatile Design"),
+      title: t("Own product"),
       description: t(
-        "Specializing in crafting unique designs across various styles, accentuating the individuality of each project."
+        "Our own product. Digital menus for restaurants — more on the ToodyMenu website."
       ),
     },
     {
-      image: "/img/about-us/imageInnovationsInWebDevelopment.jpg",
-      icon: <AboutDatAnalysisIcon className="vl:size-24 size-16" />,
-      title: t("Innovations in Web Development"),
+      title: t("Custom websites"),
       description: t(
-        "We consistently integrate new technologies into the web development process, guaranteeing modern and highly effective solutions."
+        "We build custom websites for any client and any request."
       ),
     },
     {
-      image: "/img/about-us/imagePartnershipForSuccess.jpg",
-      icon: <AboutDnsIcon className="vl:size-24 size-16" />,
-      title: t("Partnership"),
+      title: t("Full projects"),
       description: t(
-        "We have partners who collaborate with us and provide all the support you need to achieve your success."
+        "Need more than a site? We can design and build a complete product from idea to launch."
       ),
     },
     {
-      image: "/img/about-us/imagePromotionAndAnalytics.jpg",
-      icon: <AboutAnalysisIcon className="vl:size-24 size-16" />,
-      title: t("Promotion and Analytics"),
+      title: t("Direct communication"),
       description: t(
-        "Our company offers SEO and analytics services, ensuring website optimization for search engines and providing insights for online visibility and effectiveness."
+        "You talk to the people who build. Short replies, clear next steps."
       ),
     },
   ];
@@ -76,61 +53,36 @@ const AboutUs = () => {
 
   return (
     <LayoutMain
-      metaTitle={t("We develop websites for you, for any request")}
+      metaTitle={t("ToodyIT — a Prague IT company")}
       metaDescription={t(
-        "We develop unique websites and create all your IT needs"
+        "A Prague IT company. For 3 years we have been building our own products, websites and full projects for clients."
       )}
     >
-      <WebLine innerClassName="flex flex-col">
-        <div className="vl:absolute vl:z-[-1px] vl:right-0 xl:top-1/2 vl:-translate-y-1/2 hidden vl:flex vl:w-1/3 vl:aspect-square vl:top-1/3">
-          <Image src={illustration} alt="illustration" fill />
-        </div>
-        <BlurredDecoration className="right-48 -bottom-0" />
-        <Title type="h1" className="z-0">
-          <Trans
-            i18nKey="ABOUT<span>US</span>"
-            components={{
-              span: (
-                <span className="dark:text-greyLight/50 text-greyLighter"></span>
-              ),
-            }}
-          />
-        </Title>
-        <Title type="h2" className="text-primary z-0 !mt-0">
-          {t("Who we are?")}
-        </Title>
-        <p className="vl:text-xl vl:max-w-5xl vl:pb-10 z-0 pb-5">
-          {t(
-            "We are a young company passionate about IT technologies and website development. We specialize in building websites of all sizes and industries, as well as online store development. We are open to communication and ready to address your inquiries."
-          )}
-        </p>
-
-        <ul className="vl:gap-7 gap-6 grid lg:grid-cols-2 vl:grid-cols-3">
-          {usAbout.map((about) => (
-            <li key={about.title} className="text-center gap-2 flex flex-col">
-              <div
-                className={twJoin(
-                  "transition hover:scale-105 z-0 border dark:border-black/60  relative overflow-hidden font-semibold h-52 max-w-xl w-full flex-center flex flex-col items-center shadow-2xl  vl:text-xl text-center  p-7 rounded-xl"
-                )}
-              >
-                <Image
-                  src={about.image}
-                  alt="photo"
-                  fill
-                  quality={20}
-                  className="rounded-xl object-cover text-[0px]"
-                />
-                <div className="z-20"> {about.icon}</div>
-                <h3 className="z-20 bg-greyLight/80 p-2 dark:p-0 dark:bg-greyLight/0 rounded-md">
-                  {" "}
+      <PageHero
+        kicker={t("About Us")}
+        title={t("Who we are?")}
+        text={t(
+          "ToodyIT is a Prague IT company. For 3 years we have been building our own products and custom projects for clients. We make websites and full solutions on any request. Our product ToodyMenu has its own website."
+        )}
+      />
+      <WebLine innerClassName="pb-20">
+        <div className="border-line bg-glass mt-4 grid gap-px overflow-hidden rounded-[1.6rem] border md:grid-cols-2 vl:grid-cols-3">
+          {usAbout.map((about, index) => (
+            <Reveal delay={index * 0.05} key={about.title}>
+              <article className="bg-panel h-full p-7">
+                <p className="mb-3 text-sm font-semibold text-brand">
+                  0{index + 1}
+                </p>
+                <h2 className="font-display text-fg text-lg font-semibold">
                   {about.title}
-                </h3>
-                <div className="dark:bg-grey/80  absolute z-10 w-full left-0 right-0 h-52 rounded-xl"></div>
-              </div>
-              <p className="z-0">{about.description}</p>
-            </li>
+                </h2>
+                <p className="text-muted mt-2 text-sm leading-6">
+                  {about.description}
+                </p>
+              </article>
+            </Reveal>
           ))}
-        </ul>
+        </div>
       </WebLine>
     </LayoutMain>
   );

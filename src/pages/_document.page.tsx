@@ -1,11 +1,25 @@
-import { Html, Head, NextScript } from "next/document";
+import { Html, Head, Main, NextScript, DocumentProps } from "next/document";
 import Script from "next/script";
 
-const Document = () => {
+const THEME_BOOTSTRAP = `
+(function(){
+  try {
+    var saved = localStorage.getItem('toodyit-theme');
+    var theme = saved === 'light' || saved === 'dark'
+      ? saved
+      : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.style.colorScheme = theme;
+  } catch (e) {}
+})();
+`;
+
+const Document = ({ locale }: DocumentProps) => {
   return (
-    <Html>
+    <Html className="dark" data-theme="dark" lang={locale}>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
         <Script
           strategy="lazyOnload"
           id="cookieyes"
@@ -27,6 +41,7 @@ const Document = () => {
         />
       </Head>
       <body>
+        <Main />
         <NextScript />
       </body>
     </Html>

@@ -46,16 +46,16 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
     <>
       <WebLine
         innerClassName="justify-between flex w-full "
-        className="sticky z-10 top-0 dark:bg-secondary/30 bg-greyLight mt-5 py-5 backdrop-blur-2xl"
+        className="border-line bg-nav sticky top-16 z-30 border-y py-4 backdrop-blur-xl sm:top-[4.5rem]"
       >
         <div className="flex gap-5 flex-center">
           <Link
             href="/services"
-            className="border p-2 hidden vl:flex rounded-full hover:bg-white hover:text-black transition"
+            className="border-line hidden rounded-full border p-2 transition hover:border-brand vl:flex"
           >
             <ArrowIcon className="size-5 rotate-90" />
           </Link>
-          <span className="bg-primary flex vl:text-2xl flex-center vl:px-7 px-3 py-2 rounded-full pl-5 font-bold">
+          <span className="flex items-center rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white vl:px-6 vl:text-lg">
             {getSumPrice()} {t("CZK")}
           </span>
         </div>
@@ -64,7 +64,7 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
           <button
             onClick={() => setAddedServices(basicServices)}
             type="reset"
-            className="flex vl:text-lg border-2 flex-center vl:px-5 px-3 h-fit py-1 rounded-full font-bold"
+            className="border-line rounded-full border px-3 py-1 text-sm vl:px-5"
           >
             <div>
               <span>{t("Reset")}</span>
@@ -73,7 +73,7 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
           <button
             onClick={() => setIsContactPopupOpen(true)}
             type="submit"
-            className="bg-primary gap-2 flex vl:text-2xl flex-center vl:px-7 p-2 rounded-full vl:pl-5 font-bold"
+            className="flex items-center gap-2 rounded-full bg-brand p-2 text-sm font-semibold text-white vl:px-6"
           >
             <div className="hidden vl:flex">{t("Sent to us")}</div>
 
@@ -81,7 +81,7 @@ export const ServicesMenu: FC<ServicesMenuProps> = ({
           </button>
         </div>
       </WebLine>
-      <WebLine className="dark:bg-secondary/30 bg-greyLight py-5 backdrop-blur-2xl">
+      <WebLine className="py-6">
         <Title type="h3">{t("Mandatory")}</Title>
         <ul className="flex flex-col vl:grid vl:grid-cols-4 gap-4">
           {basicServices.map((basicService) => (

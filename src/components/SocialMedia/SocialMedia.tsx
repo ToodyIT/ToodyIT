@@ -12,7 +12,7 @@ type SocialMediaType = {
 
 const SOCIAL_MEDIA: SocialMediaType[] = [
   {
-    link: "mail:toody-it@toody-it.com",
+    link: "mailto:toody-it@toody-it.com",
     text: "toody-it@toody-it.com",
     icon: <EmailIcon className="size-6" />,
     eventName: "click_on_email",
@@ -44,7 +44,7 @@ export const SocialMedia: FC<SocialMediaProps> = ({
           target="_blank"
           rel="noreferrer"
         >
-          <div className="size-9 bg-primary flex rounded-full flex-center">
+          <div className="size-9 bg-brand text-white flex rounded-full flex-center">
             {media.icon}
           </div>
           <div className="hidden lg:block font-medium">

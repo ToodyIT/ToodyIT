@@ -158,7 +158,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
           label={t("Full name")}
           autoComplete="name"
           hasError={shouldValidateFullName && fullName === ""}
-          errorMessage={t("Full name is requsired field")}
+          errorMessage={t("Full name is required field")}
         />
         <Input
           required
@@ -214,7 +214,7 @@ export const ContactsForm: FC<ContactsFormProps> = ({ defaultMessage }) => {
         disabled={!!(getEmailErrorMessage() || getPhoneErrorMessage())}
         type="submit"
         size="lg"
-        className="uppercase flex self-center active:scale-[0.95] mt-4 items-center justify-center w-full max-w-[350px]"
+        className="mt-4 w-full"
       >
         {isSubmittedSuccessfully ? (
           <CheckmarkIcon className="size-8 text-white/" />

@@ -39,7 +39,7 @@ export const ServiceMenuItem: FC<ServiceMenuItemProps> = ({
   };
 
   return (
-    <div className="flex rounded-2xl justify-between items-center border dark:bg-secondary bg-greyLighter/20 text-base vl:Etext-lg p-2 pl-3 vl:pl-4">
+    <div className="border-line bg-panel flex items-center justify-between rounded-[1.4rem] border p-3 pl-4">
       <div className="flex flex-col">
         <h4 className="font-medium">{service.title}</h4>
         <span>
@@ -50,8 +50,8 @@ export const ServiceMenuItem: FC<ServiceMenuItemProps> = ({
       <button
         onClick={handleOnServiceClick}
         className={twJoin(
-          "border rounded-full hover:bg-white hover:text-secondary transition size-8 flex flex-center mr-2",
-          isAdded ? "bg-primary" : "bg-none"
+          "border-line mr-1 flex size-8 flex-center rounded-full border transition",
+          isAdded ? "bg-brand text-white" : ""
         )}
       >
         {isAdded ? (

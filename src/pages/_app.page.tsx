@@ -5,16 +5,22 @@ import { appWithTranslation } from "next-i18next";
 import NextI18nextConfig from "../../next-i18next.config";
 import { useEffect } from "react";
 import { GTM_ID } from "../constants/gtm";
-import { Montserrat } from "next/font/google";
+import { Inter, Raleway } from "next/font/google";
 import ga4 from "react-ga4";
 import { GTMSendPageView } from "../utils/gtm";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { ThemeProvider } from "../theme";
 
-const poppins = Montserrat({
-  subsets: ["latin-ext", "latin", "cyrillic"],
-  weight: ["400", "600", "500", "700"],
-  variable: "--font-poppins",
+const sans = Inter({
+  subsets: ["latin-ext", "latin", "cyrillic", "cyrillic-ext"],
+  variable: "--font-sans",
+});
+
+const display = Raleway({
+  subsets: ["latin-ext", "latin", "cyrillic", "cyrillic-ext"],
+  variable: "--font-display",
+  weight: ["600", "700"],
 });
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -26,21 +32,13 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, [router.asPath]);
 
   return (
-    <>
-      <style jsx global>{`
-        html {
-          font-family: ${poppins.style.fontFamily};
-        }
-      `}</style>
-      <main>
+    <ThemeProvider>
+      <div className={`${sans.variable} ${display.variable} font-sans`}>
         <Component {...pageProps} key={router.asPath} />
         <ToastContainer />
-        <div
-          className="absolute left-0 top-0 z-maximumTop h-[1px] w-[1px]"
-          id="portal"
-        />
-      </main>
-    </>
+        <div className="absolute left-0 top-0 h-px w-px" id="portal" />
+      </div>
+    </ThemeProvider>
   );
 };
 

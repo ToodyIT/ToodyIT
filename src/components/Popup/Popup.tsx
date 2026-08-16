@@ -1,6 +1,7 @@
 import { MouseEventHandler, useEffect, useRef } from "react";
+import { useTranslation } from "next-i18next";
 import { Portal } from "../Portal/Portal";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import Overlay from "../Overlay/Overlay";
 import { twMerge } from "tailwind-merge";
 import { CloseIcon } from "../Icons/Icons";
@@ -24,6 +25,7 @@ export const Popup: FC<PopupProps> = ({
   title,
   variant = "narrow",
 }) => {
+  const { t } = useTranslation();
   const onEscapeButtonPressHandler = useRef((event: KeyboardEvent): void => {
     if (event.key === "Escape") {
       onCloseCallback();
@@ -43,14 +45,14 @@ export const Popup: FC<PopupProps> = ({
 
   return (
     <Portal>
-      <m.div key="popup">
+      <motion.div key="popup">
         <Overlay isOpen onClose={onClickCloseActionHandler} />
         <div
           aria-modal
           data-testid={TEST_IDENTIFIER}
           role="dialog"
           className={twMerge(
-            "fixed left-1/2 top-1/2 z-30 flex max-h-[94vh] min-w-[360px] -translate-x-1/2 -translate-y-1/2 cursor-auto flex-col rounded-lg bg-greyLight dark:bg-secondary shadow-2xl transition-opacity md:min-w-[500px]",
+            "fixed left-1/2 top-1/2 z-[70] flex max-h-[94vh] min-w-[320px] -translate-x-1/2 -translate-y-1/2 flex-col rounded-[1.8rem] border border-line bg-panel shadow-2xl md:min-w-[500px]",
             variant === "wide" && "w-11/12 md:max-w-[1200px]",
             variant === "narrow" &&
               " lg:w-[700px] vl:w-[840px] xl:max-w-screen-xl",
@@ -62,12 +64,13 @@ export const Popup: FC<PopupProps> = ({
               "z-above mb-4 flex justify-between items-center p-6 pb-0"
             )}
           >
-            <span className="w-[calc(100%-46px)] text-2xl font-bold text-dark">
+            <span className="font-display w-[calc(100%-46px)] text-2xl font-bold">
               {title}
             </span>
             {!hideCloseButton && (
               <button
-                className="flex border h-10 w-10 cursor-pointer items-center justify-center rounded-full text-xs text-black dark:text-white no-underline outline-none transition active:scale-95 border-greyLighter dark:border-greyLight"
+                aria-label={t("Close")}
+                className="border-line flex h-10 w-10 items-center justify-center rounded-full border"
                 onClick={onClickCloseActionHandler}
               >
                 <CloseIcon className="h-3 w-3" />
@@ -83,7 +86,7 @@ export const Popup: FC<PopupProps> = ({
             {children}
           </div>
         </div>
-      </m.div>
+      </motion.div>
     </Portal>
   );
 };

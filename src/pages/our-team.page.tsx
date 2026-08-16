@@ -1,7 +1,6 @@
-import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import LayoutMain from "../components/Layout/LayoutMain";
-import { useTranslation, TFunction, Trans } from "next-i18next";
+import { useTranslation, TFunction } from "next-i18next";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import IvanHodynchukPhoto from "/public/img/our-team/ivan-hodynchuk.jpg";
@@ -10,11 +9,10 @@ import NatalieLysenkoPhoto from "/public/img/our-team/natalie-lysenko.jpg";
 import AndriyKosarkoPhoto from "/public/img/our-team/andriy-kosarko.jpg";
 import JakubDvoracekPhoto from "/public/img/our-team/jakub-dvoracek.jpg";
 import { WebLine } from "../components/Webline/WebLine";
-import { Title } from "../components/Title";
-import { BlurredDecoration } from "../components/BlurredDecoration/BlurredDecoration";
-import illustrationBottom from "/public/img/illustrationBottom.png";
+import { PageHero } from "../components/PageHero/PageHero";
+import { Reveal } from "../components/Motion/Reveal";
 
-const getOurTeam = (t: TFunction) => {
+export const getOurTeam = (t: TFunction) => {
   return [
     {
       imagePath: IvanHodynchukPhoto,
@@ -24,9 +22,9 @@ const getOurTeam = (t: TFunction) => {
     },
     {
       imagePath: VasylPolyasnkyyPhoto,
-      name: t("VASYL POLYANSKYY"),
+      name: t("FELIX KINGSLEY"),
       position: t("PROJECT MANAGER"),
-      alt: t("Vasyl Polyanskyy"),
+      alt: t("Felix Kingsley"),
     },
     {
       imagePath: NatalieLysenkoPhoto,
@@ -49,8 +47,7 @@ const getOurTeam = (t: TFunction) => {
   ];
 };
 
-const OurTeamPage: FC<HTMLDivElement> = () => {
-  const [emblaRef] = useEmblaCarousel({ align: "center", startIndex: 1 });
+const OurTeamPage = () => {
   const { t } = useTranslation();
   const ourTeam = getOurTeam(t);
 
@@ -58,76 +55,53 @@ const OurTeamPage: FC<HTMLDivElement> = () => {
     <LayoutMain
       metaTitle={t("Our Team")}
       metaDescription={t(
-        "Meet our talented team of professionals. Who make it possible to create exclusive web projects. "
+        "A small Prague team. For 3 years we have been building products and projects for clients."
       )}
     >
-      <WebLine innerClassName="flex flex-col relative">
-        <Image
-          className="w-full z-[-1px] absolute vl:-left-64 hidden vl:flex vl:-top-72 self-end"
-          src={illustrationBottom}
-          alt="illustrationBottom"
-        />
-        <BlurredDecoration className="vl:w-[700px] vl:h-[700px]" />
-        <Title type="h1">
-          <Trans
-            i18nKey="OUR<span>TEAM</span>"
-            components={{
-              span: (
-                <span className="text-greyLighter dark:text-greyLight/50"></span>
-              ),
-            }}
-          />
-        </Title>
-
-        <div className="flex">
-          <div
-            className="relative max-h-[600px] h-full w-full cursor-pointer "
-            ref={emblaRef}
-          >
-            <ul className="flex gap-7 lg:gap-14  h-fit max-w-[317px]">
-              {ourTeam.map((team) => (
-                <li
-                  className="h-auto lg:flex-none  z-10 flex flex-col rounded-3xl bg-greyLight dark:bg-secondary transition hover:scale-105 flex-[0_0_80%]"
-                  key={team.name}
-                >
-                  <div className="p-5 flex gap-5 flex-col">
-                    <div className="relative h-[250px] w-[215px] lg:h-[400px] lg:w-[327px] ">
-                      <Image
-                        src={team.imagePath}
-                        alt={team.alt}
-                        placeholder="blur"
-                        className="rounded-3xl"
-                      />
-                    </div>
-                    <div className="flex flex-col pt-2 gap-1">
-                      <span className="text-primary">{team.name}</span>
-                      <span>{team.position}</span>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <PageHero
+        kicker={t("Our Team")}
+        title={t("Our Team")}
+        text={t(
+          "A small Prague team. For 3 years we have been building products and projects for clients."
+        )}
+      />
+      <WebLine innerClassName="pb-20">
+        <div className="grid gap-4 py-4 sm:grid-cols-2 vl:grid-cols-3">
+          {ourTeam.map((team, index) => (
+            <Reveal delay={index * 0.05} key={team.name}>
+              <article className="border-line bg-panel overflow-hidden rounded-[1.4rem] border">
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <Image
+                    src={team.imagePath}
+                    alt={team.alt}
+                    placeholder="blur"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-5">
+                  <p className="font-display text-fg font-semibold">
+                    {team.name}
+                  </p>
+                  <p className="text-muted mt-1 text-xs uppercase tracking-wide">
+                    {team.position}
+                  </p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
-        <div className="flex flex-col">
-          <Title type="h2" className="text-primary">
-            {t("Professionalism")}
-          </Title>
-          <p className="text-base vl:text-lg max-w-5xl">
+        <div className="border-line mt-10 border-t py-12">
+          <h2 className="font-display text-fg max-w-2xl text-3xl font-bold sm:text-5xl">
+            ToodyIT
+          </h2>
+          <p className="text-muted mt-6 max-w-2xl leading-7">
             {t(
-              "Our team integrates taking into account how we want to communicate with customers. The goal is to be a partner with clearly defined processes associated with a high level of work quality and maximum reliability, but at the same time we want to represent the human element in the field of IT services. Communication with us should be a pleasure for customers."
-            )}
-          </p>
-          <Title type="h3" className=" text-primary text-right">
-            {t("Experience, Competence, Reliability")}
-          </Title>
-          <p className="text-base vl:text-lg text-end">
-            {t(
-              "ToodyIT boasts an experienced team that was formed by bringing together IT professionals. The company can rely on the expertise of people who have been immersed in the IT field for a significant period of time, constantly improving their IT knowledge and skills."
+              "A small Prague team. For 3 years we have been building products and projects for clients."
             )}
           </p>
         </div>
-        <BlurredDecoration className="right-48 -bottom-5" />
       </WebLine>
     </LayoutMain>
   );
